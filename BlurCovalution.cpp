@@ -59,6 +59,16 @@ void pasAlpha( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRo
                 unsigned char s = rgb[3*((row+1)*imgCols+(col))];
                 unsigned char se = rgb[3*((row+1)*imgCols+(col-1))];
                 unsigned char e = rgb[3*((row)*imgCols+(col-1))];
+
+                unsigned char redsum = ne* (1/9)
+                        + ne* (1/9)
+                        + n* (1/9)
+                        + no* (1/9)
+                        + o* (1/9)
+                        + so* (1/9)
+                        + s* (1/9)
+                        + se* (1/9)
+                        + e* (1/9);
                 //green
                 unsigned char ne = rgb[3*((row-1)*imgCols+(col-1)+1)];
                 unsigned char n = rgb[3*((row-1)*imgCols+(col)+1)];
@@ -68,6 +78,16 @@ void pasAlpha( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRo
                 unsigned char s = rgb[3*((row+1)*imgCols+(col)+1)];
                 unsigned char se = rgb[3*((row+1)*imgCols+(col-1)+1)];
                 unsigned char e = rgb[3*((row)*imgCols+(col-1)+1)];
+
+                unsigned char greensum = ne* (1/9)
+                                       + ne* (1/9)
+                                       + n* (1/9)
+                                       + no* (1/9)
+                                       + o* (1/9)
+                                       + so* (1/9)
+                                       + s* (1/9)
+                                       + se* (1/9)
+                                       + e* (1/9);
                 //blue
                 unsigned char ne = rgb[3*((row-1)*imgCols+(col-1)+2)];
                 unsigned char n = rgb[3*((row-1)*imgCols+(col)+2)];
@@ -77,6 +97,16 @@ void pasAlpha( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRo
                 unsigned char s = rgb[3*((row+1)*imgCols+(col)+2)];
                 unsigned char se = rgb[3*((row+1)*imgCols+(col-1)+2)];
                 unsigned char e = rgb[3*((row)*imgCols+(col-1)+2)];
+
+                unsigned char bluesum = ne* (1/9)
+                                       + ne* (1/9)
+                                       + n* (1/9)
+                                       + no* (1/9)
+                                       + o* (1/9)
+                                       + so* (1/9)
+                                       + s* (1/9)
+                                       + se* (1/9)
+                                       + e* (1/9);
             }
         }
     }
