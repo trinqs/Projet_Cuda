@@ -63,7 +63,7 @@ void pasAlpha( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRo
                     unsigned char e = rgb[3*((row)*imgCols+(col-1))+i];
                     unsigned char milieu = rgb[3*((row)*imgCols+col)+i];
 
-                    sum = ne* (1/9)
+                    unsigned char sum = ne* (1/9)
                                                 + n* (1/9)
                                                 + no* (1/9)
                                                 + o* (1/9)
