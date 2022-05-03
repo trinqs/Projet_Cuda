@@ -27,9 +27,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8504d56-1fbf-42ca-b64e-5432c61b4366" name="Default Changelist" comment="Parce que je trouve ca dommage de partir aussi loin pour rien">
-      <change beforePath="$PROJECT_DIR$/BlurCovalution.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/BlurCovalution.cpp" afterDir="false" />
-    </list>
+    <list default="true" id="c8504d56-1fbf-42ca-b64e-5432c61b4366" name="Default Changelist" comment="Parce que je trouve ca dommage de partir aussi loin pour rien" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -83,7 +81,7 @@
       <option name="presentableId" value="Default" />
       <updated>1651495790160</updated>
       <workItem from="1651495791510" duration="7869000" />
-      <workItem from="1651575991939" duration="6721000" />
+      <workItem from="1651575991939" duration="7038000" />
     </task>
     <task id="LOCAL-00001" summary="début de la convalution blur">
       <created>1651503483769</created>
@@ -274,7 +272,42 @@
       <option name="project" value="LOCAL" />
       <updated>1651583246575</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Parce que je trouve ca dommage de partir aussi loin pour rien">
+      <created>1651583368177</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1651583368177</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Parce que je trouve ca dommage de partir aussi loin pour rien">
+      <created>1651583404887</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1651583404887</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Parce que je trouve ca dommage de partir aussi loin pour rien">
+      <created>1651583432822</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1651583432822</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Parce que je trouve ca dommage de partir aussi loin pour rien">
+      <created>1651583534941</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1651583534941</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Parce que je trouve ca dommage de partir aussi loin pour rien">
+      <created>1651583629286</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1651583629286</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -322,10 +355,10 @@
       <screen x="0" y="25" width="1920" height="1055" />
     </state>
     <state x="882" y="187" width="992" height="732" key="SettingsEditor/0.25.1920.1055@0.25.1920.1055" timestamp="1651498889246" />
-    <state x="1035" y="275" width="806" height="557" key="Vcs.Push.Dialog.v2" timestamp="1651583247815">
+    <state x="1035" y="275" width="806" height="557" key="Vcs.Push.Dialog.v2" timestamp="1651583630601">
       <screen x="0" y="25" width="1920" height="1055" />
     </state>
-    <state x="1035" y="275" width="806" height="557" key="Vcs.Push.Dialog.v2/0.25.1920.1055@0.25.1920.1055" timestamp="1651583247815" />
+    <state x="1035" y="275" width="806" height="557" key="Vcs.Push.Dialog.v2/0.25.1920.1055@0.25.1920.1055" timestamp="1651583630601" />
     <state x="141" y="253" key="run.anything.popup" timestamp="1651581824263">
       <screen x="0" y="25" width="1920" height="1055" />
     </state>
