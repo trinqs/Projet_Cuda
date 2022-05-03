@@ -104,7 +104,7 @@ int main()
     std::vector< unsigned char > g( 3*(rows * cols) );
 
     cout << &g << endl;
-    cout << rgb <<endl;
+    cout << &rgb <<endl;
     //cout << g << endl;
 
 
