@@ -102,7 +102,7 @@ int main()
 
 
     if(sizeRGB%3==0){
-        pasAlpha(&rgb,&g,cols,rows);
+        pasAlpha(&rgb,g,cols,rows);
         cv::imwrite( "out.jpg", m_out );
 
     }
