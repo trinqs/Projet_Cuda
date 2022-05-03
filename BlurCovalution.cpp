@@ -162,5 +162,8 @@ int main()
     cv::Mat m_out( rows, cols, type, g );
     cv::imwrite( "out.jpeg", m_out );
 
+    unsigned char test = 1/9;
+    cout << "un sur neuf " << (int) test << endl;
+
     return 0;
 }
