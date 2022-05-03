@@ -86,6 +86,48 @@ void pasAlpha( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRo
     }
 }
 
+vector< unsigned char > pasAlpha2( unsigned char* rgb, size_t imgCols,size_t imgRow){
+    std::vector< unsigned char > res( 3*(rows * cols));
+
+
+    for(int col = 0; col< imgCols;col++){
+        for(int row = 0; row< imgRow; row++){
+            if(col >0 && col< imgCols && row >0 && row< imgRow){
+                for( int i=0; i<3; i++){
+                    unsigned char ne = rgb[3*((row-1)*imgCols+(col-1))+i];
+                    unsigned char n = rgb[3*((row-1)*imgCols+(col))+i];
+                    unsigned char no = rgb[3*((row-1)*imgCols+(col+1))+i];
+                    unsigned char o = rgb[3*((row)*imgCols+(col+1))+i];
+                    unsigned char so = rgb[3*((row+1)*imgCols+(col+1))+i];
+                    unsigned char s = rgb[3*((row+1)*imgCols+(col))+i];
+                    unsigned char se = rgb[3*((row+1)*imgCols+(col-1))+i];
+                    unsigned char e = rgb[3*((row)*imgCols+(col-1))+i];
+                    unsigned char milieu = rgb[3*((row)*imgCols+col)+i];
+
+                    unsigned char sum = ne* (1/9)
+                                        + ne* (1/9)
+                                        + n* (1/9)
+                                        + no* (1/9)
+                                        + o* (1/9)
+                                        + so* (1/9)
+                                        + s* (1/9)
+                                        + se* (1/9)
+                                        + e* (1/9)
+                                        + milieu * (1/9);
+
+                    res[3*((row)*imgCols+col)+i] = sum;
+                }
+            }
+            else{
+                for(int i= 0; i<3;i++){
+                    res[3*((row)*imgCols+col)+i] = 0;
+                }
+            }
+        }
+    }
+    return res;
+}
+
 
 int main()
 {
@@ -102,17 +144,16 @@ int main()
     cout<<sizeRGB<<endl;
 
     std::vector< unsigned char > g( 3*(rows * cols) );
-    unsigned char* g_d;
+    /*unsigned char* g_d;
     g_d = (unsigned char*) malloc(3*cols*rows*sizeof(unsigned char ));
-
+    */
     if(sizeRGB%3==0){
-        pasAlpha(&rgb,g_d,cols,rows);
+        //pasAlpha(&rgb,g_d,cols,rows);
+        g = pasAlpha2(&rgb,cols,rows);
     }
     if(sizeRGB%4==0){
         //de l'alpha
     }
-
-    g.data() = g_d;
 
     cv::Mat m_out( rows, cols, type, g.data() );
     cv::imwrite( "out.jpeg", m_in );

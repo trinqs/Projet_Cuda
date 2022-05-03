@@ -27,7 +27,10 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8504d56-1fbf-42ca-b64e-5432c61b4366" name="Default Changelist" comment="Parce que je trouve ca dommage de partir aussi loin pour rien" />
+    <list default="true" id="c8504d56-1fbf-42ca-b64e-5432c61b4366" name="Default Changelist" comment="Parce que je trouve ca dommage de partir aussi loin pour rien">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlurCovalution.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/BlurCovalution.cpp" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -81,7 +84,7 @@
       <option name="presentableId" value="Default" />
       <updated>1651495790160</updated>
       <workItem from="1651495791510" duration="7869000" />
-      <workItem from="1651575991939" duration="7038000" />
+      <workItem from="1651575991939" duration="7835000" />
     </task>
     <task id="LOCAL-00001" summary="début de la convalution blur">
       <created>1651503483769</created>
@@ -307,7 +310,28 @@
       <option name="project" value="LOCAL" />
       <updated>1651583629286</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Parce que je trouve ca dommage de partir aussi loin pour rien">
+      <created>1651583755757</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1651583755757</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Parce que je trouve ca dommage de partir aussi loin pour rien">
+      <created>1651583802526</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1651583802526</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Parce que je trouve ca dommage de partir aussi loin pour rien">
+      <created>1651583837217</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1651583837217</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -355,10 +379,10 @@
       <screen x="0" y="25" width="1920" height="1055" />
     </state>
     <state x="882" y="187" width="992" height="732" key="SettingsEditor/0.25.1920.1055@0.25.1920.1055" timestamp="1651498889246" />
-    <state x="1035" y="275" width="806" height="557" key="Vcs.Push.Dialog.v2" timestamp="1651583630601">
+    <state x="1035" y="275" width="806" height="557" key="Vcs.Push.Dialog.v2" timestamp="1651583838237">
       <screen x="0" y="25" width="1920" height="1055" />
     </state>
-    <state x="1035" y="275" width="806" height="557" key="Vcs.Push.Dialog.v2/0.25.1920.1055@0.25.1920.1055" timestamp="1651583630601" />
+    <state x="1035" y="275" width="806" height="557" key="Vcs.Push.Dialog.v2/0.25.1920.1055@0.25.1920.1055" timestamp="1651583838237" />
     <state x="141" y="253" key="run.anything.popup" timestamp="1651581824263">
       <screen x="0" y="25" width="1920" height="1055" />
     </state>
