@@ -73,7 +73,7 @@ void pasAlpha( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRo
                                                 + e* (1/9)
                                                 + milieu * (1/9);
                     g[3*((row)*imgCols+col)+i] = sum;
-                    cout << (int)sum << endl;
+                    cout << (int)(ne*(1/9)) << endl;
                 }
             }
             else{
