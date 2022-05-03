@@ -94,7 +94,7 @@ int main()
 
     size_t sizeRGB = 3*(m_in.rows * m_in.cols);
 
-    cout<<sizeRGB<<endln;
+    cout<<sizeRGB<<endl;
 
     size_t cols = m_in.cols;
     size_t rows = m_in.rows;
