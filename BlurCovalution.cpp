@@ -102,7 +102,7 @@ int main()
     cout<<sizeRGB<<endl;
 
     std::vector< unsigned char > g( 3*(rows * cols) );
-    unsigned char * g_d[g.size()];
+    unsigned char g_d[g.size()];
 
 
 
