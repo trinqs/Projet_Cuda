@@ -102,14 +102,10 @@ int main()
     cout<<sizeRGB<<endl;
 
     std::vector< unsigned char > g( 3*(rows * cols) );
-    unsigned char* g_d;
-
-
-
-
+    unsigned char* g_d = g.data();
 
     if(sizeRGB%3==0){
-        pasAlpha(&rgb,g.data(),cols,rows);
+        pasAlpha(&rgb,g_d,cols,rows);
     }
     if(sizeRGB%4==0){
         //de l'alpha
