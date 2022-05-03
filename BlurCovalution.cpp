@@ -134,7 +134,7 @@ int main()
     Mat m_in = cv::imread("in.jpeg", IMREAD_UNCHANGED );
     uchar* rgb = m_in.data;
 
-    cout<<typ
+
 
     auto cols = m_in.cols;
     auto rows = m_in.rows;
@@ -142,7 +142,7 @@ int main()
 
     auto type = m_in.type();
 
-    unsigned char* rgb_d = rgb.data();
+    unsigned char* rgb_d = rgb;
 
     std::vector< unsigned char > g( 3*(rows * cols) );
     unsigned char* g_d = g.data();
