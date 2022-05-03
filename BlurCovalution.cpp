@@ -100,15 +100,15 @@ int main()
     auto type = m_in.type();
 
     cout<<sizeRGB<<endl;
-
+    cout << typeof(g) << endl;
 
     std::vector< unsigned char > g( 3*(rows * cols) );
-    cv::Mat m_out( rows, cols, type, g );
+    cv::Mat m_out( rows, cols, type, g.data() );
 
 
 
     if(sizeRGB%3==0){
-        pasAlpha(&rgb,g,cols,rows);
+        //pasAlpha(&rgb,g,cols,rows);
         cv::imwrite( "out.jpeg", m_in );
 
     }
