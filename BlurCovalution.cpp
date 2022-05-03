@@ -105,7 +105,7 @@ int main()
 
     cout << &g << endl;
     cout << rgb <<endl;
-    cout << g << endl;
+    //cout << g << endl;
 
 
     cv::Mat m_out( rows, cols, type, g.data() );
@@ -113,7 +113,7 @@ int main()
 
 
     if(sizeRGB%3==0){
-        pasAlpha(&rgb,&g,cols,rows);
+        //pasAlpha(&rgb,&g,cols,rows);
         cv::imwrite( "out.jpeg", m_in );
 
     }
