@@ -92,12 +92,14 @@ int main()
     Mat m_in = cv::imread("in.jpg", IMREAD_UNCHANGED );
     auto rgb = m_in.data;
 
-    std::vector< unsigned char > g( 3*(m_in.rows * m_in.cols) );
-    cv::Mat m_out( m_in.rows, m_in.cols, m_in.type(), g.data() );
-
     size_t sizeRGB = 3*(m_in.rows * m_in.cols);
     size_t cols = m_in.cols;
     size_t rows = m_in.rows;
+
+    std::vector< unsigned char > g( 3*(rows * cols) );
+    cv::Mat m_out( m_in.rows, m_in.cols, m_in.type(), g.data() );
+
+
 
     if(sizeRGB%3==0){
         pasAlpha(&rgb,&g,cols,rows);
