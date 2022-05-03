@@ -93,11 +93,14 @@ int main()
     auto rgb = m_in.data;
 
     size_t sizeRGB = 3*(m_in.rows * m_in.cols);
+
+    cout<<sizeRGB<<endln;
+
     size_t cols = m_in.cols;
     size_t rows = m_in.rows;
 
     std::vector< unsigned char > g( 3*(rows * cols) );
-    cv::Mat m_out( m_in.rows, m_in.cols, m_in.type(), g.data() );
+    cv::Mat m_out( rows, cols, m_in.type(), g.data() );
 
 
 
