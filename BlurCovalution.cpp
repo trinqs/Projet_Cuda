@@ -96,9 +96,11 @@ int main()
     cv::Mat m_out( m_in.rows, m_in.cols, m_in.type(), g.data() );
 
     size_t sizeRGB = 3*(m_in.rows * m_in.cols);
+    size_t cols = m_in.cols;
+    size_t rows = m_in.rows;
 
     if(sizeRGB%3==0){
-        pasAlpha(&rgb,&g,m_in.cols,m_in.rows)
+        pasAlpha(&rgb,&g,cols,rows);
         cv::imwrite( "out.jpg", m_out );
 
     }
