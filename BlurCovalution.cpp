@@ -148,7 +148,7 @@ int main()
     */
     if(sizeRGB%3==0){
         //pasAlpha(&rgb,g_d,cols,rows);
-        g = pasAlpha2(&rgb.data(),cols,rows);
+        g = pasAlpha2(rgb_d,cols,rows);
     }
     if(sizeRGB%4==0){
         //de l'alpha
