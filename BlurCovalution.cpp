@@ -147,7 +147,7 @@ int main()
     unsigned char* g_d = g.data();
 
     if(sizeRGB%3==0){
-        pasAlpha(rgb,g_d,cols,rows);
+        pasAlpha(rgb,g,cols,rows);
         //g = pasAlpha2(rgb_d,cols,rows);
     }
     if(sizeRGB%4==0){
