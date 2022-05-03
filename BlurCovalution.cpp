@@ -48,7 +48,7 @@ unsigned char julia( int x, int y )
 }
 */
 
-void pasAlpha( unsigned char* rgb, unsigned char* g_d, size_t imgCols,size_t imgRow){
+void pasAlpha( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRow){
     for(int col = 0; col< imgCols;col++){
         for(int row = 0; row< imgRow; row++){
             if(col >0 && col< imgCols && row >0 && row< imgRow){
