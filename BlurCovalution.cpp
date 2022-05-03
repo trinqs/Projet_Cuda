@@ -155,7 +155,7 @@ int main()
     }
 
     cv::Mat m_out( rows, cols, type, g.data() );
-    cv::imwrite( "out.jpeg", m_in );
+    cv::imwrite( "out.jpeg", m_out );
 
     return 0;
 }
