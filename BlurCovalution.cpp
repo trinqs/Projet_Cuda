@@ -132,7 +132,9 @@ vector< unsigned char > pasAlpha2( unsigned char* rgb, size_t imgCols,size_t img
 int main()
 {
     Mat m_in = cv::imread("in.jpeg", IMREAD_UNCHANGED );
-    auto rgb = m_in.data;
+    uchar* rgb = m_in.data;
+
+    cout<<typ
 
     auto cols = m_in.cols;
     auto rows = m_in.rows;
