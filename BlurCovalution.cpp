@@ -104,7 +104,6 @@ vector< unsigned char > pasAlpha2( unsigned char* rgb, size_t imgCols,size_t img
                     unsigned char milieu = rgb[3*((row)*imgCols+col)+i];
 
                     unsigned char sum = ne* (1/9)
-                                        + ne* (1/9)
                                         + n* (1/9)
                                         + no* (1/9)
                                         + o* (1/9)
@@ -148,7 +147,7 @@ int main()
     unsigned char* g_d = g.data();
 
     if(sizeRGB%3==0){
-        pasAlpha(rgb_d,g_d,cols,rows);
+        pasAlpha(rgb,g_d,cols,rows);
         //g = pasAlpha2(rgb_d,cols,rows);
     }
     if(sizeRGB%4==0){
