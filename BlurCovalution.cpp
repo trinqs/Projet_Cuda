@@ -163,7 +163,7 @@ int main()
     cv::imwrite( "out.jpeg", m_out );
 
     unsigned char test = 1/9;
-    cout << "un sur neuf " << (int) test << endl;
+    cout << "un sur neuf " << (int) test << "en entier ?"<< 1/9 <<endl;
 
     return 0;
 }
