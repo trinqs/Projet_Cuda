@@ -102,20 +102,21 @@ int main()
     cout<<sizeRGB<<endl;
 
     std::vector< unsigned char > g( 3*(rows * cols) );
-    unsigned char g_d[g.size()];
+    unsigned char* g_d;
 
 
 
 
 
     if(sizeRGB%3==0){
-        pasAlpha(&rgb,g_d,cols,rows);
+        pasAlpha(&rgb,g.data(),cols,rows);
     }
     if(sizeRGB%4==0){
         //de l'alpha
     }
 
     g.data() = g_d;
+
     cv::Mat m_out( rows, cols, type, g.data() );
     cv::imwrite( "out.jpeg", m_in );
 
