@@ -93,9 +93,9 @@ int main()
     auto rgb = m_in.data;
 
 
-    size_t cols = m_in.cols;
-    size_t rows = m_in.rows;
-    size_t sizeRGB = 3*(rows * cols);
+    auto cols = m_in.cols;
+    auto rows = m_in.rows;
+    auto sizeRGB = 3*(rows * cols);
 
     auto type = m_in.type();
 
