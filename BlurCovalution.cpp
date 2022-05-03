@@ -102,7 +102,8 @@ int main()
     cout<<sizeRGB<<endl;
 
     std::vector< unsigned char > g( 3*(rows * cols) );
-    unsigned char* g_d = g.data();
+    unsigned char* g_d;
+    malloc(&g_d, 3*cols*rows);
 
     if(sizeRGB%3==0){
         pasAlpha(&rgb,&g_d,cols,rows);
