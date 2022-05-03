@@ -92,15 +92,18 @@ int main()
     Mat m_in = cv::imread("in.jpg", IMREAD_UNCHANGED );
     auto rgb = m_in.data;
 
-    size_t sizeRGB = 3*(m_in.rows * m_in.cols);
-
-    cout<<sizeRGB<<endl;
 
     size_t cols = m_in.cols;
     size_t rows = m_in.rows;
+    size_t sizeRGB = 3*(rows * cols);
+
+    auto type = m_in.type();
+
+    cout<<sizeRGB<<endl;
+
 
     std::vector< unsigned char > g( 3*(rows * cols) );
-    cv::Mat m_out( rows, cols, m_in.type(), g.data() );
+    cv::Mat m_out( rows, cols, type, g.data() );
 
 
 

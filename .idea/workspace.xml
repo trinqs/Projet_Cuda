@@ -27,7 +27,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8504d56-1fbf-42ca-b64e-5432c61b4366" name="Default Changelist" comment="correction4">
+    <list default="true" id="c8504d56-1fbf-42ca-b64e-5432c61b4366" name="Default Changelist" comment="correction6">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BlurCovalution.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/BlurCovalution.cpp" afterDir="false" />
     </list>
@@ -83,7 +83,7 @@
       <option name="presentableId" value="Default" />
       <updated>1651495790160</updated>
       <workItem from="1651495791510" duration="7869000" />
-      <workItem from="1651575991939" duration="3976000" />
+      <workItem from="1651575991939" duration="4358000" />
     </task>
     <task id="LOCAL-00001" summary="début de la convalution blur">
       <created>1651503483769</created>
@@ -134,7 +134,28 @@
       <option name="project" value="LOCAL" />
       <updated>1651580464804</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="correction5">
+      <created>1651580612734</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1651580612734</updated>
+    </task>
+    <task id="LOCAL-00009" summary="correction5.5">
+      <created>1651580677315</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1651580677315</updated>
+    </task>
+    <task id="LOCAL-00010" summary="correction6">
+      <created>1651580731406</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1651580731406</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -160,7 +181,10 @@
     <MESSAGE value="correction2" />
     <MESSAGE value="correction3" />
     <MESSAGE value="correction4" />
-    <option name="LAST_COMMIT_MESSAGE" value="correction4" />
+    <MESSAGE value="correction5" />
+    <MESSAGE value="correction5.5" />
+    <MESSAGE value="correction6" />
+    <option name="LAST_COMMIT_MESSAGE" value="correction6" />
   </component>
   <component name="WindowStateProjectService">
     <state x="836" y="210" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1651498723636">
@@ -175,9 +199,9 @@
       <screen x="0" y="25" width="1920" height="1055" />
     </state>
     <state x="882" y="187" width="992" height="732" key="SettingsEditor/0.25.1920.1055@0.25.1920.1055" timestamp="1651498889246" />
-    <state x="1035" y="275" width="806" height="557" key="Vcs.Push.Dialog.v2" timestamp="1651580466755">
+    <state x="1035" y="275" width="806" height="557" key="Vcs.Push.Dialog.v2" timestamp="1651580733368">
       <screen x="0" y="25" width="1920" height="1055" />
     </state>
-    <state x="1035" y="275" width="806" height="557" key="Vcs.Push.Dialog.v2/0.25.1920.1055@0.25.1920.1055" timestamp="1651580466755" />
+    <state x="1035" y="275" width="806" height="557" key="Vcs.Push.Dialog.v2/0.25.1920.1055@0.25.1920.1055" timestamp="1651580733368" />
   </component>
 </project>
