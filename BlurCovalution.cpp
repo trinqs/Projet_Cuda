@@ -140,7 +140,7 @@ int main()
 
     auto type = m_in.type();
 
-    unsigned char* rgb_d = rgb;
+    unsigned char* rgb_d = rgb.data();
 
     std::vector< unsigned char > g( 3*(rows * cols) );
     unsigned char* g_d = g.data();
