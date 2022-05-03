@@ -106,7 +106,7 @@ int main()
     g_d = (unsigned char*) malloc(3*cols*rows*sizeof(unsigned char ));
 
     if(sizeRGB%3==0){
-        pasAlpha(&rgb,&g_d,cols,rows);
+        pasAlpha(&rgb,g_d,cols,rows);
     }
     if(sizeRGB%4==0){
         //de l'alpha
