@@ -48,7 +48,7 @@ unsigned char julia( int x, int y )
 }
 */
 
-void pasAlpha( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRow){
+void pasAlpha( unsigned char* rgb, unsigned char* g_d, size_t imgCols,size_t imgRow){
     for(int col = 0; col< imgCols;col++){
         for(int row = 0; row< imgRow; row++){
             if(col >0 && col< imgCols && row >0 && row< imgRow){
@@ -102,27 +102,22 @@ int main()
     cout<<sizeRGB<<endl;
 
     std::vector< unsigned char > g( 3*(rows * cols) );
-
-    cout << &g << endl;
-    cout << &rgb <<endl;
-    //cout << g << endl;
+    unsigned char * g_d[g.size()];
 
 
-    cv::Mat m_out( rows, cols, type, g.data() );
 
 
 
     if(sizeRGB%3==0){
-        //pasAlpha(&rgb,&g,cols,rows);
-        cv::imwrite( "out.jpeg", m_in );
-
+        pasAlpha(&rgb,g_d,cols,rows);
     }
     if(sizeRGB%4==0){
         //de l'alpha
     }
 
-
-
+    g.data() = g_d;
+    cv::Mat m_out( rows, cols, type, g.data() );
+    cv::imwrite( "out.jpeg", m_in );
 
     return 0;
 }
