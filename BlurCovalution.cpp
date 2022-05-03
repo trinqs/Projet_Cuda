@@ -143,7 +143,7 @@ int main()
 
     unsigned char* rgb_d = rgb;
 
-    std::vector< unsigned char > g( 3*(rows * cols) );
+    uchar* g( 3*(rows * cols) );
     unsigned char* g_d = g.data();
 
     if(sizeRGB%3==0){
@@ -154,7 +154,7 @@ int main()
         //de l'alpha
     }
 
-    cv::Mat m_out( rows, cols, type, g_d );
+    cv::Mat m_out( rows, cols, type, g );
     cv::imwrite( "out.jpeg", m_out );
 
     return 0;
