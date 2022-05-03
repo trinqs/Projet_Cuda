@@ -91,7 +91,7 @@ vector< unsigned char > pasAlpha2( unsigned char* rgb, size_t imgCols,size_t img
     for(int col = 0; col< imgCols;col++){
         for(int row = 0; row< imgRow; row++){
             if(col >0 && col< imgCols && row >0 && row< imgRow){
-                cout << "coucou on est rentre" << endl;
+                //cout << "coucou on est rentre" << endl;
                 for( int i=0; i<3; i++){
                     unsigned char ne = rgb[3*((row-1)*imgCols+(col-1))+i];
                     unsigned char n = rgb[3*((row-1)*imgCols+(col))+i];
@@ -132,6 +132,10 @@ int main()
 {
     Mat m_in = cv::imread("in.jpeg", IMREAD_UNCHANGED );
     uchar* rgb = m_in.data;
+
+    for (int i =0; i<3*(rows * cols); i++){
+        cout<<rgb[i]<<endl;
+    }
 
 
 
