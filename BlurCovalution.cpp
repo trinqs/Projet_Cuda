@@ -89,7 +89,7 @@ void pasAlpha( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRo
 
 int main()
 {
-    Mat m_in = cv::imread("in.jpg", IMREAD_UNCHANGED );
+    Mat m_in = cv::imread("in.jpeg", IMREAD_UNCHANGED );
     auto rgb = m_in.data;
 
 
@@ -109,7 +109,7 @@ int main()
 
     if(sizeRGB%3==0){
         //pasAlpha(&rgb,g,cols,rows);
-        cv::imwrite( "out.jpg", m_in );
+        cv::imwrite( "out.jpeg", m_in );
 
     }
     if(sizeRGB%4==0){

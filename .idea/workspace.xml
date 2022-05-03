@@ -27,7 +27,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8504d56-1fbf-42ca-b64e-5432c61b4366" name="Default Changelist" comment="correction6">
+    <list default="true" id="c8504d56-1fbf-42ca-b64e-5432c61b4366" name="Default Changelist" comment="correction8">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BlurCovalution.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/BlurCovalution.cpp" afterDir="false" />
     </list>
@@ -83,7 +83,7 @@
       <option name="presentableId" value="Default" />
       <updated>1651495790160</updated>
       <workItem from="1651495791510" duration="7869000" />
-      <workItem from="1651575991939" duration="4358000" />
+      <workItem from="1651575991939" duration="4476000" />
     </task>
     <task id="LOCAL-00001" summary="début de la convalution blur">
       <created>1651503483769</created>
@@ -155,7 +155,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651580731406</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="correction8">
+      <created>1651581011110</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1651581011110</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -184,7 +191,8 @@
     <MESSAGE value="correction5" />
     <MESSAGE value="correction5.5" />
     <MESSAGE value="correction6" />
-    <option name="LAST_COMMIT_MESSAGE" value="correction6" />
+    <MESSAGE value="correction8" />
+    <option name="LAST_COMMIT_MESSAGE" value="correction8" />
   </component>
   <component name="WindowStateProjectService">
     <state x="836" y="210" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1651498723636">
@@ -199,9 +207,9 @@
       <screen x="0" y="25" width="1920" height="1055" />
     </state>
     <state x="882" y="187" width="992" height="732" key="SettingsEditor/0.25.1920.1055@0.25.1920.1055" timestamp="1651498889246" />
-    <state x="1035" y="275" width="806" height="557" key="Vcs.Push.Dialog.v2" timestamp="1651580733368">
+    <state x="1035" y="275" width="806" height="557" key="Vcs.Push.Dialog.v2" timestamp="1651581030222">
       <screen x="0" y="25" width="1920" height="1055" />
     </state>
-    <state x="1035" y="275" width="806" height="557" key="Vcs.Push.Dialog.v2/0.25.1920.1055@0.25.1920.1055" timestamp="1651580733368" />
+    <state x="1035" y="275" width="806" height="557" key="Vcs.Push.Dialog.v2/0.25.1920.1055@0.25.1920.1055" timestamp="1651581030222" />
   </component>
 </project>
