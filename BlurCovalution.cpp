@@ -132,16 +132,16 @@ int main()
 {
     Mat m_in = cv::imread("in.jpeg", IMREAD_UNCHANGED );
     uchar* rgb = m_in.data;
-
+    auto cols = m_in.cols;
+    auto rows = m_in.rows;
+    auto sizeRGB = 3*(rows * cols);
     for (int i =0; i<3*(rows * cols); i++){
         cout<<rgb[i]<<endl;
     }
 
 
 
-    auto cols = m_in.cols;
-    auto rows = m_in.rows;
-    auto sizeRGB = 3*(rows * cols);
+
 
     auto type = m_in.type();
 
