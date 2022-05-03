@@ -100,10 +100,12 @@ int main()
     auto type = m_in.type();
 
     cout<<sizeRGB<<endl;
+
+    std::vector< unsigned char > g( 3*(rows * cols) );
+
     cout << g << endl;
     cout << &g << endl;
 
-    std::vector< unsigned char > g( 3*(rows * cols) );
     cv::Mat m_out( rows, cols, type, g.data() );
 
 
