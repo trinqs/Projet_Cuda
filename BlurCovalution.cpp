@@ -103,8 +103,10 @@ int main()
 
     std::vector< unsigned char > g( 3*(rows * cols) );
 
-    cout << g << endl;
     cout << &g << endl;
+    cout << rgb <<endl;
+    cout << g << endl;
+
 
     cv::Mat m_out( rows, cols, type, g.data() );
 
