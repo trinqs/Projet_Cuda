@@ -136,7 +136,7 @@ int main()
     auto rows = m_in.rows;
     auto sizeRGB = 3*(rows * cols);
     for (int i =0; i<3*(rows * cols); i++){
-        cout<<rgb[i]<<endl;
+        cout<<(int)rgb[i]<<endl;
     }
 
 
