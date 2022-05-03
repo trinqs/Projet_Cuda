@@ -145,12 +145,11 @@ int main()
     unsigned char* rgb_d = rgb;
 
     std::vector< unsigned char > g( 3*(rows * cols) );
-    /*unsigned char* g_d;
-    g_d = (unsigned char*) malloc(3*cols*rows*sizeof(unsigned char ));
-    */
+    unsigned char* g_d = g;
+
     if(sizeRGB%3==0){
-        //pasAlpha(&rgb,g_d,cols,rows);
-        g = pasAlpha2(rgb_d,cols,rows);
+        pasAlpha(rgb_d,g_d,cols,rows);
+        //g = pasAlpha2(rgb_d,cols,rows);
     }
     if(sizeRGB%4==0){
         //de l'alpha
