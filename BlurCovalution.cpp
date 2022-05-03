@@ -10,7 +10,7 @@ using namespace cv;
 
 using ui32 = unsigned int;
 
-
+/*
 struct complex {
     float r; float i;
     complex(float r, float i) : r(r), i(i) {}
@@ -46,21 +46,22 @@ unsigned char julia( int x, int y )
 
     return 255;
 }
+*/
 
 void pasAlpha( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRow){
     for(int col = 0; col< imgCols;col++){
         for(int row = 0; row< imgRow; row++){
             if(col >0 && col< imgCols && row >0 && row< imgRow){
                 for( int i=0; i<3; i++){
-                    unsigned char ne = rgb[3*((row-1)*imgCols+(col-1)+i)];
-                    unsigned char n = rgb[3*((row-1)*imgCols+(col)+i)];
-                    unsigned char no = rgb[3*((row-1)*imgCols+(col+1)+i)];
-                    unsigned char o = rgb[3*((row)*imgCols+(col+1)+i)];
-                    unsigned char so = rgb[3*((row+1)*imgCols+(col+1)+i)];
-                    unsigned char s = rgb[3*((row+1)*imgCols+(col)+i)];
-                    unsigned char se = rgb[3*((row+1)*imgCols+(col-1)+i)];
-                    unsigned char e = rgb[3*((row)*imgCols+(col-1)+i)];
-                    unsigned char milieu = rgb[3*((row)*imgCols+col+i)]
+                    unsigned char ne = rgb[3*((row-1)*imgCols+(col-1))+i];
+                    unsigned char n = rgb[3*((row-1)*imgCols+(col))+i];
+                    unsigned char no = rgb[3*((row-1)*imgCols+(col+1))+i];
+                    unsigned char o = rgb[3*((row)*imgCols+(col+1))+i];
+                    unsigned char so = rgb[3*((row+1)*imgCols+(col+1))+i];
+                    unsigned char s = rgb[3*((row+1)*imgCols+(col))+i];
+                    unsigned char se = rgb[3*((row+1)*imgCols+(col-1))+i];
+                    unsigned char e = rgb[3*((row)*imgCols+(col-1))+i];
+                    unsigned char milieu = rgb[3*((row)*imgCols+col)+i];
 
                     unsigned char sum = ne* (1/9)
                                              + ne* (1/9)
@@ -73,12 +74,12 @@ void pasAlpha( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRo
                                              + e* (1/9)
                                              + milieu * (1/9);
 
-                    g[3*((row)*imgCols+col+i] = sum;
+                    g[3*((row)*imgCols+col)+i] = sum;
                 }
             }
             else{
                 for(int i= 0; i<3;i++){
-                    g[3*((row)*imgCols+col+i] = 0;
+                    g[3*((row)*imgCols+col)+i] = 0;
                 }
             }
         }
@@ -94,12 +95,14 @@ int main()
     std::vector< unsigned char > g( 3*(m_in.rows * m_in.cols) );
     cv::Mat m_out( m_in.rows, m_in.cols, m_in.type(), g.data() );
 
-    if(rgb.size%3==0){
-        pasAlpha(&rgb,&g,img.cols,img.rows)
+    size_t sizeRGB = 3*(m_in.rows * m_in.cols);
+
+    if(sizeRGB%3==0){
+        pasAlpha(&rgb,&g,m_in.cols,m_in.rows)
         cv::imwrite( "out.jpg", m_out );
 
     }
-    if(rgb.size%4==0){
+    if(sizeRGB%4==0){
         //de l'alpha
     }
 
