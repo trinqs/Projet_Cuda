@@ -144,7 +144,6 @@ int main()
     unsigned char* rgb_d = rgb;
 
     uchar* g( 3*(rows * cols) );
-    unsigned char* g_d = g.data();
 
     if(sizeRGB%3==0){
         pasAlpha(rgb,g,cols,rows);
