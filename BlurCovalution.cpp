@@ -1,6 +1,7 @@
 #include "BlurCovalution.h"
 
 #include <opencv2/opencv.hpp>
+#include <vector>
 #include <iostream>
 #include <cstring>
 
@@ -50,63 +51,35 @@ void pasAlpha( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRo
     for(int col = 0; col< imgCols;col++){
         for(int row = 0; row< imgRow; row++){
             if(col >0 && col< imgCols && row >0 && row< imgRow){
-                //red
-                unsigned char ne = rgb[3*((row-1)*imgCols+(col-1))];
-                unsigned char n = rgb[3*((row-1)*imgCols+(col))];
-                unsigned char no = rgb[3*((row-1)*imgCols+(col+1))];
-                unsigned char o = rgb[3*((row)*imgCols+(col+1))];
-                unsigned char so = rgb[3*((row+1)*imgCols+(col+1))];
-                unsigned char s = rgb[3*((row+1)*imgCols+(col))];
-                unsigned char se = rgb[3*((row+1)*imgCols+(col-1))];
-                unsigned char e = rgb[3*((row)*imgCols+(col-1))];
+                for( int i=0; i<3; i++){
+                    unsigned char ne = rgb[3*((row-1)*imgCols+(col-1)+i)];
+                    unsigned char n = rgb[3*((row-1)*imgCols+(col)+i)];
+                    unsigned char no = rgb[3*((row-1)*imgCols+(col+1)+i)];
+                    unsigned char o = rgb[3*((row)*imgCols+(col+1)+i)];
+                    unsigned char so = rgb[3*((row+1)*imgCols+(col+1)+i)];
+                    unsigned char s = rgb[3*((row+1)*imgCols+(col)+i)];
+                    unsigned char se = rgb[3*((row+1)*imgCols+(col-1)+i)];
+                    unsigned char e = rgb[3*((row)*imgCols+(col-1)+i)];
+                    unsigned char milieu = rgb[3*((row)*imgCols+col+i)]
 
-                unsigned char redsum = ne* (1/9)
-                        + ne* (1/9)
-                        + n* (1/9)
-                        + no* (1/9)
-                        + o* (1/9)
-                        + so* (1/9)
-                        + s* (1/9)
-                        + se* (1/9)
-                        + e* (1/9);
-                //green
-                unsigned char ne = rgb[3*((row-1)*imgCols+(col-1)+1)];
-                unsigned char n = rgb[3*((row-1)*imgCols+(col)+1)];
-                unsigned char no = rgb[3*((row-1)*imgCols+(col+1)+1)];
-                unsigned char o = rgb[3*((row)*imgCols+(col+1)+1)];
-                unsigned char so = rgb[3*((row+1)*imgCols+(col+1)+1)];
-                unsigned char s = rgb[3*((row+1)*imgCols+(col)+1)];
-                unsigned char se = rgb[3*((row+1)*imgCols+(col-1)+1)];
-                unsigned char e = rgb[3*((row)*imgCols+(col-1)+1)];
+                    unsigned char sum = ne* (1/9)
+                                             + ne* (1/9)
+                                             + n* (1/9)
+                                             + no* (1/9)
+                                             + o* (1/9)
+                                             + so* (1/9)
+                                             + s* (1/9)
+                                             + se* (1/9)
+                                             + e* (1/9)
+                                             + milieu * (1/9);
 
-                unsigned char greensum = ne* (1/9)
-                                       + ne* (1/9)
-                                       + n* (1/9)
-                                       + no* (1/9)
-                                       + o* (1/9)
-                                       + so* (1/9)
-                                       + s* (1/9)
-                                       + se* (1/9)
-                                       + e* (1/9);
-                //blue
-                unsigned char ne = rgb[3*((row-1)*imgCols+(col-1)+2)];
-                unsigned char n = rgb[3*((row-1)*imgCols+(col)+2)];
-                unsigned char no = rgb[3*((row-1)*imgCols+(col+1)+2)];
-                unsigned char o = rgb[3*((row)*imgCols+(col+1)+2)];
-                unsigned char so = rgb[3*((row+1)*imgCols+(col+1)+2)];
-                unsigned char s = rgb[3*((row+1)*imgCols+(col)+2)];
-                unsigned char se = rgb[3*((row+1)*imgCols+(col-1)+2)];
-                unsigned char e = rgb[3*((row)*imgCols+(col-1)+2)];
-
-                unsigned char bluesum = ne* (1/9)
-                                       + ne* (1/9)
-                                       + n* (1/9)
-                                       + no* (1/9)
-                                       + o* (1/9)
-                                       + so* (1/9)
-                                       + s* (1/9)
-                                       + se* (1/9)
-                                       + e* (1/9);
+                    g[3*((row)*imgCols+col+i] = sum;
+                }
+            }
+            else{
+                for(int i= 0; i<3;i++){
+                    g[3*((row)*imgCols+col+i] = 0;
+                }
             }
         }
     }
@@ -118,11 +91,13 @@ int main()
     Mat m_in = cv::imread("in.jpg", IMREAD_UNCHANGED );
     auto rgb = m_in.data;
 
-    std::vector< unsigned char > g( m_in.rows * m_in.cols );
-    cv::Mat m_out( m_in.rows, m_in.cols, CV_8UC1, g.data() );
+    std::vector< unsigned char > g( 3*(m_in.rows * m_in.cols) );
+    cv::Mat m_out( m_in.rows, m_in.cols, m_in.type(), g.data() );
 
     if(rgb.size%3==0){
-        //pas d'alpha
+        pasAlpha(&rgb,&g,img.cols,img.rows)
+        cv::imwrite( "out.jpg", m_out );
+
     }
     if(rgb.size%4==0){
         //de l'alpha

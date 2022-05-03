@@ -1,6 +1,6 @@
 CXX=g++
 CXXFLAGS=-O3 -march=native
-LDLIBS=`pkg-config --libs opencv`
+LDLIBS=`pkg-config --libs --cflags opencv`
 
 
 .PHONY: clean
