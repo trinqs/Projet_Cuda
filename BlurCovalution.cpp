@@ -87,7 +87,7 @@ void pasAlpha( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRo
 }
 
 vector< unsigned char > pasAlpha2( unsigned char* rgb, size_t imgCols,size_t imgRow){
-    std::vector< unsigned char > res( 3*(rows * cols));
+    std::vector< unsigned char > res( 3*(imgRow * imgCols));
 
 
     for(int col = 0; col< imgCols;col++){
