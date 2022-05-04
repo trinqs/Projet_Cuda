@@ -55,7 +55,7 @@ void pasAlpha( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRo
                 for( int i=0; i<3; i++){
                     for (int decalageRow = -1; decalageRow < 2; decalageRow++){
                         for (int decalageCol = -1; decalageCol < 2; decalageCol++ ){
-                            g[3*((row)*imgCols+col)+i] += rgb[3*(( row + decalageRow )*imgCols+( col + decalageCol ))+i] ; //1 = coefficient de la matrice de convolution à l'indice associé
+                            g[3*((row)*imgCols+col)+i] += rgb[3*(( row + decalageRow )*imgCols+( col + decalageCol ))+i] * 1; //1 = coefficient de la matrice de convolution à l'indice associé
                         }
                     }
                     //normalisation en dehors de la boucle pour faire moins d'arrondis
