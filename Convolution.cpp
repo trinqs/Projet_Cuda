@@ -45,11 +45,11 @@ void pasAlpha( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRo
 
                     for (int decalageRow = -1; decalageRow < 2; decalageRow++){
                         for (int decalageCol = -1; decalageCol < 2; decalageCol++ ){
-                           sum += rgb[3*(( row + decalageRow )*imgCols+( col + decalageCol ))+i] * 1; //1 = coefficient de la matrice de convolution à l'indice associé
+                           sum += rgb[3*(( row + decalageRow )*imgCols+( col + decalageCol ))+i] * matrice[ matrice.size() - (decalageRow+2) ][ matrice.size() - (decalageCo+2) ]; //coefficient de la matrice de convolution à l'indice associé, on fait la rotation en même temps par le calcul d'indice
                         }
                     }
                     //normalisation en dehors de la boucle pour faire moins d'arrondis
-                    g[3*((row)*imgCols+col)+i] = sum/9; //9 = somme des coefficients de la matrice de convolution
+                    g[3*((row)*imgCols+col)+i] = sum/coefficients; // somme des coefficients de la matrice de convolution
 
                     /*
                     unsigned char ne = rgb[3*((row-1)*imgCols+(col-1))+i];
@@ -105,13 +105,13 @@ int main(int n, char* params[])
     uchar* g = new uchar[ 3*(rows * cols)]();
 
     vector<vector<int>> matriceBlur= { {1,1,1} , {1,1,1} , {1,1,1} };
+
     int coefficientsBlur = 0;
     for (int i=0; i<matriceBlur.size(); i++){
         for (int j=0; j< matriceBlur[0].size(); j++){
             coefficientsBlur += matriceBlur[i][j];
         }
     }
-    cout << coefficientsBlur << endl;
 
     if(sizeRGB%3==0){
         pasAlpha(rgb,g,cols,rows, matriceBlur, coefficientsBlur);
