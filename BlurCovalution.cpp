@@ -53,16 +53,15 @@ void pasAlpha( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRo
         for(int row = 0; row< imgRow; row++){
             if(col >0 && col< imgCols && row >0 && row< imgRow){
                 for( int i=0; i<3; i++){
-                    for (int decalageRow = -1; decalageRow < 2; decalageRow++){
+                    /*for (int decalageRow = -1; decalageRow < 2; decalageRow++){
                         for (int decalageCol = -1; decalageCol < 2; decalageCol++ ){
-                            unsigned char res = rgb[3*(( row + decalageRow )*imgCols+( col + decalageCol ))+i];
-                            g[3*((row)*imgCols+col)+i] += res*1; //1 = coefficient de la matrice de convolution à l'indice associé
+                            g[3*((row)*imgCols+col)+i] += rgb[3*(( row + decalageRow )*imgCols+( col + decalageCol ))+i] * 1; //1 = coefficient de la matrice de convolution à l'indice associé
                         }
                     }
                     //normalisation en dehors de la boucle pour faire moins d'arrondis
-                    g[3*((row)*imgCols+col)+i] = g[3*((row)*imgCols+col)+i]/9;//9 = somme des coefficients de la matrice de convolution
-
-                   /* unsigned char ne = rgb[3*((row-1)*imgCols+(col-1))+i];
+                    g[3*((row)*imgCols+col)+i] = g[3*((row)*imgCols+col)+i]/9; //9 = somme des coefficients de la matrice de convolution
+                    */
+                    unsigned char ne = rgb[3*((row-1)*imgCols+(col-1))+i];
                     unsigned char n = rgb[3*((row-1)*imgCols+(col))+i];
                     unsigned char no = rgb[3*((row-1)*imgCols+(col+1))+i];
                     unsigned char o = rgb[3*((row)*imgCols+(col+1))+i];
@@ -81,7 +80,7 @@ void pasAlpha( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRo
                                                 + se
                                                 + e
                                                 + milieu)
-                                                /9;*/
+                                                /9;
 
                 }
             }
