@@ -1,4 +1,4 @@
-#include "BlurCovalution.h"
+#include "Convolution.h"
 
 #include <opencv2/opencv.hpp>
 #include <vector>
