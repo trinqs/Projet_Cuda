@@ -119,13 +119,11 @@ int main(int n, char* params[])
 
     uchar* g = new uchar[ 3*(rows * cols)]();
 
-    vector<vector<int>> matriceBlur1= { {1,1,1} , {1,1,1} , {1,1,1} };
+    vector<vector<int>> matriceBlur= { {1,1,1} , {1,1,1} , {1,1,1} };
 
-    matriceConvolution matriceBlurS = matriceConvolution(matriceBlur1)
+    matriceConvolution matriceBlurS = matriceConvolution(matriceBlur)
 
-    vector<vector<int>> matriceBlur2= { {1,1,1} , {1,1,1} , {1,1,1} };
-
-    int coefficientsBlur1 = 0;
+    int coefficientsBlur = 0;
     for (int i=0; i<matriceBlur.size(); i++){
         for (int j=0; j< matriceBlur[0].size(); j++){
             coefficientsBlur += matriceBlur[i][j];
