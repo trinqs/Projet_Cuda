@@ -35,7 +35,7 @@ unsigned char julia( int x, int y )
 }
 */
 
-void pasAlpha( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRow, matriceConvolution matriceConvolution){
+void pasAlpha( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRow, int matrice[][], coefficients){
     for(int col = 0; col< imgCols;col++){
         for(int row = 0; row< imgRow; row++){
             if(col >0 && col< imgCols && row >0 && row< imgRow){
@@ -105,18 +105,16 @@ int main(int n, char* params[])
     uchar* g = new uchar[ 3*(rows * cols)]();
 
     int matriceBlur[3][3]= { {1,1,1} , {1,1,1} , {1,1,1} };
-    int coefficients = 0;
+    int coefficientsBlur = 0;
     for (int i=0; i<matriceBlur.size(); i++){
         for (int j=0; j< matriceBlur[0].size(); j++){
-            coefficients += matriceBlur[i][j]
+            coefficientsBlur += matriceBlur[i][j]
         }
     }
-    cout << coefficients << endl;
-
-    ::matriceConvolution blur1(tab,coefficientsSomme);
+    cout << coefficientsBlur << endl;
 
     if(sizeRGB%3==0){
-        pasAlpha(rgb,g,cols,rows, blur1);
+        pasAlpha(rgb,g,cols,rows, matriceBlur, coefficientsBlur);
     }
     if(sizeRGB%4==0){
         //de l'alpha
