@@ -112,10 +112,10 @@ int main(int n, char* params[])
 
     uchar* g = new uchar[ 3*(rows * cols)]();
 
-    int** tab = [[1,1,1],[1,1,1],[1,1,1]];
-    int coefficientsSomme = 9
+    int tab[3][3]= { {1,1,1} , {1,1,1} , {1,1,1} };
+    int coefficientsSomme = 9;
 
-    ::matriceConvolution blur1(tab,coefficientsSomme)
+    ::matriceConvolution blur1(tab,coefficientsSomme);
 
     if(sizeRGB%3==0){
         pasAlpha(rgb,g,cols,rows, blur1);
