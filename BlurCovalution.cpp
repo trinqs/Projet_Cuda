@@ -53,7 +53,16 @@ void pasAlpha( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRo
         for(int row = 0; row< imgRow; row++){
             if(col >0 && col< imgCols && row >0 && row< imgRow){
                 for( int i=0; i<3; i++){
-                    unsigned char ne = rgb[3*((row-1)*imgCols+(col-1))+i];
+                    for (int decalageRow = -1; decalageRow < 2; decalageRow++){
+                        for (int decalageCol = -1; decalageCol < 2; decalageCol++ ){
+                            unsigned char res = rgb[3*(( row + decalageRow )*imgCols+( col + decalageCol ))+i];
+                            g[3*((row)*imgCols+col)+i] += res*1; //1 = coefficient de la matrice de convolution à l'indice associé
+                        }
+                    }
+                    //normalisation en dehors de la boucle pour faire moins d'arrondis
+                    g[3*((row)*imgCols+col)+i] = g[3*((row)*imgCols+col)+i]/9 //9 = somme des coefficients de la matrice de convolution
+
+                   /* unsigned char ne = rgb[3*((row-1)*imgCols+(col-1))+i];
                     unsigned char n = rgb[3*((row-1)*imgCols+(col))+i];
                     unsigned char no = rgb[3*((row-1)*imgCols+(col+1))+i];
                     unsigned char o = rgb[3*((row)*imgCols+(col+1))+i];
@@ -63,18 +72,17 @@ void pasAlpha( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRo
                     unsigned char e = rgb[3*((row)*imgCols+(col-1))+i];
                     unsigned char milieu = rgb[3*((row)*imgCols+col)+i];
 
-                    unsigned char sum = (ne
-                                        + n
-                                        + no
-                                        + o
-                                        + so
-                                        + s
-                                        + se
-                                        + e
-                                        + milieu)
-                                        /9;
-                    g[3*((row)*imgCols+col)+i] = sum;
-                    cout << (int)(ne/9) << endl;
+                     g[3*((row)*imgCols+col)+i] = (ne
+                                                + n
+                                                + no
+                                                + o
+                                                + so
+                                                + s
+                                                + se
+                                                + e
+                                                + milieu)
+                                                /9;*/
+
                 }
             }
             else{
@@ -86,49 +94,6 @@ void pasAlpha( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRo
     }
 }
 
-vector< unsigned char > pasAlpha2( unsigned char* rgb, size_t imgCols,size_t imgRow){
-    std::vector< unsigned char > res( 3*(imgRow * imgCols));
-
-
-    for(int col = 0; col< imgCols;col++){
-        for(int row = 0; row< imgRow; row++){
-            if(col >0 && col< imgCols && row >0 && row< imgRow){
-                //cout << "coucou on est rentre" << endl;
-                for( int i=0; i<3; i++){
-                    unsigned char ne = rgb[3*((row-1)*imgCols+(col-1))+i];
-                    unsigned char n = rgb[3*((row-1)*imgCols+(col))+i];
-                    unsigned char no = rgb[3*((row-1)*imgCols+(col+1))+i];
-                    unsigned char o = rgb[3*((row)*imgCols+(col+1))+i];
-                    unsigned char so = rgb[3*((row+1)*imgCols+(col+1))+i];
-                    unsigned char s = rgb[3*((row+1)*imgCols+(col))+i];
-                    unsigned char se = rgb[3*((row+1)*imgCols+(col-1))+i];
-                    unsigned char e = rgb[3*((row)*imgCols+(col-1))+i];
-                    unsigned char milieu = rgb[3*((row)*imgCols+col)+i];
-
-                    unsigned char sum = ne* (1/9)
-                                        + n* (1/9)
-                                        + no* (1/9)
-                                        + o* (1/9)
-                                        + so* (1/9)
-                                        + s* (1/9)
-                                        + se* (1/9)
-                                        + e* (1/9)
-                                        + milieu * (1/9);
-
-                    res[3*((row)*imgCols+col)+i] = sum;
-                }
-            }
-            else{
-                for(int i= 0; i<3;i++){
-
-                    res[3*((row)*imgCols+col)+i] = 0;
-                }
-            }
-        }
-    }
-    return res;
-}
-
 
 int main()
 {
@@ -138,7 +103,7 @@ int main()
     auto rows = m_in.rows;
     auto sizeRGB = 3*(rows * cols);
     for (int i =0; i<3*(rows * cols); i++){
-        cout<<rgb[i]<<endl;
+
     }
 
 
@@ -153,7 +118,6 @@ int main()
 
     if(sizeRGB%3==0){
         pasAlpha(rgb,g,cols,rows);
-        //g = pasAlpha2(rgb_d,cols,rows);
     }
     if(sizeRGB%4==0){
         //de l'alpha
@@ -163,7 +127,6 @@ int main()
     cv::imwrite( "out.jpeg", m_out );
 
     unsigned char test = 1/9;
-    cout << "un sur neuf " << (int) test << "en entier ?"<< 1/9 <<endl;
 
     return 0;
 }
