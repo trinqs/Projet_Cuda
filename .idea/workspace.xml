@@ -27,9 +27,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8504d56-1fbf-42ca-b64e-5432c61b4366" name="Default Changelist" comment="Patch note 178.4.0.5">
-      <change beforePath="$PROJECT_DIR$/Convolution.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Convolution.cpp" afterDir="false" />
-    </list>
+    <list default="true" id="c8504d56-1fbf-42ca-b64e-5432c61b4366" name="Default Changelist" comment="Patch note 178.4.0.5" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -86,28 +84,7 @@
       <workItem from="1651495791510" duration="7869000" />
       <workItem from="1651575991939" duration="12314000" />
       <workItem from="1651653204012" duration="5526000" />
-      <workItem from="1651666026022" duration="5339000" />
-    </task>
-    <task id="LOCAL-00060" summary="on test autre chose">
-      <created>1651588320238</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1651588320238</updated>
-    </task>
-    <task id="LOCAL-00061" summary="on test autre chose">
-      <created>1651588362395</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1651588362395</updated>
-    </task>
-    <task id="LOCAL-00062" summary="on test autre chose">
-      <created>1651588433033</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1651588433033</updated>
+      <workItem from="1651666026022" duration="5668000" />
     </task>
     <task id="LOCAL-00063" summary="on test autre chose">
       <created>1651588494260</created>
@@ -431,7 +408,28 @@
       <option name="project" value="LOCAL" />
       <updated>1651672043931</updated>
     </task>
-    <option name="localTasksCounter" value="109" />
+    <task id="LOCAL-00109" summary="Patch note 178.4.0.5">
+      <created>1651672284237</created>
+      <option name="number" value="00109" />
+      <option name="presentableId" value="LOCAL-00109" />
+      <option name="project" value="LOCAL" />
+      <updated>1651672284237</updated>
+    </task>
+    <task id="LOCAL-00110" summary="Patch note 178.4.0.5">
+      <created>1651672351901</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
+      <option name="project" value="LOCAL" />
+      <updated>1651672351902</updated>
+    </task>
+    <task id="LOCAL-00111" summary="Patch note 178.4.0.5">
+      <created>1651672471735</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1651672471735</updated>
+    </task>
+    <option name="localTasksCounter" value="112" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

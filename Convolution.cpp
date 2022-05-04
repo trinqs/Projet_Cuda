@@ -127,12 +127,16 @@ int main(int n, char* params[])
         vector<vector<int>>({ {1,1,1} , {1,1,1} , {1,1,1} })
     );
 
+    matriceConvolution matriceDetectEdge1 = matriceConvolution(
+            vector<vector<int>>({ {-1,-1,-1} , {-1,8,-1} , {-1,-1,-1} })
+        );
+
     matriceConvolution matriceBlur3 = matriceConvolution(
         vector<vector<int>>({ {1,1,1,1,1} , {1,1,1,1,1} , {1,1,1,1,1}, {1,1,1,1,1}, {1,1,1,1,1} })
     );
 
     if(sizeRGB%3==0){
-        pasAlpha(rgb,g,cols,rows, matriceBlur3);
+        pasAlpha(rgb,g,cols,rows, matriceDetectEdge1);
     }
     if(sizeRGB%4==0){
         //de l'alpha
