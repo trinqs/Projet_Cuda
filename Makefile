@@ -5,11 +5,11 @@ LDLIBS=`pkg-config --libs --cflags opencv`
 
 .PHONY: clean
 
-BlurCovalution: BlurCovalution.cpp
+Convolution: Convolution.cpp
 	$(CXX) $(CXXFLAGS) -o $@ $< $(LDLIBS)
 
-BlurCovalution-cu: BlurCovalution.cu
+Convolution-cu: Convolution.cu
 	nvcc -o $@ $< $(LDLIBS)
 
 clean:
-	rm -f BlurCovalution BlurCovalution-cu
+	rm -f Convolution Convolution-cu
