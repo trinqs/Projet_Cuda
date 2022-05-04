@@ -128,12 +128,14 @@ int main(int n, char* params[])
     );
 
     matriceConvolution matriceDetectEdge1 = matriceConvolution(
-            vector<vector<int>>({ {-1,-1,-1} , {-1,8,-1} , {-1,-1,-1} })
-        );
+        vector<vector<int>>({ {-1,-1,-1} , {-1,8,-1} , {-1,-1,-1} })
+    );
+    cout << "detectedge" << matriceDetectEdge1.sommeCoefficients << endl;
 
     matriceConvolution matriceBlur3 = matriceConvolution(
         vector<vector<int>>({ {1,1,1,1,1} , {1,1,1,1,1} , {1,1,1,1,1}, {1,1,1,1,1}, {1,1,1,1,1} })
     );
+    cout << "blur3" << matriceBlur3.sommeCoefficients << endl;
 
     if(sizeRGB%3==0){
         pasAlpha(rgb,g,cols,rows, matriceDetectEdge1);
