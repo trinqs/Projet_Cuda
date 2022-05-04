@@ -28,7 +28,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c8504d56-1fbf-42ca-b64e-5432c61b4366" name="Default Changelist" comment="Patch note 178.4.2.1">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Convolution.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Convolution.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -87,35 +86,7 @@
       <workItem from="1651495791510" duration="7869000" />
       <workItem from="1651575991939" duration="12314000" />
       <workItem from="1651653204012" duration="5526000" />
-      <workItem from="1651666026022" duration="17344000" />
-    </task>
-    <task id="LOCAL-00108" summary="Patch note 178.4.0.5">
-      <created>1651672043931</created>
-      <option name="number" value="00108" />
-      <option name="presentableId" value="LOCAL-00108" />
-      <option name="project" value="LOCAL" />
-      <updated>1651672043931</updated>
-    </task>
-    <task id="LOCAL-00109" summary="Patch note 178.4.0.5">
-      <created>1651672284237</created>
-      <option name="number" value="00109" />
-      <option name="presentableId" value="LOCAL-00109" />
-      <option name="project" value="LOCAL" />
-      <updated>1651672284237</updated>
-    </task>
-    <task id="LOCAL-00110" summary="Patch note 178.4.0.5">
-      <created>1651672351901</created>
-      <option name="number" value="00110" />
-      <option name="presentableId" value="LOCAL-00110" />
-      <option name="project" value="LOCAL" />
-      <updated>1651672351902</updated>
-    </task>
-    <task id="LOCAL-00111" summary="Patch note 178.4.0.5">
-      <created>1651672471735</created>
-      <option name="number" value="00111" />
-      <option name="presentableId" value="LOCAL-00111" />
-      <option name="project" value="LOCAL" />
-      <updated>1651672471735</updated>
+      <workItem from="1651666026022" duration="17687000" />
     </task>
     <task id="LOCAL-00112" summary="Patch note 178.4.1.0">
       <created>1651672640476</created>
@@ -432,7 +403,35 @@
       <option name="project" value="LOCAL" />
       <updated>1651684525015</updated>
     </task>
-    <option name="localTasksCounter" value="157" />
+    <task id="LOCAL-00157" summary="Patch note 178.4.2.1">
+      <created>1651684596638</created>
+      <option name="number" value="00157" />
+      <option name="presentableId" value="LOCAL-00157" />
+      <option name="project" value="LOCAL" />
+      <updated>1651684596638</updated>
+    </task>
+    <task id="LOCAL-00158" summary="Patch note 178.4.2.1">
+      <created>1651684693120</created>
+      <option name="number" value="00158" />
+      <option name="presentableId" value="LOCAL-00158" />
+      <option name="project" value="LOCAL" />
+      <updated>1651684693120</updated>
+    </task>
+    <task id="LOCAL-00159" summary="Patch note 178.4.2.1">
+      <created>1651684813093</created>
+      <option name="number" value="00159" />
+      <option name="presentableId" value="LOCAL-00159" />
+      <option name="project" value="LOCAL" />
+      <updated>1651684813093</updated>
+    </task>
+    <task id="LOCAL-00160" summary="Patch note 178.4.2.1">
+      <created>1651684867322</created>
+      <option name="number" value="00160" />
+      <option name="presentableId" value="LOCAL-00160" />
+      <option name="project" value="LOCAL" />
+      <updated>1651684867322</updated>
+    </task>
+    <option name="localTasksCounter" value="161" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
