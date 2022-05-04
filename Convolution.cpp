@@ -59,7 +59,7 @@ void pasAlpha( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRo
     int limRows = noyau.rows/2;
     for(int col = 0; col< imgCols;col++){
         for(int row = 0; row< imgRow; row++){
-            if(col >= limCols && col<= imgCols-limCols && row >= limRows && row <= imgRow-limRows){
+            if(col >= limCols && col< imgCols-limCols && row >= limRows && row < imgRow-limRows){
 
                 for( int i=0; i<3; i++){
 
