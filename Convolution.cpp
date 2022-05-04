@@ -124,10 +124,11 @@ int main(int n, char* params[])
     uchar* g = new uchar[ 3*(rows * cols)]();
 
     vector<vector<int>> matriceBlur1= { {1,1,1} , {1,1,1} , {1,1,1} };
-    vector<vector<int>> matriceBlur2= { {1,1,1,1,1} , {1,1,1,1,1} , {1,1,1,1,1}, {1,1,1,1,1}, {1,1,1,1,1}};
+    vector<vector<int>> matriceBlur2= { {1,1,1,1,1} , {1,1,1,1,1} , {1,1,1,1,1}, {1,1,1,1,1}, {1,1,1,1,1} };
+
     matriceConvolution matriceBlurS = matriceConvolution(
         vector<vector<int>>({ {1,1,1} , {1,1,1} , {1,1,1} })
-    ;
+    );
 
     if(sizeRGB%3==0){
         pasAlpha(rgb,g,cols,rows, matriceBlurS);
