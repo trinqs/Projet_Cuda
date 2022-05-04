@@ -102,7 +102,7 @@ void pasAlphaDetectEdge( unsigned char* rgb, unsigned char* g, size_t imgCols,si
                         }
                     }
                     //normalisation en dehors de la boucle pour faire moins d'arrondis
-                    //g[3*((row)*imgCols+col)+i] = sum/ noyau.sommeCoefficients; // somme des coefficients de la matrice de convolution
+                    g[3*((row)*imgCols+col)+i] = sum; // somme des coefficients de la matrice de convolution
                 }
             }
             else{
