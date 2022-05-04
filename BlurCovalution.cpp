@@ -99,6 +99,8 @@ int main(int n, char* params[])
 {
     Mat m_in;
 
+    cout << n <<endl;
+
     if (n==1){
         cout << params[0] << endl;
         m_in = cv::imread(params[0], IMREAD_UNCHANGED );
