@@ -95,9 +95,16 @@ void pasAlpha( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRo
 }
 
 
-int main()
+int main(int n, char* params[])
 {
-    Mat m_in = cv::imread("in.jpeg", IMREAD_UNCHANGED );
+    Mat m_in;
+
+    if (n==1){
+        m_in = cv::imread(params[0], IMREAD_UNCHANGED );
+    }else{
+        m_in = cv::imread("in.jpeg", IMREAD_UNCHANGED );
+    }
+
     uchar* rgb = m_in.data;
     auto cols = m_in.cols;
     auto rows = m_in.rows;
