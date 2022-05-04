@@ -45,7 +45,7 @@ void pasAlpha( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRo
 
                     for (int decalageRow = -1; decalageRow < 2; decalageRow++){
                         for (int decalageCol = -1; decalageCol < 2; decalageCol++ ){
-                           sum += rgb[3*(( row + decalageRow )*imgCols+( col + decalageCol ))+i] * matrice[ matrice.size() - (decalageRow+2) ][ matrice.size() - (decalageCo+2) ]; //coefficient de la matrice de convolution à l'indice associé, on fait la rotation en même temps par le calcul d'indice
+                           sum += rgb[3*(( row + decalageRow )*imgCols+( col + decalageCol ))+i] * matrice[ matrice.size() - (decalageRow+2) ][ matrice.size() - (decalageCol+2) ]; //coefficient de la matrice de convolution à l'indice associé, on fait la rotation en même temps par le calcul d'indice
                         }
                     }
                     //normalisation en dehors de la boucle pour faire moins d'arrondis
