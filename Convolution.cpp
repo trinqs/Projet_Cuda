@@ -66,7 +66,9 @@ void pasAlpha( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRo
                     auto sum=0;
 
                     for (int decalageCol = -limCols; decalageCol < limCols; decalageCol++){
+                        cout <<
                         for (int decalageRow = -limRows; decalageRow < limRows; decalageRow++){
+                            cout << "decalageCol : " << decalageCol << "decalageRow : " << decalageRow << endl;
                            sum += rgb[3*(( row + decalageRow )*imgCols+( col + decalageCol ))+i] * noyau.matrice[ noyau.rows - (decalageRow+2) ][ noyau.cols - (decalageCol+2) ]; //coefficient de la matrice de convolution à l'indice associé, on fait la rotation en même temps par le calcul d'indice
                         }
                     }
