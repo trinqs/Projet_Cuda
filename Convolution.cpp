@@ -121,7 +121,7 @@ int main(int n, char* params[])
 
     vector<vector<int>> matriceBlur= { {1,1,1} , {1,1,1} , {1,1,1} };
 
-    matriceConvolution matriceBlurS = matriceConvolution(matriceBlur)
+    matriceConvolution matriceBlurS = matriceConvolution(matriceBlur);
 
     int coefficientsBlur = 0;
     for (int i=0; i<matriceBlur.size(); i++){
