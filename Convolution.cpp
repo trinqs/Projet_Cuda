@@ -123,7 +123,7 @@ int main(int n, char* params[])
 
 
     if(sizeRGB%3==0){
-        pasAlpha(rgb,g,cols,rows, matriceBlur3);
+        pasAlpha(rgb,g,cols,rows, matriceBlur10);
         //pasAlphaDetectEdge(rgb,g,cols,rows, matriceDetectEdge1);
     }
     if(sizeRGB%4==0){
