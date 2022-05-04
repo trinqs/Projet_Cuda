@@ -35,7 +35,7 @@ unsigned char julia( int x, int y )
 }
 */
 
-void pasAlpha( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRow, int matrice[3][3], coefficients){
+void pasAlpha( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRow, int matrice[3][3], int coefficients){
     for(int col = 0; col< imgCols;col++){
         for(int row = 0; row< imgRow; row++){
             if(col >0 && col< imgCols && row >0 && row< imgRow){
