@@ -71,13 +71,14 @@ void pasAlpha( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRo
                         for (int decalageRow = -limRows; decalageRow < limRows+1; decalageRow++){
 
                             sum += rgb[3*(( row + decalageRow )*imgCols+( col + decalageCol ))+i] * noyau.matrice[ decalageRow + limRows ][ decalageCol + limCols ];//coefficient de la matrice de convolution à l'indice associé, on fait la rotation en même temps par le calcul d'indice
-                            if (row ==213 && col ==223){
-                                cout << "coordonnees du pixel dans le calcul(" << (row+decalageRow) << "," << ( col + decalageCol ) << ")\n valeur du pixel :" <<  (int)rgb[3*(( row + decalageRow )*imgCols+( col + decalageCol ))+i] <<endl;
+                            if (row == 211 && col == 192 ){
+                                cout << "coordonnees du pixel dans le calcul(" << (row+decalageRow) << "," << ( col + decalageCol ) << ")\n valeur du pixel : " <<  (int)rgb[3*(( row + decalageRow )*imgCols+( col + decalageCol ))+i] <<endl;
+                                cout << "coefficient de la matrice " << noyau.matrice[ decalageRow + limRows ][ decalageCol + limCols ] << endl;
                             }
                         }
 
                     }
-                    cout << "coordonnees du pixel (" << row << "," << col <<")" << "\n" << "valeur de sum " << sum <<endl;
+
 
                     //normalisation en dehors de la boucle pour faire moins d'arrondis
                     //cout << noyau.sommeCoefficients << endl;
