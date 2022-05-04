@@ -83,33 +83,6 @@ void pasAlpha( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRo
     }
 }
 
-void pasAlphaDetectEdge( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRow, matriceConvolution noyau){
-    for(int col = 0; col< imgCols;col++){
-        for(int row = 0; row< imgRow; row++){
-            if(col >0 && col< imgCols && row >0 && row< imgRow){
-                for( int i=0; i<3; i++){
-
-                    auto sum=0;
-
-                    for (int decalageRow = -1; decalageRow < 2; decalageRow++){
-                        for (int decalageCol = -1; decalageCol < 2; decalageCol++ ){
-                           sum += rgb[3*(( row + decalageRow )*imgCols+( col + decalageCol ))+i] * noyau.matrice[ noyau.rows - (decalageRow+2) ][ noyau.cols - (decalageCol+2) ]; //coefficient de la matrice de convolution à l'indice associé, on fait la rotation en même temps par le calcul d'indice
-                        }
-                    }
-                    //normalisation en dehors de la boucle pour faire moins d'arrondis
-                    //g[3*((row)*imgCols+col)+i] = sum/ noyau.sommeCoefficients; // somme des coefficients de la matrice de convolution
-                }
-            }
-            else{
-                for(int i= 0; i<3;i++){
-                    g[3*((row)*imgCols+col)+i] = 0;
-                }
-            }
-        }
-    }
-}
-
-
 int main(int n, char* params[])
 {
     Mat m_in;
@@ -149,7 +122,7 @@ int main(int n, char* params[])
 
 
     if(sizeRGB%3==0){
-        pasAlpha(rgb,g,cols,rows, matriceBlur10);
+        pasAlpha(rgb,g,cols,rows, matriceBlur3);
         //pasAlphaDetectEdge(rgb,g,cols,rows, matriceDetectEdge1);
     }
     if(sizeRGB%4==0){
