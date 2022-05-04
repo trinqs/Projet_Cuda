@@ -125,10 +125,11 @@ int main(int n, char* params[])
 
     cv::Mat m_out( rows, cols, type, g );
 
+    char* res = "out_"
     if (n==3){
         cv::imwrite( params[2], m_out );
     }else if(n==2){
-        cv::imwrite( "out_" + params[1], m_out );
+        cv::imwrite( res + params[1], m_out );
     }else{
         cv::imwrite( "out.jpeg", m_out );
     }
