@@ -27,7 +27,10 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8504d56-1fbf-42ca-b64e-5432c61b4366" name="Default Changelist" comment="Patch note 178.4.2.1" />
+    <list default="true" id="c8504d56-1fbf-42ca-b64e-5432c61b4366" name="Default Changelist" comment="Patch note 178.4.2.1">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Convolution.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Convolution.cpp" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -84,14 +87,7 @@
       <workItem from="1651495791510" duration="7869000" />
       <workItem from="1651575991939" duration="12314000" />
       <workItem from="1651653204012" duration="5526000" />
-      <workItem from="1651666026022" duration="15704000" />
-    </task>
-    <task id="LOCAL-00101" summary="Patch note 178.4.0.4">
-      <created>1651670552221</created>
-      <option name="number" value="00101" />
-      <option name="presentableId" value="LOCAL-00101" />
-      <option name="project" value="LOCAL" />
-      <updated>1651670552221</updated>
+      <workItem from="1651666026022" duration="15937000" />
     </task>
     <task id="LOCAL-00102" summary="Patch note 178.4.0.4">
       <created>1651670575004</created>
@@ -429,7 +425,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651682189737</updated>
     </task>
-    <option name="localTasksCounter" value="150" />
+    <task id="LOCAL-00150" summary="Patch note 178.4.2.1">
+      <created>1651683117715</created>
+      <option name="number" value="00150" />
+      <option name="presentableId" value="LOCAL-00150" />
+      <option name="project" value="LOCAL" />
+      <updated>1651683117715</updated>
+    </task>
+    <option name="localTasksCounter" value="151" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
