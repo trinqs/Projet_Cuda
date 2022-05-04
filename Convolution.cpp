@@ -12,10 +12,10 @@ using ui32 = unsigned int;
 
 
 struct matriceConvolution {
-    int matrice[][];
+    int** matrice;
     int coefficients;
 
-    matriceConvolution(int[][] matrice, int coefficients) : matrice(matrice), coefficients(coefficients) {}
+    matriceConvolution(int** matrice, int coefficients) : matrice(matrice), coefficients(coefficients) {}
 };
 
 /*
@@ -112,7 +112,7 @@ int main(int n, char* params[])
 
     uchar* g = new uchar[ 3*(rows * cols)]();
 
-    int tab[3][3] = [[1,1,1],[1,1,1],[1,1,1]];
+    int** tab = [[1,1,1],[1,1,1],[1,1,1]];
     int coefficientsSomme = 9
 
     ::matriceConvolution blur1(tab,coefficientsSomme)
