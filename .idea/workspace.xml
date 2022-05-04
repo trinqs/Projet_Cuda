@@ -28,9 +28,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c8504d56-1fbf-42ca-b64e-5432c61b4366" name="Default Changelist" comment="Patch note 178.3.2.9">
-      <change afterPath="$PROJECT_DIR$/chat.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chien.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/grenouille.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlurCovalution.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/BlurCovalution.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,21 +86,7 @@
       <updated>1651495790160</updated>
       <workItem from="1651495791510" duration="7869000" />
       <workItem from="1651575991939" duration="12314000" />
-      <workItem from="1651653204012" duration="3337000" />
-    </task>
-    <task id="LOCAL-00033" summary="Parce que je trouve ca dommage de partir aussi loin pour rien">
-      <created>1651583755757</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1651583755757</updated>
-    </task>
-    <task id="LOCAL-00034" summary="Parce que je trouve ca dommage de partir aussi loin pour rien">
-      <created>1651583802526</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1651583802526</updated>
+      <workItem from="1651653204012" duration="4025000" />
     </task>
     <task id="LOCAL-00035" summary="Parce que je trouve ca dommage de partir aussi loin pour rien">
       <created>1651583837217</created>
@@ -432,7 +417,21 @@
       <option name="project" value="LOCAL" />
       <updated>1651657660481</updated>
     </task>
-    <option name="localTasksCounter" value="82" />
+    <task id="LOCAL-00082" summary="Patch note 178.3.2.9">
+      <created>1651657882317</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1651657882317</updated>
+    </task>
+    <task id="LOCAL-00083" summary="Patch note 178.3.2.9">
+      <created>1651658031521</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1651658031521</updated>
+    </task>
+    <option name="localTasksCounter" value="84" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
