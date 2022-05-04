@@ -102,17 +102,8 @@ int main()
     auto cols = m_in.cols;
     auto rows = m_in.rows;
     auto sizeRGB = 3*(rows * cols);
-    for (int i =0; i<3*(rows * cols); i++){
-
-    }
-
-
-
-
 
     auto type = m_in.type();
-
-    unsigned char* rgb_d = rgb;
 
     uchar* g = new uchar[ 3*(rows * cols)]();
 
@@ -125,8 +116,6 @@ int main()
 
     cv::Mat m_out( rows, cols, type, g );
     cv::imwrite( "out.jpeg", m_out );
-
-    unsigned char test = 1/9;
 
     return 0;
 }
