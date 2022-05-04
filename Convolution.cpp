@@ -65,7 +65,7 @@ void pasAlpha( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRo
 
                     auto sum=0;
 
-                    cout << "\n\n\n\n\n\n\n\n\n\n\n\n" << endl;
+                    //cout << "\n\n\n\n\n\n\n\n\n\n\n\n" << endl;
 
                     for (int decalageCol = -limCols; decalageCol < limCols+1; decalageCol++){
                         for (int decalageRow = -limRows; decalageRow < limRows+1; decalageRow++){
@@ -75,6 +75,7 @@ void pasAlpha( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRo
                         }
                     }
                     //normalisation en dehors de la boucle pour faire moins d'arrondis
+                    cout << noyau.sommeCoefficients << endl;
                     g[3*((row)*imgCols+col)+i] = sum/ noyau.sommeCoefficients; // somme des coefficients de la matrice de convolution
                 }
             }
