@@ -50,7 +50,7 @@ unsigned char julia( int x, int y )
 }
 */
 
-void pasAlpha( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRow, vector<vector<int>> matrice, int coefficients){
+void pasAlpha( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRow, matriceConvolution noyau){
     for(int col = 0; col< imgCols;col++){
         for(int row = 0; row< imgRow; row++){
             if(col >0 && col< imgCols && row >0 && row< imgRow){
@@ -60,11 +60,11 @@ void pasAlpha( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRo
 
                     for (int decalageRow = -1; decalageRow < 2; decalageRow++){
                         for (int decalageCol = -1; decalageCol < 2; decalageCol++ ){
-                           sum += rgb[3*(( row + decalageRow )*imgCols+( col + decalageCol ))+i] * matrice[ matrice.size() - (decalageRow+2) ][ matrice.size() - (decalageCol+2) ]; //coefficient de la matrice de convolution à l'indice associé, on fait la rotation en même temps par le calcul d'indice
+                           sum += rgb[3*(( row + decalageRow )*imgCols+( col + decalageCol ))+i] * noyau.matrice[ matrice.size() - (decalageRow+2) ][ matrice.size() - (decalageCol+2) ]; //coefficient de la matrice de convolution à l'indice associé, on fait la rotation en même temps par le calcul d'indice
                         }
                     }
                     //normalisation en dehors de la boucle pour faire moins d'arrondis
-                    g[3*((row)*imgCols+col)+i] = sum/coefficients; // somme des coefficients de la matrice de convolution
+                    g[3*((row)*imgCols+col)+i] = sum/ noyau.coefficients; // somme des coefficients de la matrice de convolution
 
                     /*
                     unsigned char ne = rgb[3*((row-1)*imgCols+(col-1))+i];
@@ -131,7 +131,7 @@ int main(int n, char* params[])
     }
 
     if(sizeRGB%3==0){
-        pasAlpha(rgb,g,cols,rows, matriceBlur, coefficientsBlur);
+        pasAlpha(rgb,g,cols,rows, matriceBlurS);
     }
     if(sizeRGB%4==0){
         //de l'alpha
