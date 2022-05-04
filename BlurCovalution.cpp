@@ -60,7 +60,7 @@ void pasAlpha( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRo
                         }
                     }
                     //normalisation en dehors de la boucle pour faire moins d'arrondis
-                    g[3*((row)*imgCols+col)+i] = g[3*((row)*imgCols+col)+i]/9 //9 = somme des coefficients de la matrice de convolution
+                    g[3*((row)*imgCols+col)+i] = g[3*((row)*imgCols+col)+i]/9;//9 = somme des coefficients de la matrice de convolution
 
                    /* unsigned char ne = rgb[3*((row-1)*imgCols+(col-1))+i];
                     unsigned char n = rgb[3*((row-1)*imgCols+(col))+i];

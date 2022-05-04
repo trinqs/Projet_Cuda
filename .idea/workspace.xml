@@ -27,10 +27,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8504d56-1fbf-42ca-b64e-5432c61b4366" name="Default Changelist" comment="on test autre chose">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlurCovalution.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/BlurCovalution.cpp" afterDir="false" />
-    </list>
+    <list default="true" id="c8504d56-1fbf-42ca-b64e-5432c61b4366" name="Default Changelist" comment="Patch note 178.3.2.9" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -86,14 +83,7 @@
       <updated>1651495790160</updated>
       <workItem from="1651495791510" duration="7869000" />
       <workItem from="1651575991939" duration="12314000" />
-      <workItem from="1651653204012" duration="690000" />
-    </task>
-    <task id="LOCAL-00021" summary="Parce que je trouve ca dommage de partir aussi loin pour rien">
-      <created>1651582461200</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1651582461200</updated>
+      <workItem from="1651653204012" duration="991000" />
     </task>
     <task id="LOCAL-00022" summary="Parce que je trouve ca dommage de partir aussi loin pour rien">
       <created>1651582535913</created>
@@ -431,7 +421,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651588944600</updated>
     </task>
-    <option name="localTasksCounter" value="70" />
+    <task id="LOCAL-00070" summary="Patch note 178.3.2.9">
+      <created>1651654168486</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1651654168488</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -465,7 +462,8 @@
     <MESSAGE value="on se ressaisit on revient au correction" />
     <MESSAGE value="Parce que je trouve ca dommage de partir aussi loin pour rien" />
     <MESSAGE value="on test autre chose" />
-    <option name="LAST_COMMIT_MESSAGE" value="on test autre chose" />
+    <MESSAGE value="Patch note 178.3.2.9" />
+    <option name="LAST_COMMIT_MESSAGE" value="Patch note 178.3.2.9" />
   </component>
   <component name="WindowStateProjectService">
     <state x="836" y="210" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1651498723636">
