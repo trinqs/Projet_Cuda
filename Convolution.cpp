@@ -80,6 +80,10 @@ void pasAlpha( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRo
                         }
 
                     }
+                    if (row == 211 && col == 192){
+                        cout << "\n Valeur de la sum : " << sum << "\n" <<endl;
+
+                    }
 
 
                     //normalisation en dehors de la boucle pour faire moins d'arrondis
