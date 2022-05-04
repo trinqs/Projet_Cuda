@@ -140,7 +140,7 @@ int main(int n, char* params[])
     );
 
     matriceConvolution matriceDetectEdge1 = matriceConvolution(
-        vector<vector<int>>({ {,1,0} , {1,-4,1} , {0,1,0} })
+        vector<vector<int>>({ {0,1,0} , {1,-4,1} , {0,1,0} })
     );
 
 
