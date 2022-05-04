@@ -55,6 +55,34 @@ unsigned char julia( int x, int y )
 */
 
 void pasAlpha( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRow, matriceConvolution noyau){
+    int limCols = noyau.cols/2;
+    int limRows = noyau.rows/2;
+    for(int col = 0; col< imgCols;col++){
+        for(int row = 0; row< imgRow; row++){
+            if(col >= limCols && col<= imgCols-limCols && row >= limRows && row <= imgRow-limRows){
+                for( int i=0; i<3; i++){
+
+                    auto sum=0;
+
+                    for (int decalageRow = -limRows; decalageRow < limRows; decalageRow++){
+                        for (int decalageCol = -limCols; decalageCol < limCols; decalageCol++ ){
+                           sum += rgb[3*(( row + decalageRow )*imgCols+( col + decalageCol ))+i] * noyau.matrice[ noyau.rows - (decalageRow+2) ][ noyau.cols - (decalageCol+2) ]; //coefficient de la matrice de convolution à l'indice associé, on fait la rotation en même temps par le calcul d'indice
+                        }
+                    }
+                    //normalisation en dehors de la boucle pour faire moins d'arrondis
+                    g[3*((row)*imgCols+col)+i] = sum/ noyau.sommeCoefficients; // somme des coefficients de la matrice de convolution
+                }
+            }
+            else{
+                for(int i= 0; i<3;i++){
+                    g[3*((row)*imgCols+col)+i] = 0;
+                }
+            }
+        }
+    }
+}
+
+void pasAlphaDetectEdge( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRow, matriceConvolution noyau){
     for(int col = 0; col< imgCols;col++){
         for(int row = 0; row< imgRow; row++){
             if(col >0 && col< imgCols && row >0 && row< imgRow){
@@ -68,30 +96,7 @@ void pasAlpha( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRo
                         }
                     }
                     //normalisation en dehors de la boucle pour faire moins d'arrondis
-                    g[3*((row)*imgCols+col)+i] = sum/ noyau.sommeCoefficients; // somme des coefficients de la matrice de convolution
-
-                    /*
-                    unsigned char ne = rgb[3*((row-1)*imgCols+(col-1))+i];
-                    unsigned char n = rgb[3*((row-1)*imgCols+(col))+i];
-                    unsigned char no = rgb[3*((row-1)*imgCols+(col+1))+i];
-                    unsigned char o = rgb[3*((row)*imgCols+(col+1))+i];
-                    unsigned char so = rgb[3*((row+1)*imgCols+(col+1))+i];
-                    unsigned char s = rgb[3*((row+1)*imgCols+(col))+i];
-                    unsigned char se = rgb[3*((row+1)*imgCols+(col-1))+i];
-                    unsigned char e = rgb[3*((row)*imgCols+(col-1))+i];
-                    unsigned char milieu = rgb[3*((row)*imgCols+col)+i];
-
-                     g[3*((row)*imgCols+col)+i] = (ne
-                                                + n
-                                                + no
-                                                + o
-                                                + so
-                                                + s
-                                                + se
-                                                + e
-                                                + milieu)
-                                                /9;*/
-
+                    //g[3*((row)*imgCols+col)+i] = sum/ noyau.sommeCoefficients; // somme des coefficients de la matrice de convolution
                 }
             }
             else{
@@ -143,7 +148,8 @@ int main(int n, char* params[])
 
 
     if(sizeRGB%3==0){
-        pasAlpha(rgb,g,cols,rows, matriceBlur3);
+        pasAlpha(rgb,g,cols,rows, matriceBlur10);
+        //pasAlphaDetectEdge(rgb,g,cols,rows, matriceDetectEdge1);
     }
     if(sizeRGB%4==0){
         //de l'alpha
