@@ -82,11 +82,11 @@ void pasAlpha( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRo
 
 
 
-                    sum = sum%255;
+                    int sumInt = sum%255;
 
                     if (row == 192 && col == 211){
-                    cout << "\n Valeur de la sum : " << sum << "\n" <<endl;
-
+                        cout << "\n Valeur de la sum : " << sum << "\n" <<endl;
+                        cout << "\n Valeur de la sumInt : " << sumInt << "\n"<<endl;
                     }
 
 
