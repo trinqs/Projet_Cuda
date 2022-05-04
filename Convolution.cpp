@@ -123,6 +123,7 @@ int main(int n, char* params[])
 
     uchar* g = new uchar[ 3*(rows * cols)]();
 
+
     matriceConvolution matriceBlur1 = matriceConvolution(
         vector<vector<int>>({ {1,1,1} , {1,1,1} , {1,1,1} })
     );
@@ -130,15 +131,19 @@ int main(int n, char* params[])
     matriceConvolution matriceDetectEdge1 = matriceConvolution(
         vector<vector<int>>({ {-1,-1,-1} , {-1,8,-1} , {-1,-1,-1} })
     );
-    cout << "detectedge" << matriceDetectEdge1.sommeCoefficients << endl;
+
 
     matriceConvolution matriceBlur3 = matriceConvolution(
         vector<vector<int>>({ {1,1,1,1,1} , {1,1,1,1,1} , {1,1,1,1,1}, {1,1,1,1,1}, {1,1,1,1,1} })
     );
-    cout << "blur3" << matriceBlur3.sommeCoefficients << endl;
+
+    matriceConvolution matriceBlur10 = matriceConvolution(
+        vector<vector<int>>({ {1,1,1,1,1,1,1,1,1,1} , {1,1,1,1,1,1,1,1,1,1} , {1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1} })
+    );
+
 
     if(sizeRGB%3==0){
-        pasAlpha(rgb,g,cols,rows, matriceDetectEdge1);
+        pasAlpha(rgb,g,cols,rows, matriceBlur3);
     }
     if(sizeRGB%4==0){
         //de l'alpha
