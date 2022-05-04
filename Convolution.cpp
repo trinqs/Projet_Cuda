@@ -108,7 +108,7 @@ int main(int n, char* params[])
     int coefficientsBlur = 0;
     for (int i=0; i<matriceBlur.size(); i++){
         for (int j=0; j< matriceBlur[0].size(); j++){
-            coefficientsBlur += matriceBlur[i][j]
+            coefficientsBlur += matriceBlur[i][j];
         }
     }
     cout << coefficientsBlur << endl;
