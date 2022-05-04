@@ -80,7 +80,9 @@ void pasAlpha( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRo
 
                     }
 
-                    g[3*(row*imgCols+col)+i] = g[3*(row*imgCols+col)+i]%255;
+
+
+                    sum = sum%255;
 
                     if (row == 192 && col == 211){
                     cout << "\n Valeur de la sum : " << sum << "\n" <<endl;
