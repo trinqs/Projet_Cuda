@@ -73,7 +73,7 @@ void pasAlpha( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRo
                             sum += rgb[3*(( row + decalageRow )*imgCols+( col + decalageCol ))+i] * noyau.matrice[ decalageRow + limRows ][ decalageCol + limCols ];//coefficient de la matrice de convolution à l'indice associé, on fait la rotation en même temps par le calcul d'indice
                         }
                     }
-                    cout << "coordonnees du pixel " << row*imgCols+col << "\n" << "valeur de sum " << sum <<endl;
+                    cout << "coordonnees du pixel (" << row << "," << col <<")" << "\n" << "valeur de sum " << sum <<endl;
 
                     //normalisation en dehors de la boucle pour faire moins d'arrondis
                     //cout << noyau.sommeCoefficients << endl;
