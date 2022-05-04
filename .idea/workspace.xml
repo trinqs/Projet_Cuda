@@ -27,8 +27,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8504d56-1fbf-42ca-b64e-5432c61b4366" name="Default Changelist" comment="Patch note 178.3.2.11">
+    <list default="true" id="c8504d56-1fbf-42ca-b64e-5432c61b4366" name="Default Changelist" comment="Patch note 178.4.0.1">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Convolution.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Convolution.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,13 +87,7 @@
       <workItem from="1651495791510" duration="7869000" />
       <workItem from="1651575991939" duration="12314000" />
       <workItem from="1651653204012" duration="5526000" />
-    </task>
-    <task id="LOCAL-00041" summary="on test autre chose">
-      <created>1651585908858</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1651585908858</updated>
+      <workItem from="1651666026022" duration="1110000" />
     </task>
     <task id="LOCAL-00042" summary="on test autre chose">
       <created>1651586069175</created>
@@ -430,7 +425,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651659845867</updated>
     </task>
-    <option name="localTasksCounter" value="90" />
+    <task id="LOCAL-00090" summary="Patch note 178.4.0.1">
+      <created>1651667201852</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1651667201852</updated>
+    </task>
+    <option name="localTasksCounter" value="91" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -467,6 +469,7 @@
     <MESSAGE value="Patch note 178.3.2.9" />
     <MESSAGE value="Patch note 178.3.2.10" />
     <MESSAGE value="Patch note 178.3.2.11" />
-    <option name="LAST_COMMIT_MESSAGE" value="Patch note 178.3.2.11" />
+    <MESSAGE value="Patch note 178.4.0.1" />
+    <option name="LAST_COMMIT_MESSAGE" value="Patch note 178.4.0.1" />
   </component>
 </project>
