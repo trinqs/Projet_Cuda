@@ -10,14 +10,6 @@ using namespace cv;
 
 using ui32 = unsigned int;
 
-
-struct matriceConvolution {
-    int** matrice;
-    int coefficients;
-
-    matriceConvolution(int** matrice, int coefficients) : matrice(matrice), coefficients(coefficients) {}
-};
-
 /*
 unsigned char julia( int x, int y )
 {
@@ -112,8 +104,14 @@ int main(int n, char* params[])
 
     uchar* g = new uchar[ 3*(rows * cols)]();
 
-    int tab[3][3]= { {1,1,1} , {1,1,1} , {1,1,1} };
-    int coefficientsSomme = 9;
+    int matriceBlur[3][3]= { {1,1,1} , {1,1,1} , {1,1,1} };
+    int coefficients = 0;
+    for (int i=0; i<matriceBlur.size(); i++){
+        for (int j=0; j< matriceBlur[0].size(); j++){
+            coefficients += matriceBlur[i][j]
+        }
+    }
+    cout << coefficients << endl;
 
     ::matriceConvolution blur1(tab,coefficientsSomme);
 
