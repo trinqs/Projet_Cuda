@@ -53,7 +53,9 @@ void pasAlpha( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRo
         for(int row = 0; row< imgRow; row++){
             if(col >0 && col< imgCols && row >0 && row< imgRow){
                 for( int i=0; i<3; i++){
+
                     auto sum=0;
+
                     for (int decalageRow = -1; decalageRow < 2; decalageRow++){
                         for (int decalageCol = -1; decalageCol < 2; decalageCol++ ){
                            sum += rgb[3*(( row + decalageRow )*imgCols+( col + decalageCol ))+i] * 1; //1 = coefficient de la matrice de convolution à l'indice associé
