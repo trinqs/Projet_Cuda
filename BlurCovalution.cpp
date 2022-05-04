@@ -101,9 +101,9 @@ int main(int n, char* params[])
 
     cout << n <<endl;
 
-    if (n==1){
+    if (n==2){
         cout << params[0] << endl;
-        m_in = cv::imread(params[0], IMREAD_UNCHANGED );
+        m_in = cv::imread(params[1], IMREAD_UNCHANGED );
     }else{
         m_in = cv::imread("in.jpeg", IMREAD_UNCHANGED );
     }
