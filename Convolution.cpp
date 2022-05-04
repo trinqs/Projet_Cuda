@@ -10,20 +10,15 @@ using namespace cv;
 
 using ui32 = unsigned int;
 
-/*
-struct complex {
-    float r; float i;
-    complex(float r, float i) : r(r), i(i) {}
-    float magnitude() {return r*r + i*i;}
-    complex operator*(const complex& c) {
-        return complex(r * c.r - i * c.i, i * c.r + r * c.i);
-    }
-    complex operator+(const complex& c) {
-        return complex(r + c.r, i + c.i);
-    }
+
+struct matriceConvolution {
+    int[][] matrice;
+    int coefficients;
+
+    matriceConvolution(int[][] matrice, int coefficients) : matrice(matrice), coefficients(coefficients) {}
 };
 
-
+/*
 unsigned char julia( int x, int y )
 {
     const float scale = 1.5;
@@ -48,7 +43,7 @@ unsigned char julia( int x, int y )
 }
 */
 
-void pasAlpha( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRow){
+void pasAlpha( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRow, matriceConvolution matriceConvolution){
     for(int col = 0; col< imgCols;col++){
         for(int row = 0; row< imgRow; row++){
             if(col >0 && col< imgCols && row >0 && row< imgRow){
@@ -101,9 +96,6 @@ void pasAlpha( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRo
 int main(int n, char* params[])
 {
     Mat m_in;
-
-    cout << n <<endl;
-
     if (n==2 || n==3){
         m_in = cv::imread(params[1], IMREAD_UNCHANGED );
     }else{
@@ -111,6 +103,7 @@ int main(int n, char* params[])
     }
 
     uchar* rgb = m_in.data;
+
     auto cols = m_in.cols;
     auto rows = m_in.rows;
     auto sizeRGB = 3*(rows * cols);
@@ -119,8 +112,13 @@ int main(int n, char* params[])
 
     uchar* g = new uchar[ 3*(rows * cols)]();
 
+    int[][] tab = [[1,1,1],[1,1,1],[1,1,1]];
+    int coefficientsSomme = 9
+
+    ::matriceConvolution blur1(tab,coefficientsSomme)
+
     if(sizeRGB%3==0){
-        pasAlpha(rgb,g,cols,rows);
+        pasAlpha(rgb,g,cols,rows, blur1);
     }
     if(sizeRGB%4==0){
         //de l'alpha
