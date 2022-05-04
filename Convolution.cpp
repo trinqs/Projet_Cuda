@@ -10,6 +10,21 @@ using namespace cv;
 
 using ui32 = unsigned int;
 
+
+struct matriceConvolution {
+    vector<vector<int>> matrice;
+    int sommeCoefficients;
+
+    matriceConvolution(vector<vector<int>> _matrice) : matrice(_matrice) {
+        this->sommeCoefficients = 0;
+        for (int i=0; i<_matrice.size(); i++){
+            for (int j=0; j< _matrice[0].size(); j++){
+               this->sommeCoefficients += _matrice[i][j];
+            }
+        }
+    }
+
+};
 /*
 unsigned char julia( int x, int y )
 {
@@ -104,9 +119,13 @@ int main(int n, char* params[])
 
     uchar* g = new uchar[ 3*(rows * cols)]();
 
-    vector<vector<int>> matriceBlur= { {1,1,1} , {1,1,1} , {1,1,1} };
+    vector<vector<int>> matriceBlur1= { {1,1,1} , {1,1,1} , {1,1,1} };
 
-    int coefficientsBlur = 0;
+    matriceConvolution matriceBlurS = matriceConvolution(matriceBlur1)
+
+    vector<vector<int>> matriceBlur2= { {1,1,1} , {1,1,1} , {1,1,1} };
+
+    int coefficientsBlur1 = 0;
     for (int i=0; i<matriceBlur.size(); i++){
         for (int j=0; j< matriceBlur[0].size(); j++){
             coefficientsBlur += matriceBlur[i][j];
