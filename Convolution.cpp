@@ -84,37 +84,6 @@ void pasAlpha( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRo
     }
 }
 
-void pasAlphaDetectEdge( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRow, matriceConvolution noyau){
-    int limCols = noyau.cols/2;
-    int limRows = noyau.rows/2;
-    for(int col = 0; col< imgCols;col++){
-        for(int row = 0; row< imgRow; row++){
-            if(col >= limCols && col<= imgCols-limCols && row >= limRows && row <= imgRow-limRows){
-
-                for( int i=0; i<3; i++){
-
-                    auto sum=0;
-
-                    for (int decalageCol = -limCols; decalageCol < limCols; decalageCol++){
-                        for (int decalageRow = -limRows; decalageRow < limRows; decalageRow++){
-
-                           sum += rgb[3*(( row + decalageRow )*imgCols+( col + decalageCol ))+i] * noyau.matrice[ decalageRow + limRows ][ decalageCol + limCols ]; //coefficient de la matrice de convolution à l'indice associé, on fait la rotation en même temps par le calcul d'indice
-                        }
-                    }
-                    //normalisation en dehors de la boucle pour faire moins d'arrondis
-                    g[3*((row)*imgCols+col)+i] = sum; // somme des coefficients de la matrice de convolution
-                }
-            }
-            else{
-                for(int i= 0; i<3;i++){
-                    g[3*((row)*imgCols+col)+i] = 0;
-                }
-            }
-        }
-    }
-}
-
-
 int main(int n, char* params[])
 {
     Mat m_in;
@@ -139,8 +108,8 @@ int main(int n, char* params[])
         vector<vector<int>>({ {1,1,1} , {1,1,1} , {1,1,1} })
     );
 
-    matriceConvolution matriceDetectEdge1 = matriceConvolution(
-        vector<vector<int>>({ {0,1,0} , {1,-4,1} , {0,1,0} })
+    matriceConvolution matriceNettete1 = matriceConvolution(
+        vector<vector<int>>({ {0,-1,0} , {-1,5,-1} , {0,-1,0} })
     );
 
 
@@ -154,8 +123,8 @@ int main(int n, char* params[])
 
 
     if(sizeRGB%3==0){
-        //pasAlpha(rgb,g,cols,rows, matriceBlur10);
-        pasAlphaDetectEdge(rgb,g,cols,rows, matriceDetectEdge1);
+        pasAlpha(rgb,g,cols,rows, matriceNettete1);
+
     }
     if(sizeRGB%4==0){
         //de l'alpha
