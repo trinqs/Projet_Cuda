@@ -57,6 +57,7 @@ unsigned char julia( int x, int y )
 void pasAlpha( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRow, matriceConvolution noyau){
     int limCols = noyau.cols/2;
     int limRows = noyau.rows/2;
+    cout <<
     for(int col = 0; col< imgCols;col++){
         for(int row = 0; row< imgRow; row++){
             if(col >= limCols && col<= imgCols-limCols && row >= limRows && row <= imgRow-limRows){
@@ -64,8 +65,8 @@ void pasAlpha( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRo
 
                     auto sum=0;
 
-                    for (int decalageRow = -limRows; decalageRow < limRows; decalageRow++){
-                        for (int decalageCol = -limCols; decalageCol < limCols; decalageCol++ ){
+                    for (int decalageCol = -limCols; decalageCol < limCols; decalageCol++){
+                        for (int decalageRow = -limRows; decalageRow < limRows; decalageRow++){
                            sum += rgb[3*(( row + decalageRow )*imgCols+( col + decalageCol ))+i] * noyau.matrice[ noyau.rows - (decalageRow+2) ][ noyau.cols - (decalageCol+2) ]; //coefficient de la matrice de convolution à l'indice associé, on fait la rotation en même temps par le calcul d'indice
                         }
                     }
