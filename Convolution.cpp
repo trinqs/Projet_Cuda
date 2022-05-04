@@ -57,7 +57,7 @@ unsigned char julia( int x, int y )
 void pasAlpha( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRow, matriceConvolution noyau){
     int limCols = noyau.cols/2;
     int limRows = noyau.rows/2;
-    cout << limCols << endl
+    cout << limCols << endl;
     for(int col = 0; col< imgCols;col++){
         for(int row = 0; row< imgRow; row++){
             if(col >= limCols && col<= imgCols-limCols && row >= limRows && row <= imgRow-limRows){
