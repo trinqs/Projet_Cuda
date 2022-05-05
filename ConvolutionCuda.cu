@@ -82,7 +82,7 @@ __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, size_t imgCols,si
         }
     }
 }
-
+//
 int main(int n, char* params[])
 {
     Mat m_in;
