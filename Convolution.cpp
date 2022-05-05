@@ -195,10 +195,38 @@ void gaussianBlur3Convolution(int n, char* params[], unsigned char* bgr, size_t 
                                 }
 }
 
-void detectEdges3Convolution(int n, char* params[], unsigned char* bgr, size_t cols, size_t rows, int sizebgr, auto type){
+void sharpness3Convolution(int n, char* params[], unsigned char* bgr, size_t cols, size_t rows, int sizebgr, auto type){
         uchar* g = new uchar[ 3*(rows * cols)]();
                                     matriceConvolution noyau = matriceConvolution(
                                         vector<vector<int>>({ {0,-1,0} , {-1,5,-1} , {0,-1,0} })
+                                    );
+                                    if(sizebgr%3==0){
+                                        pasAlpha(bgr,g,cols,rows, noyau);
+
+                                    }else if(sizebgr%4==0){
+                                        //de l'alpha
+                                    }
+
+                                    cv::Mat m_out( rows, cols, type, g );
+                                    if (n==3){
+                                        string res = "out_sharpness3_";
+                                        res.append(params[2]);
+                                        cv::imwrite( res, m_out );
+                                    }else if(n==2){
+                                        string res = "out_sharpness3_";
+                                        res.append(params[1]);
+                                        cv::imwrite( res, m_out );
+                                    }else{
+                                        string res = "out_sharpness3";
+                                        res.append(".jpeg");
+                                        cv::imwrite( res, m_out );
+                                    }
+}
+
+void detectEdges3Convolution(int n, char* params[], unsigned char* bgr, size_t cols, size_t rows, int sizebgr, auto type){
+        uchar* g = new uchar[ 3*(rows * cols)]();
+                                    matriceConvolution noyau = matriceConvolution(
+                                        vector<vector<int>>({ {-1,-1,-1} , {-1,8,-1} , {-1,-1,-1} })
                                     );
                                     if(sizebgr%3==0){
                                         pasAlpha(bgr,g,cols,rows, noyau);
@@ -218,34 +246,6 @@ void detectEdges3Convolution(int n, char* params[], unsigned char* bgr, size_t c
                                         cv::imwrite( res, m_out );
                                     }else{
                                         string res = "out_detectEdges3";
-                                        res.append(".jpeg");
-                                        cv::imwrite( res, m_out );
-                                    }
-}
-
-void nettete3Convolution(int n, char* params[], unsigned char* bgr, size_t cols, size_t rows, int sizebgr, auto type){
-        uchar* g = new uchar[ 3*(rows * cols)]();
-                                    matriceConvolution noyau = matriceConvolution(
-                                        vector<vector<int>>({ {-1,-1,-1} , {-1,8,-1} , {-1,-1,-1} })
-                                    );
-                                    if(sizebgr%3==0){
-                                        pasAlpha(bgr,g,cols,rows, noyau);
-
-                                    }else if(sizebgr%4==0){
-                                        //de l'alpha
-                                    }
-
-                                    cv::Mat m_out( rows, cols, type, g );
-                                    if (n==3){
-                                        string res = "out_nettete3_";
-                                        res.append(params[2]);
-                                        cv::imwrite( res, m_out );
-                                    }else if(n==2){
-                                        string res = "out_nettete3_";
-                                        res.append(params[1]);
-                                        cv::imwrite( res, m_out );
-                                    }else{
-                                        string res = "out_nettete3";
                                         res.append(".jpeg");
                                         cv::imwrite( res, m_out );
                                     }
@@ -275,7 +275,7 @@ int main(int n, char* params[])
     blur11Convolution(n,params,bgr,cols,rows, sizebgr, type);
     gaussianBlur3Convolution(n,params,bgr,cols,rows, sizebgr, type);
     detectEdges3Convolution(n,params,bgr,cols,rows, sizebgr, type);
-    nettete3Convolution(n,params,bgr,cols,rows, sizebgr, type);
+    sharpness3Convolution(n,params,bgr,cols,rows, sizebgr, type);
 
     return 0;
 }
