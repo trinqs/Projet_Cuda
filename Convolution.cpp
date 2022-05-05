@@ -84,7 +84,7 @@ void pasAlpha( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRo
                     }
 
                     if (sum < 0){
-                        sum = (sum*-1)%255 ;
+                        sum = (sum*-1)%255;
                     }
 
                     g[3*(row*imgCols+col)+i] = sum;
