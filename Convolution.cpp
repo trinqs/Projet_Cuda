@@ -90,8 +90,6 @@ void pasAlpha( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRo
 
                     if (row == 192 && col == 211){
                         cout << "\n Valeur de la sum : " << sum << "\n" <<endl;
-
-                        cout << "-66%255 = " << (-66%255) << endl;
                     }
 
 
@@ -130,26 +128,34 @@ int main(int n, char* params[])
     uchar* g = new uchar[ 3*(rows * cols)]();
 
 
-    matriceConvolution matriceBlur1 = matriceConvolution(
+    matriceConvolution Blur3 = matriceConvolution(
         vector<vector<int>>({ {1,1,1} , {1,1,1} , {1,1,1} })
     );
 
-    matriceConvolution matriceNettete1 = matriceConvolution(
+    matriceConvolution Nettete3 = matriceConvolution(
         vector<vector<int>>({ {0,-1,0} , {-1,5,-1} , {0,-1,0} })
     );
 
 
-    matriceConvolution matriceBlur3 = matriceConvolution(
+    matriceConvolution Blur5 = matriceConvolution(
         vector<vector<int>>({ {1,1,1,1,1} , {1,1,1,1,1} , {1,1,1,1,1}, {1,1,1,1,1}, {1,1,1,1,1} })
     );
 
-    matriceConvolution matriceBlur10 = matriceConvolution(
+    matriceConvolution Blur14 = matriceConvolution(
         vector<vector<int>>({ {1,1,1,1,1,1,1,1,1,1,1} , {1,1,1,1,1,1,1,1,1,1,1} , {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1} })
+    );
+
+    matriceConvolution gaussianBlur3 = matriceConvolution(
+        vector<vector<int>>({ {1,2,1} , {2,4,2} , {1,2,1} })
+    );
+
+    matriceConvolution maskBlur5 = matriceConvolution(
+        vector<vector<int>>({ {1,4,6,4,1} , {4,16,24,16,4} , {6,24,-476,24,6}, {4,16,24,16,4}, {1,4,6,4,1} })
     );
 
 
     if(sizeRGB%3==0){
-        pasAlpha(rgb,g,cols,rows, matriceNettete1);
+        pasAlpha(rgb,g,cols,rows, gaussianBlur3);
 
     }
     if(sizeRGB%4==0){

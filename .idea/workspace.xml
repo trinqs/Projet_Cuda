@@ -27,8 +27,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8504d56-1fbf-42ca-b64e-5432c61b4366" name="Default Changelist" comment="Patch note 178.4.2.1">
+    <list default="true" id="c8504d56-1fbf-42ca-b64e-5432c61b4366" name="Default Changelist" comment="Patch note 178.4.2.2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Convolution.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Convolution.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,13 +96,7 @@
       <workItem from="1651575991939" duration="12314000" />
       <workItem from="1651653204012" duration="5526000" />
       <workItem from="1651666026022" duration="18014000" />
-    </task>
-    <task id="LOCAL-00114" summary="Patch note 178.4.1.1">
-      <created>1651673267484</created>
-      <option name="number" value="00114" />
-      <option name="presentableId" value="LOCAL-00114" />
-      <option name="project" value="LOCAL" />
-      <updated>1651673267484</updated>
+      <workItem from="1651736887515" duration="722000" />
     </task>
     <task id="LOCAL-00115" summary="Patch note 178.4.1.1">
       <created>1651673713448</created>
@@ -439,7 +434,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651685181381</updated>
     </task>
-    <option name="localTasksCounter" value="163" />
+    <task id="LOCAL-00163" summary="Patch note 178.4.2.2">
+      <created>1651737014484</created>
+      <option name="number" value="00163" />
+      <option name="presentableId" value="LOCAL-00163" />
+      <option name="project" value="LOCAL" />
+      <updated>1651737014484</updated>
+    </task>
+    <option name="localTasksCounter" value="164" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -458,7 +460,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="correction" />
     <MESSAGE value="correction2" />
     <MESSAGE value="correction3" />
     <MESSAGE value="correction4" />
@@ -483,6 +484,7 @@
     <MESSAGE value="Patch note 178.4.1.2" />
     <MESSAGE value="Patch note 178.4.1.3" />
     <MESSAGE value="Patch note 178.4.2.1" />
-    <option name="LAST_COMMIT_MESSAGE" value="Patch note 178.4.2.1" />
+    <MESSAGE value="Patch note 178.4.2.2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Patch note 178.4.2.2" />
   </component>
 </project>
