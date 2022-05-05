@@ -38,10 +38,10 @@ struct matriceConvolution {
         this->facteurMax = max(sommePositive,(sommeNegative*-1));
     }
 
-    __host__ __device__ int getCols(){ return cols;}
-    __host__ __device__ int getRows(){ return rows;}
-    __host__ __device__ int getSommeCoefficients(){ return sommeCoefficients;}
-    __host__ __device__ int getFacteurMax(){ return facteurMax;}
+    __device__ __host__  int getCols(){ return cols;}
+    __device__ __host__ int getRows(){ return rows;}
+    __device__ __host__ int getSommeCoefficients(){ return sommeCoefficients;}
+    __device__ __host__ int getFacteurMax(){ return facteurMax;}
 
 };
 
