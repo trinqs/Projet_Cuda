@@ -28,7 +28,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c8504d56-1fbf-42ca-b64e-5432c61b4366" name="Default Changelist" comment="Patch note 178.4.2.3">
-      <change beforePath="$PROJECT_DIR$/Convolution.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Convolution.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Convolution.cu" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,13 +71,13 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunManager">
-    <configuration default="true" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile">
+    <configuration name="Unnamed" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" nameIsGenerated="true">
       <makefile filename="$PROJECT_DIR$/Makefile" target="" workingDirectory="" arguments="">
         <envs />
       </makefile>
       <method v="2" />
     </configuration>
-    <configuration name="Unnamed" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" nameIsGenerated="true">
+    <configuration default="true" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile">
       <makefile filename="$PROJECT_DIR$/Makefile" target="" workingDirectory="" arguments="">
         <envs />
       </makefile>
@@ -486,5 +487,11 @@
     <MESSAGE value="Patch note 178.4.2.2" />
     <MESSAGE value="Patch note 178.4.2.3" />
     <option name="LAST_COMMIT_MESSAGE" value="Patch note 178.4.2.3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="295" y="468" width="365" height="170" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1651761394007">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state x="295" y="468" width="365" height="170" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.25.1920.1055@0.25.1920.1055" timestamp="1651761394007" />
   </component>
 </project>
