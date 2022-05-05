@@ -156,7 +156,7 @@ int main(int n, char* params[])
 
 
     if(sizeRGB%3==0){
-        pasAlpha(rgb,g,cols,rows, blur3);
+        pasAlpha(rgb,g,cols,rows, gaussianBlur3);
 
     }
     if(sizeRGB%4==0){
