@@ -40,7 +40,7 @@ struct matriceConvolution {
 
 };
 
-void blur3Convolution(int n, char* params[], unsigned char* bgr, size_t cols, size_t rows ){
+void blur3Convolution(int n, char* params[], unsigned char* bgr, size_t cols, size_t rows, int sizebgr, auto type){
      uchar* g = new uchar[ 3*(rows * cols)]();
                     matriceConvolution noyau = matriceConvolution(
                             vector<vector<int>>({ {1,1,1} , {1,1,1} , {1,1,1} })
@@ -55,15 +55,15 @@ void blur3Convolution(int n, char* params[], unsigned char* bgr, size_t cols, si
 
                     cv::Mat m_out( rows, cols, type, g );
                     if (n==3){
-                        string res = "out_" + convolutionList[i] + "_";
+                        string res = "out_blur3_";
                         res.append(params[2]);
                         cv::imwrite( res, m_out );
                     }else if(n==2){
-                        string res = "out_" +  convolutionList[i] + "_";
+                        string res = "out_blur3_";
                         res.append(params[1]);
                         cv::imwrite( res, m_out );
                     }else{
-                        string res = "out_" + convolutionList[i];
+                        string res = "out_blur3";
                         res.append(".jpeg");
                         cv::imwrite( res, m_out );
                     }
@@ -133,7 +133,7 @@ int main(int n, char* params[])
     uchar* g = new uchar[ 3*(rows * cols)]();
 
     for (int i=0; i< convolutionList.size(); i++){
-        blur3Convolution(n,params,bgr,cols,rows);
+        blur3Convolution(n,params,bgr,cols,rows, sizebgr, type);
 
 
         }else if (convolutionList[i]==("blur5")){
