@@ -82,6 +82,7 @@ void pasAlpha( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRo
 
 
                     if (sum < 0){
+                        sum%=255;
                         sum+=255;
                     }
                     /*if (sum>255){
