@@ -80,15 +80,6 @@ void pasAlpha( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRo
 
                     }
 
-
-                    if (sum < 0){
-                        sum%=255;
-                        sum+=255;
-                    }
-                    /*if (sum>255){
-                        sum%=255;
-                    }*/
-
                     //normalisation en dehors de la boucle pour faire moins d'arrondis
                     if (row == 192 && col == 211 ){
                         cout << "somme des coefficients : " << noyau.sommeCoefficients << endl;
@@ -100,6 +91,11 @@ void pasAlpha( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRo
 
                     if (row == 192 && col == 211){
                         cout << "\n Valeur de la sum APRES division : " << sum << "\n" <<endl;
+                    }
+
+                    if (sum < 0){
+                        sum%=255;
+                        sum+=255;
                     }
 
                     g[3*(row*imgCols+col)+i] = sum;
@@ -130,6 +126,8 @@ int main(int n, char* params[])
     auto sizeRGB = 3*(rows * cols);
 
     auto type = m_in.type();
+
+    vector<string> convolutionList = {"blur3","blur5","blur11","gaussianBlur3", "nettete3", "detectEdges3", "maskBlur5"}
 
     uchar* g = new uchar[ 3*(rows * cols)]();
 
@@ -163,28 +161,140 @@ int main(int n, char* params[])
         vector<vector<int>>({ {-1,-1,-1} , {-1,8,-1} , {-1,-1,-1} })
     );
 
+    for (int i=0; i< convolutionList.size(); i++){
+        switch (convolutionList[i]):
+            case "blur3":
+                matriceConvolution noyau = matriceConvolution(
+                    vector<vector<int>>({ {1,1,1} , {1,1,1} , {1,1,1} })
+                );
+                if(sizeRGB%3==0){
+                    pasAlpha(rgb,g,cols,rows, noyau);
 
-    if(sizeRGB%3==0){
-        pasAlpha(rgb,g,cols,rows, maskBlur5);
+                }
+                if(sizeRGB%4==0){
+                    //de l'alpha
+                }
+
+                cv::Mat m_out( rows, cols, type, g );
+                ecritureSortie(m_out, convolutionList[i]);
+
+            case "blur5":
+                matriceConvolution noyau = matriceConvolution(
+                    vector<vector<int>>({ {1,1,1,1,1} , {1,1,1,1,1} , {1,1,1,1,1}, {1,1,1,1,1}, {1,1,1,1,1} })
+                );
+
+                            if(sizeRGB%3==0){
+                                pasAlpha(rgb,g,cols,rows, noyau);
+
+                            }
+                            if(sizeRGB%4==0){
+                                //de l'alpha
+                            }
+
+                            cv::Mat m_out( rows, cols, type, g );
+                            ecritureSortie(m_out, convolutionList[i]);
+
+            case "blur11":
+                matriceConvolution noyau = matriceConvolution(
+                    vector<vector<int>>({ {1,1,1,1,1,1,1,1,1,1,1} , {1,1,1,1,1,1,1,1,1,1,1} , {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1} })
+                );
+
+                            if(sizeRGB%3==0){
+                                pasAlpha(rgb,g,cols,rows, noyau);
+
+                            }
+                            if(sizeRGB%4==0){
+                                //de l'alpha
+                            }
+
+                            cv::Mat m_out( rows, cols, type, g );
+                            ecritureSortie(m_out, convolutionList[i]);
+
+            case "gaussianBlur3":
+                matriceConvolution noyau = matriceConvolution(
+                    vector<vector<int>>({ {1,2,1} , {2,4,2} , {1,2,1} })
+                );
+
+                            if(sizeRGB%3==0){
+                                pasAlpha(rgb,g,cols,rows, noyau);
+
+                            }
+                            if(sizeRGB%4==0){
+                                //de l'alpha
+                            }
+
+                            cv::Mat m_out( rows, cols, type, g );
+                            ecritureSortie(m_out, convolutionList[i]);
+
+            case "nettete3":
+                matriceConvolution noyau = matriceConvolution(
+                    vector<vector<int>>({ {0,-1,0} , {-1,5,-1} , {0,-1,0} })
+                );
+
+                            if(sizeRGB%3==0){
+                                pasAlpha(rgb,g,cols,rows, noyau);
+
+                            }
+                            if(sizeRGB%4==0){
+                                //de l'alpha
+                            }
+
+                            cv::Mat m_out( rows, cols, type, g );
+                            ecritureSortie(m_out, convolutionList[i]);
+
+            case "detectEdges3":
+                matriceConvolution noyau = matriceConvolution(
+                    vector<vector<int>>({ {-1,-1,-1} , {-1,8,-1} , {-1,-1,-1} })
+                );
+
+                            if(sizeRGB%3==0){
+                                pasAlpha(rgb,g,cols,rows, noyau);
+
+                            }
+                            if(sizeRGB%4==0){
+                                //de l'alpha
+                            }
+
+                            cv::Mat m_out( rows, cols, type, g );
+                            ecritureSortie(m_out, convolutionList[i]);
+
+            case "maskBlur5":
+                matriceConvolution noyau = matriceConvolution(
+                    vector<vector<int>>({ {1,4,6,4,1} , {4,16,24,16,4} , {6,24,-476,24,6}, {4,16,24,16,4}, {1,4,6,4,1} })
+                );
+
+                            if(sizeRGB%3==0){
+                                pasAlpha(rgb,g,cols,rows, noyau);
+
+                            }
+                            if(sizeRGB%4==0){
+                                //de l'alpha
+                            }
+
+                            cv::Mat m_out( rows, cols, type, g );
+                            ecritureSortie(m_out, convolutionList[i]);
 
     }
-    if(sizeRGB%4==0){
-        //de l'alpha
-    }
-
-    cv::Mat m_out( rows, cols, type, g );
 
 
-    if (n==3){
-        cv::imwrite( params[2], m_out );
-    }else if(n==2){
-        string res("out_");
-        res.append(params[1]);
-        cv::imwrite( res, m_out );
-    }else{
-        cv::imwrite( "out.jpeg", m_out );
-    }
+
 
 
     return 0;
+}
+
+void ecritureSortie(cv::mat m_out, string convolution){
+    if (n==3){
+        string res = convolution + "_";
+        res.append(params[2]);
+        cv::imwrite( params[2], m_out );
+    }else if(n==2){
+        res.append(convolution+ "_");
+        res.append(params[1]);
+        cv::imwrite( res, m_out );
+    }else{
+        string res = convolution;
+        res.append(".jpeg")
+        cv::imwrite( res, m_out );
+    }
 }

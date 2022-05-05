@@ -95,21 +95,7 @@
       <workItem from="1651575991939" duration="12314000" />
       <workItem from="1651653204012" duration="5526000" />
       <workItem from="1651666026022" duration="18014000" />
-      <workItem from="1651736887515" duration="3817000" />
-    </task>
-    <task id="LOCAL-00137" summary="Patch note 178.4.2.1">
-      <created>1651679423645</created>
-      <option name="number" value="00137" />
-      <option name="presentableId" value="LOCAL-00137" />
-      <option name="project" value="LOCAL" />
-      <updated>1651679423645</updated>
-    </task>
-    <task id="LOCAL-00138" summary="Patch note 178.4.2.1">
-      <created>1651680031420</created>
-      <option name="number" value="00138" />
-      <option name="presentableId" value="LOCAL-00138" />
-      <option name="project" value="LOCAL" />
-      <updated>1651680031420</updated>
+      <workItem from="1651736887515" duration="4798000" />
     </task>
     <task id="LOCAL-00139" summary="Patch note 178.4.2.1">
       <created>1651680048445</created>
@@ -440,7 +426,21 @@
       <option name="project" value="LOCAL" />
       <updated>1651740789683</updated>
     </task>
-    <option name="localTasksCounter" value="186" />
+    <task id="LOCAL-00186" summary="Patch note 178.4.2.2">
+      <created>1651740827216</created>
+      <option name="number" value="00186" />
+      <option name="presentableId" value="LOCAL-00186" />
+      <option name="project" value="LOCAL" />
+      <updated>1651740827216</updated>
+    </task>
+    <task id="LOCAL-00187" summary="Patch note 178.4.2.2">
+      <created>1651740979111</created>
+      <option name="number" value="00187" />
+      <option name="presentableId" value="LOCAL-00187" />
+      <option name="project" value="LOCAL" />
+      <updated>1651740979111</updated>
+    </task>
+    <option name="localTasksCounter" value="188" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
