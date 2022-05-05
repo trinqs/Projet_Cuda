@@ -163,7 +163,7 @@ int main(int n, char* params[])
 
 
     if(sizeRGB%3==0){
-        pasAlpha(rgb,g,cols,rows, nettete3);
+        pasAlpha(rgb,g,cols,rows, blur3);
 
     }
     if(sizeRGB%4==0){
