@@ -55,45 +55,21 @@ void pasAlpha( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRo
 
                     for (int decalageCol = -limCols; decalageCol < limCols+1; decalageCol++){
                         for (int decalageRow = -limRows; decalageRow < limRows+1; decalageRow++){
-
                             sum += rgb[3*(( row + decalageRow )*imgCols+( col + decalageCol ))+i] * noyau.matrice[ decalageRow + limRows ][ decalageCol + limCols ];//coefficient de la matrice de convolution à l'indice associé, on fait la rotation en même temps par le calcul d'indice
-                            if (row == 192 && col == 211 ){
-                                cout << "\n coordonnees du pixel dans le calcul(" << (row+decalageRow) << "," << ( col + decalageCol ) << ")\n valeur du pixel : " <<  (int)rgb[3*(( row + decalageRow )*imgCols+( col + decalageCol ))+i] <<endl;
-                                cout << "coefficient de la matrice " << noyau.matrice[ decalageRow + limRows ][ decalageCol + limCols ] << endl;
-                                cout << "\n" << endl;
-                            }
                         }
-
                     }
-
                     //normalisation en dehors de la boucle pour faire moins d'arrondis
-                    if (row == 192 && col == 211 ){
-                        cout << "somme des coefficients : " << noyau.sommeCoefficients << endl;
-                        cout << "\n Valeur de la sum AVANT division : " << sum << endl;
-                    }
-                    /*if (noyau.sommeCoefficients !=0){
+                    if (noyau.sommeCoefficients==noyau.facteurMax){
                         sum/= noyau.facteurMax;
-                         // somme des coefficients de la matrice de convolution
-
-                    }else{
-                        sum/=noyau.facteurMax;
                     }
-
-                    if (row == 192 && col == 211){
-                        cout << "\n Valeur de la sum APRES division : " << sum << "\n" <<endl;
-                    }
-
-                    if (sum < 0){
-                        sum = (sum*-1)%255;
-                    }*/
-
-                    sum/= noyau.facteurMax;
 
                     if (sum < 0){
                         sum=0;
                     } else if(sum >255){
                         sum=255;
                     }
+
+
 
                     g[3*(row*imgCols+col)+i] = sum;
                 }
