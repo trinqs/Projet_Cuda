@@ -27,9 +27,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8504d56-1fbf-42ca-b64e-5432c61b4366" name="Default Changelist" comment="j'en ai marre">
-      <change beforePath="$PROJECT_DIR$/ConvolutionCuda.cu" beforeDir="false" afterPath="$PROJECT_DIR$/ConvolutionCuda.cu" afterDir="false" />
-    </list>
+    <list default="true" id="c8504d56-1fbf-42ca-b64e-5432c61b4366" name="Default Changelist" comment="j'en ai marre" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -97,13 +95,6 @@
       <workItem from="1651666026022" duration="18014000" />
       <workItem from="1651736887515" duration="12545000" />
       <workItem from="1651751515470" duration="7197000" />
-    </task>
-    <task id="LOCAL-00184" summary="Patch note 178.4.2.2">
-      <created>1651740440802</created>
-      <option name="number" value="00184" />
-      <option name="presentableId" value="LOCAL-00184" />
-      <option name="project" value="LOCAL" />
-      <updated>1651740440802</updated>
     </task>
     <task id="LOCAL-00185" summary="Patch note 178.4.2.2">
       <created>1651740789683</created>
@@ -441,7 +432,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651766323751</updated>
     </task>
-    <option name="localTasksCounter" value="233" />
+    <task id="LOCAL-00233" summary="j'en ai marre">
+      <created>1651766544393</created>
+      <option name="number" value="00233" />
+      <option name="presentableId" value="LOCAL-00233" />
+      <option name="project" value="LOCAL" />
+      <updated>1651766544393</updated>
+    </task>
+    <option name="localTasksCounter" value="234" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -488,9 +486,9 @@
     <option name="LAST_COMMIT_MESSAGE" value="j'en ai marre" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="75" y="288" width="806" height="530" key="Vcs.Push.Dialog.v2" timestamp="1651766325287">
+    <state x="75" y="288" width="806" height="530" key="Vcs.Push.Dialog.v2" timestamp="1651766545590">
       <screen x="0" y="25" width="1920" height="1055" />
     </state>
-    <state x="75" y="288" width="806" height="530" key="Vcs.Push.Dialog.v2/0.25.1920.1055@0.25.1920.1055" timestamp="1651766325287" />
+    <state x="75" y="288" width="806" height="530" key="Vcs.Push.Dialog.v2/0.25.1920.1055@0.25.1920.1055" timestamp="1651766545590" />
   </component>
 </project>
