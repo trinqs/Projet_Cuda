@@ -138,7 +138,7 @@ int main(int n, char* params[])
     );
 
     for (int i=0; i< convolutionList.size(); i++){
-        if (convolutionList[i].equals("blur3")){
+        if (convolutionList[i]==("blur3")){
                 matriceConvolution noyau = matriceConvolution(
                         vector<vector<int>>({ {1,1,1} , {1,1,1} , {1,1,1} })
                 );
@@ -165,7 +165,7 @@ int main(int n, char* params[])
                     cv::imwrite( res, m_out );
                 }
 
-        }else if (convolutionList[i].equals("blur5")){
+        }else if (convolutionList[i]==("blur5")){
                 matriceConvolution noyau = matriceConvolution(
                         vector<vector<int>>({ {1,1,1,1,1} , {1,1,1,1,1} , {1,1,1,1,1}, {1,1,1,1,1}, {1,1,1,1,1} })
                 );
@@ -194,7 +194,7 @@ int main(int n, char* params[])
                 }
 
 
-        }else if (convolutionList[i].equals("blur11")){
+        }else if (convolutionList[i]==("blur11")){
                 matriceConvolution noyau = matriceConvolution(
                         vector<vector<int>>({ {1,1,1,1,1,1,1,1,1,1,1} , {1,1,1,1,1,1,1,1,1,1,1} , {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1} })
                 );
@@ -223,7 +223,7 @@ int main(int n, char* params[])
                 }
 
 
-        }else if (convolutionList[i].equals("gaussianBlur3")){
+        }else if (convolutionList[i]==("gaussianBlur3")){
                 matriceConvolution noyau = matriceConvolution(
                         vector<vector<int>>({ {1,2,1} , {2,4,2} , {1,2,1} })
                 );
@@ -252,7 +252,7 @@ int main(int n, char* params[])
                 }
 
 
-        }else if (convolutionList[i].equals("nettete3")){
+        }else if (convolutionList[i]==("nettete3")){
                 matriceConvolution noyau = matriceConvolution(
                         vector<vector<int>>({ {0,-1,0} , {-1,5,-1} , {0,-1,0} })
                 );
@@ -281,7 +281,7 @@ int main(int n, char* params[])
                 }
 
 
-        }else if (convolutionList[i].equals("detectEdges3")){
+        }else if (convolutionList[i]==("detectEdges3")){
                 matriceConvolution noyau = matriceConvolution(
                         vector<vector<int>>({ {-1,-1,-1} , {-1,8,-1} , {-1,-1,-1} })
                 );
@@ -310,7 +310,7 @@ int main(int n, char* params[])
                 }
 
 
-        } else if (convolutionList[i].equals("maskBlur5")){
+        } else if (convolutionList[i]==("maskBlur5")){
                 matriceConvolution noyau = matriceConvolution(
                         vector<vector<int>>({ {1,4,6,4,1} , {4,16,24,16,4} , {6,24,-476,24,6}, {4,16,24,16,4}, {1,4,6,4,1} })
                 );
