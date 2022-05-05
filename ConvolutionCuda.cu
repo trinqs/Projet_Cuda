@@ -38,10 +38,11 @@ struct matriceConvolution {
         this->facteurMax = max(sommePositive,(sommeNegative*-1));
     }
 
-    __device__   int getCols(){ return cols;}
-    __device__  int getRows(){ return rows;}
-    __device__  int getSommeCoefficients(){ return sommeCoefficients;}
-    __device__  int getFacteurMax(){ return facteurMax;}
+    __device__ __host__  int getCols(){ return cols;}
+    __device__ __host__ int getRows(){ return rows;}
+    __device__ __host__ int getSommeCoefficients(){ return sommeCoefficients;}
+    __device__ __host__ int getFacteurMax(){ return facteurMax;}
+    __device__ __host__ vector<vector<int>> getMatrice(){ return matrice;};
 
 };
 
@@ -64,7 +65,7 @@ __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, size_t imgCols,si
                 for (int decalageRow = -limRows; decalageRow < limRows+1; decalageRow++){
 
                     //coefficient de la matrice de convolution à l'indice associé, on fait la rotation en même temps par le calcul d'indice
-                    sum += rgb[3*(( tidx + decalageRow )*imgCols+( tidy + decalageCol ))+i] * noyau.matrice[ decalageRow + limRows ][ decalageCol + limCols ];
+                    sum += rgb[3*(( tidx + decalageRow )*imgCols+( tidy + decalageCol ))+i] * noyau.getMatrice()[ decalageRow + limRows ][ decalageCol + limCols ];
                 }
             }
             //normalisation en dehors de la boucle pour faire moins d'arrondis
