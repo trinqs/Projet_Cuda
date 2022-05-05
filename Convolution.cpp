@@ -138,11 +138,11 @@ int main(int n, char* params[])
                 cv::Mat m_out( rows, cols, type, g );
                 if (n==3){
                     string res = "out_" + convolutionList[i] + "_";
-                    res.append(convolutionList[i]);
+                    res.append(params[2]);
                     cv::imwrite( res, m_out );
                 }else if(n==2){
-                    string res = "out_" +  params[1] + "_";
-                    res.append(convolutionList[i]);
+                    string res = "out_" +  convolutionList[i] + "_";
+                    res.append(params[1]);
                     cv::imwrite( res, m_out );
                 }else{
                     string res = "out_" + convolutionList[i];
@@ -166,11 +166,11 @@ int main(int n, char* params[])
                 cv::Mat m_out( rows, cols, type, g );
                 if (n==3){
                     string res = "out_" + convolutionList[i] + "_";
-                    res.append(convolutionList[i]);
+                    res.append(params[2]);
                     cv::imwrite( res, m_out );
                 }else if(n==2){
-                    string res = "out_" +  params[1] + "_";
-                    res.append(convolutionList[i]);
+                    string res = "out_" +  convolutionList[i] + "_";
+                    res.append(params[1]);
                     cv::imwrite( res, m_out );
                 }else{
                     string res = "out_" + convolutionList[i];
@@ -195,11 +195,11 @@ int main(int n, char* params[])
                 cv::Mat m_out( rows, cols, type, g );
                 if (n==3){
                     string res = "out_" + convolutionList[i] + "_";
-                    res.append(convolutionList[i]);
+                    res.append(params[2]);
                     cv::imwrite( res, m_out );
                 }else if(n==2){
-                    string res = "out_" +  params[1] + "_";
-                    res.append(convolutionList[i]);
+                    string res = "out_" +  convolutionList[i] + "_";
+                    res.append(params[1]);
                     cv::imwrite( res, m_out );
                 }else{
                     string res = "out_" + convolutionList[i];
@@ -224,18 +224,17 @@ int main(int n, char* params[])
                 cv::Mat m_out( rows, cols, type, g );
                 if (n==3){
                     string res = "out_" + convolutionList[i] + "_";
-                    res.append(convolutionList[i]);
+                    res.append(params[2]);
                     cv::imwrite( res, m_out );
                 }else if(n==2){
-                    string res = "out_" +  params[1] + "_";
-                    res.append(convolutionList[i]);
+                    string res = "out_" +  convolutionList[i] + "_";
+                    res.append(params[1]);
                     cv::imwrite( res, m_out );
                 }else{
                     string res = "out_" + convolutionList[i];
                     res.append(".jpeg");
                     cv::imwrite( res, m_out );
                 }
-
 
         }else if (convolutionList[i]==("nettete3")){
                 matriceConvolution noyau = matriceConvolution(
@@ -251,21 +250,19 @@ int main(int n, char* params[])
                 }
 
                 cv::Mat m_out( rows, cols, type, g );
-                  if (n==3){
-                      string res = "out_" + convolutionList[i] + "_";
-                      res.append(convolutionList[i]);
-                      cv::imwrite( res, m_out );
-                  }else if(n==2){
-                      string res = "out_" +  params[1] + "_";
-                      res.append(convolutionList[i]);
-                      cv::imwrite( res, m_out );
-                  }else{
-                      string res = "out_" + convolutionList[i];
-                      res.append(".jpeg");
-                      cv::imwrite( res, m_out );
-                  }
-
-
+                if (n==3){
+                    string res = "out_" + convolutionList[i] + "_";
+                    res.append(params[2]);
+                    cv::imwrite( res, m_out );
+                }else if(n==2){
+                    string res = "out_" +  convolutionList[i] + "_";
+                    res.append(params[1]);
+                    cv::imwrite( res, m_out );
+                }else{
+                    string res = "out_" + convolutionList[i];
+                    res.append(".jpeg");
+                    cv::imwrite( res, m_out );
+                }
         }else if (convolutionList[i]==("detectEdges3")){
                 matriceConvolution noyau = matriceConvolution(
                         vector<vector<int>>({ {-1,-1,-1} , {-1,8,-1} , {-1,-1,-1} })
@@ -282,19 +279,17 @@ int main(int n, char* params[])
                 cv::Mat m_out( rows, cols, type, g );
                 if (n==3){
                     string res = "out_" + convolutionList[i] + "_";
-                    res.append(convolutionList[i]);
+                    res.append(params[2]);
                     cv::imwrite( res, m_out );
                 }else if(n==2){
-                    string res = "out_" +  params[1] + "_";
-                    res.append(convolutionList[i]);
+                    string res = "out_" +  convolutionList[i] + "_";
+                    res.append(params[1]);
                     cv::imwrite( res, m_out );
                 }else{
                     string res = "out_" + convolutionList[i];
                     res.append(".jpeg");
                     cv::imwrite( res, m_out );
                 }
-
-
 
         } else if (convolutionList[i]==("maskBlur5")){
                 matriceConvolution noyau = matriceConvolution(
@@ -310,20 +305,19 @@ int main(int n, char* params[])
                 }
 
                 cv::Mat m_out( rows, cols, type, g );
-                 if (n==3){
-                     string res = "out_" + convolutionList[i] + "_";
-                     res.append(convolutionList[i]);
-                     cv::imwrite( res, m_out );
-                 }else if(n==2){
-                     string res = "out_" +  params[1] + "_";
-                     res.append(convolutionList[i]);
-                     cv::imwrite( res, m_out );
-                 }else{
-                     string res = "out_" + convolutionList[i];
-                     res.append(".jpeg");
-                     cv::imwrite( res, m_out );
-                 }
-
+                if (n==3){
+                    string res = "out_" + convolutionList[i] + "_";
+                    res.append(params[2]);
+                    cv::imwrite( res, m_out );
+                }else if(n==2){
+                    string res = "out_" +  convolutionList[i] + "_";
+                    res.append(params[1]);
+                    cv::imwrite( res, m_out );
+                }else{
+                    string res = "out_" + convolutionList[i];
+                    res.append(".jpeg");
+                    cv::imwrite( res, m_out );
+                }
         }
     }
 
