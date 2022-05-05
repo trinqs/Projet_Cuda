@@ -97,11 +97,10 @@ void pasAlpha( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRo
 
                     //normalisation en dehors de la boucle pour faire moins d'arrondis
                     //cout << noyau.sommeCoefficients << endl;
-                    try{
-                        g[3*(row*imgCols+col)+i] = sum/noyau.sommeCoefficients; // somme des coefficients de la matrice de convolution
-                    } catch (const exception e){
-                        g[3*(row*imgCols+col)+i] = sum;
+                    if (noyau.sommeCoefficients !=0){
+                        sum/=noyau.sommeCoefficients  ; // somme des coefficients de la matrice de convolution
                     }
+                    g[3*(row*imgCols+col)+i] = sum;
                 }
             }
             else{
