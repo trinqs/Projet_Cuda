@@ -27,9 +27,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8504d56-1fbf-42ca-b64e-5432c61b4366" name="Default Changelist" comment="Patch note 178.4.2.3">
-      <change afterPath="$PROJECT_DIR$/Convolution.cu" afterDir="false" />
+    <list default="true" id="c8504d56-1fbf-42ca-b64e-5432c61b4366" name="Default Changelist" comment="Patch note 200.0.0.0">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Convolution.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Convolution.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,18 +71,13 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunManager">
-    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Unnamed" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" nameIsGenerated="true">
+    <configuration default="true" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile">
       <makefile filename="$PROJECT_DIR$/Makefile" target="" workingDirectory="" arguments="">
         <envs />
       </makefile>
       <method v="2" />
     </configuration>
-    <configuration default="true" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile">
+    <configuration name="Unnamed" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" nameIsGenerated="true">
       <makefile filename="$PROJECT_DIR$/Makefile" target="" workingDirectory="" arguments="">
         <envs />
       </makefile>
@@ -102,28 +97,7 @@
       <workItem from="1651653204012" duration="5526000" />
       <workItem from="1651666026022" duration="18014000" />
       <workItem from="1651736887515" duration="12545000" />
-      <workItem from="1651751515470" duration="6431000" />
-    </task>
-    <task id="LOCAL-00175" summary="Patch note 178.4.2.2">
-      <created>1651739661800</created>
-      <option name="number" value="00175" />
-      <option name="presentableId" value="LOCAL-00175" />
-      <option name="project" value="LOCAL" />
-      <updated>1651739661800</updated>
-    </task>
-    <task id="LOCAL-00176" summary="Patch note 178.4.2.2">
-      <created>1651739779082</created>
-      <option name="number" value="00176" />
-      <option name="presentableId" value="LOCAL-00176" />
-      <option name="project" value="LOCAL" />
-      <updated>1651739779082</updated>
-    </task>
-    <task id="LOCAL-00177" summary="Patch note 178.4.2.2">
-      <created>1651739862933</created>
-      <option name="number" value="00177" />
-      <option name="presentableId" value="LOCAL-00177" />
-      <option name="project" value="LOCAL" />
-      <updated>1651739862933</updated>
+      <workItem from="1651751515470" duration="7197000" />
     </task>
     <task id="LOCAL-00178" summary="Patch note 178.4.2.2">
       <created>1651739996123</created>
@@ -447,7 +421,28 @@
       <option name="project" value="LOCAL" />
       <updated>1651760789890</updated>
     </task>
-    <option name="localTasksCounter" value="224" />
+    <task id="LOCAL-00224" summary="Patch note 200.0.0.0">
+      <created>1651761004813</created>
+      <option name="number" value="00224" />
+      <option name="presentableId" value="LOCAL-00224" />
+      <option name="project" value="LOCAL" />
+      <updated>1651761004814</updated>
+    </task>
+    <task id="LOCAL-00225" summary="Patch note 200.0.0.0">
+      <created>1651761395381</created>
+      <option name="number" value="00225" />
+      <option name="presentableId" value="LOCAL-00225" />
+      <option name="project" value="LOCAL" />
+      <updated>1651761395382</updated>
+    </task>
+    <task id="LOCAL-00226" summary="Patch note 200.0.0.0">
+      <created>1651761754345</created>
+      <option name="number" value="00226" />
+      <option name="presentableId" value="LOCAL-00226" />
+      <option name="project" value="LOCAL" />
+      <updated>1651761754345</updated>
+    </task>
+    <option name="localTasksCounter" value="227" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -466,7 +461,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="correction3" />
     <MESSAGE value="correction4" />
     <MESSAGE value="correction5" />
     <MESSAGE value="correction5.5" />
@@ -491,12 +485,7 @@
     <MESSAGE value="Patch note 178.4.2.1" />
     <MESSAGE value="Patch note 178.4.2.2" />
     <MESSAGE value="Patch note 178.4.2.3" />
-    <option name="LAST_COMMIT_MESSAGE" value="Patch note 178.4.2.3" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="295" y="468" width="365" height="170" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1651761394007">
-      <screen x="0" y="25" width="1920" height="1055" />
-    </state>
-    <state x="295" y="468" width="365" height="170" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.25.1920.1055@0.25.1920.1055" timestamp="1651761394007" />
+    <MESSAGE value="Patch note 200.0.0.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="Patch note 200.0.0.0" />
   </component>
 </project>
