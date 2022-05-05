@@ -47,7 +47,7 @@ __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, size_t imgCols,si
 
 
     int tidx = threadIdx.x/imgCols-1;
-    int tidy = ththreadIdx.x -(imgCols*tidx);
+    int tidy = threadIdx.x -(imgCols*tidx);
 
     // si c'est pas un bord
     if( tidy >= limCols && tidy< imgCols-limCols && tidx >= limRows && tidy < imgRow-limRows){
@@ -73,7 +73,7 @@ __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, size_t imgCols,si
                 sum=255;
             }
 
-            g[3*(row*imgCols+col)+i] = sum;
+            g[3*(tidy*imgCols+tidx)+i] = sum;
         }
     }
     else{
@@ -95,7 +95,9 @@ int main(int n, char* params[])
 
     auto cols = m_in.cols;
     auto rows = m_in.rows;
-    auto sizeBgr = 3*(cols*row);
+    auto sizeBgr = 3*(cols*rows);
+
+    auto type = m_in.type();
 
     std::vector<unsigned char > g(sizeBgr);
 
@@ -103,7 +105,7 @@ int main(int n, char* params[])
     unsigned char * g_d;
 
     vector<string> convolutionList = {"blur3","blur5","blur11","gaussianBlur3", "nettete3", "detectEdges3"};
-    cudaMalloc(&bgr_d, sizeRgb);
+    cudaMalloc(&bgr_d, sizeBgr);
     cudaMalloc(&g_d, cols*rows);
 
     cudaMemcpy(bgr_d,bgr,sizeBgr, cudaMemcpHostToDevice);
@@ -145,11 +147,11 @@ int main(int n, char* params[])
                     vector<vector<int>>({ {1,1,1,1,1} , {1,1,1,1,1} , {1,1,1,1,1}, {1,1,1,1,1}, {1,1,1,1,1} })
             );
 
-            if(sizeRGB%3==0){
+            if(sizeBgr%3==0){
                 pasAlpha<<<block,nbthread>>>( bgr_d, g_d, cols,rows, noyau);
 
             }
-            if(sizeRGB%4==0){
+            if(sizeBgr%4==0){
                 //de l'alpha
             }
 
@@ -175,11 +177,11 @@ int main(int n, char* params[])
                     vector<vector<int>>({ {1,1,1,1,1,1,1,1,1,1,1} , {1,1,1,1,1,1,1,1,1,1,1} , {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1} })
             );
 
-            if(sizeRGB%3==0){
+            if(sizeBgr%3==0){
                 pasAlpha<<<block,nbthread>>>( bgr_d, g_d, cols,rows, noyau);
 
             }
-            if(sizeRGB%4==0){
+            if(sizeBgr%4==0){
                 //de l'alpha
             }
 
@@ -205,11 +207,11 @@ int main(int n, char* params[])
                     vector<vector<int>>({ {1,2,1} , {2,4,2} , {1,2,1} })
             );
 
-            if(sizeRGB%3==0){
+            if(sizeBgr%3==0){
                 pasAlpha<<<block,nbthread>>>( bgr_d, g_d, cols,rows, noyau);
 
             }
-            if(sizeRGB%4==0){
+            if(sizeBgr%4==0){
                 //de l'alpha
             }
 
@@ -234,11 +236,11 @@ int main(int n, char* params[])
                     vector<vector<int>>({ {0,-1,0} , {-1,5,-1} , {0,-1,0} })
             );
 
-            if(sizeRGB%3==0){
+            if(sizeBgr%3==0){
                 pasAlpha<<<block,nbthread>>>( bgr_d, g_d, cols,rows, noyau);
 
             }
-            if(sizeRGB%4==0){
+            if(sizeBgr%4==0){
                 //de l'alpha
             }
 
@@ -262,11 +264,11 @@ int main(int n, char* params[])
                     vector<vector<int>>({ {-1,-1,-1} , {-1,8,-1} , {-1,-1,-1} })
             );
 
-            if(sizeRGB%3==0){
+            if(sizeBgr%3==0){
                 pasAlpha<<<block,nbthread>>>( bgr_d, g_d, cols,rows, noyau);
 
             }
-            if(sizeRGB%4==0){
+            if(sizeBgr%4==0){
                 //de l'alpha
             }
 

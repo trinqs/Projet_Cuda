@@ -122,206 +122,206 @@ void alpha( unsigned char* bgr, unsigned char* g, size_t imgCols,size_t imgRow, 
 
 
 void blur3Convolution(int n, char* params[], unsigned char* bgr, size_t cols, size_t rows, int sizebgr, auto type){
-     uchar* g = new uchar[ 3*(rows * cols)]();
-                    matriceConvolution noyau = matriceConvolution(
-                            vector<vector<int>>({ {1,1,1} , {1,1,1} , {1,1,1} })
-                    );
-                    if(sizebgr%3==0){
-                        pasAlpha(bgr,g,cols,rows, noyau);
+    uchar* g = new uchar[ 3*(rows * cols)]();
+    matriceConvolution noyau = matriceConvolution(
+            vector<vector<int>>({ {1,1,1} , {1,1,1} , {1,1,1} })
+    );
+    if(sizebgr%3==0){
+        pasAlpha(bgr,g,cols,rows, noyau);
 
-                    }else if(sizebgr%4==0){
-                        //de l'alpha
-                        alpha(bgr,g,cols,rows, noyau);
-                    }
+    }else if(sizebgr%4==0){
+        //de l'alpha
+        alpha(bgr,g,cols,rows, noyau);
+    }
 
-                    cv::Mat m_out( rows, cols, type, g );
-                    if (n==3){
-                        string res = "out_blur3_";
-                        res.append(params[2]);
-                        cv::imwrite( res, m_out );
-                    }else if(n==2){
-                        string res = "out_blur3_";
-                        res.append(params[1]);
-                        cv::imwrite( res, m_out );
-                    }else{
-                        string res = "out_blur3";
-                        res.append(".jpeg");
-                        cv::imwrite( res, m_out );
-                    }
+    cv::Mat m_out( rows, cols, type, g );
+    if (n==3){
+        string res = "out_blur3_";
+        res.append(params[2]);
+        cv::imwrite( res, m_out );
+    }else if(n==2){
+        string res = "out_blur3_";
+        res.append(params[1]);
+        cv::imwrite( res, m_out );
+    }else{
+        string res = "out_blur3";
+        res.append(".jpeg");
+        cv::imwrite( res, m_out );
+    }
 }
 
 void blur5Convolution(int n, char* params[], unsigned char* bgr, size_t cols, size_t rows, int sizebgr, auto type){
     uchar* g = new uchar[ 3*(rows * cols)]();
-                        matriceConvolution noyau = matriceConvolution(
-                                vector<vector<int>>({ {1,1,1,1,1} , {1,1,1,1,1} , {1,1,1,1,1}, {1,1,1,1,1}, {1,1,1,1,1} })
-                        );
-                        if(sizebgr%3==0){
-                            pasAlpha(bgr,g,cols,rows, noyau);
+    matriceConvolution noyau = matriceConvolution(
+            vector<vector<int>>({ {1,1,1,1,1} , {1,1,1,1,1} , {1,1,1,1,1}, {1,1,1,1,1}, {1,1,1,1,1} })
+    );
+    if(sizebgr%3==0){
+        pasAlpha(bgr,g,cols,rows, noyau);
 
-                        }else if(sizebgr%4==0){
-                            //de l'alpha
-                            alpha(bgr,g,cols,rows, noyau);
-                        }
+    }else if(sizebgr%4==0){
+        //de l'alpha
+        alpha(bgr,g,cols,rows, noyau);
+    }
 
-                        cv::Mat m_out( rows, cols, type, g );
-                        if (n==3){
-                            string res = "out_blur5_";
-                            res.append(params[2]);
-                            cv::imwrite( res, m_out );
-                        }else if(n==2){
-                            string res = "out_blur5_";
-                            res.append(params[1]);
-                            cv::imwrite( res, m_out );
-                        }else{
-                            string res = "out_blur5";
-                            res.append(".jpeg");
-                            cv::imwrite( res, m_out );
-                        }
+    cv::Mat m_out( rows, cols, type, g );
+    if (n==3){
+        string res = "out_blur5_";
+        res.append(params[2]);
+        cv::imwrite( res, m_out );
+    }else if(n==2){
+        string res = "out_blur5_";
+        res.append(params[1]);
+        cv::imwrite( res, m_out );
+    }else{
+        string res = "out_blur5";
+        res.append(".jpeg");
+        cv::imwrite( res, m_out );
+    }
 }
 
 void blur11Convolution(int n, char* params[], unsigned char* bgr, size_t cols, size_t rows, int sizebgr, auto type){
     uchar* g = new uchar[ 3*(rows * cols)]();
-                            matriceConvolution noyau = matriceConvolution(
-                                    vector<vector<int>>({ {1,1,1,1,1,1,1,1,1,1,1} , {1,1,1,1,1,1,1,1,1,1,1} , {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1} })
-                            );
-                            if(sizebgr%3==0){
-                                pasAlpha(bgr,g,cols,rows, noyau);
+    matriceConvolution noyau = matriceConvolution(
+            vector<vector<int>>({ {1,1,1,1,1,1,1,1,1,1,1} , {1,1,1,1,1,1,1,1,1,1,1} , {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1} })
+    );
+    if(sizebgr%3==0){
+        pasAlpha(bgr,g,cols,rows, noyau);
 
-                            }else if(sizebgr%4==0){
-                                //de l'alpha
-                                alpha(bgr,g,cols,rows, noyau);
-                            }
+    }else if(sizebgr%4==0){
+        //de l'alpha
+        alpha(bgr,g,cols,rows, noyau);
+    }
 
-                            cv::Mat m_out( rows, cols, type, g );
-                            if (n==3){
-                                string res = "out_blur11_";
-                                res.append(params[2]);
-                                cv::imwrite( res, m_out );
-                            }else if(n==2){
-                                string res = "out_blur11_";
-                                res.append(params[1]);
-                                cv::imwrite( res, m_out );
-                            }else{
-                                string res = "out_blur11";
-                                res.append(".jpeg");
-                                cv::imwrite( res, m_out );
-                            }
+    cv::Mat m_out( rows, cols, type, g );
+    if (n==3){
+        string res = "out_blur11_";
+        res.append(params[2]);
+        cv::imwrite( res, m_out );
+    }else if(n==2){
+        string res = "out_blur11_";
+        res.append(params[1]);
+        cv::imwrite( res, m_out );
+    }else{
+        string res = "out_blur11";
+        res.append(".jpeg");
+        cv::imwrite( res, m_out );
+    }
 }
 
 void gaussianBlur3Convolution(int n, char* params[], unsigned char* bgr, size_t cols, size_t rows, int sizebgr, auto type){
     uchar* g = new uchar[ 3*(rows * cols)]();
-                                matriceConvolution noyau = matriceConvolution(
-                                    vector<vector<int>>({ {1,4,6,4,1} , {4,16,24,16,4} , {6,24,36,24,6}, {4,16,24,16,4}, {1,4,6,4,1} })
-                                );
-                                if(sizebgr%3==0){
-                                    pasAlpha(bgr,g,cols,rows, noyau);
+    matriceConvolution noyau = matriceConvolution(
+            vector<vector<int>>({ {1,4,6,4,1} , {4,16,24,16,4} , {6,24,36,24,6}, {4,16,24,16,4}, {1,4,6,4,1} })
+    );
+    if(sizebgr%3==0){
+        pasAlpha(bgr,g,cols,rows, noyau);
 
-                                }else if(sizebgr%4==0){
-                                    //de l'alpha
-                                    alpha(bgr,g,cols,rows, noyau);
-                                }
+    }else if(sizebgr%4==0){
+        //de l'alpha
+        alpha(bgr,g,cols,rows, noyau);
+    }
 
-                                cv::Mat m_out( rows, cols, type, g );
-                                if (n==3){
-                                    string res = "out_gaussianBlur5_";
-                                    res.append(params[2]);
-                                    cv::imwrite( res, m_out );
-                                }else if(n==2){
-                                    string res = "out_gaussianBlur5_";
-                                    res.append(params[1]);
-                                    cv::imwrite( res, m_out );
-                                }else{
-                                    string res = "out_gaussianBlur5";
-                                    res.append(".jpeg");
-                                    cv::imwrite( res, m_out );
-                                }
+    cv::Mat m_out( rows, cols, type, g );
+    if (n==3){
+        string res = "out_gaussianBlur5_";
+        res.append(params[2]);
+        cv::imwrite( res, m_out );
+    }else if(n==2){
+        string res = "out_gaussianBlur5_";
+        res.append(params[1]);
+        cv::imwrite( res, m_out );
+    }else{
+        string res = "out_gaussianBlur5";
+        res.append(".jpeg");
+        cv::imwrite( res, m_out );
+    }
 }
 
 void gaussianBlur5Convolution(int n, char* params[], unsigned char* bgr, size_t cols, size_t rows, int sizebgr, auto type){
     uchar* g = new uchar[ 3*(rows * cols)]();
-                                matriceConvolution noyau = matriceConvolution(
-                                    vector<vector<int>>({ {1,2,1} , {2,4,2} , {1,2,1} })
-                                );
-                                if(sizebgr%3==0){
-                                    pasAlpha(bgr,g,cols,rows, noyau);
+    matriceConvolution noyau = matriceConvolution(
+            vector<vector<int>>({ {1,2,1} , {2,4,2} , {1,2,1} })
+    );
+    if(sizebgr%3==0){
+        pasAlpha(bgr,g,cols,rows, noyau);
 
-                                }else if(sizebgr%4==0){
-                                    //de l'alpha
-                                    alpha(bgr,g,cols,rows, noyau);
-                                }
+    }else if(sizebgr%4==0){
+        //de l'alpha
+        alpha(bgr,g,cols,rows, noyau);
+    }
 
-                                cv::Mat m_out( rows, cols, type, g );
-                                if (n==3){
-                                    string res = "out_gaussianBlur3_";
-                                    res.append(params[2]);
-                                    cv::imwrite( res, m_out );
-                                }else if(n==2){
-                                    string res = "out_gaussianBlur3_";
-                                    res.append(params[1]);
-                                    cv::imwrite( res, m_out );
-                                }else{
-                                    string res = "out_gaussianBlur3";
-                                    res.append(".jpeg");
-                                    cv::imwrite( res, m_out );
-                                }
+    cv::Mat m_out( rows, cols, type, g );
+    if (n==3){
+        string res = "out_gaussianBlur3_";
+        res.append(params[2]);
+        cv::imwrite( res, m_out );
+    }else if(n==2){
+        string res = "out_gaussianBlur3_";
+        res.append(params[1]);
+        cv::imwrite( res, m_out );
+    }else{
+        string res = "out_gaussianBlur3";
+        res.append(".jpeg");
+        cv::imwrite( res, m_out );
+    }
 }
 
 void sharpness3Convolution(int n, char* params[], unsigned char* bgr, size_t cols, size_t rows, int sizebgr, auto type){
-        uchar* g = new uchar[ 3*(rows * cols)]();
-                                    matriceConvolution noyau = matriceConvolution(
-                                        vector<vector<int>>({ {0,-1,0} , {-1,5,-1} , {0,-1,0} })
-                                    );
-                                    if(sizebgr%3==0){
-                                        pasAlpha(bgr,g,cols,rows, noyau);
+    uchar* g = new uchar[ 3*(rows * cols)]();
+    matriceConvolution noyau = matriceConvolution(
+            vector<vector<int>>({ {0,-1,0} , {-1,5,-1} , {0,-1,0} })
+    );
+    if(sizebgr%3==0){
+        pasAlpha(bgr,g,cols,rows, noyau);
 
-                                    }else if(sizebgr%4==0){
-                                        //de l'alpha
-                                        alpha(bgr,g,cols,rows, noyau);
-                                    }
+    }else if(sizebgr%4==0){
+        //de l'alpha
+        alpha(bgr,g,cols,rows, noyau);
+    }
 
-                                    cv::Mat m_out( rows, cols, type, g );
-                                    if (n==3){
-                                        string res = "out_sharpness3_";
-                                        res.append(params[2]);
-                                        cv::imwrite( res, m_out );
-                                    }else if(n==2){
-                                        string res = "out_sharpness3_";
-                                        res.append(params[1]);
-                                        cv::imwrite( res, m_out );
-                                    }else{
-                                        string res = "out_sharpness3";
-                                        res.append(".jpeg");
-                                        cv::imwrite( res, m_out );
-                                    }
+    cv::Mat m_out( rows, cols, type, g );
+    if (n==3){
+        string res = "out_sharpness3_";
+        res.append(params[2]);
+        cv::imwrite( res, m_out );
+    }else if(n==2){
+        string res = "out_sharpness3_";
+        res.append(params[1]);
+        cv::imwrite( res, m_out );
+    }else{
+        string res = "out_sharpness3";
+        res.append(".jpeg");
+        cv::imwrite( res, m_out );
+    }
 }
 
 void detectEdges3Convolution(int n, char* params[], unsigned char* bgr, size_t cols, size_t rows, int sizebgr, auto type){
-        uchar* g = new uchar[ 3*(rows * cols)]();
-                                    matriceConvolution noyau = matriceConvolution(
-                                        vector<vector<int>>({ {-1,-1,-1} , {-1,8,-1} , {-1,-1,-1} })
-                                    );
-                                    if(sizebgr%3==0){
-                                        pasAlpha(bgr,g,cols,rows, noyau);
+    uchar* g = new uchar[ 3*(rows * cols)]();
+    matriceConvolution noyau = matriceConvolution(
+            vector<vector<int>>({ {-1,-1,-1} , {-1,8,-1} , {-1,-1,-1} })
+    );
+    if(sizebgr%3==0){
+        pasAlpha(bgr,g,cols,rows, noyau);
 
-                                    }else if(sizebgr%4==0){
-                                        //de l'alpha
-                                        alpha(bgr,g,cols,rows, noyau);
-                                    }
+    }else if(sizebgr%4==0){
+        //de l'alpha
+        alpha(bgr,g,cols,rows, noyau);
+    }
 
-                                    cv::Mat m_out( rows, cols, type, g );
-                                    if (n==3){
-                                        string res = "out_detectEdges3_";
-                                        res.append(params[2]);
-                                        cv::imwrite( res, m_out );
-                                    }else if(n==2){
-                                        string res = "out_detectEdges3_";
-                                        res.append(params[1]);
-                                        cv::imwrite( res, m_out );
-                                    }else{
-                                        string res = "out_detectEdges3";
-                                        res.append(".jpeg");
-                                        cv::imwrite( res, m_out );
-                                    }
+    cv::Mat m_out( rows, cols, type, g );
+    if (n==3){
+        string res = "out_detectEdges3_";
+        res.append(params[2]);
+        cv::imwrite( res, m_out );
+    }else if(n==2){
+        string res = "out_detectEdges3_";
+        res.append(params[1]);
+        cv::imwrite( res, m_out );
+    }else{
+        string res = "out_detectEdges3";
+        res.append(".jpeg");
+        cv::imwrite( res, m_out );
+    }
 }
 
 

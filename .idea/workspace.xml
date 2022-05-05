@@ -29,7 +29,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c8504d56-1fbf-42ca-b64e-5432c61b4366" name="Default Changelist" comment="Patch note 200.0.0.0">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Convolution.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Convolution.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConvolutionCuda.cu" beforeDir="false" afterPath="$PROJECT_DIR$/ConvolutionCuda.cu" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,13 +71,13 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunManager">
-    <configuration default="true" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile">
+    <configuration name="Unnamed" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" nameIsGenerated="true">
       <makefile filename="$PROJECT_DIR$/Makefile" target="" workingDirectory="" arguments="">
         <envs />
       </makefile>
       <method v="2" />
     </configuration>
-    <configuration name="Unnamed" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" nameIsGenerated="true">
+    <configuration default="true" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile">
       <makefile filename="$PROJECT_DIR$/Makefile" target="" workingDirectory="" arguments="">
         <envs />
       </makefile>
@@ -487,5 +487,11 @@
     <MESSAGE value="Patch note 178.4.2.3" />
     <MESSAGE value="Patch note 200.0.0.0" />
     <option name="LAST_COMMIT_MESSAGE" value="Patch note 200.0.0.0" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="75" y="288" width="806" height="530" key="Vcs.Push.Dialog.v2" timestamp="1651761878140">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state x="75" y="288" width="806" height="530" key="Vcs.Push.Dialog.v2/0.25.1920.1055@0.25.1920.1055" timestamp="1651761878140" />
   </component>
 </project>
