@@ -91,10 +91,11 @@ int main(int n, char* params[])
     }else{
         m_in = cv::imread("in.jpeg", IMREAD_UNCHANGED );
     }
-    auto bgr = m_in.data(); // c'est pas du rgb c'est du bgr
 
-    auto cols = m_in.cols;
-    auto rows = m_in.rows;
+    auto bgr = m_in.data; // c'est pas du rgb c'est du bgr
+
+    int cols = m_in.cols;
+    int rows = m_in.rows;
     auto sizeBgr = 3*(cols*rows);
 
     auto type = m_in.type();
@@ -108,7 +109,7 @@ int main(int n, char* params[])
     cudaMalloc(&bgr_d, sizeBgr);
     cudaMalloc(&g_d, cols*rows);
 
-    cudaMemcpy(bgr_d,bgr,sizeBgr, cudaMemcpHostToDevice);
+    cudaMemcpy(bgr_d,bgr,sizeBgr, cudaMemcpyHostToDevice);
 
     int block =1;
     auto nbthread = cols *rows;
@@ -119,10 +120,10 @@ int main(int n, char* params[])
                     vector<vector<int>>({ {1,1,1} , {1,1,1} , {1,1,1} })
             );
 
-            if(sizeRGB%3==0){
+            if(sizeBgr%3==0){
                 pasAlpha<<<block,nbthread>>>( bgr_d, g_d, cols,rows, noyau);
             }
-            if(sizeRGB%4==0){
+            if(sizeBgr%4==0){
                 //de l'alpha
             }
 
@@ -155,7 +156,7 @@ int main(int n, char* params[])
                 //de l'alpha
             }
 
-            cv::Mat m_out( rows, cols, type, g );
+            cv::Mat m_out( rows, cols, type, g.data() );
             cudaMemcpy(g.data(),g_d,cols*rows,cudaMemcpyDeviceToHost);
             if (n==3){
                 string res = "out_" + convolutionList[i] + "_";
@@ -185,7 +186,7 @@ int main(int n, char* params[])
                 //de l'alpha
             }
 
-            cv::Mat m_out( rows, cols, type, g );
+            cv::Mat m_out( rows, cols, type, g.data() );
             cudaMemcpy(g.data(),g_d,cols*rows,cudaMemcpyDeviceToHost);
             if (n==3){
                 string res = "out_" + convolutionList[i] + "_";
@@ -215,7 +216,7 @@ int main(int n, char* params[])
                 //de l'alpha
             }
 
-            cv::Mat m_out( rows, cols, type, g );
+            cv::Mat m_out( rows, cols, type, g.data() );
             cudaMemcpy(g.data(),g_d,cols*rows,cudaMemcpyDeviceToHost);
             if (n==3){
                 string res = "out_" + convolutionList[i] + "_";
@@ -244,7 +245,7 @@ int main(int n, char* params[])
                 //de l'alpha
             }
 
-            cv::Mat m_out( rows, cols, type, g );
+            cv::Mat m_out( rows, cols, type, g.data() );
             cudaMemcpy(g.data(),g_d,cols*rows,cudaMemcpyDeviceToHost);
             if (n==3){
                 string res = "out_" + convolutionList[i] + "_";
@@ -272,7 +273,7 @@ int main(int n, char* params[])
                 //de l'alpha
             }
 
-            cv::Mat m_out( rows, cols, type, g );
+            cv::Mat m_out( rows, cols, type, g.data() );
             cudaMemcpy(g.data(),g_d,cols*rows,cudaMemcpyDeviceToHost);
             if (n==3){
                 string res = "out_" + convolutionList[i] + "_";

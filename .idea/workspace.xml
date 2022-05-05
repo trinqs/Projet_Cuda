@@ -27,7 +27,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8504d56-1fbf-42ca-b64e-5432c61b4366" name="Default Changelist" comment="Patch note 200.0.0.0">
+    <list default="true" id="c8504d56-1fbf-42ca-b64e-5432c61b4366" name="Default Changelist" comment="on commence cuda!!!">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ConvolutionCuda.cu" beforeDir="false" afterPath="$PROJECT_DIR$/ConvolutionCuda.cu" afterDir="false" />
     </list>
@@ -98,13 +98,6 @@
       <workItem from="1651666026022" duration="18014000" />
       <workItem from="1651736887515" duration="12545000" />
       <workItem from="1651751515470" duration="7197000" />
-    </task>
-    <task id="LOCAL-00178" summary="Patch note 178.4.2.2">
-      <created>1651739996123</created>
-      <option name="number" value="00178" />
-      <option name="presentableId" value="LOCAL-00178" />
-      <option name="project" value="LOCAL" />
-      <updated>1651739996123</updated>
     </task>
     <task id="LOCAL-00179" summary="Patch note 178.4.2.2">
       <created>1651740172988</created>
@@ -442,7 +435,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651761754345</updated>
     </task>
-    <option name="localTasksCounter" value="227" />
+    <task id="LOCAL-00227" summary="on commence cuda!!!">
+      <created>1651762361515</created>
+      <option name="number" value="00227" />
+      <option name="presentableId" value="LOCAL-00227" />
+      <option name="project" value="LOCAL" />
+      <updated>1651762361515</updated>
+    </task>
+    <option name="localTasksCounter" value="228" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -461,7 +461,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="correction4" />
     <MESSAGE value="correction5" />
     <MESSAGE value="correction5.5" />
     <MESSAGE value="correction6" />
@@ -486,12 +485,13 @@
     <MESSAGE value="Patch note 178.4.2.2" />
     <MESSAGE value="Patch note 178.4.2.3" />
     <MESSAGE value="Patch note 200.0.0.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="Patch note 200.0.0.0" />
+    <MESSAGE value="on commence cuda!!!" />
+    <option name="LAST_COMMIT_MESSAGE" value="on commence cuda!!!" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="75" y="288" width="806" height="530" key="Vcs.Push.Dialog.v2" timestamp="1651761878140">
+    <state x="75" y="288" width="806" height="530" key="Vcs.Push.Dialog.v2" timestamp="1651762378151">
       <screen x="0" y="25" width="1920" height="1055" />
     </state>
-    <state x="75" y="288" width="806" height="530" key="Vcs.Push.Dialog.v2/0.25.1920.1055@0.25.1920.1055" timestamp="1651761878140" />
+    <state x="75" y="288" width="806" height="530" key="Vcs.Push.Dialog.v2/0.25.1920.1055@0.25.1920.1055" timestamp="1651762378151" />
   </component>
 </project>
