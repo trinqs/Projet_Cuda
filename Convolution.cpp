@@ -73,7 +73,7 @@ void pasAlpha( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRo
                     }
                     if (noyau.sommeCoefficients !=0){
                         sum/=noyau.facteurMax; // somme des coefficients de la matrice de convolution
-                        sum/= noyau.sommeCoefficients;
+                        //sum/= noyau.sommeCoefficients;
                     }else{
                         sum/=noyau.facteurMax;
                     }
