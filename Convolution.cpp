@@ -124,7 +124,7 @@ int main(int n, char* params[])
 
     auto type = m_in.type();
 
-    vector<string> convolutionList = {"blur3","blur5","blur11","gaussianBlur3", "nettete3", "detectEdges3", "maskBlur5"};
+    vector<string> convolutionList = {"blur3","blur5","blur11","gaussianBlur3", "nettete3", "detectEdges3"};
 
     uchar* g = new uchar[ 3*(rows * cols)]();
 
@@ -298,33 +298,6 @@ int main(int n, char* params[])
                     cv::imwrite( res, m_out );
                 }
 
-        } else if (convolutionList[i]==("maskBlur5")){
-                matriceConvolution noyau = matriceConvolution(
-                        vector<vector<int>>({ {1,4,6,4,1} , {4,16,24,16,4} , {6,24,-476,24,6}, {4,16,24,16,4}, {1,4,6,4,1} })
-                );
-
-                if(sizeRGB%3==0){
-                    pasAlpha(rgb,g,cols,rows, noyau);
-
-                }
-                if(sizeRGB%4==0){
-                    //de l'alpha
-                }
-
-                cv::Mat m_out( rows, cols, type, g );
-                if (n==3){
-                    string res = "out_" + convolutionList[i] + "_";
-                    res.append(params[2]);
-                    cv::imwrite( res, m_out );
-                }else if(n==2){
-                    string res = "out_" +  convolutionList[i] + "_";
-                    res.append(params[1]);
-                    cv::imwrite( res, m_out );
-                }else{
-                    string res = "out_" + convolutionList[i];
-                    res.append(".jpeg");
-                    cv::imwrite( res, m_out );
-                }
         }
     }
 
