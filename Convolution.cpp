@@ -154,7 +154,7 @@ int main(int n, char* params[])
     );
 
     for (int i=0; i< convolutionList.size(); i++){
-        switch (convolutionList[i]):
+        switch (convolutionList[i]){
             case "blur3":
                 matriceConvolution noyau = matriceConvolution(
                     vector<vector<int>>({ {1,1,1} , {1,1,1} , {1,1,1} })
@@ -271,8 +271,9 @@ int main(int n, char* params[])
                             cv::Mat m_out( rows, cols, type, g );
                             ecritureSortie(m_out, convolutionList[i]);
                             break;
-            case default :
-            break;
+            default :
+                cout << "Problème dans le switch" << endl;
+        }
     }
 
 
