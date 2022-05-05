@@ -128,20 +128,20 @@ int main(int n, char* params[])
     uchar* g = new uchar[ 3*(rows * cols)]();
 
 
-    matriceConvolution Blur3 = matriceConvolution(
+    matriceConvolution blur3 = matriceConvolution(
         vector<vector<int>>({ {1,1,1} , {1,1,1} , {1,1,1} })
     );
 
-    matriceConvolution Nettete3 = matriceConvolution(
+    matriceConvolution nettete3 = matriceConvolution(
         vector<vector<int>>({ {0,-1,0} , {-1,5,-1} , {0,-1,0} })
     );
 
 
-    matriceConvolution Blur5 = matriceConvolution(
+    matriceConvolution blur5 = matriceConvolution(
         vector<vector<int>>({ {1,1,1,1,1} , {1,1,1,1,1} , {1,1,1,1,1}, {1,1,1,1,1}, {1,1,1,1,1} })
     );
 
-    matriceConvolution Blur14 = matriceConvolution(
+    matriceConvolution blur11 = matriceConvolution(
         vector<vector<int>>({ {1,1,1,1,1,1,1,1,1,1,1} , {1,1,1,1,1,1,1,1,1,1,1} , {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1} })
     );
 
@@ -155,7 +155,7 @@ int main(int n, char* params[])
 
 
     if(sizeRGB%3==0){
-        pasAlpha(rgb,g,cols,rows, gaussianBlur3);
+        pasAlpha(rgb,g,cols,rows, blur3);
 
     }
     if(sizeRGB%4==0){
