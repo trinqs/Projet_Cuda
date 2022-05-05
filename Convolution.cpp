@@ -70,7 +70,7 @@ void pasAlpha( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRo
                     for (int decalageCol = -limCols; decalageCol < limCols+1; decalageCol++){
                         for (int decalageRow = -limRows; decalageRow < limRows+1; decalageRow++){
 
-                            sum += (rgb[3*(( row + decalageRow )*imgCols+( col + decalageCol ))+i] * noyau.matrice[ decalageRow + limRows ][ decalageCol + limCols ]) / noyau.sommeCoefficients ;//coefficient de la matrice de convolution à l'indice associé, on fait la rotation en même temps par le calcul d'indice
+                            sum += rgb[3*(( row + decalageRow )*imgCols+( col + decalageCol ))+i] * noyau.matrice[ decalageRow + limRows ][ decalageCol + limCols ];//coefficient de la matrice de convolution à l'indice associé, on fait la rotation en même temps par le calcul d'indice
                             if (row == 192 && col == 211 ){
                                 cout << "\n coordonnees du pixel dans le calcul(" << (row+decalageRow) << "," << ( col + decalageCol ) << ")\n valeur du pixel : " <<  (int)rgb[3*(( row + decalageRow )*imgCols+( col + decalageCol ))+i] <<endl;
                                 cout << "coefficient de la matrice " << noyau.matrice[ decalageRow + limRows ][ decalageCol + limCols ] << endl;
@@ -97,10 +97,10 @@ void pasAlpha( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRo
 
                     //normalisation en dehors de la boucle pour faire moins d'arrondis
                     //cout << noyau.sommeCoefficients << endl;
-                    /*if (noyau.sommeCoefficients !=0){
+                    if (noyau.sommeCoefficients !=0){
                         sum/=noyau.sommeCoefficients  ; // somme des coefficients de la matrice de convolution
                     }
-                    g[3*(row*imgCols+col)+i] = sum;*/
+                    g[3*(row*imgCols+col)+i] = sum;
                 }
             }
             else{
