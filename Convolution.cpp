@@ -29,30 +29,22 @@ struct matriceConvolution {
     }
 
 };
-/*
-unsigned char julia( int x, int y )
-{
-    const float scale = 1.5;
 
-    float jx = scale * (float)(dim/2.0f - x)/(dim/2.0f);
-    float jy = scale * (float)(dim/2.0f - y)/(dim/2.0f);
-
-    ::complex c(-0.8, 0.156);
-    ::complex a(jx, jy);
-
-    for(unsigned int i = 0 ; i < 200 ; ++i) {
-
-        a = a * a + c;
-
-        if(a.magnitude() > 1000) {
-            return 0;
-        }
-
+void ecritureSortie(cv::mat m_out, string convolution){
+    if (n==3){
+        string res = convolution + "_";
+        res.append(params[2]);
+        cv::imwrite( params[2], m_out );
+    }else if(n==2){
+        res.append(convolution+ "_");
+        res.append(params[1]);
+        cv::imwrite( res, m_out );
+    }else{
+        string res = convolution;
+        res.append(".jpeg");
+        cv::imwrite( res, m_out );
     }
-
-    return 255;
 }
-*/
 
 void pasAlpha( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRow, matriceConvolution noyau){
     int limCols = noyau.cols/2;
@@ -127,7 +119,7 @@ int main(int n, char* params[])
 
     auto type = m_in.type();
 
-    vector<string> convolutionList = {"blur3","blur5","blur11","gaussianBlur3", "nettete3", "detectEdges3", "maskBlur5"}
+    vector<string> convolutionList = {"blur3","blur5","blur11","gaussianBlur3", "nettete3", "detectEdges3", "maskBlur5"};
 
     uchar* g = new uchar[ 3*(rows * cols)]();
 
@@ -177,7 +169,7 @@ int main(int n, char* params[])
 
                 cv::Mat m_out( rows, cols, type, g );
                 ecritureSortie(m_out, convolutionList[i]);
-
+                break;
             case "blur5":
                 matriceConvolution noyau = matriceConvolution(
                     vector<vector<int>>({ {1,1,1,1,1} , {1,1,1,1,1} , {1,1,1,1,1}, {1,1,1,1,1}, {1,1,1,1,1} })
@@ -193,6 +185,7 @@ int main(int n, char* params[])
 
                             cv::Mat m_out( rows, cols, type, g );
                             ecritureSortie(m_out, convolutionList[i]);
+                            break;
 
             case "blur11":
                 matriceConvolution noyau = matriceConvolution(
@@ -209,6 +202,7 @@ int main(int n, char* params[])
 
                             cv::Mat m_out( rows, cols, type, g );
                             ecritureSortie(m_out, convolutionList[i]);
+                            break;
 
             case "gaussianBlur3":
                 matriceConvolution noyau = matriceConvolution(
@@ -225,6 +219,7 @@ int main(int n, char* params[])
 
                             cv::Mat m_out( rows, cols, type, g );
                             ecritureSortie(m_out, convolutionList[i]);
+                            break;
 
             case "nettete3":
                 matriceConvolution noyau = matriceConvolution(
@@ -241,6 +236,7 @@ int main(int n, char* params[])
 
                             cv::Mat m_out( rows, cols, type, g );
                             ecritureSortie(m_out, convolutionList[i]);
+                            break;
 
             case "detectEdges3":
                 matriceConvolution noyau = matriceConvolution(
@@ -257,6 +253,7 @@ int main(int n, char* params[])
 
                             cv::Mat m_out( rows, cols, type, g );
                             ecritureSortie(m_out, convolutionList[i]);
+                            break;
 
             case "maskBlur5":
                 matriceConvolution noyau = matriceConvolution(
@@ -273,7 +270,9 @@ int main(int n, char* params[])
 
                             cv::Mat m_out( rows, cols, type, g );
                             ecritureSortie(m_out, convolutionList[i]);
-
+                            break;
+            case default :
+            break;
     }
 
 
@@ -281,20 +280,4 @@ int main(int n, char* params[])
 
 
     return 0;
-}
-
-void ecritureSortie(cv::mat m_out, string convolution){
-    if (n==3){
-        string res = convolution + "_";
-        res.append(params[2]);
-        cv::imwrite( params[2], m_out );
-    }else if(n==2){
-        res.append(convolution+ "_");
-        res.append(params[1]);
-        cv::imwrite( res, m_out );
-    }else{
-        string res = convolution;
-        res.append(".jpeg")
-        cv::imwrite( res, m_out );
-    }
 }
