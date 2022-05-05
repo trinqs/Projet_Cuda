@@ -40,7 +40,36 @@ struct matriceConvolution {
 
 };
 
-void pasAlpha( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRow, matriceConvolution noyau){
+void blur3Convolution(int n, char* params[], unsigned char* bgr, size_t cols, size_t rows ){
+     uchar* g = new uchar[ 3*(rows * cols)]();
+                    matriceConvolution noyau = matriceConvolution(
+                            vector<vector<int>>({ {1,1,1} , {1,1,1} , {1,1,1} })
+                    );
+                    if(sizebgr%3==0){
+                        pasAlpha(bgr,g,cols,rows, noyau);
+
+                    }
+                    if(sizebgr%4==0){
+                        //de l'alpha
+                    }
+
+                    cv::Mat m_out( rows, cols, type, g );
+                    if (n==3){
+                        string res = "out_" + convolutionList[i] + "_";
+                        res.append(params[2]);
+                        cv::imwrite( res, m_out );
+                    }else if(n==2){
+                        string res = "out_" +  convolutionList[i] + "_";
+                        res.append(params[1]);
+                        cv::imwrite( res, m_out );
+                    }else{
+                        string res = "out_" + convolutionList[i];
+                        res.append(".jpeg");
+                        cv::imwrite( res, m_out );
+                    }
+}
+
+void pasAlpha( unsigned char* bgr, unsigned char* g, size_t imgCols,size_t imgRow, matriceConvolution noyau){
     int limCols = noyau.cols/2;
     int limRows = noyau.rows/2;
     for(int col = 0; col< imgCols;col++){
@@ -55,7 +84,7 @@ void pasAlpha( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRo
 
                     for (int decalageCol = -limCols; decalageCol < limCols+1; decalageCol++){
                         for (int decalageRow = -limRows; decalageRow < limRows+1; decalageRow++){
-                            sum += rgb[3*(( row + decalageRow )*imgCols+( col + decalageCol ))+i] * noyau.matrice[ decalageRow + limRows ][ decalageCol + limCols ];//coefficient de la matrice de convolution à l'indice associé, on fait la rotation en même temps par le calcul d'indice
+                            sum += bgr[3*(( row + decalageRow )*imgCols+( col + decalageCol ))+i] * noyau.matrice[ decalageRow + limRows ][ decalageCol + limCols ];//coefficient de la matrice de convolution à l'indice associé, on fait la rotation en même temps par le calcul d'indice
                         }
                     }
                     //normalisation en dehors de la boucle pour faire moins d'arrondis
@@ -92,57 +121,31 @@ int main(int n, char* params[])
         m_in = cv::imread("in.jpeg", IMREAD_UNCHANGED );
     }
 
-    uchar* rgb = m_in.data;
+    uchar* bgr = m_in.data;
 
     auto cols = m_in.cols;
     auto rows = m_in.rows;
-    auto sizeRGB = 3*(rows * cols);
+    auto sizebgr = 3*(rows * cols);
 
     auto type = m_in.type();
 
     vector<string> convolutionList = {"blur3","blur5","blur11","gaussianBlur3", "nettete3", "detectEdges3"};
-
     uchar* g = new uchar[ 3*(rows * cols)]();
 
-
     for (int i=0; i< convolutionList.size(); i++){
-        if (convolutionList[i]==("blur3")){
-                matriceConvolution noyau = matriceConvolution(
-                        vector<vector<int>>({ {1,1,1} , {1,1,1} , {1,1,1} })
-                );
-                if(sizeRGB%3==0){
-                    pasAlpha(rgb,g,cols,rows, noyau);
+        blur3Convolution(n,params,bgr,cols,rows);
 
-                }
-                if(sizeRGB%4==0){
-                    //de l'alpha
-                }
-
-                cv::Mat m_out( rows, cols, type, g );
-                if (n==3){
-                    string res = "out_" + convolutionList[i] + "_";
-                    res.append(params[2]);
-                    cv::imwrite( res, m_out );
-                }else if(n==2){
-                    string res = "out_" +  convolutionList[i] + "_";
-                    res.append(params[1]);
-                    cv::imwrite( res, m_out );
-                }else{
-                    string res = "out_" + convolutionList[i];
-                    res.append(".jpeg");
-                    cv::imwrite( res, m_out );
-                }
 
         }else if (convolutionList[i]==("blur5")){
                 matriceConvolution noyau = matriceConvolution(
                         vector<vector<int>>({ {1,1,1,1,1} , {1,1,1,1,1} , {1,1,1,1,1}, {1,1,1,1,1}, {1,1,1,1,1} })
                 );
 
-                if(sizeRGB%3==0){
-                    pasAlpha(rgb,g,cols,rows, noyau);
+                if(sizebgr%3==0){
+                    pasAlpha(bgr,g,cols,rows, noyau);
 
                 }
-                if(sizeRGB%4==0){
+                if(sizebgr%4==0){
                     //de l'alpha
                 }
 
@@ -167,11 +170,11 @@ int main(int n, char* params[])
                         vector<vector<int>>({ {1,1,1,1,1,1,1,1,1,1,1} , {1,1,1,1,1,1,1,1,1,1,1} , {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1} })
                 );
 
-                if(sizeRGB%3==0){
-                    pasAlpha(rgb,g,cols,rows, noyau);
+                if(sizebgr%3==0){
+                    pasAlpha(bgr,g,cols,rows, noyau);
 
                 }
-                if(sizeRGB%4==0){
+                if(sizebgr%4==0){
                     //de l'alpha
                 }
 
@@ -196,11 +199,11 @@ int main(int n, char* params[])
                         vector<vector<int>>({ {1,2,1} , {2,4,2} , {1,2,1} })
                 );
 
-                if(sizeRGB%3==0){
-                    pasAlpha(rgb,g,cols,rows, noyau);
+                if(sizebgr%3==0){
+                    pasAlpha(bgr,g,cols,rows, noyau);
 
                 }
-                if(sizeRGB%4==0){
+                if(sizebgr%4==0){
                     //de l'alpha
                 }
 
@@ -224,11 +227,11 @@ int main(int n, char* params[])
                         vector<vector<int>>({ {0,-1,0} , {-1,5,-1} , {0,-1,0} })
                 );
 
-                if(sizeRGB%3==0){
-                    pasAlpha(rgb,g,cols,rows, noyau);
+                if(sizebgr%3==0){
+                    pasAlpha(bgr,g,cols,rows, noyau);
 
                 }
-                if(sizeRGB%4==0){
+                if(sizebgr%4==0){
                     //de l'alpha
                 }
 
@@ -251,11 +254,11 @@ int main(int n, char* params[])
                         vector<vector<int>>({ {-1,-1,-1} , {-1,8,-1} , {-1,-1,-1} })
                 );
 
-                if(sizeRGB%3==0){
-                    pasAlpha(rgb,g,cols,rows, noyau);
+                if(sizebgr%3==0){
+                    pasAlpha(bgr,g,cols,rows, noyau);
 
                 }
-                if(sizeRGB%4==0){
+                if(sizebgr%4==0){
                     //de l'alpha
                 }
 
