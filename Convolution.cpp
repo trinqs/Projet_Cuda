@@ -23,7 +23,7 @@ struct matriceConvolution {
         this->sommeCoefficients = 0;
         for (int i=0; i<_matrice.size(); i++){
             for (int j=0; j< _matrice[0].size(); j++){
-               this->sommeCoefficients += _matrice[i][j];
+                this->sommeCoefficients += _matrice[i][j];
             }
         }
     }
@@ -109,39 +109,39 @@ int main(int n, char* params[])
 
 
     matriceConvolution blur3 = matriceConvolution(
-        vector<vector<int>>({ {1,1,1} , {1,1,1} , {1,1,1} })
+            vector<vector<int>>({ {1,1,1} , {1,1,1} , {1,1,1} })
     );
 
     matriceConvolution nettete3 = matriceConvolution(
-        vector<vector<int>>({ {0,-1,0} , {-1,5,-1} , {0,-1,0} })
+            vector<vector<int>>({ {0,-1,0} , {-1,5,-1} , {0,-1,0} })
     );
 
 
     matriceConvolution blur5 = matriceConvolution(
-        vector<vector<int>>({ {1,1,1,1,1} , {1,1,1,1,1} , {1,1,1,1,1}, {1,1,1,1,1}, {1,1,1,1,1} })
+            vector<vector<int>>({ {1,1,1,1,1} , {1,1,1,1,1} , {1,1,1,1,1}, {1,1,1,1,1}, {1,1,1,1,1} })
     );
 
     matriceConvolution blur11 = matriceConvolution(
-        vector<vector<int>>({ {1,1,1,1,1,1,1,1,1,1,1} , {1,1,1,1,1,1,1,1,1,1,1} , {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1} })
+            vector<vector<int>>({ {1,1,1,1,1,1,1,1,1,1,1} , {1,1,1,1,1,1,1,1,1,1,1} , {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1} })
     );
 
     matriceConvolution gaussianBlur3 = matriceConvolution(
-        vector<vector<int>>({ {1,2,1} , {2,4,2} , {1,2,1} })
+            vector<vector<int>>({ {1,2,1} , {2,4,2} , {1,2,1} })
     );
 
     matriceConvolution maskBlur5 = matriceConvolution(
-        vector<vector<int>>({ {1,4,6,4,1} , {4,16,24,16,4} , {6,24,-476,24,6}, {4,16,24,16,4}, {1,4,6,4,1} })
+            vector<vector<int>>({ {1,4,6,4,1} , {4,16,24,16,4} , {6,24,-476,24,6}, {4,16,24,16,4}, {1,4,6,4,1} })
     );
 
     matriceConvolution detectEdges3 = matriceConvolution(
-        vector<vector<int>>({ {-1,-1,-1} , {-1,8,-1} , {-1,-1,-1} })
+            vector<vector<int>>({ {-1,-1,-1} , {-1,8,-1} , {-1,-1,-1} })
     );
 
     for (int i=0; i< convolutionList.size(); i++){
         switch (convolutionList[i]){
             case "blur3":
                 matriceConvolution noyau = matriceConvolution(
-                    vector<vector<int>>({ {1,1,1} , {1,1,1} , {1,1,1} })
+                        vector<vector<int>>({ {1,1,1} , {1,1,1} , {1,1,1} })
                 );
                 if(sizeRGB%3==0){
                     pasAlpha(rgb,g,cols,rows, noyau);
@@ -153,192 +153,192 @@ int main(int n, char* params[])
 
                 cv::Mat m_out( rows, cols, type, g );
                 if (n==3){
-                        string res = convolutionList[i] + "_";
-                        res.append(params[2]);
-                        cv::imwrite( params[2], m_out );
+                    string res = convolutionList[i] + "_";
+                    res.append(params[2]);
+                    cv::imwrite( params[2], m_out );
                 }else if(n==2){
-                        res.append(convolutionList[i+ "_");
-                        res.append(params[1]);
-                        cv::imwrite( res, m_out );
+                    res.append(convolutionList[i+ "_");
+                    res.append(params[1]);
+                    cv::imwrite( res, m_out );
                 }else{
-                        string res = convolutionList[i];
-                        res.append(".jpeg");
-                        cv::imwrite( res, m_out );
+                    string res = convolutionList[i];
+                    res.append(".jpeg");
+                    cv::imwrite( res, m_out );
                 }
                 break;
             case "blur5":
                 matriceConvolution noyau = matriceConvolution(
-                    vector<vector<int>>({ {1,1,1,1,1} , {1,1,1,1,1} , {1,1,1,1,1}, {1,1,1,1,1}, {1,1,1,1,1} })
+                        vector<vector<int>>({ {1,1,1,1,1} , {1,1,1,1,1} , {1,1,1,1,1}, {1,1,1,1,1}, {1,1,1,1,1} })
                 );
 
-                            if(sizeRGB%3==0){
-                                pasAlpha(rgb,g,cols,rows, noyau);
+                if(sizeRGB%3==0){
+                    pasAlpha(rgb,g,cols,rows, noyau);
 
-                            }
-                            if(sizeRGB%4==0){
-                                //de l'alpha
-                            }
+                }
+                if(sizeRGB%4==0){
+                    //de l'alpha
+                }
 
-                            cv::Mat m_out( rows, cols, type, g );
-                            if (n==3){
-                                                    string res = convolutionList[i] + "_";
-                                                    res.append(params[2]);
-                                                    cv::imwrite( params[2], m_out );
-                                            }else if(n==2){
-                                                    res.append(convolutionList[i+ "_");
-                                                    res.append(params[1]);
-                                                    cv::imwrite( res, m_out );
-                                            }else{
-                                                    string res = convolutionList[i];
-                                                    res.append(".jpeg");
-                                                    cv::imwrite( res, m_out );
-                                            }
-                            break;
+                cv::Mat m_out( rows, cols, type, g );
+                if (n==3){
+                    string res = convolutionList[i] + "_";
+                    res.append(params[2]);
+                    cv::imwrite( params[2], m_out );
+                }else if(n==2){
+                    res.append(convolutionList[i+ "_");
+                    res.append(params[1]);
+                    cv::imwrite( res, m_out );
+                }else{
+                    string res = convolutionList[i];
+                    res.append(".jpeg");
+                    cv::imwrite( res, m_out );
+                }
+                break;
 
             case "blur11":
                 matriceConvolution noyau = matriceConvolution(
-                    vector<vector<int>>({ {1,1,1,1,1,1,1,1,1,1,1} , {1,1,1,1,1,1,1,1,1,1,1} , {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1} })
+                        vector<vector<int>>({ {1,1,1,1,1,1,1,1,1,1,1} , {1,1,1,1,1,1,1,1,1,1,1} , {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1} })
                 );
 
-                            if(sizeRGB%3==0){
-                                pasAlpha(rgb,g,cols,rows, noyau);
+                if(sizeRGB%3==0){
+                    pasAlpha(rgb,g,cols,rows, noyau);
 
-                            }
-                            if(sizeRGB%4==0){
-                                //de l'alpha
-                            }
+                }
+                if(sizeRGB%4==0){
+                    //de l'alpha
+                }
 
-                            cv::Mat m_out( rows, cols, type, g );
-                            if (n==3){
-                                                    string res = convolutionList[i] + "_";
-                                                    res.append(params[2]);
-                                                    cv::imwrite( params[2], m_out );
-                                            }else if(n==2){
-                                                    res.append(convolutionList[i+ "_");
-                                                    res.append(params[1]);
-                                                    cv::imwrite( res, m_out );
-                                            }else{
-                                                    string res = convolutionList[i];
-                                                    res.append(".jpeg");
-                                                    cv::imwrite( res, m_out );
-                                            }
-                            break;
+                cv::Mat m_out( rows, cols, type, g );
+                if (n==3){
+                    string res = convolutionList[i] + "_";
+                    res.append(params[2]);
+                    cv::imwrite( params[2], m_out );
+                }else if(n==2){
+                    res.append(convolutionList[i+ "_");
+                    res.append(params[1]);
+                    cv::imwrite( res, m_out );
+                }else{
+                    string res = convolutionList[i];
+                    res.append(".jpeg");
+                    cv::imwrite( res, m_out );
+                }
+                break;
 
             case "gaussianBlur3":
                 matriceConvolution noyau = matriceConvolution(
-                    vector<vector<int>>({ {1,2,1} , {2,4,2} , {1,2,1} })
+                        vector<vector<int>>({ {1,2,1} , {2,4,2} , {1,2,1} })
                 );
 
-                            if(sizeRGB%3==0){
-                                pasAlpha(rgb,g,cols,rows, noyau);
+                if(sizeRGB%3==0){
+                    pasAlpha(rgb,g,cols,rows, noyau);
 
-                            }
-                            if(sizeRGB%4==0){
-                                //de l'alpha
-                            }
+                }
+                if(sizeRGB%4==0){
+                    //de l'alpha
+                }
 
-                            cv::Mat m_out( rows, cols, type, g );
-                            if (n==3){
-                                                    string res = convolutionList[i] + "_";
-                                                    res.append(params[2]);
-                                                    cv::imwrite( params[2], m_out );
-                                            }else if(n==2){
-                                                    res.append(convolutionList[i+ "_");
-                                                    res.append(params[1]);
-                                                    cv::imwrite( res, m_out );
-                                            }else{
-                                                    string res = convolutionList[i];
-                                                    res.append(".jpeg");
-                                                    cv::imwrite( res, m_out );
-                                            }
-                            break;
+                cv::Mat m_out( rows, cols, type, g );
+                if (n==3){
+                    string res = convolutionList[i] + "_";
+                    res.append(params[2]);
+                    cv::imwrite( params[2], m_out );
+                }else if(n==2){
+                    res.append(convolutionList[i+ "_");
+                    res.append(params[1]);
+                    cv::imwrite( res, m_out );
+                }else{
+                    string res = convolutionList[i];
+                    res.append(".jpeg");
+                    cv::imwrite( res, m_out );
+                }
+                break;
 
             case "nettete3":
                 matriceConvolution noyau = matriceConvolution(
-                    vector<vector<int>>({ {0,-1,0} , {-1,5,-1} , {0,-1,0} })
+                        vector<vector<int>>({ {0,-1,0} , {-1,5,-1} , {0,-1,0} })
                 );
 
-                            if(sizeRGB%3==0){
-                                pasAlpha(rgb,g,cols,rows, noyau);
+                if(sizeRGB%3==0){
+                    pasAlpha(rgb,g,cols,rows, noyau);
 
-                            }
-                            if(sizeRGB%4==0){
-                                //de l'alpha
-                            }
+                }
+                if(sizeRGB%4==0){
+                    //de l'alpha
+                }
 
-                            cv::Mat m_out( rows, cols, type, g );
-                            if (n==3){
-                                                    string res = convolutionList[i] + "_";
-                                                    res.append(params[2]);
-                                                    cv::imwrite( params[2], m_out );
-                                            }else if(n==2){
-                                                    res.append(convolutionList[i+ "_");
-                                                    res.append(params[1]);
-                                                    cv::imwrite( res, m_out );
-                                            }else{
-                                                    string res = convolutionList[i];
-                                                    res.append(".jpeg");
-                                                    cv::imwrite( res, m_out );
-                                            }
-                            break;
+                cv::Mat m_out( rows, cols, type, g );
+                if (n==3){
+                    string res = convolutionList[i] + "_";
+                    res.append(params[2]);
+                    cv::imwrite( params[2], m_out );
+                }else if(n==2){
+                    res.append(convolutionList[i+ "_");
+                    res.append(params[1]);
+                    cv::imwrite( res, m_out );
+                }else{
+                    string res = convolutionList[i];
+                    res.append(".jpeg");
+                    cv::imwrite( res, m_out );
+                }
+                break;
 
             case "detectEdges3":
                 matriceConvolution noyau = matriceConvolution(
-                    vector<vector<int>>({ {-1,-1,-1} , {-1,8,-1} , {-1,-1,-1} })
+                        vector<vector<int>>({ {-1,-1,-1} , {-1,8,-1} , {-1,-1,-1} })
                 );
 
-                            if(sizeRGB%3==0){
-                                pasAlpha(rgb,g,cols,rows, noyau);
+                if(sizeRGB%3==0){
+                    pasAlpha(rgb,g,cols,rows, noyau);
 
-                            }
-                            if(sizeRGB%4==0){
-                                //de l'alpha
-                            }
+                }
+                if(sizeRGB%4==0){
+                    //de l'alpha
+                }
 
-                            cv::Mat m_out( rows, cols, type, g );
-                            if (n==3){
-                                                    string res = convolutionList[i] + "_";
-                                                    res.append(params[2]);
-                                                    cv::imwrite( params[2], m_out );
-                                            }else if(n==2){
-                                                    res.append(convolutionList[i+ "_");
-                                                    res.append(params[1]);
-                                                    cv::imwrite( res, m_out );
-                                            }else{
-                                                    string res = convolutionList[i];
-                                                    res.append(".jpeg");
-                                                    cv::imwrite( res, m_out );
-                                            }
-                            break;
+                cv::Mat m_out( rows, cols, type, g );
+                if (n==3){
+                    string res = convolutionList[i] + "_";
+                    res.append(params[2]);
+                    cv::imwrite( params[2], m_out );
+                }else if(n==2){
+                    res.append(convolutionList[i+ "_");
+                    res.append(params[1]);
+                    cv::imwrite( res, m_out );
+                }else{
+                    string res = convolutionList[i];
+                    res.append(".jpeg");
+                    cv::imwrite( res, m_out );
+                }
+                break;
 
             case "maskBlur5":
                 matriceConvolution noyau = matriceConvolution(
-                    vector<vector<int>>({ {1,4,6,4,1} , {4,16,24,16,4} , {6,24,-476,24,6}, {4,16,24,16,4}, {1,4,6,4,1} })
+                        vector<vector<int>>({ {1,4,6,4,1} , {4,16,24,16,4} , {6,24,-476,24,6}, {4,16,24,16,4}, {1,4,6,4,1} })
                 );
 
-                            if(sizeRGB%3==0){
-                                pasAlpha(rgb,g,cols,rows, noyau);
+                if(sizeRGB%3==0){
+                    pasAlpha(rgb,g,cols,rows, noyau);
 
-                            }
-                            if(sizeRGB%4==0){
-                                //de l'alpha
-                            }
+                }
+                if(sizeRGB%4==0){
+                    //de l'alpha
+                }
 
-                            cv::Mat m_out( rows, cols, type, g );
-                            if (n==3){
-                                                    string res = convolutionList[i] + "_";
-                                                    res.append(params[2]);
-                                                    cv::imwrite( params[2], m_out );
-                                            }else if(n==2){
-                                                    res.append(convolutionList[i+ "_");
-                                                    res.append(params[1]);
-                                                    cv::imwrite( res, m_out );
-                                            }else{
-                                                    string res = convolutionList[i];
-                                                    res.append(".jpeg");
-                                                    cv::imwrite( res, m_out );
-                                            }
-                            break;
+                cv::Mat m_out( rows, cols, type, g );
+                if (n==3){
+                    string res = convolutionList[i] + "_";
+                    res.append(params[2]);
+                    cv::imwrite( params[2], m_out );
+                }else if(n==2){
+                    res.append(convolutionList[i+ "_");
+                    res.append(params[1]);
+                    cv::imwrite( res, m_out );
+                }else{
+                    string res = convolutionList[i];
+                    res.append(".jpeg");
+                    cv::imwrite( res, m_out );
+                }
+                break;
             default :
                 cout << "Problème dans le switch" << endl;
         }
