@@ -41,7 +41,7 @@ struct matriceConvolution {
 };
 
 
-__global__ void pasAlpha(unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRow, matriceConvolution noyau){
+__global__ void pasAlpha(unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRow, matriceConvolution* noyau){
     int limCols = noyau.cols/2;
     int limRows = noyau.rows/2;
 
@@ -120,8 +120,11 @@ int main(int n, char* params[])
                     vector<vector<int>>({ {1,1,1} , {1,1,1} , {1,1,1} })
             );
 
+            matriceConvolution * ptnNoyau;
+            cudaMalloc(std::vector<>::size()+4*sizeof(int));
+            cudaMemcpy(ptnNoyau, noyau, std::vector<>::size()+4*sizeof(int), cudaMemcpyDeviceToHost);
             if(sizeBgr%3==0){
-                pasAlpha<<<block,nbthread>>>( bgr_d, g_d, cols,rows, noyau);
+                pasAlpha<<<block,nbthread>>>( bgr_d, g_d, cols,rows, ptnNoyau);
             }
             if(sizeBgr%4==0){
                 //de l'alpha
@@ -148,8 +151,11 @@ int main(int n, char* params[])
                     vector<vector<int>>({ {1,1,1,1,1} , {1,1,1,1,1} , {1,1,1,1,1}, {1,1,1,1,1}, {1,1,1,1,1} })
             );
 
+            matriceConvolution * ptnNoyau;
+            cudaMalloc(std::vector<>::size()+4*sizeof(int));
+            cudaMemcpy(ptnNoyau, noyau, std::vector<>::size()+4*sizeof(int), cudaMemcpyDeviceToHost);
             if(sizeBgr%3==0){
-                pasAlpha<<<block,nbthread>>>( bgr_d, g_d, cols,rows, noyau);
+                pasAlpha<<<block,nbthread>>>( bgr_d, g_d, cols,rows, ptnNoyau);
 
             }
             if(sizeBgr%4==0){
@@ -178,8 +184,11 @@ int main(int n, char* params[])
                     vector<vector<int>>({ {1,1,1,1,1,1,1,1,1,1,1} , {1,1,1,1,1,1,1,1,1,1,1} , {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1} })
             );
 
+            matriceConvolution * ptnNoyau;
+            cudaMalloc(std::vector<>::size()+4*sizeof(int));
+            cudaMemcpy(ptnNoyau, noyau, std::vector<>::size()+4*sizeof(int), cudaMemcpyDeviceToHost);
             if(sizeBgr%3==0){
-                pasAlpha<<<block,nbthread>>>( bgr_d, g_d, cols,rows, noyau);
+                pasAlpha<<<block,nbthread>>>( bgr_d, g_d, cols,rows, ptnNoyau);
 
             }
             if(sizeBgr%4==0){
@@ -208,8 +217,11 @@ int main(int n, char* params[])
                     vector<vector<int>>({ {1,2,1} , {2,4,2} , {1,2,1} })
             );
 
+            matriceConvolution * ptnNoyau;
+            cudaMalloc(std::vector<>::size()+4*sizeof(int));
+            cudaMemcpy(ptnNoyau, noyau, std::vector<>::size()+4*sizeof(int), cudaMemcpyDeviceToHost);
             if(sizeBgr%3==0){
-                pasAlpha<<<block,nbthread>>>( bgr_d, g_d, cols,rows, noyau);
+                pasAlpha<<<block,nbthread>>>( bgr_d, g_d, cols,rows, ptnNoyau);
 
             }
             if(sizeBgr%4==0){
@@ -237,8 +249,12 @@ int main(int n, char* params[])
                     vector<vector<int>>({ {0,-1,0} , {-1,5,-1} , {0,-1,0} })
             );
 
+
+            matriceConvolution * ptnNoyau;
+            cudaMalloc(std::vector<>::size()+4*sizeof(int));
+            cudaMemcpy(ptnNoyau, noyau, std::vector<>::size()+4*sizeof(int), cudaMemcpyDeviceToHost);
             if(sizeBgr%3==0){
-                pasAlpha<<<block,nbthread>>>( bgr_d, g_d, cols,rows, noyau);
+                pasAlpha<<<block,nbthread>>>( bgr_d, g_d, cols,rows, ptnNoyau);
 
             }
             if(sizeBgr%4==0){
@@ -265,8 +281,11 @@ int main(int n, char* params[])
                     vector<vector<int>>({ {-1,-1,-1} , {-1,8,-1} , {-1,-1,-1} })
             );
 
+            matriceConvolution * ptnNoyau;
+            cudaMalloc(std::vector<>::size()+4*sizeof(int));
+            cudaMemcpy(ptnNoyau, noyau, std::vector<>::size()+4*sizeof(int), cudaMemcpyDeviceToHost);
             if(sizeBgr%3==0){
-                pasAlpha<<<block,nbthread>>>( bgr_d, g_d, cols,rows, noyau);
+                pasAlpha<<<block,nbthread>>>( bgr_d, g_d, cols,rows, ptnNoyau);
 
             }
             if(sizeBgr%4==0){
