@@ -138,8 +138,7 @@ int main(int n, char* params[])
     );
 
     for (int i=0; i< convolutionList.size(); i++){
-        switch (convolutionList[i]){
-            case "blur3":
+        if (convolutionList[i].equals("blur3")){
                 matriceConvolution noyau = matriceConvolution(
                         vector<vector<int>>({ {1,1,1} , {1,1,1} , {1,1,1} })
                 );
@@ -157,7 +156,7 @@ int main(int n, char* params[])
                     res.append(params[2]);
                     cv::imwrite( params[2], m_out );
                 }else if(n==2){
-                    res.append(convolutionList[i+ "_");
+                    string res = convolutionList[i] + "_";
                     res.append(params[1]);
                     cv::imwrite( res, m_out );
                 }else{
@@ -165,8 +164,8 @@ int main(int n, char* params[])
                     res.append(".jpeg");
                     cv::imwrite( res, m_out );
                 }
-                break;
-            case "blur5":
+
+        }else if (convolutionList[i].equals("blur5")){
                 matriceConvolution noyau = matriceConvolution(
                         vector<vector<int>>({ {1,1,1,1,1} , {1,1,1,1,1} , {1,1,1,1,1}, {1,1,1,1,1}, {1,1,1,1,1} })
                 );
@@ -185,7 +184,7 @@ int main(int n, char* params[])
                     res.append(params[2]);
                     cv::imwrite( params[2], m_out );
                 }else if(n==2){
-                    res.append(convolutionList[i+ "_");
+                    string res = convolutionList[i] + "_";
                     res.append(params[1]);
                     cv::imwrite( res, m_out );
                 }else{
@@ -193,9 +192,9 @@ int main(int n, char* params[])
                     res.append(".jpeg");
                     cv::imwrite( res, m_out );
                 }
-                break;
 
-            case "blur11":
+
+        }else if (convolutionList[i].equals("blur11")){
                 matriceConvolution noyau = matriceConvolution(
                         vector<vector<int>>({ {1,1,1,1,1,1,1,1,1,1,1} , {1,1,1,1,1,1,1,1,1,1,1} , {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1} })
                 );
@@ -214,7 +213,7 @@ int main(int n, char* params[])
                     res.append(params[2]);
                     cv::imwrite( params[2], m_out );
                 }else if(n==2){
-                    res.append(convolutionList[i+ "_");
+                    string res = convolutionList[i] + "_";
                     res.append(params[1]);
                     cv::imwrite( res, m_out );
                 }else{
@@ -222,9 +221,9 @@ int main(int n, char* params[])
                     res.append(".jpeg");
                     cv::imwrite( res, m_out );
                 }
-                break;
 
-            case "gaussianBlur3":
+
+        }else if (convolutionList[i].equals("gaussianBlur3")){
                 matriceConvolution noyau = matriceConvolution(
                         vector<vector<int>>({ {1,2,1} , {2,4,2} , {1,2,1} })
                 );
@@ -243,7 +242,7 @@ int main(int n, char* params[])
                     res.append(params[2]);
                     cv::imwrite( params[2], m_out );
                 }else if(n==2){
-                    res.append(convolutionList[i+ "_");
+                    string res = convolutionList[i] + "_";
                     res.append(params[1]);
                     cv::imwrite( res, m_out );
                 }else{
@@ -251,9 +250,9 @@ int main(int n, char* params[])
                     res.append(".jpeg");
                     cv::imwrite( res, m_out );
                 }
-                break;
 
-            case "nettete3":
+
+        }else if (convolutionList[i].equals("nettete3")){
                 matriceConvolution noyau = matriceConvolution(
                         vector<vector<int>>({ {0,-1,0} , {-1,5,-1} , {0,-1,0} })
                 );
@@ -272,7 +271,7 @@ int main(int n, char* params[])
                     res.append(params[2]);
                     cv::imwrite( params[2], m_out );
                 }else if(n==2){
-                    res.append(convolutionList[i+ "_");
+                    string res = convolutionList[i] + "_";
                     res.append(params[1]);
                     cv::imwrite( res, m_out );
                 }else{
@@ -280,9 +279,9 @@ int main(int n, char* params[])
                     res.append(".jpeg");
                     cv::imwrite( res, m_out );
                 }
-                break;
 
-            case "detectEdges3":
+
+        }else if (convolutionList[i].equals("detectEdges3")){
                 matriceConvolution noyau = matriceConvolution(
                         vector<vector<int>>({ {-1,-1,-1} , {-1,8,-1} , {-1,-1,-1} })
                 );
@@ -301,7 +300,7 @@ int main(int n, char* params[])
                     res.append(params[2]);
                     cv::imwrite( params[2], m_out );
                 }else if(n==2){
-                    res.append(convolutionList[i+ "_");
+                    string res = convolutionList[i] + "_";
                     res.append(params[1]);
                     cv::imwrite( res, m_out );
                 }else{
@@ -309,9 +308,9 @@ int main(int n, char* params[])
                     res.append(".jpeg");
                     cv::imwrite( res, m_out );
                 }
-                break;
 
-            case "maskBlur5":
+
+        } else if (convolutionList[i].equals("maskBlur5")){
                 matriceConvolution noyau = matriceConvolution(
                         vector<vector<int>>({ {1,4,6,4,1} , {4,16,24,16,4} , {6,24,-476,24,6}, {4,16,24,16,4}, {1,4,6,4,1} })
                 );
@@ -330,7 +329,7 @@ int main(int n, char* params[])
                     res.append(params[2]);
                     cv::imwrite( params[2], m_out );
                 }else if(n==2){
-                    res.append(convolutionList[i+ "_");
+                    string res = convolutionList[i] + "_";
                     res.append(params[1]);
                     cv::imwrite( res, m_out );
                 }else{
@@ -338,9 +337,6 @@ int main(int n, char* params[])
                     res.append(".jpeg");
                     cv::imwrite( res, m_out );
                 }
-                break;
-            default :
-                cout << "Problème dans le switch" << endl;
         }
     }
 
