@@ -349,6 +349,7 @@ int main(int n, char* params[])
     blur5Convolution(n,params,bgr,cols,rows, sizebgr, type);
     blur11Convolution(n,params,bgr,cols,rows, sizebgr, type);
     gaussianBlur3Convolution(n,params,bgr,cols,rows, sizebgr, type);
+    gaussianBlur5Convolution(n,params,bgr,cols,rows, sizebgr, type);
     detectEdges3Convolution(n,params,bgr,cols,rows, sizebgr, type);
     sharpness3Convolution(n,params,bgr,cols,rows, sizebgr, type);
 
