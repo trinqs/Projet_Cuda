@@ -8,7 +8,7 @@ LDLIBS=`pkg-config --libs --cflags opencv`
 Convolution: Convolution.cpp
 	$(CXX) $(CXXFLAGS) -o $@ $< $(LDLIBS)
 
-Convolution-cu: Convolution.cu
+Convolution-cu: ConvolutionCuda.cu
 	nvcc -o $@ $< $(LDLIBS)
 
 clean:
