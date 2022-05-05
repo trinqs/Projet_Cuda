@@ -30,10 +30,6 @@ struct matriceConvolution {
 
 };
 
-void ecritureSortie(cv::Mat m_out, string strConvolution){
-
-}
-
 void pasAlpha( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRow, matriceConvolution noyau){
     int limCols = noyau.cols/2;
     int limRows = noyau.rows/2;
