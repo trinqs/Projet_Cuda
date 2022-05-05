@@ -87,6 +87,8 @@ void pasAlpha( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRo
                         sum = (sum*-1)%255;
                     }*/
 
+                    sum/= noyau.facteurMax;
+
                     if (sum < 0){
                         sum=0;
                     } else if(sum >255){
