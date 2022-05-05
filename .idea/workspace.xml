@@ -28,6 +28,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c8504d56-1fbf-42ca-b64e-5432c61b4366" name="Default Changelist" comment="Patch note 200.0.0.0">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Convolution.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Convolution.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -96,14 +97,7 @@
       <workItem from="1651653204012" duration="5526000" />
       <workItem from="1651666026022" duration="18014000" />
       <workItem from="1651736887515" duration="12545000" />
-      <workItem from="1651751515470" duration="6838000" />
-    </task>
-    <task id="LOCAL-00177" summary="Patch note 178.4.2.2">
-      <created>1651739862933</created>
-      <option name="number" value="00177" />
-      <option name="presentableId" value="LOCAL-00177" />
-      <option name="project" value="LOCAL" />
-      <updated>1651739862933</updated>
+      <workItem from="1651751515470" duration="7197000" />
     </task>
     <task id="LOCAL-00178" summary="Patch note 178.4.2.2">
       <created>1651739996123</created>
@@ -441,7 +435,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651761395382</updated>
     </task>
-    <option name="localTasksCounter" value="226" />
+    <task id="LOCAL-00226" summary="Patch note 200.0.0.0">
+      <created>1651761754345</created>
+      <option name="number" value="00226" />
+      <option name="presentableId" value="LOCAL-00226" />
+      <option name="project" value="LOCAL" />
+      <updated>1651761754345</updated>
+    </task>
+    <option name="localTasksCounter" value="227" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
