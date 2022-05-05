@@ -71,7 +71,7 @@ void pasAlpha( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRo
                         cout << "somme des coefficients : " << noyau.sommeCoefficients << endl;
                         cout << "\n Valeur de la sum AVANT division : " << sum << endl;
                     }
-                    if (noyau.sommeCoefficients !=0){
+                    /*if (noyau.sommeCoefficients !=0){
                         sum/= noyau.facteurMax;
                          // somme des coefficients de la matrice de convolution
 
@@ -85,6 +85,12 @@ void pasAlpha( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRo
 
                     if (sum < 0){
                         sum = (sum*-1)%255;
+                    }*/
+
+                    if (sum < 0){
+                        sum=0;
+                    } else if(sum >255){
+                        sum=255;
                     }
 
                     g[3*(row*imgCols+col)+i] = sum;
