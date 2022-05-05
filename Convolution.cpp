@@ -89,17 +89,15 @@ void pasAlpha( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRo
                         sum%=255;
                     }*/
 
+                    //normalisation en dehors de la boucle pour faire moins d'arrondis
+                    if (noyau.sommeCoefficients !=0){
+                        sum/=noyau.sommeCoefficients  ; // somme des coefficients de la matrice de convolution
+                    }
 
                     if (row == 192 && col == 211){
                         cout << "\n Valeur de la sum : " << sum << "\n" <<endl;
                     }
 
-
-                    //normalisation en dehors de la boucle pour faire moins d'arrondis
-                    //cout << noyau.sommeCoefficients << endl;
-                    if (noyau.sommeCoefficients !=0){
-                        sum/=noyau.sommeCoefficients  ; // somme des coefficients de la matrice de convolution
-                    }
                     g[3*(row*imgCols+col)+i] = sum;
                 }
             }
