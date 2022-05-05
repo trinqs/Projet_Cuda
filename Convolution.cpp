@@ -97,8 +97,11 @@ void pasAlpha( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRo
 
                     //normalisation en dehors de la boucle pour faire moins d'arrondis
                     //cout << noyau.sommeCoefficients << endl;
-
-                    g[3*(row*imgCols+col)+i] = sum/noyau.sommeCoefficients; // somme des coefficients de la matrice de convolution
+                    try{
+                        g[3*(row*imgCols+col)+i] = sum/noyau.sommeCoefficients; // somme des coefficients de la matrice de convolution
+                    } catch (const exception e){
+                        g[3*(row*imgCols+col)+i] = sum;
+                    }
                 }
             }
             else{
@@ -155,9 +158,13 @@ int main(int n, char* params[])
         vector<vector<int>>({ {1,4,6,4,1} , {4,16,24,16,4} , {6,24,-476,24,6}, {4,16,24,16,4}, {1,4,6,4,1} })
     );
 
+    matriceConvolution detectEdges3 = matriceConvolution(
+        vector<vector<int>>({ {-1,-1,-1} , {-1,8,-1} , {-1,-1,-1} })
+    );
+
 
     if(sizeRGB%3==0){
-        pasAlpha(rgb,g,cols,rows, nettete3);
+        pasAlpha(rgb,g,cols,rows, detectEdges3);
 
     }
     if(sizeRGB%4==0){
