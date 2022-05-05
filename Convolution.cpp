@@ -83,6 +83,52 @@ void pasAlpha( unsigned char* bgr, unsigned char* g, size_t imgCols,size_t imgRo
     }
 }
 
+void alpha( unsigned char* bgr, unsigned char* g, size_t imgCols,size_t imgRow, matriceConvolution noyau){
+    int limCols = noyau.cols/2;
+    int limRows = noyau.rows/2;
+    for(int col = 0; col< imgCols;col++){
+        for(int row = 0; row< imgRow; row++){
+            if(col >= limCols && col< imgCols-limCols && row >= limRows && row < imgRow-limRows){
+
+                for( int i=0; i<3; i++){
+
+                    auto sum=0;
+
+                    //cout << "\n" << endl;
+
+                    for (int decalageCol = -limCols; decalageCol < limCols+1; decalageCol++){
+                        for (int decalageRow = -limRows; decalageRow < limRows+1; decalageRow++){
+                            sum += bgr[4*(( row + decalageRow )*imgCols+( col + decalageCol ))+i] * noyau.matrice[ decalageRow + limRows ][ decalageCol + limCols ];//coefficient de la matrice de convolution à l'indice associé, on fait la rotation en même temps par le calcul d'indice
+                        }
+                    }
+                    //normalisation en dehors de la boucle pour faire moins d'arrondis
+                    if (noyau.sommeCoefficients==noyau.facteurMax){
+                        sum/= noyau.facteurMax;
+                    }
+
+                    if (sum < 0){
+                        sum=0;
+                    } else if(sum >255){
+                        sum=255;
+                    }
+
+
+
+                    g[4*(row*imgCols+col)+i] = sum;
+                }
+                g[4*(row*imgCols+col)+3] = 255;
+            }
+            else{
+                for(int i= 0; i<3;i++){
+                    g[4*((row)*imgCols+col)+i] = 0;
+                    g[4*(row*imgCols+col)+3] = 255;
+                }
+            }
+        }
+    }
+}
+
+
 void blur3Convolution(int n, char* params[], unsigned char* bgr, size_t cols, size_t rows, int sizebgr, auto type){
      uchar* g = new uchar[ 3*(rows * cols)]();
                     matriceConvolution noyau = matriceConvolution(
@@ -93,6 +139,7 @@ void blur3Convolution(int n, char* params[], unsigned char* bgr, size_t cols, si
 
                     }else if(sizebgr%4==0){
                         //de l'alpha
+                        alpha(bgr,g,cols,rows, noyau);
                     }
 
                     cv::Mat m_out( rows, cols, type, g );
@@ -121,6 +168,7 @@ void blur5Convolution(int n, char* params[], unsigned char* bgr, size_t cols, si
 
                         }else if(sizebgr%4==0){
                             //de l'alpha
+                            alpha(bgr,g,cols,rows, noyau);
                         }
 
                         cv::Mat m_out( rows, cols, type, g );
@@ -149,6 +197,7 @@ void blur11Convolution(int n, char* params[], unsigned char* bgr, size_t cols, s
 
                             }else if(sizebgr%4==0){
                                 //de l'alpha
+                                alpha(bgr,g,cols,rows, noyau);
                             }
 
                             cv::Mat m_out( rows, cols, type, g );
@@ -177,6 +226,7 @@ void gaussianBlur3Convolution(int n, char* params[], unsigned char* bgr, size_t 
 
                                 }else if(sizebgr%4==0){
                                     //de l'alpha
+                                    alpha(bgr,g,cols,rows, noyau);
                                 }
 
                                 cv::Mat m_out( rows, cols, type, g );
@@ -205,6 +255,7 @@ void sharpness3Convolution(int n, char* params[], unsigned char* bgr, size_t col
 
                                     }else if(sizebgr%4==0){
                                         //de l'alpha
+                                        alpha(bgr,g,cols,rows, noyau);
                                     }
 
                                     cv::Mat m_out( rows, cols, type, g );
@@ -233,6 +284,7 @@ void detectEdges3Convolution(int n, char* params[], unsigned char* bgr, size_t c
 
                                     }else if(sizebgr%4==0){
                                         //de l'alpha
+                                        alpha(bgr,g,cols,rows, noyau);
                                     }
 
                                     cv::Mat m_out( rows, cols, type, g );
