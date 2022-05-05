@@ -30,17 +30,17 @@ struct matriceConvolution {
 
 };
 
-void ecritureSortie(cv::mat m_out, string convolution){
+void ecritureSortie(cv::Mat m_out, string strConvolution){
     if (n==3){
-        string res = convolution + "_";
+        string res = strConvolution + "_";
         res.append(params[2]);
         cv::imwrite( params[2], m_out );
     }else if(n==2){
-        res.append(convolution+ "_");
+        res.append(strConvolution+ "_");
         res.append(params[1]);
         cv::imwrite( res, m_out );
     }else{
-        string res = convolution;
+        string res = strConvolution;
         res.append(".jpeg");
         cv::imwrite( res, m_out );
     }
