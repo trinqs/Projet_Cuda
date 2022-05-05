@@ -4,6 +4,7 @@
 #include <vector>
 #include <iostream>
 #include <cstring>
+#include <algorithm>
 
 using namespace std;
 using namespace cv;
@@ -16,16 +17,25 @@ struct matriceConvolution {
     int cols;
     int rows;
     int sommeCoefficients;
+    int facteurMax;
 
     matriceConvolution(vector<vector<int>> _matrice) : matrice(_matrice) {
         this->cols = _matrice[0].size();
         this->rows = _matrice.size();
         this->sommeCoefficients = 0;
+        int sommeNegative = 0;
+        int sommePositive = 0;
         for (int i=0; i<_matrice.size(); i++){
             for (int j=0; j< _matrice[0].size(); j++){
                 this->sommeCoefficients += _matrice[i][j];
+                if (_matrice[i][j] < 0){
+                    sommeNegative +=_matrice[i][j];
+                }else{
+                    sommePositive += _matrice[i][j];
+                }
             }
         }
+        this->facteurMax = max(sommePositive,(sommeNegative*-1));
     }
 
 };
@@ -62,7 +72,9 @@ void pasAlpha( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRo
                         cout << "\n Valeur de la sum AVANT division : " << sum << endl;
                     }
                     if (noyau.sommeCoefficients !=0){
-                        sum/=noyau.sommeCoefficients  ; // somme des coefficients de la matrice de convolution
+                        sum/=noyau.sommeCoefficients; // somme des coefficients de la matrice de convolution
+                    }else{
+                        sum/=noyau.facteurMax;
                     }
 
                     if (row == 192 && col == 211){
@@ -70,8 +82,7 @@ void pasAlpha( unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRo
                     }
 
                     if (sum < 0){
-                        sum%=255;
-                        sum+=255;
+                        sum = (sum*-1)%255;
                     }
 
                     g[3*(row*imgCols+col)+i] = sum;
@@ -107,35 +118,6 @@ int main(int n, char* params[])
 
     uchar* g = new uchar[ 3*(rows * cols)]();
 
-
-    matriceConvolution blur3 = matriceConvolution(
-            vector<vector<int>>({ {1,1,1} , {1,1,1} , {1,1,1} })
-    );
-
-    matriceConvolution nettete3 = matriceConvolution(
-            vector<vector<int>>({ {0,-1,0} , {-1,5,-1} , {0,-1,0} })
-    );
-
-
-    matriceConvolution blur5 = matriceConvolution(
-            vector<vector<int>>({ {1,1,1,1,1} , {1,1,1,1,1} , {1,1,1,1,1}, {1,1,1,1,1}, {1,1,1,1,1} })
-    );
-
-    matriceConvolution blur11 = matriceConvolution(
-            vector<vector<int>>({ {1,1,1,1,1,1,1,1,1,1,1} , {1,1,1,1,1,1,1,1,1,1,1} , {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1} })
-    );
-
-    matriceConvolution gaussianBlur3 = matriceConvolution(
-            vector<vector<int>>({ {1,2,1} , {2,4,2} , {1,2,1} })
-    );
-
-    matriceConvolution maskBlur5 = matriceConvolution(
-            vector<vector<int>>({ {1,4,6,4,1} , {4,16,24,16,4} , {6,24,-476,24,6}, {4,16,24,16,4}, {1,4,6,4,1} })
-    );
-
-    matriceConvolution detectEdges3 = matriceConvolution(
-            vector<vector<int>>({ {-1,-1,-1} , {-1,8,-1} , {-1,-1,-1} })
-    );
 
     for (int i=0; i< convolutionList.size(); i++){
         if (convolutionList[i]==("blur3")){
