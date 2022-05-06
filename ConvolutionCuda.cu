@@ -13,15 +13,15 @@ using ui32 = unsigned int;
 
 
 struct matriceConvolution {
-    vector<vector<int>> matrice;
+    unsigned char*matrice;
     int cols;
     int rows;
     int sommeCoefficients;
     int facteurMax;
 
-    __host__ __device__ matriceConvolution(vector<vector<int>> _matrice) : matrice(_matrice) {
-        this->cols = _matrice[0].size();
-        this->rows = _matrice.size();
+    __host__ __device__ matriceConvolution(vector<int> _matrice,int tailleMatrice): cols(tailleMatrice), rows(tailleMatrice){
+
+        this ->matrice = _matrice.data();
         this->sommeCoefficients = 0;
         int sommeNegative = 0;
         int sommePositive = 0;
@@ -130,9 +130,13 @@ int main(int n, char* params[])
 
     for (int i=0; i< convolutionList.size(); i++){
         if (convolutionList[i]==("blur3")){
-            matriceConvolution noyau = matriceConvolution(
-                    vector<vector<int>>({ {1,1,1} , {1,1,1} , {1,1,1} })
-            );
+
+            int tailleNoyaux = 3;
+            vector<int> matrice({1,1,1,
+                                 1,1,1,
+                                 1,1,1});
+
+            matriceConvolution noyau = matriceConvolution(matrice,tailleNoyaux);
 
 
             if(sizeBgr%3==0){
@@ -159,9 +163,16 @@ int main(int n, char* params[])
             }
 
         }else if (convolutionList[i]==("blur5")){
-            matriceConvolution noyau = matriceConvolution(
-                    vector<vector<int>>({ {1,1,1,1,1} , {1,1,1,1,1} , {1,1,1,1,1}, {1,1,1,1,1}, {1,1,1,1,1} })
-            );
+
+            int tailleNoyaux = 5;
+            vector<int> matrice({1,1,1,1,1,
+                                 1,1,1,1,1,
+                                 1,1,1,1,1,
+                                 1,1,1,1,1,
+                                 1,1,1,1,1});
+
+            matriceConvolution noyau = matriceConvolution(matrice,tailleNoyaux);
+
 
             if(sizeBgr%3==0){
                 pasAlpha<<<block,nbthread>>>( bgr_d, g_d, cols,rows, noyau);
@@ -189,9 +200,21 @@ int main(int n, char* params[])
 
 
         }else if (convolutionList[i]==("blur11")){
-            matriceConvolution noyau = matriceConvolution(
-                    vector<vector<int>>({ {1,1,1,1,1,1,1,1,1,1,1} , {1,1,1,1,1,1,1,1,1,1,1} , {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1} })
-            );
+
+            int tailleNoyaux = 11;
+            vector<int> matrice({1,1,1,1,1,1,1,1,1,1,1,
+                                 1,1,1,1,1,1,1,1,1,1,1,
+                                 1,1,1,1,1,1,1,1,1,1,1,
+                                 1,1,1,1,1,1,1,1,1,1,1,
+                                 1,1,1,1,1,1,1,1,1,1,1,
+                                 1,1,1,1,1,1,1,1,1,1,1,
+                                 1,1,1,1,1,1,1,1,1,1,1,
+                                 1,1,1,1,1,1,1,1,1,1,1,
+                                 1,1,1,1,1,1,1,1,1,1,1,
+                                 1,1,1,1,1,1,1,1,1,1,1,
+                                 1,1,1,1,1,1,1,1,1,1,1});
+
+            matriceConvolution noyau = matriceConvolution(matrice,tailleNoyaux);
 
             if(sizeBgr%3==0){
                 pasAlpha<<<block,nbthread>>>( bgr_d, g_d, cols,rows, noyau);
@@ -219,9 +242,13 @@ int main(int n, char* params[])
 
 
         }else if (convolutionList[i]==("gaussianBlur3")){
-            matriceConvolution noyau = matriceConvolution(
-                    vector<vector<int>>({ {1,2,1} , {2,4,2} , {1,2,1} })
-            );
+
+            int tailleNoyaux = 3;
+            vector<int> matrice({1,2,1,
+                                 2,4,2,
+                                 1,2,1});
+
+            matriceConvolution noyau = matriceConvolution(matrice,tailleNoyaux);
 
             if(sizeBgr%3==0){
                 pasAlpha<<<block,nbthread>>>( bgr_d, g_d, cols,rows, noyau);
@@ -248,9 +275,14 @@ int main(int n, char* params[])
             }
 
         }else if (convolutionList[i]==("nettete3")){
-            matriceConvolution noyau = matriceConvolution(
-                    vector<vector<int>>({ {0,-1,0} , {-1,5,-1} , {0,-1,0} })
-            );
+
+            int tailleNoyaux = 3;
+            vector<int> matrice({0,-1,0,
+                                 -1,5,-1,
+                                 0,-1,0});
+
+            matriceConvolution noyau = matriceConvolution(matrice,tailleNoyaux);
+
 
             if(sizeBgr%3==0){
                 pasAlpha<<<block,nbthread>>>( bgr_d, g_d, cols,rows, noyau);
@@ -276,9 +308,13 @@ int main(int n, char* params[])
                 cv::imwrite( res, m_out );
             }
         }else if (convolutionList[i]==("detectEdges3")){
-            matriceConvolution noyau = matriceConvolution(
-                    vector<vector<int>>({ {-1,-1,-1} , {-1,8,-1} , {-1,-1,-1} })
-            );
+
+            int tailleNoyaux = 3;
+            vector<int> matrice({-1,-1,-1,
+                                 -1,8,-1,
+                                 -1,-1,-1});
+
+            matriceConvolution noyau = matriceConvolution(matrice,tailleNoyaux);
 
             if(sizeBgr%3==0){
                 pasAlpha<<<block,nbthread>>>( bgr_d, g_d, cols,rows, noyau);
