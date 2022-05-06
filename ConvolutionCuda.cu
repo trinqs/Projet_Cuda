@@ -47,6 +47,29 @@ struct matriceConvolution {
 };
 
 
+__device__ unsigned char calculPixel(int x, int y, int limCols, int limRows,int couleur, unsigned char* rgb, matriceConvolution noyau){
+    auto sum=0;
+
+    for (int decalageCol = -limCols; decalageCol < limCols+1; decalageCol++){
+        for (int decalageRow = -limRows; decalageRow < limRows+1; decalageRow++){
+
+            //coefficient de la matrice de convolution à l'indice associé, on fait la rotation en même temps par le calcul d'indice
+            sum += rgb[3*(( tidx + decalageRow )*imgCols+( tidy + decalageCol ))+couleur] * noyau.getMatrice()[ decalageRow + limRows ][ decalageCol + limCols ];
+        }
+    }
+    //normalisation en dehors de la boucle pour faire moins d'arrondis
+    if (noyau.getSommeCoefficients()==noyau.getFacteurMax()){
+        sum/= noyau.getFacteurMax();
+    }
+
+    if (sum < 0){
+        sum=0;
+    } else if(sum >255){
+        sum=255;
+    }
+    return sum;
+}
+
 __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRow, matriceConvolution noyau){
     int limCols = noyau.getCols()/2;
     int limRows = noyau.getRows()/2;
@@ -58,28 +81,7 @@ __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, size_t imgCols,si
     // si c'est pas un bord
     if( tidy >= limCols && tidy< imgCols-limCols && tidx >= limRows && tidy < imgRow-limRows){
         for( int i=0; i<3; i++){
-
-            auto sum=0;
-
-            for (int decalageCol = -limCols; decalageCol < limCols+1; decalageCol++){
-                for (int decalageRow = -limRows; decalageRow < limRows+1; decalageRow++){
-
-                    //coefficient de la matrice de convolution à l'indice associé, on fait la rotation en même temps par le calcul d'indice
-                    sum += rgb[3*(( tidx + decalageRow )*imgCols+( tidy + decalageCol ))+i] * noyau.getMatrice()[ decalageRow + limRows ][ decalageCol + limCols ];
-                }
-            }
-            //normalisation en dehors de la boucle pour faire moins d'arrondis
-            if (noyau.getSommeCoefficients()==noyau.getFacteurMax()){
-                sum/= noyau.getFacteurMax();
-            }
-
-            if (sum < 0){
-                sum=0;
-            } else if(sum >255){
-                sum=255;
-            }
-
-            g[3*(tidy*imgCols+tidx)+i] = sum;
+            g[3*(tidy*imgCols+tidx)+i] = calculPixel(tidx,tidy,limCols,limRows,i,rgb,noyau);
         }
     }
     else{
