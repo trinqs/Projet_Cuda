@@ -27,7 +27,7 @@ struct matriceConvolution {
         int sommePositive = 0;
         for (int i=0; i<rows; i++){
             for (int j=0; j< cols; j++){
-                this->sommeCoefficients += _matrice[i][j];
+                this->sommeCoefficients += _matrice[i*cols+j];
                 if (_matrice[i*cols+j] < 0){
                     sommeNegative +=_matrice[i*cols+j];
                 }else{
