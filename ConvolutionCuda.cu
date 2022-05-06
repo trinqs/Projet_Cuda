@@ -49,7 +49,7 @@ struct matriceConvolution {
 
 __device__ unsigned char calculPixel(int x, int y, // le thread,
                                      size_t imgCols, size_t imgRows, // taille de l'image
-                                     int limCols, int limRows, // la taille du noyay
+                                     int limCols, int limRows, // la taille du noyau
                                      int couleur, // quelle couche de pixel
                                      unsigned char* rgb, matriceConvolution noyau){ // le tableau des pixel de l'image, la matrice de convolution
     auto sum=0;
@@ -59,7 +59,7 @@ __device__ unsigned char calculPixel(int x, int y, // le thread,
 
             //coefficient de la matrice de convolution à l'indice associé, on fait la rotation en même temps par le calcul d'indice
             //sum += rgb[3*(( x + decalageRow )*imgCols+( y + decalageCol ))+couleur] * noyau.getMatrice()[ decalageRow + limRows ][ decalageCol + limCols ];
-            sum += rgb[1]
+            sum += rgb[1];
         }
     }
     //normalisation en dehors de la boucle pour faire moins d'arrondis
