@@ -112,7 +112,7 @@ int main(int n, char* params[])
 
     auto type = m_in.type();
 
-    std::vector<unsigned char > g(sizeBgr);
+    std::vector<unsigned char > g(cols*rows);
 
     unsigned char * bgr_d;
     unsigned char * g_d;
