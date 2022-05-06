@@ -58,7 +58,8 @@ __device__ unsigned char calculPixel(int x, int y, // le thread,
         for (int decalageRow = -limRows; decalageRow < limRows+1; decalageRow++){
 
             //coefficient de la matrice de convolution à l'indice associé, on fait la rotation en même temps par le calcul d'indice
-            sum += rgb[3*(( x + decalageRow )*imgCols+( y + decalageCol ))+couleur] * noyau.getMatrice()[ decalageRow + limRows ][ decalageCol + limCols ];
+            //sum += rgb[3*(( x + decalageRow )*imgCols+( y + decalageCol ))+couleur] * noyau.getMatrice()[ decalageRow + limRows ][ decalageCol + limCols ];
+            sum += rgb[1]
         }
     }
     //normalisation en dehors de la boucle pour faire moins d'arrondis
