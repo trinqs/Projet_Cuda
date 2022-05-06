@@ -80,8 +80,8 @@ __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, size_t imgCols,si
     int limRows = noyau.getRows()/2;
 
 
-    int tidx = threadIdx.x/imgCols-1;
-    int tidy = threadIdx.x -(imgCols*tidx);
+    int tidx = blockIdx.x * blockDim.x + threadIdx.x;
+    int tidy = blockIdx.y * blockDim.y + threadIdx.y;
 
     // si c'est pas un bord
     if( tidy >= limCols && tidy< imgCols-limCols && tidx >= limRows && tidy < imgRow-limRows){
@@ -116,6 +116,8 @@ int main(int n, char* params[])
 
     std::vector<unsigned char > g(cols*rows);
 
+
+
     unsigned char * bgr_d;
     unsigned char * g_d;
 
@@ -125,8 +127,10 @@ int main(int n, char* params[])
 
     cudaMemcpy(bgr_d,bgr,sizeBgr, cudaMemcpyHostToDevice);
 
-    int block =1;
-    auto nbthread = cols *rows;
+
+    int nbThreadMaxParBloc = 1024;
+    dim3 block( 128, 4 );
+    dim3 grid( (rows-1)/block.x+1, (cols-1)/block.y+1 );
 
     for (int i=0; i< convolutionList.size(); i++){
         if (convolutionList[i]==("blur3")){
@@ -140,7 +144,7 @@ int main(int n, char* params[])
 
 
             if(sizeBgr%3==0){
-                pasAlpha<<<block,nbthread>>>( bgr_d, g_d, cols,rows, noyau);
+                pasAlpha<<<block,grid>>>( bgr_d, g_d, cols,rows, noyau);
             }
             if(sizeBgr%4==0){
                 //de l'alpha
@@ -175,7 +179,7 @@ int main(int n, char* params[])
 
 
             if(sizeBgr%3==0){
-                pasAlpha<<<block,nbthread>>>( bgr_d, g_d, cols,rows, noyau);
+                pasAlpha<<<block,grid>>>( bgr_d, g_d, cols,rows, noyau);
 
             }
             if(sizeBgr%4==0){
@@ -217,7 +221,7 @@ int main(int n, char* params[])
             matriceConvolution noyau = matriceConvolution(matrice,tailleNoyaux);
 
             if(sizeBgr%3==0){
-                pasAlpha<<<block,nbthread>>>( bgr_d, g_d, cols,rows, noyau);
+                pasAlpha<<<block,grid>>>( bgr_d, g_d, cols,rows, noyau);
 
             }
             if(sizeBgr%4==0){
@@ -251,7 +255,7 @@ int main(int n, char* params[])
             matriceConvolution noyau = matriceConvolution(matrice,tailleNoyaux);
 
             if(sizeBgr%3==0){
-                pasAlpha<<<block,nbthread>>>( bgr_d, g_d, cols,rows, noyau);
+                pasAlpha<<<block,grid>>>( bgr_d, g_d, cols,rows, noyau);
 
             }
             if(sizeBgr%4==0){
@@ -285,7 +289,7 @@ int main(int n, char* params[])
 
 
             if(sizeBgr%3==0){
-                pasAlpha<<<block,nbthread>>>( bgr_d, g_d, cols,rows, noyau);
+                pasAlpha<<<block,grid>>>( bgr_d, g_d, cols,rows, noyau);
 
             }
             if(sizeBgr%4==0){
@@ -317,7 +321,7 @@ int main(int n, char* params[])
             matriceConvolution noyau = matriceConvolution(matrice,tailleNoyaux);
 
             if(sizeBgr%3==0){
-                pasAlpha<<<block,nbthread>>>( bgr_d, g_d, cols,rows, noyau);
+                pasAlpha<<<block,grid>>>( bgr_d, g_d, cols,rows, noyau);
 
             }
             if(sizeBgr%4==0){
