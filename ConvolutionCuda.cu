@@ -13,7 +13,7 @@ using ui32 = unsigned int;
 
 
 struct matriceConvolution {
-    unsigned char*matrice;
+    int*matrice;
     int cols;
     int rows;
     int sommeCoefficients;
@@ -25,13 +25,13 @@ struct matriceConvolution {
         this->sommeCoefficients = 0;
         int sommeNegative = 0;
         int sommePositive = 0;
-        for (int i=0; i<_matrice.size(); i++){
-            for (int j=0; j< _matrice[0].size(); j++){
+        for (int i=0; i<rows; i++){
+            for (int j=0; j< cols; j++){
                 this->sommeCoefficients += _matrice[i][j];
-                if (_matrice[i][j] < 0){
-                    sommeNegative +=_matrice[i][j];
+                if (_matrice[i*cols+j] < 0){
+                    sommeNegative +=_matrice[i*cols+j];
                 }else{
-                    sommePositive += _matrice[i][j];
+                    sommePositive += _matrice[i*cols+j];
                 }
             }
         }
@@ -42,7 +42,7 @@ struct matriceConvolution {
     __device__ __host__ int getRows(){ return rows;}
     __device__ __host__ int getSommeCoefficients(){ return sommeCoefficients;}
     __device__ __host__ int getFacteurMax(){ return facteurMax;}
-    __device__ __host__ vector<vector<int>> getMatrice(){ return matrice;};
+    __device__ __host__ int* getMatrice(){ return matrice;};
 
 };
 

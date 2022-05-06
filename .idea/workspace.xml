@@ -98,14 +98,7 @@
       <workItem from="1651666026022" duration="18014000" />
       <workItem from="1651736887515" duration="12545000" />
       <workItem from="1651751515470" duration="7197000" />
-      <workItem from="1651822287082" duration="5444000" />
-    </task>
-    <task id="LOCAL-00193" summary="Patch note 178.4.2.2">
-      <created>1651743448756</created>
-      <option name="number" value="00193" />
-      <option name="presentableId" value="LOCAL-00193" />
-      <option name="project" value="LOCAL" />
-      <updated>1651743448756</updated>
+      <workItem from="1651822287082" duration="5631000" />
     </task>
     <task id="LOCAL-00194" summary="Patch note 178.4.2.2">
       <created>1651744172466</created>
@@ -443,7 +436,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651825257789</updated>
     </task>
-    <option name="localTasksCounter" value="242" />
+    <task id="LOCAL-00242" summary="on tente autre chose">
+      <created>1651827740667</created>
+      <option name="number" value="00242" />
+      <option name="presentableId" value="LOCAL-00242" />
+      <option name="project" value="LOCAL" />
+      <updated>1651827740667</updated>
+    </task>
+    <option name="localTasksCounter" value="243" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -490,9 +490,9 @@
     <option name="LAST_COMMIT_MESSAGE" value="on tente autre chose" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="75" y="288" width="806" height="530" key="Vcs.Push.Dialog.v2" timestamp="1651825260063">
+    <state x="75" y="288" width="806" height="530" key="Vcs.Push.Dialog.v2" timestamp="1651827742158">
       <screen x="0" y="25" width="1920" height="1055" />
     </state>
-    <state x="75" y="288" width="806" height="530" key="Vcs.Push.Dialog.v2/0.25.1920.1055@0.25.1920.1055" timestamp="1651825260063" />
+    <state x="75" y="288" width="806" height="530" key="Vcs.Push.Dialog.v2/0.25.1920.1055@0.25.1920.1055" timestamp="1651827742158" />
   </component>
 </project>
