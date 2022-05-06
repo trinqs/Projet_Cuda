@@ -27,8 +27,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8504d56-1fbf-42ca-b64e-5432c61b4366" name="Default Changelist" comment="ca marche pas et je sais pas pourquoi">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="c8504d56-1fbf-42ca-b64e-5432c61b4366" name="Default Changelist" comment="on tente autre chose">
       <change beforePath="$PROJECT_DIR$/ConvolutionCuda.cu" beforeDir="false" afterPath="$PROJECT_DIR$/ConvolutionCuda.cu" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -98,21 +97,7 @@
       <workItem from="1651666026022" duration="18014000" />
       <workItem from="1651736887515" duration="12545000" />
       <workItem from="1651751515470" duration="7197000" />
-      <workItem from="1651822287082" duration="762000" />
-    </task>
-    <task id="LOCAL-00186" summary="Patch note 178.4.2.2">
-      <created>1651740827216</created>
-      <option name="number" value="00186" />
-      <option name="presentableId" value="LOCAL-00186" />
-      <option name="project" value="LOCAL" />
-      <updated>1651740827216</updated>
-    </task>
-    <task id="LOCAL-00187" summary="Patch note 178.4.2.2">
-      <created>1651740979111</created>
-      <option name="number" value="00187" />
-      <option name="presentableId" value="LOCAL-00187" />
-      <option name="project" value="LOCAL" />
-      <updated>1651740979111</updated>
+      <workItem from="1651822287082" duration="1136000" />
     </task>
     <task id="LOCAL-00188" summary="Patch note 178.4.2.2">
       <created>1651742641238</created>
@@ -443,7 +428,21 @@
       <option name="project" value="LOCAL" />
       <updated>1651766986660</updated>
     </task>
-    <option name="localTasksCounter" value="235" />
+    <task id="LOCAL-00235" summary="on tente autre chose">
+      <created>1651823061156</created>
+      <option name="number" value="00235" />
+      <option name="presentableId" value="LOCAL-00235" />
+      <option name="project" value="LOCAL" />
+      <updated>1651823061156</updated>
+    </task>
+    <task id="LOCAL-00236" summary="on tente autre chose">
+      <created>1651823110975</created>
+      <option name="number" value="00236" />
+      <option name="presentableId" value="LOCAL-00236" />
+      <option name="project" value="LOCAL" />
+      <updated>1651823110975</updated>
+    </task>
+    <option name="localTasksCounter" value="237" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -462,7 +461,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="correction6" />
     <MESSAGE value="correction8" />
     <MESSAGE value="patch note 12.8 Mise à jour de moyenne ampleur, toutes les compétences ont été ajustées sur swain" />
     <MESSAGE value="on se ressaisit on revient au correction" />
@@ -487,12 +485,13 @@
     <MESSAGE value="on commence cuda!!!" />
     <MESSAGE value="j'en ai marre" />
     <MESSAGE value="ca marche pas et je sais pas pourquoi" />
-    <option name="LAST_COMMIT_MESSAGE" value="ca marche pas et je sais pas pourquoi" />
+    <MESSAGE value="on tente autre chose" />
+    <option name="LAST_COMMIT_MESSAGE" value="on tente autre chose" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="75" y="288" width="806" height="530" key="Vcs.Push.Dialog.v2" timestamp="1651766990742">
+    <state x="75" y="288" width="806" height="530" key="Vcs.Push.Dialog.v2" timestamp="1651823112124">
       <screen x="0" y="25" width="1920" height="1055" />
     </state>
-    <state x="75" y="288" width="806" height="530" key="Vcs.Push.Dialog.v2/0.25.1920.1055@0.25.1920.1055" timestamp="1651766990742" />
+    <state x="75" y="288" width="806" height="530" key="Vcs.Push.Dialog.v2/0.25.1920.1055@0.25.1920.1055" timestamp="1651823112124" />
   </component>
 </project>
