@@ -80,8 +80,11 @@ __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, size_t imgCols,si
     int limRows = noyau.getRows()/2;
 
 
-    int tidx = blockIdx.x * blockDim.x + threadIdx.x;
-    int tidy = blockIdx.y * blockDim.y + threadIdx.y;
+    //int tidx = blockIdx.x * blockDim.x + threadIdx.x;
+    //int tidy = blockIdx.y * blockDim.y + threadIdx.y;
+
+    int tidx = blockIdx.y;
+    int tidy = threadIdx.y;
 
     // si c'est pas un bord
     if( tidy >= limCols && tidy< imgCols-limCols && tidx >= limRows && tidy < imgRow-limRows){
@@ -91,7 +94,7 @@ __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, size_t imgCols,si
         }
     }
     else{
-        std::cout<<"id thread x"+ tidx+", y "+tidy<<std::endl;
+        //std::cout<<"id thread x"+ tidx+", y "+tidy<<std::endl;
         for(int i= 0; i<3;i++){
             g[3*((tidx)*imgCols+tidy)+i] = 0;
         }
@@ -130,8 +133,10 @@ int main(int n, char* params[])
 
 
     int nbThreadMaxParBloc = 1024;
-    dim3 block( 32, 4 );
-    dim3 grid( (cols-1)/block.y+1,(rows-1)/block.x+1 );
+    //dim3 block( 32, 4 );
+    //dim3 grid( (cols-1)/block.y+1,(rows-1)/block.x+1 );
+    dim3 block(1,nrows);
+    dim3 grid(1,ncols);
 
     for (int i=0; i< convolutionList.size(); i++){
         if (convolutionList[i]==("blur3")){
