@@ -175,7 +175,7 @@ int main(int n, char* params[])
                 cv::imwrite( res, m_out );
             }
 
-        }else if (convolutionList[i]==("blur5")){
+        /*}else if (convolutionList[i]==("blur5")){
 
             int tailleNoyaux = 5;
             vector<int> matrice({1,1,1,1,1,
@@ -352,7 +352,7 @@ int main(int n, char* params[])
                 res.append(".jpeg");
                 cv::imwrite( res, m_out );
             }
-        }
+        }*/
     }
     cudaFree(bgr_d);
     cudaFree(g_d);
