@@ -100,14 +100,7 @@
       <workItem from="1651822287082" duration="8852000" />
       <workItem from="1651836020330" duration="1397000" />
       <workItem from="1652081899868" duration="4404000" />
-      <workItem from="1652093441861" duration="4065000" />
-    </task>
-    <task id="LOCAL-00222" summary="Patch note 178.4.2.3">
-      <created>1651760096928</created>
-      <option name="number" value="00222" />
-      <option name="presentableId" value="LOCAL-00222" />
-      <option name="project" value="LOCAL" />
-      <updated>1651760096928</updated>
+      <workItem from="1652093441861" duration="4399000" />
     </task>
     <task id="LOCAL-00223" summary="Patch note 178.4.2.3">
       <created>1651760789890</created>
@@ -445,7 +438,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652096992483</updated>
     </task>
-    <option name="localTasksCounter" value="271" />
+    <task id="LOCAL-00271" summary="on tente autre chose avant les exam....">
+      <created>1652098591712</created>
+      <option name="number" value="00271" />
+      <option name="presentableId" value="LOCAL-00271" />
+      <option name="project" value="LOCAL" />
+      <updated>1652098591712</updated>
+    </task>
+    <option name="localTasksCounter" value="272" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -492,9 +492,25 @@
     <option name="LAST_COMMIT_MESSAGE" value="on tente autre chose avant les exam...." />
   </component>
   <component name="WindowStateProjectService">
-    <state x="75" y="288" width="806" height="530" key="Vcs.Push.Dialog.v2" timestamp="1652096993589">
+    <state width="1874" height="279" key="GridCell.Tab.0.bottom" timestamp="1652098587783">
       <screen x="0" y="25" width="1920" height="1055" />
     </state>
-    <state x="75" y="288" width="806" height="530" key="Vcs.Push.Dialog.v2/0.25.1920.1055@0.25.1920.1055" timestamp="1652096993589" />
+    <state width="1874" height="279" key="GridCell.Tab.0.bottom/0.25.1920.1055@0.25.1920.1055" timestamp="1652098587783" />
+    <state width="1874" height="279" key="GridCell.Tab.0.center" timestamp="1652098587782">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state width="1874" height="279" key="GridCell.Tab.0.center/0.25.1920.1055@0.25.1920.1055" timestamp="1652098587782" />
+    <state width="1874" height="279" key="GridCell.Tab.0.left" timestamp="1652098587781">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state width="1874" height="279" key="GridCell.Tab.0.left/0.25.1920.1055@0.25.1920.1055" timestamp="1652098587781" />
+    <state width="1874" height="279" key="GridCell.Tab.0.right" timestamp="1652098587783">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state width="1874" height="279" key="GridCell.Tab.0.right/0.25.1920.1055@0.25.1920.1055" timestamp="1652098587782" />
+    <state x="75" y="288" width="806" height="530" key="Vcs.Push.Dialog.v2" timestamp="1652098593761">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state x="75" y="288" width="806" height="530" key="Vcs.Push.Dialog.v2/0.25.1920.1055@0.25.1920.1055" timestamp="1652098593761" />
   </component>
 </project>

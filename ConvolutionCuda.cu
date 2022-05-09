@@ -93,6 +93,7 @@ __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, size_t imgCols,si
     // si c'est pas un bord
     if( tidy >= limCols && tidy< imgCols-limCols && tidx >= limRows && tidx < imgRow-limRows){
         for( int i=0; i<3; i++){
+            printf(" i :%d  \n", i);
             g[3*(tidy*imgCols+tidx)+i] = calculPixel(tidx,tidy,imgCols,imgRow,limCols,limRows,i,rgb,noyau);
             //g[3*(tidy*imgCols+tidx)+i] = rgb[3*(tidy*imgCols+tidx)+i];
             //g[2]=1;
@@ -101,6 +102,7 @@ __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, size_t imgCols,si
     else{
         //std::cout<<"id thread x"+ tidx+", y "+tidy<<std::endl;
         for(int i= 0; i<3;i++){
+
             g[3*((tidx)*imgCols+tidy)+i] = 255;
         }
     }
