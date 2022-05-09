@@ -83,8 +83,8 @@ __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, size_t imgCols,si
     //int tidx = blockIdx.x * blockDim.x + threadIdx.x;
     //int tidy = blockIdx.y * blockDim.y + threadIdx.y;
 
-    int tidx = blockIdx.y;
-    int tidy = threadIdx.y;
+    int tidy = blockIdx.y;
+    int tidx = threadIdx.y;
 
     // si c'est pas un bord
     if( tidy >= limCols && tidy< imgCols-limCols && tidx >= limRows && tidy < imgRow-limRows){
