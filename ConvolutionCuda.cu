@@ -54,7 +54,7 @@ __device__ unsigned char calculPixel(int x, int y, // le thread,
                                      unsigned char* rgb, matriceConvolution noyau){ // le tableau des pixel de l'image, la matrice de convolution
     auto sum=0;
 
-    printf(" couleur :%d  \n", couleur;
+    printf(" couleur :%d  \n", couleur);
 
     for (int decalageCol = -limCols; decalageCol < limCols+1; decalageCol++){
         for (int decalageRow = -limRows; decalageRow < limRows+1; decalageRow++){
