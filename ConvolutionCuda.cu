@@ -86,7 +86,7 @@ __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, size_t imgCols,si
     int tidy = blockIdx.y;
     int tidx = threadIdx.y;
 
-    cuPrintf("thread is x: %d , y: %d\n", tidx,tidy);
+    printf("%d \n", tid);
 
     // si c'est pas un bord
     if( tidy >= limCols && tidy< imgCols-limCols && tidx >= limRows && tidy < imgRow-limRows){
