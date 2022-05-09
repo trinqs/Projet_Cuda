@@ -351,8 +351,8 @@ int main(int n, char* params[])
                 string res = "out_" + convolutionList[i];
                 res.append(".jpeg");
                 cv::imwrite( res, m_out );
-            }
-        }*/
+            }*/
+        }
     }
     cudaFree(bgr_d);
     cudaFree(g_d);
