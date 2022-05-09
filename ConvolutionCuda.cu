@@ -135,8 +135,8 @@ int main(int n, char* params[])
     int nbThreadMaxParBloc = 1024;
     //dim3 block( 32, 4 );
     //dim3 grid( (cols-1)/block.y+1,(rows-1)/block.x+1 );
-    dim3 block(1,nrows);
-    dim3 grid(1,ncols);
+    dim3 block(1,rows);
+    dim3 grid(1,cols);
 
     for (int i=0; i< convolutionList.size(); i++){
         if (convolutionList[i]==("blur3")){
