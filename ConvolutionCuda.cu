@@ -19,9 +19,9 @@ struct matriceConvolution {
     int sommeCoefficients;
     int facteurMax;
 
-    __host__ __device__ matriceConvolution(vector<int> _matrice,int tailleMatrice): cols(tailleMatrice), rows(tailleMatrice){
+    __host__ __device__ matriceConvolution(int* _matrice,int tailleMatrice): matrice(_matrice) ,cols(tailleMatrice), rows(tailleMatrice){
 
-        this ->matrice = _matrice.data();
+        //this ->matrice = _matrice.data();
         this->sommeCoefficients = 0;
         int sommeNegative = 0;
         int sommePositive = 0;
@@ -146,7 +146,7 @@ int main(int n, char* params[])
                                  1,1,1,
                                  1,1,1});
 
-            matriceConvolution noyau = matriceConvolution(matrice,tailleNoyaux);
+            matriceConvolution noyau = matriceConvolution(matrice.data(),tailleNoyaux);
 
 
             if(sizeBgr%3==0){
@@ -181,7 +181,7 @@ int main(int n, char* params[])
                                  1,1,1,1,1,
                                  1,1,1,1,1});
 
-            matriceConvolution noyau = matriceConvolution(matrice,tailleNoyaux);
+            matriceConvolution noyau = matriceConvolution(matrice.data(),tailleNoyaux);
 
 
             if(sizeBgr%3==0){
@@ -224,7 +224,7 @@ int main(int n, char* params[])
                                  1,1,1,1,1,1,1,1,1,1,1,
                                  1,1,1,1,1,1,1,1,1,1,1});
 
-            matriceConvolution noyau = matriceConvolution(matrice,tailleNoyaux);
+            matriceConvolution noyau = matriceConvolution(matrice.data(),tailleNoyaux);
 
             if(sizeBgr%3==0){
                 pasAlpha<<<block,grid>>>( bgr_d, g_d, cols,rows, noyau);
@@ -258,7 +258,7 @@ int main(int n, char* params[])
                                  2,4,2,
                                  1,2,1});
 
-            matriceConvolution noyau = matriceConvolution(matrice,tailleNoyaux);
+            matriceConvolution noyau = matriceConvolution(matrice.data(),tailleNoyaux);
 
             if(sizeBgr%3==0){
                 pasAlpha<<<block,grid>>>( bgr_d, g_d, cols,rows, noyau);
@@ -291,7 +291,7 @@ int main(int n, char* params[])
                                  -1,5,-1,
                                  0,-1,0});
 
-            matriceConvolution noyau = matriceConvolution(matrice,tailleNoyaux);
+            matriceConvolution noyau = matriceConvolution(matrice.data(),tailleNoyaux);
 
 
             if(sizeBgr%3==0){
@@ -324,7 +324,7 @@ int main(int n, char* params[])
                                  -1,8,-1,
                                  -1,-1,-1});
 
-            matriceConvolution noyau = matriceConvolution(matrice,tailleNoyaux);
+            matriceConvolution noyau = matriceConvolution(matrice.data(),tailleNoyaux);
 
             if(sizeBgr%3==0){
                 pasAlpha<<<block,grid>>>( bgr_d, g_d, cols,rows, noyau);
