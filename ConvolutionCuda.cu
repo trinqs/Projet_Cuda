@@ -60,8 +60,8 @@ __device__ unsigned char calculPixel(int x, int y, // le thread,
         for (int decalageRow = -limRows; decalageRow < limRows+1; decalageRow++){
 
             //coefficient de la matrice de convolution à l'indice associé, on fait la rotation en même temps par le calcul d'indice
-            //sum += rgb[3*(( x + decalageRow )*imgCols+( y + decalageCol ))+couleur] * noyau.getMatrice()[ (decalageRow + limRows) *noyau.getCols()+ decalageCol + limCols ];
-            sum += rgb[1];
+            sum += rgb[3*(( x + decalageRow )*imgCols+( y + decalageCol ))+couleur] * noyau.getMatrice()[ (decalageRow + limRows) *noyau.getCols()+ decalageCol + limCols ];
+            //sum += rgb[1];
         }
     }
     //normalisation en dehors de la boucle pour faire moins d'arrondis
@@ -95,7 +95,7 @@ __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, size_t imgCols,si
         for( int i=0; i<3; i++){
             printf(" i :%d  \n", i);
             //g[3*(tidy*imgCols+tidx)+i] = calculPixel(tidx,tidy,imgCols,imgRow,limCols,limRows,i,rgb,noyau);
-            //g[3*(tidy*imgCols+tidx)+i] = rgb[3*(tidy*imgCols+tidx)+i];
+            g[3*(tidy*imgCols+tidx)+i] = rgb[3*(tidy*imgCols+tidx)+i];
             //g[2]=1;
         }
     }
