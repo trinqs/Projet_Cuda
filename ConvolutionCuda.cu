@@ -54,6 +54,8 @@ __device__ unsigned char calculPixel(int x, int y, // le thread,
                                      unsigned char* rgb, matriceConvolution noyau){ // le tableau des pixel de l'image, la matrice de convolution
     auto sum=0;
 
+    printf(" couleur :%d  \n", couleur;
+
     for (int decalageCol = -limCols; decalageCol < limCols+1; decalageCol++){
         for (int decalageRow = -limRows; decalageRow < limRows+1; decalageRow++){
 
@@ -91,8 +93,8 @@ __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, size_t imgCols,si
     // si c'est pas un bord
     if( tidy >= limCols && tidy< imgCols-limCols && tidx >= limRows && tidy < imgRow-limRows){
         for( int i=0; i<3; i++){
-            //g[3*(tidy*imgCols+tidx)+i] = calculPixel(tidx,tidy,imgCols,imgRow,limCols,limRows,i,rgb,noyau);
-            g[3*(tidy*imgCols+tidx)+i] = rgb[3*(tidy*imgCols+tidx)+i];
+            g[3*(tidy*imgCols+tidx)+i] = calculPixel(tidx,tidy,imgCols,imgRow,limCols,limRows,i,rgb,noyau);
+            //g[3*(tidy*imgCols+tidx)+i] = rgb[3*(tidy*imgCols+tidx)+i];
             //g[2]=1;
         }
     }
