@@ -91,6 +91,7 @@ __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, size_t imgCols,si
         }
     }
     else{
+        cout<<"id thread x"+ tidx+", y "+tidy<<endl;
         for(int i= 0; i<3;i++){
             g[3*((tidx)*imgCols+tidy)+i] = 0;
         }
