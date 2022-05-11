@@ -170,7 +170,7 @@ int main(int n, char* params[])
     int cols = m_in.cols;
     int rows = m_in.rows;
 
-    for (int i=0; bgr.size(); i++){
+    for (int i=0; i < bgr.size(); i++){
         printf("\nValeur de la case i dans rgb : %d\n", bgr[i]);
     }
 
