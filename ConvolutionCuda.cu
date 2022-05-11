@@ -95,7 +95,7 @@ __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, size_t imgCols,si
         for( int i=0; i<3; i++){
             //if((tidx==9 && tidy==1) || (tidx==0 && tidy==2)) {
             //if(tidx==88 && tidy==89){
-            if(80<=tidx && tidx<=90 && tidy==89){
+            if(234<=tidx && tidx<=244 && tidy==89){
                 unsigned char beforeg;
                 beforeg = g[3 * (tidy * imgCols + tidx) + i];
                 printf("\nvaleur du tableau g avant : %d",beforeg);
@@ -109,7 +109,7 @@ __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, size_t imgCols,si
 
             //if((tidx==9 && tidy==1) || (tidx==0 && tidy==2)) {
             //if(tidx==88 && tidy==89){
-            if(80<=tidx && tidx<=90 && tidy==89){
+            if(234<=tidx && tidx<=244 && tidy==89){
                 printf("\ntidx : %d , tidy : %d \n"
                        "non bord\n"
                        "couleur : %d \n"
@@ -126,7 +126,7 @@ __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, size_t imgCols,si
 
             //if((tidx==9 && tidy==1) || (tidx==0 && tidy==2)) {
             //if(tidx==88 && tidy==89){
-            if(80<=tidx && tidx<=90 && tidy==89){
+            if(234<=tidx && tidx<=244 && tidy==89){
                 unsigned char beforeg;
                 beforeg = g[3 * (tidy * imgCols + tidx) + i];
                 printf("\nvaleur du tableau g avant : %d",beforeg);
@@ -138,7 +138,7 @@ __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, size_t imgCols,si
             g[60] = rgb[60];
             //if((tidx==9 && tidy==1) || (tidx==0 && tidy==2)) {
             //if(tidx==88 && tidy==89){
-            if(80<=tidx && tidx<=90 && tidy==89){
+            if(234<=tidx && tidx<=244 && tidy==89){
                 printf("\ntidx : %d , tidy : %d \n"
                        "bord\n"
                        "couleur : %d \n"
