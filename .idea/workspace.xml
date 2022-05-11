@@ -28,6 +28,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c8504d56-1fbf-42ca-b64e-5432c61b4366" name="Default Changelist" comment="on print plein de truc">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ConvolutionCuda.cu" beforeDir="false" afterPath="$PROJECT_DIR$/ConvolutionCuda.cu" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -101,28 +102,7 @@
       <workItem from="1651836020330" duration="1397000" />
       <workItem from="1652081899868" duration="4404000" />
       <workItem from="1652093441861" duration="5119000" />
-      <workItem from="1652254980120" duration="6406000" />
-    </task>
-    <task id="LOCAL-00245" summary="on tente autre chose">
-      <created>1651828453966</created>
-      <option name="number" value="00245" />
-      <option name="presentableId" value="LOCAL-00245" />
-      <option name="project" value="LOCAL" />
-      <updated>1651828453966</updated>
-    </task>
-    <task id="LOCAL-00246" summary="on tente autre chose">
-      <created>1651828497867</created>
-      <option name="number" value="00246" />
-      <option name="presentableId" value="LOCAL-00246" />
-      <option name="project" value="LOCAL" />
-      <updated>1651828497867</updated>
-    </task>
-    <task id="LOCAL-00247" summary="on tente autre chose">
-      <created>1651829404383</created>
-      <option name="number" value="00247" />
-      <option name="presentableId" value="LOCAL-00247" />
-      <option name="project" value="LOCAL" />
-      <updated>1651829404383</updated>
+      <workItem from="1652254980120" duration="7116000" />
     </task>
     <task id="LOCAL-00248" summary="on tente autre chose">
       <created>1651829666379</created>
@@ -446,7 +426,28 @@
       <option name="project" value="LOCAL" />
       <updated>1652261983339</updated>
     </task>
-    <option name="localTasksCounter" value="294" />
+    <task id="LOCAL-00294" summary="on print plein de truc">
+      <created>1652262024655</created>
+      <option name="number" value="00294" />
+      <option name="presentableId" value="LOCAL-00294" />
+      <option name="project" value="LOCAL" />
+      <updated>1652262024655</updated>
+    </task>
+    <task id="LOCAL-00295" summary="on print plein de truc">
+      <created>1652262050799</created>
+      <option name="number" value="00295" />
+      <option name="presentableId" value="LOCAL-00295" />
+      <option name="project" value="LOCAL" />
+      <updated>1652262050799</updated>
+    </task>
+    <task id="LOCAL-00296" summary="on print plein de truc">
+      <created>1652262262893</created>
+      <option name="number" value="00296" />
+      <option name="presentableId" value="LOCAL-00296" />
+      <option name="project" value="LOCAL" />
+      <updated>1652262262893</updated>
+    </task>
+    <option name="localTasksCounter" value="297" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -513,9 +514,13 @@
       <screen x="0" y="25" width="1920" height="1055" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.25.1920.1055@0.25.1920.1055" timestamp="1652261182285" />
-    <state x="75" y="288" width="806" height="530" key="Vcs.Push.Dialog.v2" timestamp="1652261984799">
+    <state x="75" y="288" width="806" height="530" key="Vcs.Push.Dialog.v2" timestamp="1652262264669">
       <screen x="0" y="25" width="1920" height="1055" />
     </state>
-    <state x="75" y="288" width="806" height="530" key="Vcs.Push.Dialog.v2/0.25.1920.1055@0.25.1920.1055" timestamp="1652261984799" />
+    <state x="75" y="288" width="806" height="530" key="Vcs.Push.Dialog.v2/0.25.1920.1055@0.25.1920.1055" timestamp="1652262264669" />
+    <state x="960" y="25" width="960" height="1055" key="dock-window-1" timestamp="1652262730568">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state x="960" y="25" width="960" height="1055" key="dock-window-1/0.25.1920.1055@0.25.1920.1055" timestamp="1652262730568" />
   </component>
 </project>
