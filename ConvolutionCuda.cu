@@ -169,14 +169,15 @@ int main(int n, char* params[])
 
     int cols = m_in.cols;
     int rows = m_in.rows;
+    auto sizeBgr = 3*(cols*rows);
 
-    for (int i=0; i < bgr.size(); i++){
-        //printf("\nValeur de la case i dans rgb : "+ bgr[i].toString() + "\n");
+    for (int i=0; i < sizeBgr; i++){
+        rintf("\nValeur de la case i dans rgb : "+ (int) bgr[i] + "\n");
     }
 
     //printf("main nb ligne %d , nb cols %d\n",rows,cols);
 
-    auto sizeBgr = 3*(cols*rows);
+
 
     auto type = m_in.type();
 
