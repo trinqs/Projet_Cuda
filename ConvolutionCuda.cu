@@ -120,7 +120,7 @@ __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, size_t imgCols,si
         //std::cout<<"id thread x"+ tidx+", y "+tidy<<std::endl;
         for(int i= 0; i<3;i++){
 
-            if((tidx==9 && tidy==1) || (tidx==2 && tidy==0))) {
+            if((tidx==9 && tidy==1) || (tidx==2 && tidy==0)) {
                 unsigned char beforeg;
                 beforeg = g[3 * (tidy * imgCols + tidx) + i];
                 printf("\nvaleur du tableau g avant : %d",beforeg);
@@ -130,7 +130,7 @@ __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, size_t imgCols,si
 
             int indice = 3*(tidy*imgCols+tidx)+i;
 
-            if((tidx==9 && tidy==1) || (tidx==2 && tidy==0))) {
+            if((tidx==9 && tidy==1) || (tidx==2 && tidy==0)) {
                 printf("\ntidx : %d , tidy : %d \n"
                        "bord\n"
                        "couleur : %d \n"
