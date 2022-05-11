@@ -98,17 +98,8 @@ __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, int imgCol, int i
     // si c'est pas un bord
     if( tidy >= limCols && tidy< imgCol-limCols && tidx >= limRows && tidx < imgRow-limRows){
         for( int i=0; i<3; i++){
-            //if((tidx==9 && tidy==1) || (tidx==0 && tidy==2)) {
-            //if(tidx==88 && tidy==89){
-            if(131<=tidx && tidx<=141 && tidy==108){
-                unsigned char beforeg;
-                beforeg = g[3 * (tidy * imgCol + tidx) + i];
-                printf("\nvaleur du tableau g avant : %d",beforeg);
-            }
-            //printf(" i :%d  \n", i);
             //g[3*(tidy*imgCols+tidx)+i] = calculPixel(tidx,tidy,imgCols,imgRow,limCols,limRows,i,rgb,noyau);
             g[3*(tidx*imgCol+tidy)+i] = rgb[3*(tidx*imgCol+tidy)+i];
-            //g[2]=1;
             g[60] = rgb[60];
             int indice = 3*(tidx*imgCol+tidy)+i;
 
@@ -120,22 +111,14 @@ __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, int imgCol, int i
                        "couleur : %d \n"
                        "indice : %d\n"
                        "valeur du tableau rgb : %d\n"
-                       //"valeur du tableau g avant : %d\n"
                        "valeur du tableau g après : %d\n", tidx, tidy, i, indice, rgb[indice], g[indice]);
             }
         }
     }
     else{
-        //std::cout<<"id thread x"+ tidx+", y "+tidy<<std::endl;
         for(int i= 0; i<3;i++){
 
-            //if((tidx==9 && tidy==1) || (tidx==0 && tidy==2)) {
-            //if(tidx==88 && tidy==89){
-            if(131<=tidx && tidx<=141 && tidy==108){
-                unsigned char beforeg;
-                beforeg = g[3 * (tidy * imgCol + tidx) + i];
-                printf("\nvaleur du tableau g avant : %d",beforeg);
-            }
+
             //g[3*((tidx)*imgCols+tidy)+i] = 255;
             g[3*(tidx*imgCol+tidy)+i] = rgb[3*(tidx*imgCol+tidy)+i];
 
@@ -149,7 +132,6 @@ __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, int imgCol, int i
                        "couleur : %d \n"
                        "indice : %d\n"
                        "valeur du tableau rgb : %d\n"
-                       //"valeur du tableau g avant : %d\n"
                        "valeur du tableau g après : %d\n", tidx, tidy, i, indice, rgb[indice], g[indice]);
             }
         }
