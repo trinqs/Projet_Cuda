@@ -29,7 +29,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c8504d56-1fbf-42ca-b64e-5432c61b4366" name="Default Changelist" comment="on print plein de truc">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConvolutionCuda.cu" beforeDir="false" afterPath="$PROJECT_DIR$/ConvolutionCuda.cu" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,63 +108,7 @@
       <workItem from="1652081899868" duration="4404000" />
       <workItem from="1652093441861" duration="5119000" />
       <workItem from="1652254980120" duration="7258000" />
-      <workItem from="1652267018176" duration="6022000" />
-    </task>
-    <task id="LOCAL-00275" summary="on tente autre chose avant les exam....">
-      <created>1652099478287</created>
-      <option name="number" value="00275" />
-      <option name="presentableId" value="LOCAL-00275" />
-      <option name="project" value="LOCAL" />
-      <updated>1652099478287</updated>
-    </task>
-    <task id="LOCAL-00276" summary="on tente autre chose avant les exam....">
-      <created>1652099560431</created>
-      <option name="number" value="00276" />
-      <option name="presentableId" value="LOCAL-00276" />
-      <option name="project" value="LOCAL" />
-      <updated>1652099560431</updated>
-    </task>
-    <task id="LOCAL-00277" summary="on tente autre chose avant les exam....">
-      <created>1652255829216</created>
-      <option name="number" value="00277" />
-      <option name="presentableId" value="LOCAL-00277" />
-      <option name="project" value="LOCAL" />
-      <updated>1652255829217</updated>
-    </task>
-    <task id="LOCAL-00278" summary="ça avance pas je sais pas pourquoi">
-      <created>1652256248471</created>
-      <option name="number" value="00278" />
-      <option name="presentableId" value="LOCAL-00278" />
-      <option name="project" value="LOCAL" />
-      <updated>1652256248471</updated>
-    </task>
-    <task id="LOCAL-00279" summary="complétion du README.md">
-      <created>1652257695739</created>
-      <option name="number" value="00279" />
-      <option name="presentableId" value="LOCAL-00279" />
-      <option name="project" value="LOCAL" />
-      <updated>1652257695739</updated>
-    </task>
-    <task id="LOCAL-00280" summary="on print plein de truc">
-      <created>1652259200163</created>
-      <option name="number" value="00280" />
-      <option name="presentableId" value="LOCAL-00280" />
-      <option name="project" value="LOCAL" />
-      <updated>1652259200163</updated>
-    </task>
-    <task id="LOCAL-00281" summary="on print plein de truc">
-      <created>1652260175395</created>
-      <option name="number" value="00281" />
-      <option name="presentableId" value="LOCAL-00281" />
-      <option name="project" value="LOCAL" />
-      <updated>1652260175395</updated>
-    </task>
-    <task id="LOCAL-00282" summary="on print plein de truc">
-      <created>1652260241681</created>
-      <option name="number" value="00282" />
-      <option name="presentableId" value="LOCAL-00282" />
-      <option name="project" value="LOCAL" />
-      <updated>1652260241681</updated>
+      <workItem from="1652267018176" duration="6922000" />
     </task>
     <task id="LOCAL-00283" summary="on print plein de truc">
       <created>1652260349998</created>
@@ -454,7 +397,63 @@
       <option name="project" value="LOCAL" />
       <updated>1652273039400</updated>
     </task>
-    <option name="localTasksCounter" value="324" />
+    <task id="LOCAL-00324" summary="on print plein de truc">
+      <created>1652273058053</created>
+      <option name="number" value="00324" />
+      <option name="presentableId" value="LOCAL-00324" />
+      <option name="project" value="LOCAL" />
+      <updated>1652273058053</updated>
+    </task>
+    <task id="LOCAL-00325" summary="on print plein de truc">
+      <created>1652273088315</created>
+      <option name="number" value="00325" />
+      <option name="presentableId" value="LOCAL-00325" />
+      <option name="project" value="LOCAL" />
+      <updated>1652273088315</updated>
+    </task>
+    <task id="LOCAL-00326" summary="on print plein de truc">
+      <created>1652273139502</created>
+      <option name="number" value="00326" />
+      <option name="presentableId" value="LOCAL-00326" />
+      <option name="project" value="LOCAL" />
+      <updated>1652273139502</updated>
+    </task>
+    <task id="LOCAL-00327" summary="on print plein de truc">
+      <created>1652273169141</created>
+      <option name="number" value="00327" />
+      <option name="presentableId" value="LOCAL-00327" />
+      <option name="project" value="LOCAL" />
+      <updated>1652273169141</updated>
+    </task>
+    <task id="LOCAL-00328" summary="on print plein de truc">
+      <created>1652273212454</created>
+      <option name="number" value="00328" />
+      <option name="presentableId" value="LOCAL-00328" />
+      <option name="project" value="LOCAL" />
+      <updated>1652273212454</updated>
+    </task>
+    <task id="LOCAL-00329" summary="on print plein de truc">
+      <created>1652273266633</created>
+      <option name="number" value="00329" />
+      <option name="presentableId" value="LOCAL-00329" />
+      <option name="project" value="LOCAL" />
+      <updated>1652273266633</updated>
+    </task>
+    <task id="LOCAL-00330" summary="on print plein de truc">
+      <created>1652273313829</created>
+      <option name="number" value="00330" />
+      <option name="presentableId" value="LOCAL-00330" />
+      <option name="project" value="LOCAL" />
+      <updated>1652273313829</updated>
+    </task>
+    <task id="LOCAL-00331" summary="on print plein de truc">
+      <created>1652273340327</created>
+      <option name="number" value="00331" />
+      <option name="presentableId" value="LOCAL-00331" />
+      <option name="project" value="LOCAL" />
+      <updated>1652273340327</updated>
+    </task>
+    <option name="localTasksCounter" value="332" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -521,10 +520,10 @@
       <screen x="0" y="25" width="1920" height="1055" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.25.1920.1055@0.25.1920.1055" timestamp="1652261182285" />
-    <state x="75" y="288" width="806" height="530" key="Vcs.Push.Dialog.v2" timestamp="1652273040801">
+    <state x="75" y="288" width="806" height="530" key="Vcs.Push.Dialog.v2" timestamp="1652273341255">
       <screen x="0" y="25" width="1920" height="1055" />
     </state>
-    <state x="75" y="288" width="806" height="530" key="Vcs.Push.Dialog.v2/0.25.1920.1055@0.25.1920.1055" timestamp="1652273040801" />
+    <state x="75" y="288" width="806" height="530" key="Vcs.Push.Dialog.v2/0.25.1920.1055@0.25.1920.1055" timestamp="1652273341255" />
     <state x="960" y="25" width="960" height="1055" key="dock-window-1" timestamp="1652270230307">
       <screen x="0" y="25" width="1920" height="1055" />
     </state>

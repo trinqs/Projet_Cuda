@@ -99,8 +99,8 @@ __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, int imgCol, int i
     if( tidy >= limCols && tidy< imgCol-limCols && tidx >= limRows && tidx < imgRow-limRows){
         for( int i=0; i<3; i++){
             //if((tidx==9 && tidy==1) || (tidx==0 && tidy==2)) {
-            if(tidx==88 && tidy==89){
-                //if(131<=tidx && tidx<=141 && tidy==108){
+            //if(tidx==88 && tidy==89){
+            if(131<=tidx && tidx<=141 && tidy==108){
                 unsigned char beforeg;
                 beforeg = g[3 * (tidy * imgCol + tidx) + i];
                 printf("\nvaleur du tableau g avant : %d",beforeg);
@@ -113,8 +113,8 @@ __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, int imgCol, int i
             int indice = 3*(tidx*imgCol+tidy)+i;
 
             //if((tidx==9 && tidy==1) || (tidx==0 && tidy==2)) {
-            if(tidx==88 && tidy==89){
-            //if(131<=tidx && tidx<=141 && tidy==108){
+            //if(tidx==88 && tidy==89){
+            if(131<=tidx && tidx<=141 && tidy==108){
                 printf("\ntidx : %d , tidy : %d \n"
                        "non bord\n"
                        "couleur : %d \n"
@@ -130,8 +130,8 @@ __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, int imgCol, int i
         for(int i= 0; i<3;i++){
 
             //if((tidx==9 && tidy==1) || (tidx==0 && tidy==2)) {
-            if(tidx==88 && tidy==89){
-            //if(131<=tidx && tidx<=141 && tidy==108){
+            //if(tidx==88 && tidy==89){
+            if(131<=tidx && tidx<=141 && tidy==108){
                 unsigned char beforeg;
                 beforeg = g[3 * (tidy * imgCol + tidx) + i];
                 printf("\nvaleur du tableau g avant : %d",beforeg);
@@ -142,8 +142,8 @@ __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, int imgCol, int i
             int indice = 3*(tidx*imgCol+tidy)+i;
             g[60] = rgb[60];
             //if((tidx==9 && tidy==1) || (tidx==0 && tidy==2)) {
-            if(tidx==88 && tidy==89){
-            //if(131<=tidx && tidx<=141 && tidy==108){
+            //if(tidx==88 && tidy==89){
+            if(131<=tidx && tidx<=141 && tidy==108){
                 printf("\ntidx : %d , tidy : %d \n"
                        "bord\n"
                        "couleur : %d \n"
