@@ -93,8 +93,10 @@ __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, size_t imgCols,si
     // si c'est pas un bord
     if( tidy >= limCols && tidy< imgCols-limCols && tidx >= limRows && tidx < imgRow-limRows){
         for( int i=0; i<3; i++){
-            if(tidx==9 && tidy==2) {
-                unsigned char beforeg = g[3 * (tidy * imgCols + tidx) + i];
+            if(tidx==9 && tidy==1) {
+                unsigned char beforeg;
+                beforeg = g[3 * (tidy * imgCols + tidx) + i];
+                printf("valeur du tableau g avant : %d\n",beforeg);
             }
             //printf(" i :%d  \n", i);
             //g[3*(tidy*imgCols+tidx)+i] = calculPixel(tidx,tidy,imgCols,imgRow,limCols,limRows,i,rgb,noyau);
@@ -103,14 +105,14 @@ __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, size_t imgCols,si
 
             int indice = 3*(tidy*imgCols+tidx)+i;
 
-            if(tidx==9 && tidy==2) {
+            if(tidx==9 && tidy==1) {
                 printf("\ntidx : %d , tidy : %d \n"
                        "non bord\n"
                        "couleur : %d \n"
                        "indice : %d\n"
                        "valeur du tableau rgb : %d\n"
-                       "valeur du tableau g avant : %d\n"
-                       "valeur du tableau g après : %d\n", tidx, tidy, i, indice, rgb[indice], beforeg, g[indice]);
+                       //"valeur du tableau g avant : %d\n"
+                       "valeur du tableau g après : %d\n", tidx, tidy, i, indice, rgb[indice], g[indice]);
             }
         }
     }
@@ -118,9 +120,11 @@ __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, size_t imgCols,si
         //std::cout<<"id thread x"+ tidx+", y "+tidy<<std::endl;
         for(int i= 0; i<3;i++){
 
-            unsigned char beforeg = g[3*(tidy*imgCols+tidx)+i];
-            int indice = 3*(tidy*imgCols+tidx)+i;
-
+            if(tidx==9 && tidy==1) {
+                unsigned char beforeg;
+                beforeg = g[3 * (tidy * imgCols + tidx) + i];
+                printf("valeur du tableau g avant : %d\n",beforeg);
+            }
             //g[3*((tidx)*imgCols+tidy)+i] = 255;
             g[3*((tidx)*imgCols+tidy)+i] = rgb[3*(tidy*imgCols+tidx)+i];
 
@@ -130,8 +134,8 @@ __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, size_t imgCols,si
                        "couleur : %d \n"
                        "indice : %d\n"
                        "valeur du tableau rgb : %d\n"
-                       "valeur du tableau g avant : %d\n"
-                       "valeur du tableau g après : %d\n", tidx, tidy, i, indice, rgb[indice], beforeg, g[indice]);
+                       //"valeur du tableau g avant : %d\n"
+                       "valeur du tableau g après : %d\n", tidx, tidy, i, indice, rgb[indice], g[indice]);
             }
         }
     }
