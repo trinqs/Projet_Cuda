@@ -204,7 +204,7 @@ int main(int n, char* params[])
             matriceConvolution noyau = matriceConvolution(matrice.data(),tailleNoyaux);
 
             if(sizeBgr%3==0){
-                printf("nb de colones : %d, nb de lignes : %d", cols, rows);
+                printf("nb de colones : %d, nb de lignes : %d \n", cols, rows);
                 pasAlpha<<< nbBlock, nbThreadParBlock >>>( bgr_d, g_d, cols, rows, noyau);
             }
             if(sizeBgr%4==0){
