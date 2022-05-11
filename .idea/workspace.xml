@@ -28,7 +28,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c8504d56-1fbf-42ca-b64e-5432c61b4366" name="Default Changelist" comment="on print plein de truc">
-      <change beforePath="$PROJECT_DIR$/ConvolutionCuda.cu" beforeDir="false" afterPath="$PROJECT_DIR$/ConvolutionCuda.cu" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,21 +101,7 @@
       <workItem from="1651836020330" duration="1397000" />
       <workItem from="1652081899868" duration="4404000" />
       <workItem from="1652093441861" duration="5119000" />
-      <workItem from="1652254980120" duration="4732000" />
-    </task>
-    <task id="LOCAL-00234" summary="ca marche pas et je sais pas pourquoi">
-      <created>1651766986660</created>
-      <option name="number" value="00234" />
-      <option name="presentableId" value="LOCAL-00234" />
-      <option name="project" value="LOCAL" />
-      <updated>1651766986660</updated>
-    </task>
-    <task id="LOCAL-00235" summary="on tente autre chose">
-      <created>1651823061156</created>
-      <option name="number" value="00235" />
-      <option name="presentableId" value="LOCAL-00235" />
-      <option name="project" value="LOCAL" />
-      <updated>1651823061156</updated>
+      <workItem from="1652254980120" duration="5333000" />
     </task>
     <task id="LOCAL-00236" summary="on tente autre chose">
       <created>1651823110975</created>
@@ -446,7 +432,21 @@
       <option name="project" value="LOCAL" />
       <updated>1652260241681</updated>
     </task>
-    <option name="localTasksCounter" value="283" />
+    <task id="LOCAL-00283" summary="on print plein de truc">
+      <created>1652260349998</created>
+      <option name="number" value="00283" />
+      <option name="presentableId" value="LOCAL-00283" />
+      <option name="project" value="LOCAL" />
+      <updated>1652260349998</updated>
+    </task>
+    <task id="LOCAL-00284" summary="on print plein de truc">
+      <created>1652260613715</created>
+      <option name="number" value="00284" />
+      <option name="presentableId" value="LOCAL-00284" />
+      <option name="project" value="LOCAL" />
+      <updated>1652260613715</updated>
+    </task>
+    <option name="localTasksCounter" value="285" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -509,9 +509,9 @@
       <screen x="0" y="25" width="1920" height="1055" />
     </state>
     <state width="1874" height="279" key="GridCell.Tab.0.right/0.25.1920.1055@0.25.1920.1055" timestamp="1652099634325" />
-    <state x="75" y="288" width="806" height="530" key="Vcs.Push.Dialog.v2" timestamp="1652260242573">
+    <state x="75" y="288" width="806" height="530" key="Vcs.Push.Dialog.v2" timestamp="1652260615108">
       <screen x="0" y="25" width="1920" height="1055" />
     </state>
-    <state x="75" y="288" width="806" height="530" key="Vcs.Push.Dialog.v2/0.25.1920.1055@0.25.1920.1055" timestamp="1652260242573" />
+    <state x="75" y="288" width="806" height="530" key="Vcs.Push.Dialog.v2/0.25.1920.1055@0.25.1920.1055" timestamp="1652260615108" />
   </component>
 </project>
