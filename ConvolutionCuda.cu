@@ -77,8 +77,7 @@ __device__ unsigned char calculPixel(int x, int y, // le thread,
     return sum;
 }
 
-__global__ void pasAlpha(unsigned char* rgb, unsigned char* g, int imgRow, matriceConvolution noyau){
-    int imgCol = imgRow;
+__global__ void pasAlpha(unsigned char* rgb, unsigned char* g, int imgCol int imgRow, matriceConvolution noyau){
     printf("Dans le kernel, on comprend R, nb ligne : %d , nb cols : %d\n",imgRow, imgCol);
     int limCols = noyau.getCols()/2;
     int limRows = noyau.getRows()/2;
@@ -208,7 +207,7 @@ int main(int n, char* params[])
 
             if(sizeBgr%3==0){
                 printf("nb de colones : %d, nb de lignes : %d \n", cols, rows);
-                pasAlpha<<< nbBlock, nbThreadParBlock >>>( bgr_d, g_d, rows, noyau);
+                pasAlpha<<< nbBlock, nbThreadParBlock >>>( bgr_d, g_d, cols, rows, noyau);
             }
             if(sizeBgr%4==0){
                 //de l'alpha
