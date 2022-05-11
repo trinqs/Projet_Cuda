@@ -165,7 +165,7 @@ int main(int n, char* params[])
         m_in = cv::imread("in.jpeg", IMREAD_UNCHANGED );
     }
 
-    auto bgr = m_in.data; // c'est pas du rgb c'est du bgr
+    unsigned char* bgr = m_in.data; // c'est pas du rgb c'est du bgr
 
     int cols = m_in.cols;
     int rows = m_in.rows;
