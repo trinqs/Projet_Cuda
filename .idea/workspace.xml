@@ -102,14 +102,8 @@
       <workItem from="1651836020330" duration="1397000" />
       <workItem from="1652081899868" duration="4404000" />
       <workItem from="1652093441861" duration="5119000" />
-      <workItem from="1652254980120" duration="7116000" />
-    </task>
-    <task id="LOCAL-00248" summary="on tente autre chose">
-      <created>1651829666379</created>
-      <option name="number" value="00248" />
-      <option name="presentableId" value="LOCAL-00248" />
-      <option name="project" value="LOCAL" />
-      <updated>1651829666379</updated>
+      <workItem from="1652254980120" duration="7258000" />
+      <workItem from="1652267018176" duration="274000" />
     </task>
     <task id="LOCAL-00249" summary="on tente autre chose">
       <created>1651829938151</created>
@@ -447,7 +441,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652262262893</updated>
     </task>
-    <option name="localTasksCounter" value="297" />
+    <task id="LOCAL-00297" summary="on print plein de truc">
+      <created>1652262734746</created>
+      <option name="number" value="00297" />
+      <option name="presentableId" value="LOCAL-00297" />
+      <option name="project" value="LOCAL" />
+      <updated>1652262734746</updated>
+    </task>
+    <option name="localTasksCounter" value="298" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -514,13 +515,13 @@
       <screen x="0" y="25" width="1920" height="1055" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.25.1920.1055@0.25.1920.1055" timestamp="1652261182285" />
-    <state x="75" y="288" width="806" height="530" key="Vcs.Push.Dialog.v2" timestamp="1652262264669">
+    <state x="75" y="288" width="806" height="530" key="Vcs.Push.Dialog.v2" timestamp="1652262735924">
       <screen x="0" y="25" width="1920" height="1055" />
     </state>
-    <state x="75" y="288" width="806" height="530" key="Vcs.Push.Dialog.v2/0.25.1920.1055@0.25.1920.1055" timestamp="1652262264669" />
-    <state x="960" y="25" width="960" height="1055" key="dock-window-1" timestamp="1652262730568">
+    <state x="75" y="288" width="806" height="530" key="Vcs.Push.Dialog.v2/0.25.1920.1055@0.25.1920.1055" timestamp="1652262735924" />
+    <state x="960" y="25" width="960" height="1055" key="dock-window-1" timestamp="1652267051249">
       <screen x="0" y="25" width="1920" height="1055" />
     </state>
-    <state x="960" y="25" width="960" height="1055" key="dock-window-1/0.25.1920.1055@0.25.1920.1055" timestamp="1652262730568" />
+    <state x="960" y="25" width="960" height="1055" key="dock-window-1/0.25.1920.1055@0.25.1920.1055" timestamp="1652267051249" />
   </component>
 </project>
