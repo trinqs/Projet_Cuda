@@ -53,8 +53,8 @@ __device__ unsigned char calculPixel(int x, int y, // le thread,
                                      int couleur, // quelle couche de pixel
                                      unsigned char* rgb, matriceConvolution noyau){ // le tableau des pixel de l'image, la matrice de convolution
     auto sum=0;
-    printf(" x :%d , y: %d \n", x, y);
-    printf(" couleur :%d  \n", couleur);
+    /*printf(" x :%d , y: %d \n", x, y);
+    printf(" couleur :%d  \n", couleur);*/
 
     for (int decalageCol = -limCols; decalageCol < limCols+1; decalageCol++){
         for (int decalageRow = -limRows; decalageRow < limRows+1; decalageRow++){
@@ -93,10 +93,23 @@ __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, size_t imgCols,si
     // si c'est pas un bord
     if( tidy >= limCols && tidy< imgCols-limCols && tidx >= limRows && tidx < imgRow-limRows){
         for( int i=0; i<3; i++){
-            printf(" i :%d  \n", i);
+            unsigned char beforeg = g[3*(tidy*imgCols+tidx)+i];
+            //printf(" i :%d  \n", i);
             //g[3*(tidy*imgCols+tidx)+i] = calculPixel(tidx,tidy,imgCols,imgRow,limCols,limRows,i,rgb,noyau);
             g[3*(tidy*imgCols+tidx)+i] = rgb[3*(tidy*imgCols+tidx)+i];
             //g[2]=1;
+
+            int indice = 3*(tidy*imgCols+tidx)+i;
+
+
+            if(tidx==4 && tidy==6) {
+                printf("tidx : %d , tidy : %d \n"
+                       "couleur : %d \n"
+                       "indice : %d\n"
+                       "valeur du tableau rgb : %d\n"
+                       "valeur du tableau g avant : %d\n"
+                       "valeur du tableau g après : %d\n", tidx, tidy, i, indice, rgb[indice], beforeg, g[indice]);
+            }
         }
     }
     else{
@@ -156,7 +169,6 @@ int main(int n, char* params[])
                                  1,1,1});
 
             matriceConvolution noyau = matriceConvolution(matrice.data(),tailleNoyaux);
-
 
             if(sizeBgr%3==0){
                 pasAlpha<<<block,grid>>>( bgr_d, g_d, cols,rows, noyau);

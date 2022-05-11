@@ -27,10 +27,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8504d56-1fbf-42ca-b64e-5432c61b4366" name="Default Changelist" comment="ça avance pas je sais pas pourquoi">
+    <list default="true" id="c8504d56-1fbf-42ca-b64e-5432c61b4366" name="Default Changelist" comment="complétion du README.md">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ConvolutionCuda.cu" beforeDir="false" afterPath="$PROJECT_DIR$/ConvolutionCuda.cu" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,14 +102,7 @@
       <workItem from="1651836020330" duration="1397000" />
       <workItem from="1652081899868" duration="4404000" />
       <workItem from="1652093441861" duration="5119000" />
-      <workItem from="1652254980120" duration="2334000" />
-    </task>
-    <task id="LOCAL-00230" summary="on commence cuda!!!">
-      <created>1651766000507</created>
-      <option name="number" value="00230" />
-      <option name="presentableId" value="LOCAL-00230" />
-      <option name="project" value="LOCAL" />
-      <updated>1651766000508</updated>
+      <workItem from="1652254980120" duration="3832000" />
     </task>
     <task id="LOCAL-00231" summary="on commence cuda!!!">
       <created>1651766244606</created>
@@ -448,7 +440,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652256248471</updated>
     </task>
-    <option name="localTasksCounter" value="279" />
+    <task id="LOCAL-00279" summary="complétion du README.md">
+      <created>1652257695739</created>
+      <option name="number" value="00279" />
+      <option name="presentableId" value="LOCAL-00279" />
+      <option name="project" value="LOCAL" />
+      <updated>1652257695739</updated>
+    </task>
+    <option name="localTasksCounter" value="280" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -467,7 +466,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="on se ressaisit on revient au correction" />
     <MESSAGE value="Parce que je trouve ca dommage de partir aussi loin pour rien" />
     <MESSAGE value="on test autre chose" />
     <MESSAGE value="Patch note 178.3.2.9" />
@@ -492,7 +490,8 @@
     <MESSAGE value="on tente autre chose" />
     <MESSAGE value="on tente autre chose avant les exam...." />
     <MESSAGE value="ça avance pas je sais pas pourquoi" />
-    <option name="LAST_COMMIT_MESSAGE" value="ça avance pas je sais pas pourquoi" />
+    <MESSAGE value="complétion du README.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="complétion du README.md" />
   </component>
   <component name="WindowStateProjectService">
     <state width="1874" height="279" key="GridCell.Tab.0.bottom" timestamp="1652099634325">
@@ -511,9 +510,9 @@
       <screen x="0" y="25" width="1920" height="1055" />
     </state>
     <state width="1874" height="279" key="GridCell.Tab.0.right/0.25.1920.1055@0.25.1920.1055" timestamp="1652099634325" />
-    <state x="75" y="288" width="806" height="530" key="Vcs.Push.Dialog.v2" timestamp="1652256249855">
+    <state x="75" y="288" width="806" height="530" key="Vcs.Push.Dialog.v2" timestamp="1652257697769">
       <screen x="0" y="25" width="1920" height="1055" />
     </state>
-    <state x="75" y="288" width="806" height="530" key="Vcs.Push.Dialog.v2/0.25.1920.1055@0.25.1920.1055" timestamp="1652256249855" />
+    <state x="75" y="288" width="806" height="530" key="Vcs.Push.Dialog.v2/0.25.1920.1055@0.25.1920.1055" timestamp="1652257697769" />
   </component>
 </project>
