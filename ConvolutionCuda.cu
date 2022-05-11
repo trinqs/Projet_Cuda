@@ -101,23 +101,33 @@ __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, size_t imgCols,si
 
             int indice = 3*(tidy*imgCols+tidx)+i;
 
+            printf("tidx : %d , tidy : %d \n"
+                   "non bord\n"
+                   "couleur : %d \n"
+                   "indice : %d\n"
+                   "valeur du tableau rgb : %d\n"
+                   "valeur du tableau g avant : %d\n"
+                   "valeur du tableau g après : %d\n", tidx, tidy, i, indice, rgb[indice], beforeg, g[indice]);
 
-            if(tidx==4 && tidy==6) {
-                printf("tidx : %d , tidy : %d \n"
-                       "couleur : %d \n"
-                       "indice : %d\n"
-                       "valeur du tableau rgb : %d\n"
-                       "valeur du tableau g avant : %d\n"
-                       "valeur du tableau g après : %d\n", tidx, tidy, i, indice, rgb[indice], beforeg, g[indice]);
-            }
         }
     }
     else{
         //std::cout<<"id thread x"+ tidx+", y "+tidy<<std::endl;
         for(int i= 0; i<3;i++){
 
+            unsigned char beforeg = g[3*(tidy*imgCols+tidx)+i];
+            int indice = 3*(tidy*imgCols+tidx)+i;
+
             //g[3*((tidx)*imgCols+tidy)+i] = 255;
             g[3*((tidx)*imgCols+tidy)+i] = rgb[3*(tidy*imgCols+tidx)+i];
+
+            printf("tidx : %d , tidy : %d \n"
+                   "bord\n"
+                   "couleur : %d \n"
+                   "indice : %d\n"
+                   "valeur du tableau rgb : %d\n"
+                   "valeur du tableau g avant : %d\n"
+                   "valeur du tableau g après : %d\n", tidx, tidy, i, indice, rgb[indice], beforeg, g[indice]);
 
         }
     }
