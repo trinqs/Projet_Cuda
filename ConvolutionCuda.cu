@@ -171,14 +171,6 @@ int main(int n, char* params[])
     int rows = m_in.rows;
     auto sizeBgr = 3*(cols*rows);
 
-    for (int i=0; i < sizeBgr; i++){
-        printf("\nValeur de la case i dans rgb : %d \n ", bgr[i]);
-    }
-
-    //printf("main nb ligne %d , nb cols %d\n",rows,cols);
-
-
-
     auto type = m_in.type();
 
     std::vector<unsigned char > g(cols*rows);
