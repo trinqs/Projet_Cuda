@@ -93,7 +93,7 @@ __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, size_t imgCols,si
     // si c'est pas un bord
     if( tidy >= limCols && tidy< imgCols-limCols && tidx >= limRows && tidx < imgRow-limRows){
         for( int i=0; i<3; i++){
-            if((tidx==9 && tidy==1) || (tidx==2 && tidy==0))) {
+            if(tidx==9 && tidy==1 || tidx==2 && tidy==0)) {
                 unsigned char beforeg;
                 beforeg = g[3 * (tidy * imgCols + tidx) + i];
                 printf("\nvaleur du tableau g avant : %d",beforeg);
