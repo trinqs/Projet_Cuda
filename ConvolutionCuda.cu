@@ -187,7 +187,7 @@ int main(int n, char* params[])
     cudaMemcpy(bgr_d,bgr,sizeBgr, cudaMemcpyHostToDevice);
 
 
-    int nbThreadMaxParBloc = 1024;
+    //int nbThreadMaxParBloc = 1024;
     //dim3 block( 32, 4 );
     //dim3 grid( (cols-1)/block.y+1,(rows-1)/block.x+1 );
     dim3 nbThreadParBlock(1,cols,1);
@@ -204,8 +204,8 @@ int main(int n, char* params[])
             matriceConvolution noyau = matriceConvolution(matrice.data(),tailleNoyaux);
 
             if(sizeBgr%3==0){
-                print("nb de colones : %d, nb de lignes : %d",cols, rows);
-                pasAlpha<<< nbBlock, nbThreadParBloc >>>( bgr_d, g_d, cols, rows, noyau);
+                printf("nb de colones : %d, nb de lignes : %d", cols, rows);
+                pasAlpha<<< nbBlock, nbThreadParBlock >>>( bgr_d, g_d, cols, rows, noyau);
             }
             if(sizeBgr%4==0){
                 //de l'alpha
