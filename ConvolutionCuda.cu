@@ -77,9 +77,9 @@ __device__ unsigned char calculPixel(int x, int y, // le thread,
     return sum;
 }
 
-__global__ void pasAlpha(unsigned char* rgb, unsigned char* g, size_t imgCols, size_t imgRow, matriceConvolution noyau){
+__global__ void pasAlpha(unsigned char* rgb, unsigned char* g, size_t imgCol, size_t imgRow, matriceConvolution noyau){
 
-    printf("nb ligne %d , nb cols %d\n",imgRow,imgCols);
+    printf("nb ligne %d , nb cols %d\n",imgRow,imgCol);
     int limCols = noyau.getCols()/2;
     int limRows = noyau.getRows()/2;
 
@@ -95,21 +95,21 @@ __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, size_t imgCols, s
 
 
     // si c'est pas un bord
-    if( tidy >= limCols && tidy< imgCols-limCols && tidx >= limRows && tidx < imgRow-limRows){
+    if( tidy >= limCols && tidy< imgCol-limCols && tidx >= limRows && tidx < imgRow-limRows){
         for( int i=0; i<3; i++){
             //if((tidx==9 && tidy==1) || (tidx==0 && tidy==2)) {
             if(tidx==88 && tidy==89){
                 //if(131<=tidx && tidx<=141 && tidy==108){
                 unsigned char beforeg;
-                beforeg = g[3 * (tidy * imgCols + tidx) + i];
+                beforeg = g[3 * (tidy * imgCol + tidx) + i];
                 printf("\nvaleur du tableau g avant : %d",beforeg);
             }
             //printf(" i :%d  \n", i);
             //g[3*(tidy*imgCols+tidx)+i] = calculPixel(tidx,tidy,imgCols,imgRow,limCols,limRows,i,rgb,noyau);
-            g[3*(tidy*imgCols+tidx)+i] = rgb[3*(tidy*imgCols+tidx)+i];
+            g[3*(tidy*imgCol+tidx)+i] = rgb[3*(tidy*imgCol+tidx)+i];
             //g[2]=1;
             g[60] = rgb[60];
-            int indice = 3*(tidy*imgCols+tidx)+i;
+            int indice = 3*(tidy*imgCol+tidx)+i;
 
             //if((tidx==9 && tidy==1) || (tidx==0 && tidy==2)) {
             if(tidx==88 && tidy==89){
@@ -132,13 +132,13 @@ __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, size_t imgCols, s
             if(tidx==88 && tidy==89){
             //if(131<=tidx && tidx<=141 && tidy==108){
                 unsigned char beforeg;
-                beforeg = g[3 * (tidy * imgCols + tidx) + i];
+                beforeg = g[3 * (tidy * imgCol + tidx) + i];
                 printf("\nvaleur du tableau g avant : %d",beforeg);
             }
             //g[3*((tidx)*imgCols+tidy)+i] = 255;
-            g[3*((tidy)*imgCols+tidx)+i] = rgb[3*(tidy*imgCols+tidx)+i];
+            g[3*((tidy)*imgCol+tidx)+i] = rgb[3*(tidy*imgCol+tidx)+i];
 
-            int indice = 3*(tidy*imgCols+tidx)+i;
+            int indice = 3*(tidy*imgCol+tidx)+i;
             g[60] = rgb[60];
             //if((tidx==9 && tidy==1) || (tidx==0 && tidy==2)) {
             if(tidx==88 && tidy==89){
@@ -207,7 +207,7 @@ int main(int n, char* params[])
 
             if(sizeBgr%3==0){
                 printf("nb de colones : %d, nb de lignes : %d \n", cols, rows);
-                pasAlpha<<< nbBlock, nbThreadParBlock >>>( bgr_d, g_d, rows, rows, noyau);
+                pasAlpha<<< nbBlock, nbThreadParBlock >>>( bgr_d, g_d, cols, rows, noyau);
             }
             if(sizeBgr%4==0){
                 //de l'alpha
