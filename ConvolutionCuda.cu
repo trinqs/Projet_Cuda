@@ -94,8 +94,9 @@ __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, size_t imgCols,si
     if( tidy >= limCols && tidy< imgCols-limCols && tidx >= limRows && tidx < imgRow-limRows){
         for( int i=0; i<3; i++){
             //if((tidx==9 && tidy==1) || (tidx==0 && tidy==2)) {
-            //if(tidx==88 && tidy==89){
-            if(131<=tidx && tidx<=141 && tidy==108){
+            if(tidx==88 && tidy==89){
+            //if(131<=tidx && tidx<=141 && tidy==108){
+                printf("nb ligne %d , nb cols %d\n",imgRow,imgCols);
                 unsigned char beforeg;
                 beforeg = g[3 * (tidy * imgCols + tidx) + i];
                 printf("\nvaleur du tableau g avant : %d",beforeg);
@@ -164,6 +165,9 @@ int main(int n, char* params[])
 
     int cols = m_in.cols;
     int rows = m_in.rows;
+
+    printf("main nb ligne %d , nb cols %d\n",cols,rows);
+
     auto sizeBgr = 3*(cols*rows);
 
     auto type = m_in.type();
@@ -185,8 +189,8 @@ int main(int n, char* params[])
     int nbThreadMaxParBloc = 1024;
     //dim3 block( 32, 4 );
     //dim3 grid( (cols-1)/block.y+1,(rows-1)/block.x+1 );
-    dim3 block(1,rows);
-    dim3 grid(1,cols);
+    dim3 block(1,rows,1);
+    dim3 grid(1,cols,1);
 
     for (int i=0; i< convolutionList.size(); i++){
         if (convolutionList[i]==("blur3")){
