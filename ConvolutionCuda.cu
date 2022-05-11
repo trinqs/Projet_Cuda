@@ -89,14 +89,15 @@ __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, size_t imgCols,si
     int tidx = threadIdx.y;
 
 
+    printf("nb ligne %d , nb cols %d\n",imgRow,imgCols);
+
 
     // si c'est pas un bord
     if( tidy >= limCols && tidy< imgCols-limCols && tidx >= limRows && tidx < imgRow-limRows){
         for( int i=0; i<3; i++){
             //if((tidx==9 && tidy==1) || (tidx==0 && tidy==2)) {
             if(tidx==88 && tidy==89){
-            //if(131<=tidx && tidx<=141 && tidy==108){
-                printf("nb ligne %d , nb cols %d\n",imgRow,imgCols);
+                //if(131<=tidx && tidx<=141 && tidy==108){
                 unsigned char beforeg;
                 beforeg = g[3 * (tidy * imgCols + tidx) + i];
                 printf("\nvaleur du tableau g avant : %d",beforeg);
