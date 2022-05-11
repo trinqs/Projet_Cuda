@@ -128,6 +128,8 @@ __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, size_t imgCols,si
             //g[3*((tidx)*imgCols+tidy)+i] = 255;
             g[3*((tidx)*imgCols+tidy)+i] = rgb[3*(tidy*imgCols+tidx)+i];
 
+            int indice = 3*(tidy*imgCols+tidx)+i;
+
             if(tidx==9 && tidy==1) {
                 printf("\ntidx : %d , tidy : %d \n"
                        "bord\n"
