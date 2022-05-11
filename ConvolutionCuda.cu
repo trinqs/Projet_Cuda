@@ -171,7 +171,7 @@ int main(int n, char* params[])
     int rows = m_in.rows;
 
     for (int i=0; i < bgr.size(); i++){
-        printf("\nValeur de la case i dans rgb : %d\n", bgr[i]);
+        printf("\nValeur de la case i dans rgb : "+ bgr[i].toString() + "\n");
     }
 
     //printf("main nb ligne %d , nb cols %d\n",rows,cols);
