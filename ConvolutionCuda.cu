@@ -77,7 +77,7 @@ __device__ unsigned char calculPixel(int x, int y, // le thread,
     return sum;
 }
 
-__global__ void pasAlpha(unsigned char* rgb, unsigned char* g, size_t imgRow, matriceConvolution noyau){
+__global__ void pasAlpha(unsigned char* rgb, unsigned char* g, int imgRow, matriceConvolution noyau){
     int imgCol = imgRow;
     printf("Dans le kernel, on comprend R, nb ligne : %d , nb cols : %d\n",imgRow, imgCol);
     int limCols = noyau.getCols()/2;
