@@ -123,7 +123,7 @@ __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, size_t imgCols,si
             if(tidx==9 && tidy==1) {
                 unsigned char beforeg;
                 beforeg = g[3 * (tidy * imgCols + tidx) + i];
-                printf("valeur du tableau g avant : %d\n",beforeg);
+                printf("\nvaleur du tableau g avant : %d",beforeg);
             }
             //g[3*((tidx)*imgCols+tidy)+i] = 255;
             g[3*((tidx)*imgCols+tidy)+i] = rgb[3*(tidy*imgCols+tidx)+i];
