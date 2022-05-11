@@ -87,8 +87,9 @@ __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, int imgCol, int i
     //int tidx = blockIdx.x * blockDim.x + threadIdx.x;
     //int tidy = blockIdx.y * blockDim.y + threadIdx.y;
 
-    int tidy = blockIdx.y;
-    int tidx = threadIdx.y;
+    int tidx = blockIdx.y;
+    int tidy = threadIdx.y;
+
 
     if (tidx==9 && tidy==4)
 
@@ -106,10 +107,10 @@ __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, int imgCol, int i
             }
             //printf(" i :%d  \n", i);
             //g[3*(tidy*imgCols+tidx)+i] = calculPixel(tidx,tidy,imgCols,imgRow,limCols,limRows,i,rgb,noyau);
-            g[3*(tidy*imgCol+tidx)+i] = rgb[3*(tidy*imgCol+tidx)+i];
+            g[3*(tidx*imgCol+tidy)+i] = rgb[3*(tidx*imgCol+tidy)+i];
             //g[2]=1;
             g[60] = rgb[60];
-            int indice = 3*(tidy*imgCol+tidx)+i;
+            int indice = 3*(tidx*imgCol+tidy)+i;
 
             //if((tidx==9 && tidy==1) || (tidx==0 && tidy==2)) {
             if(tidx==88 && tidy==89){
@@ -136,9 +137,9 @@ __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, int imgCol, int i
                 printf("\nvaleur du tableau g avant : %d",beforeg);
             }
             //g[3*((tidx)*imgCols+tidy)+i] = 255;
-            g[3*((tidy)*imgCol+tidx)+i] = rgb[3*(tidy*imgCol+tidx)+i];
+            g[3*(tidx*imgCol+tidy)+i] = rgb[3*(tidx*imgCol+tidy)+i];
 
-            int indice = 3*(tidy*imgCol+tidx)+i;
+            int indice = 3*(tidx*imgCol+tidy)+i;
             g[60] = rgb[60];
             //if((tidx==9 && tidy==1) || (tidx==0 && tidy==2)) {
             if(tidx==88 && tidy==89){
