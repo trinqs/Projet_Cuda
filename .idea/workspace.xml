@@ -28,6 +28,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c8504d56-1fbf-42ca-b64e-5432c61b4366" name="Default Changelist" comment="on print plein de truc">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ConvolutionCuda.cu" beforeDir="false" afterPath="$PROJECT_DIR$/ConvolutionCuda.cu" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -102,21 +103,7 @@
       <workItem from="1652081899868" duration="4404000" />
       <workItem from="1652093441861" duration="5119000" />
       <workItem from="1652254980120" duration="7258000" />
-      <workItem from="1652267018176" duration="2407000" />
-    </task>
-    <task id="LOCAL-00257" summary="on tente autre chose avant les exam....">
-      <created>1652088867389</created>
-      <option name="number" value="00257" />
-      <option name="presentableId" value="LOCAL-00257" />
-      <option name="project" value="LOCAL" />
-      <updated>1652088867389</updated>
-    </task>
-    <task id="LOCAL-00258" summary="on tente autre chose avant les exam....">
-      <created>1652088934497</created>
-      <option name="number" value="00258" />
-      <option name="presentableId" value="LOCAL-00258" />
-      <option name="project" value="LOCAL" />
-      <updated>1652088934497</updated>
+      <workItem from="1652267018176" duration="3910000" />
     </task>
     <task id="LOCAL-00259" summary="on tente autre chose avant les exam....">
       <created>1652089361603</created>
@@ -447,7 +434,21 @@
       <option name="project" value="LOCAL" />
       <updated>1652269365581</updated>
     </task>
-    <option name="localTasksCounter" value="306" />
+    <task id="LOCAL-00306" summary="on print plein de truc">
+      <created>1652269431657</created>
+      <option name="number" value="00306" />
+      <option name="presentableId" value="LOCAL-00306" />
+      <option name="project" value="LOCAL" />
+      <updated>1652269431657</updated>
+    </task>
+    <task id="LOCAL-00307" summary="on print plein de truc">
+      <created>1652269617299</created>
+      <option name="number" value="00307" />
+      <option name="presentableId" value="LOCAL-00307" />
+      <option name="project" value="LOCAL" />
+      <updated>1652269617299</updated>
+    </task>
+    <option name="localTasksCounter" value="308" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -514,13 +515,13 @@
       <screen x="0" y="25" width="1920" height="1055" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.25.1920.1055@0.25.1920.1055" timestamp="1652261182285" />
-    <state x="75" y="288" width="806" height="530" key="Vcs.Push.Dialog.v2" timestamp="1652269366671">
+    <state x="75" y="288" width="806" height="530" key="Vcs.Push.Dialog.v2" timestamp="1652269618833">
       <screen x="0" y="25" width="1920" height="1055" />
     </state>
-    <state x="75" y="288" width="806" height="530" key="Vcs.Push.Dialog.v2/0.25.1920.1055@0.25.1920.1055" timestamp="1652269366671" />
-    <state x="960" y="25" width="960" height="1055" key="dock-window-1" timestamp="1652269425187">
+    <state x="75" y="288" width="806" height="530" key="Vcs.Push.Dialog.v2/0.25.1920.1055@0.25.1920.1055" timestamp="1652269618833" />
+    <state x="960" y="25" width="960" height="1055" key="dock-window-1" timestamp="1652270230307">
       <screen x="0" y="25" width="1920" height="1055" />
     </state>
-    <state x="960" y="25" width="960" height="1055" key="dock-window-1/0.25.1920.1055@0.25.1920.1055" timestamp="1652269425187" />
+    <state x="960" y="25" width="960" height="1055" key="dock-window-1/0.25.1920.1055@0.25.1920.1055" timestamp="1652270230307" />
   </component>
 </project>

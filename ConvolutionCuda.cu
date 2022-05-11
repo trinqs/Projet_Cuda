@@ -88,7 +88,7 @@ __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, size_t imgCols,si
     int tidy = blockIdx.y;
     int tidx = threadIdx.y;
 
-
+    if (tidx==9 && tidy==4)
     printf("nb ligne %d , nb cols %d\n",imgRow,imgCols);
 
 
@@ -190,8 +190,8 @@ int main(int n, char* params[])
     int nbThreadMaxParBloc = 1024;
     //dim3 block( 32, 4 );
     //dim3 grid( (cols-1)/block.y+1,(rows-1)/block.x+1 );
-    dim3 block(1,rows,1);
-    dim3 grid(1,cols,1);
+    dim3 nbThreadParBlock(1,cols,1);
+    dim3 nbBlock(1,rows,1);
 
     for (int i=0; i< convolutionList.size(); i++){
         if (convolutionList[i]==("blur3")){
@@ -204,7 +204,8 @@ int main(int n, char* params[])
             matriceConvolution noyau = matriceConvolution(matrice.data(),tailleNoyaux);
 
             if(sizeBgr%3==0){
-                pasAlpha<<<block,grid>>>( bgr_d, g_d, cols,rows, noyau);
+                print("nb de colones : %d, nb de lignes : %d",cols, rows);
+                pasAlpha<<< nbBlock, nbThreadParBloc >>>( bgr_d, g_d, cols, rows, noyau);
             }
             if(sizeBgr%4==0){
                 //de l'alpha
