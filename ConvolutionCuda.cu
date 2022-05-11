@@ -166,7 +166,7 @@ int main(int n, char* params[])
     int cols = m_in.cols;
     int rows = m_in.rows;
 
-    printf("main nb ligne %d , nb cols %d\n",cols,rows);
+    printf("main nb ligne %d , nb cols %d\n",rows,cols);
 
     auto sizeBgr = 3*(cols*rows);
 
