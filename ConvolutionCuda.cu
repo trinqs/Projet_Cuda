@@ -77,7 +77,8 @@ __device__ unsigned char calculPixel(int x, int y, // le thread,
     return sum;
 }
 
-__global__ void pasAlpha(unsigned char* rgb, unsigned char* g, size_t imgCols,size_t imgRow, matriceConvolution noyau){
+__global__ void pasAlpha(unsigned char* rgb, unsigned char* g, size_t imgCols, size_t imgRow, matriceConvolution noyau){
+    printf("nb ligne %d , nb cols %d\n",imgRow,imgCols);
     int limCols = noyau.getCols()/2;
     int limRows = noyau.getRows()/2;
 
@@ -89,7 +90,7 @@ __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, size_t imgCols,si
     int tidx = threadIdx.y;
 
     if (tidx==9 && tidy==4)
-    printf("nb ligne %d , nb cols %d\n",imgRow,imgCols);
+
 
 
     // si c'est pas un bord
