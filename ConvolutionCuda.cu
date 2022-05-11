@@ -96,7 +96,7 @@ __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, size_t imgCols,si
             if(tidx==9 && tidy==1) {
                 unsigned char beforeg;
                 beforeg = g[3 * (tidy * imgCols + tidx) + i];
-                printf("valeur du tableau g avant : %d\n",beforeg);
+                printf("\nvaleur du tableau g avant : %d",beforeg);
             }
             //printf(" i :%d  \n", i);
             //g[3*(tidy*imgCols+tidx)+i] = calculPixel(tidx,tidy,imgCols,imgRow,limCols,limRows,i,rgb,noyau);
