@@ -168,15 +168,15 @@ int main(int n, char* params[])
             cv::Mat m_out( rows, cols, type, g.data() );
             cudaMemcpy(g.data(),g_d,cols*rows,cudaMemcpyDeviceToHost);
             if (n==3){
-                string res = "out_" + convolutionList[i] + "_";
+                string res = "out_cu_" + convolutionList[i] + "_";
                 res.append(params[2]);
                 cv::imwrite( res, m_out );
             }else if(n==2){
-                string res = "out_" +  convolutionList[i] + "_";
+                string res = "out_cu_" +  convolutionList[i] + "_";
                 res.append(params[1]);
                 cv::imwrite( res, m_out );
             }else{
-                string res = "out_" + convolutionList[i];
+                string res = "out_cu_" + convolutionList[i];
                 res.append(".jpeg");
                 cv::imwrite( res, m_out );
             }
