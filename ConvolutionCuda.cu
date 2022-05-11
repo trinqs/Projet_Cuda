@@ -172,7 +172,7 @@ int main(int n, char* params[])
     auto sizeBgr = 3*(cols*rows);
 
     for (int i=0; i < sizeBgr; i++){
-        rintf("\nValeur de la case i dans rgb : %d \n ", bgr[i]);
+        printf("\nValeur de la case i dans rgb : %d \n ", bgr[i]);
     }
 
     //printf("main nb ligne %d , nb cols %d\n",rows,cols);
