@@ -57,6 +57,9 @@ __device__ unsigned char calculPixel(int x, int y, // le thread,
     //printf(" couleur :%d  \n", couleur);
     if (x==6 && y==7){
         printf("x:%d, y:%d, imgRows : %d, imgCols : %d, limcols:%d, limrows: %d, couleur : %d\n",x,y,imgRows,imgCols,limCols,limRows,couleur);
+        for (int j=0;j <= noyau.getCols()*noyau.getRows()-1; j++){
+            printf("\nindice du noyau : %d, valeur du noyau : %d\n", j, noyau.getMatrice()[j]);
+        }
     }
     for (int decalageCol = -limCols; decalageCol < limCols+1; decalageCol++){
         for (int decalageRow = -limRows; decalageRow < limRows+1; decalageRow++){
@@ -199,9 +202,9 @@ int main(int n, char* params[])
                                  1,1,1});
 
             matriceConvolution noyau = matriceConvolution(matrice.data(),tailleNoyau);
-            for (int j=0;j <= tailleNoyau*tailleNoyau-1; j++){
+            /*for (int j=0;j <= tailleNoyau*tailleNoyau-1; j++){
                 printf("\nindice du noyau : %d, valeur du noyau : %d\n", j, noyau.getMatrice()[j]);
-            }
+            }*/
             if(sizeBgr%3==0){
                 //printf("nb de colones : %d, nb de lignes : %d \n", cols, rows);
                 pasAlpha<<< nbBlock, nbThreadParBlock >>>( bgr_d, g_d, cols, rows, noyau);
