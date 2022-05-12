@@ -64,13 +64,13 @@ __device__ unsigned char calculPixel(int x, int y, // le thread,
             //sum += rgb[1];
         }
     }
+    printf(" x :%d, y: %d, couleur: %d, sum : %d \n", x, y,couleur,sum);
     //normalisation en dehors de la boucle pour faire moins d'arrondis
     if (noyau.getSommeCoefficients()==noyau.getFacteurMax()){
         sum/= noyau.getFacteurMax();
     }
 
-    printf(" x :%d, y: %d, couleur: %d, sum : %d \n", x, y,couleur,sum);
-
+    // j'ai 0 si je print ici
     if (sum < 0){
         sum=0;
     } else if(sum >255){
