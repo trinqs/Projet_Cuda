@@ -202,10 +202,10 @@ int main(int n, char* params[])
 
             printf("m_out data");
             for (int pixel=0 ; pixel<300;pixel+=3){
-                if(i%30==0){
+                if(pixel%30==0){
                     printf("\n");
                 }
-                printf(" i : %d { %d, %d, %d} ",i, gData[pixel],gData[pixel+1],gData[pixel+2]);
+                printf("{ %d, %d, %d} ", gData[pixel],gData[pixel+1],gData[pixel+2]);
             }
             printf("\n");
 
