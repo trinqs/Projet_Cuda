@@ -104,21 +104,7 @@
       <workItem from="1652093441861" duration="5119000" />
       <workItem from="1652254980120" duration="7258000" />
       <workItem from="1652267018176" duration="7512000" />
-      <workItem from="1652353888077" duration="11074000" />
-    </task>
-    <task id="LOCAL-00341" summary="on print plein de truc">
-      <created>1652357483015</created>
-      <option name="number" value="00341" />
-      <option name="presentableId" value="LOCAL-00341" />
-      <option name="project" value="LOCAL" />
-      <updated>1652357483015</updated>
-    </task>
-    <task id="LOCAL-00342" summary="on print plein de truc">
-      <created>1652357603705</created>
-      <option name="number" value="00342" />
-      <option name="presentableId" value="LOCAL-00342" />
-      <option name="project" value="LOCAL" />
-      <updated>1652357603706</updated>
+      <workItem from="1652353888077" duration="11446000" />
     </task>
     <task id="LOCAL-00343" summary="on print plein de truc">
       <created>1652357671138</created>
@@ -449,7 +435,21 @@
       <option name="project" value="LOCAL" />
       <updated>1652366814511</updated>
     </task>
-    <option name="localTasksCounter" value="390" />
+    <task id="LOCAL-00390" summary="l'espoir contre attaque">
+      <created>1652366942659</created>
+      <option name="number" value="00390" />
+      <option name="presentableId" value="LOCAL-00390" />
+      <option name="project" value="LOCAL" />
+      <updated>1652366942659</updated>
+    </task>
+    <task id="LOCAL-00391" summary="l'espoir contre attaque">
+      <created>1652367063272</created>
+      <option name="number" value="00391" />
+      <option name="presentableId" value="LOCAL-00391" />
+      <option name="project" value="LOCAL" />
+      <updated>1652367063272</updated>
+    </task>
+    <option name="localTasksCounter" value="392" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -516,13 +516,17 @@
       <screen x="0" y="25" width="1920" height="1055" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.25.1920.1055@0.25.1920.1055" timestamp="1652261182285" />
-    <state x="1058" y="265" width="806" height="530" key="Vcs.Push.Dialog.v2" timestamp="1652366815626">
+    <state x="1058" y="265" width="806" height="530" key="Vcs.Push.Dialog.v2" timestamp="1652367064494">
       <screen x="0" y="25" width="1920" height="1055" />
     </state>
-    <state x="1058" y="265" width="806" height="530" key="Vcs.Push.Dialog.v2/0.25.1920.1055@0.25.1920.1055" timestamp="1652366815626" />
+    <state x="1058" y="265" width="806" height="530" key="Vcs.Push.Dialog.v2/0.25.1920.1055@0.25.1920.1055" timestamp="1652367064494" />
     <state x="960" y="25" width="960" height="1055" key="dock-window-1" timestamp="1652363811766">
       <screen x="0" y="25" width="1920" height="1055" />
     </state>
     <state x="960" y="25" width="960" height="1055" key="dock-window-1/0.25.1920.1055@0.25.1920.1055" timestamp="1652363811766" />
+    <state x="606" y="272" width="700" height="530" key="recent.locations.popup" timestamp="1652367100918">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state x="606" y="272" width="700" height="530" key="recent.locations.popup/0.25.1920.1055@0.25.1920.1055" timestamp="1652367100918" />
   </component>
 </project>

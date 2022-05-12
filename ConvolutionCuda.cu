@@ -105,6 +105,12 @@ __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, int imgCol, int i
     int tidx = blockIdx.y;
     int tidy = threadIdx.y;
 
+    if(tidx==6 && tidy==7){
+        for(int i=0; i<9;i++){
+            printf("indice du noyau : %d, valeur du noyau : %d\n", i, matriceNoyau[j]);
+        }
+    }
+
     // si c'est pas un bord
     if( tidy >= limCols && tidy< imgCol-limCols && tidx >= limRows && tidx < imgRow-limRows){
         for( int i=0; i<3; i++){
@@ -205,9 +211,9 @@ int main(int n, char* params[])
             cudaMalloc(&noyau_d, tailleNoyau*tailleNoyau);
             cudaMemcpy(noyau_d,matrice.data(),tailleNoyau*tailleNoyau, cudaMemcpyHostToDevice);
 
-            for (int j=0;j <= tailleNoyau*tailleNoyau-1; j++){
+            /*for (int j=0;j <= tailleNoyau*tailleNoyau-1; j++){
                 printf("\nindice du noyau : %d, valeur du noyau : %d\n", j, noyau.getMatrice()[j]);
-            }
+            }*/
             if(sizeBgr%3==0){
                 //printf("nb de colones : %d, nb de lignes : %d \n", cols, rows);
 
@@ -229,7 +235,7 @@ int main(int n, char* params[])
                 if(pixel%30==0){
                     printf("\n");
                 }
-                printf("{ %d, %d, %d} ", gData[pixel],gData[pixel+1],gData[pixel+2]);
+                printf("{ %d, %d, %d}", gData[pixel],gData[pixel+1],gData[pixel+2]);
             }
             printf("\n");
 
