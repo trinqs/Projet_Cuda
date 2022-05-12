@@ -201,7 +201,7 @@ int main(int n, char* params[])
             for (int pixel=0 ; pixel<21;pixel+=3){
                 printf("{ %d, %d, %d} ", gData[pixel],gData[pixel+1],gData[pixel+2]);
             }
-            print("\n");
+            printf("\n");
 
 
             if (n==3){
