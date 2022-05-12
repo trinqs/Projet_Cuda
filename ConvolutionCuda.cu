@@ -59,14 +59,14 @@ __device__ unsigned char calculPixel(int x, int y, // le thread,
     if (x==6 && y==7){
         printf("x:%d, y:%d, imgRows : %d, imgCols : %d, limcols:%d, limrows: %d, couleur : %d, colsNoyau : %d, rowsNoyau : %d\n",x,y,imgRows,imgCols,limCols,limRows,couleur,noyau.getCols(),noyau.getRows());
         for (int j=0;j <= noyau.getCols()*noyau.getRows()-1; j++){
-            printf("\nindice du noyau : %d, valeur du noyau : %d\n", j, noyau.getMatrice()[j]);
+            printf("\nindice du noyau : %d, valeur du noyau : %d\n", j, matriceNoyau[j]);
         }
     }
     for (int decalageCol = -limCols; decalageCol < limCols+1; decalageCol++){
         for (int decalageRow = -limRows; decalageRow < limRows+1; decalageRow++){
 
             //coefficient de la matrice de convolution à l'indice associé, on fait la rotation en même temps par le calcul d'indice
-            sum += rgb[3*(( x + decalageRow )*imgCols+( y + decalageCol ))+couleur] * noyau.getMatrice()[ (decalageRow + limRows) * noyau.getCols() + decalageCol + limCols ];
+            sum += rgb[3*(( x + decalageRow )*imgCols+( y + decalageCol ))+couleur] * matriceNoyau[ (decalageRow + limRows) * noyau.getCols() + decalageCol + limCols ];
             //sum += rgb[1];
             if(x==6 && y==7){
                 int indiceRGB = 3*(( x + decalageRow )*imgCols+( y + decalageCol ))+couleur;
@@ -74,7 +74,7 @@ __device__ unsigned char calculPixel(int x, int y, // le thread,
                 printf(" x :%d, y: %d, couleur: %d, sum : %d \n"
                        "indice dans rgb : %d\n"
                        "indice dans le noyau : %d\n"
-                       "valeur du noyau : %d\n", x, y, couleur, sum, indiceRGB, indiceNoyau, noyau.getMatrice()[indiceNoyau] );
+                       "valeur du noyau : %d\n", x, y, couleur, sum, indiceRGB, indiceNoyau, matriceNoyau[indiceNoyau] );
                 sum = 2;
             }
         }
@@ -105,12 +105,6 @@ __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, int imgCol, int i
 
     int tidx = blockIdx.y;
     int tidy = threadIdx.y;
-
-    if(tidx==6 && tidy==7){
-        for(int i=0; i<9; i++){
-            printf(" noyaux i : %d, value : %d",i,matriceNoyau[i]);
-        }
-    }
 
     // si c'est pas un bord
     if( tidy >= limCols && tidy< imgCol-limCols && tidx >= limRows && tidx < imgRow-limRows){
