@@ -53,8 +53,8 @@ __device__ unsigned char calculPixel(int x, int y, // le thread,
                                      int couleur, // quelle couche de pixel
                                      unsigned char* rgb, matriceConvolution noyau){ // le tableau des pixel de l'image, la matrice de convolution
     auto sum=0;
-    /*printf(" x :%d , y: %d \n", x, y);
-    printf(" couleur :%d  \n", couleur);*/
+    printf(" x :%d , y: %d \n", x, y);
+    printf(" couleur :%d  \n", couleur);
 
     for (int decalageCol = -limCols; decalageCol < limCols+1; decalageCol++){
         for (int decalageRow = -limRows; decalageRow < limRows+1; decalageRow++){
@@ -97,8 +97,8 @@ __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, int imgCol, int i
             //g[3*(tidx*imgCol+tidy)+i] = rgb[3*(tidx*imgCol+tidy)+i];
 
 
-            /*int indice = 3*(tidx*imgCol+tidy)+i;
-            //if((tidx==9 && tidy==1) || (tidx==0 && tidy==2)) {
+            int indice = 3*(tidx*imgCol+tidy)+i;
+            /*//if((tidx==9 && tidy==1) || (tidx==0 && tidy==2)) {
             //if(tidx==88 && tidy==89){
             //if(131<=tidx && tidx<=141 && tidy==108){
                 printf("\ntidx : %d , tidy : %d \n"
@@ -107,15 +107,15 @@ __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, int imgCol, int i
                        "indice : %d\n"
                        "valeur du tableau rgb : %d\n"
                        "valeur du tableau g après : %d\n", tidx, tidy, i, indice, rgb[indice], g[indice]);
-            }*/
+            */
         }
-    }
+        }
     else{
         for(int i= 0; i<3;i++){
             //g[3*((tidx)*imgCols+tidy)+i] = 255;
             g[3*(tidx*imgCol+tidy)+i] = rgb[3*(tidx*imgCol+tidy)+i];
             int indice = 3*(tidx*imgCol+tidy)+i;
-            //if((tidx==9 && tidy==1) || (tidx==0 && tidy==2)) {
+            /*//if((tidx==9 && tidy==1) || (tidx==0 && tidy==2)) {
             //if(tidx==88 && tidy==89){
             //if(131<=tidx && tidx<=141 && tidy==108){
 
@@ -125,7 +125,7 @@ __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, int imgCol, int i
                        "indice : %d\n"
                        "valeur du tableau rgb : %d\n"
                        "valeur du tableau g après : %d\n", tidx, tidy, i, indice, rgb[indice], g[indice]);
-            }
+            */}
         }
 }
 
