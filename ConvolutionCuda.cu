@@ -51,7 +51,8 @@ __device__ unsigned char calculPixel(int x, int y, // le thread,
                                      int imgCols, int imgRows, // taille de l'image
                                      int limCols, int limRows, // la taille du noyau
                                      int couleur, // quelle couche de pixel
-                                     unsigned char* rgb, matriceConvolution noyau){ // le tableau des pixel de l'image, la matrice de convolution
+                                     unsigned char* rgb, matriceConvolution noyau,
+                                     int*){ // le tableau des pixel de l'image, la matrice de convolution
     int sum=0;
     //printf(" x :%d , y: %d \n", x, y);
     //printf(" couleur :%d  \n", couleur);
@@ -99,13 +100,17 @@ __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, int imgCol, int i
     int limCols = noyau.getCols()/2;
     int limRows = noyau.getRows()/2;
 
-
-
     //int tidx = blockIdx.x * blockDim.x + threadIdx.x;
     //int tidy = blockIdx.y * blockDim.y + threadIdx.y;
 
     int tidx = blockIdx.y;
     int tidy = threadIdx.y;
+
+    if(tidx==6 && tidy==7){
+        for(int i=0; i<9; i++){
+            printf(" noyaux i : %d, value : %d",i,noyau.matrice[i]);
+        }
+    }
 
     // si c'est pas un bord
     if( tidy >= limCols && tidy< imgCol-limCols && tidx >= limRows && tidx < imgRow-limRows){
