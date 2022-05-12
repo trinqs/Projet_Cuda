@@ -205,7 +205,7 @@ int main(int n, char* params[])
                 if(i%30==0){
                     printf("\n");
                 }
-                printf("{ %d, %d, %d} ", gData[pixel],gData[pixel+1],gData[pixel+2]);
+                printf(" i : %d { %d, %d, %d} ",i, gData[pixel],gData[pixel+1],gData[pixel+2]);
             }
             printf("\n");
 
