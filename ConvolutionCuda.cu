@@ -145,7 +145,6 @@ int main(int n, char* params[])
     for (int i=0 ; i<21;i+=3){
         printf("{ %d, %d, %d} ", bgr[i],bgr[i+1],bgr[i+2]);
     }
-}
 
     int cols = m_in.cols;
     int rows = m_in.rows;
