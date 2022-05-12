@@ -27,7 +27,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8504d56-1fbf-42ca-b64e-5432c61b4366" name="Default Changelist" comment="on print plein de truc">
+    <list default="true" id="c8504d56-1fbf-42ca-b64e-5432c61b4366" name="Default Changelist" comment="l'espoir contre attaque">
       <change beforePath="$PROJECT_DIR$/ConvolutionCuda.cu" beforeDir="false" afterPath="$PROJECT_DIR$/ConvolutionCuda.cu" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -104,28 +104,7 @@
       <workItem from="1652093441861" duration="5119000" />
       <workItem from="1652254980120" duration="7258000" />
       <workItem from="1652267018176" duration="7512000" />
-      <workItem from="1652353888077" duration="3593000" />
-    </task>
-    <task id="LOCAL-00303" summary="on print plein de truc">
-      <created>1652268594311</created>
-      <option name="number" value="00303" />
-      <option name="presentableId" value="LOCAL-00303" />
-      <option name="project" value="LOCAL" />
-      <updated>1652268594311</updated>
-    </task>
-    <task id="LOCAL-00304" summary="on print plein de truc">
-      <created>1652269244973</created>
-      <option name="number" value="00304" />
-      <option name="presentableId" value="LOCAL-00304" />
-      <option name="project" value="LOCAL" />
-      <updated>1652269244973</updated>
-    </task>
-    <task id="LOCAL-00305" summary="on print plein de truc">
-      <created>1652269365581</created>
-      <option name="number" value="00305" />
-      <option name="presentableId" value="LOCAL-00305" />
-      <option name="project" value="LOCAL" />
-      <updated>1652269365581</updated>
+      <workItem from="1652353888077" duration="3893000" />
     </task>
     <task id="LOCAL-00306" summary="on print plein de truc">
       <created>1652269431657</created>
@@ -449,7 +428,28 @@
       <option name="project" value="LOCAL" />
       <updated>1652358641336</updated>
     </task>
-    <option name="localTasksCounter" value="352" />
+    <task id="LOCAL-00352" summary="on print plein de truc">
+      <created>1652358777871</created>
+      <option name="number" value="00352" />
+      <option name="presentableId" value="LOCAL-00352" />
+      <option name="project" value="LOCAL" />
+      <updated>1652358777871</updated>
+    </task>
+    <task id="LOCAL-00353" summary="l'espoir contre attaque">
+      <created>1652358975250</created>
+      <option name="number" value="00353" />
+      <option name="presentableId" value="LOCAL-00353" />
+      <option name="project" value="LOCAL" />
+      <updated>1652358975250</updated>
+    </task>
+    <task id="LOCAL-00354" summary="l'espoir contre attaque">
+      <created>1652359014827</created>
+      <option name="number" value="00354" />
+      <option name="presentableId" value="LOCAL-00354" />
+      <option name="project" value="LOCAL" />
+      <updated>1652359014828</updated>
+    </task>
+    <option name="localTasksCounter" value="355" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -468,7 +468,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Patch note 178.3.2.9" />
     <MESSAGE value="Patch note 178.3.2.10" />
     <MESSAGE value="Patch note 178.3.2.11" />
     <MESSAGE value="Patch note 178.4.0.1" />
@@ -493,7 +492,8 @@
     <MESSAGE value="complétion du README.md" />
     <MESSAGE value="faites que ça fonctionne" />
     <MESSAGE value="on print plein de truc" />
-    <option name="LAST_COMMIT_MESSAGE" value="on print plein de truc" />
+    <MESSAGE value="l'espoir contre attaque" />
+    <option name="LAST_COMMIT_MESSAGE" value="l'espoir contre attaque" />
   </component>
   <component name="WindowStateProjectService">
     <state width="1874" height="279" key="GridCell.Tab.0.bottom" timestamp="1652099634325">
@@ -516,10 +516,10 @@
       <screen x="0" y="25" width="1920" height="1055" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.25.1920.1055@0.25.1920.1055" timestamp="1652261182285" />
-    <state x="75" y="288" width="806" height="530" key="Vcs.Push.Dialog.v2" timestamp="1652358642438">
+    <state x="75" y="288" width="806" height="530" key="Vcs.Push.Dialog.v2" timestamp="1652359015943">
       <screen x="0" y="25" width="1920" height="1055" />
     </state>
-    <state x="75" y="288" width="806" height="530" key="Vcs.Push.Dialog.v2/0.25.1920.1055@0.25.1920.1055" timestamp="1652358642438" />
+    <state x="75" y="288" width="806" height="530" key="Vcs.Push.Dialog.v2/0.25.1920.1055@0.25.1920.1055" timestamp="1652359015943" />
     <state x="960" y="25" width="960" height="1055" key="dock-window-1" timestamp="1652354619485">
       <screen x="0" y="25" width="1920" height="1055" />
     </state>
