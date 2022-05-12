@@ -191,6 +191,9 @@ int main(int n, char* params[])
             }
 
             cv::Mat m_out( rows, cols, type, g.data() );
+
+            printf("test");
+
             cudaMemcpy(g.data(),g_d,cols*rows,cudaMemcpyDeviceToHost);
 
 
