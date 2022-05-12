@@ -255,6 +255,7 @@ int main(int n, char* params[])
                 cv::imwrite( res, m_out );
             }
 
+            cudaFree(noyau_d);
         /*}else if (convolutionList[i]==("blur5")){
 
             int tailleNoyaux = 5;
@@ -436,7 +437,6 @@ int main(int n, char* params[])
     }
     cudaFree(bgr_d);
     cudaFree(g_d);
-    cudaFree(noyau_d);
 
 
     return 0;
