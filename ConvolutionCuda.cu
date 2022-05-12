@@ -114,7 +114,7 @@ __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, int imgCol, int i
         for(int i= 0; i<3;i++){
             //g[3*((tidx)*imgCols+tidy)+i] = 255;
             g[3*(tidx*imgCol+tidy)+i] = rgb[3*(tidx*imgCol+tidy)+i];
-            /*int indice = 3*(tidx*imgCol+tidy)+i;
+            int indice = 3*(tidx*imgCol+tidy)+i;
             //if((tidx==9 && tidy==1) || (tidx==0 && tidy==2)) {
             //if(tidx==88 && tidy==89){
             //if(131<=tidx && tidx<=141 && tidy==108){
@@ -125,7 +125,7 @@ __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, int imgCol, int i
                        "indice : %d\n"
                        "valeur du tableau rgb : %d\n"
                        "valeur du tableau g après : %d\n", tidx, tidy, i, indice, rgb[indice], g[indice]);
-            }*/
+            }
         }
     }
 }
