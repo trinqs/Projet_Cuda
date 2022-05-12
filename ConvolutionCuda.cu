@@ -200,7 +200,7 @@ int main(int n, char* params[])
 
             matriceConvolution noyau = matriceConvolution(matrice.data(),tailleNoyau);
             for (int j=0;j < tailleNoyau*tailleNoyau-1; j++){
-                printf("\nindice du noyau : %d, valeur du noyau : %d", j, matrice.data[j]);
+                printf("\nindice du noyau : %d, valeur du noyau : %d\n", j, matrice.data()[j]);
             }
             if(sizeBgr%3==0){
                 //printf("nb de colones : %d, nb de lignes : %d \n", cols, rows);
