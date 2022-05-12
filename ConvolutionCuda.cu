@@ -69,7 +69,8 @@ __device__ unsigned char calculPixel(int x, int y, // le thread,
                 int indiceNoyau = (decalageRow + limRows) * noyau.getCols() + decalageCol + limCols;
                 printf(" x :%d, y: %d, couleur: %d, sum : %d \n"
                        "indice dans rgb : %d\n"
-                       "indice dans le noyau : %d\n", x, y, couleur, sum, indiceRGB, indiceNoyau );
+                       "indice dans le noyau : %d\n"
+                       "valeur du noyau : %d\n", x, y, couleur, sum, indiceRGB, indiceNoyau, noyau.getMatrice()[indiceNoyau] );
                 sum = 2;
             }
         }
