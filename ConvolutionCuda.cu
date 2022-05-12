@@ -100,6 +100,7 @@ __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, int imgCol, int i
             //if((tidx==9 && tidy==1) || (tidx==0 && tidy==2)) {
             //if(tidx==88 && tidy==89){
             //if(131<=tidx && tidx<=141 && tidy==108){
+            if(1==2){
                 printf("\ntidx : %d , tidy : %d \n"
                        "non bord\n"
                        "couleur : %d \n"
@@ -117,6 +118,7 @@ __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, int imgCol, int i
             //if((tidx==9 && tidy==1) || (tidx==0 && tidy==2)) {
             //if(tidx==88 && tidy==89){
             //if(131<=tidx && tidx<=141 && tidy==108){
+            if(1==2){
                 printf("\ntidx : %d , tidy : %d \n"
                        "bord\n"
                        "couleur : %d \n"
@@ -138,6 +140,12 @@ int main(int n, char* params[])
     }
 
     auto bgr = m_in.data; // c'est pas du rgb c'est du bgr
+
+    printf("m_in data");
+    for (int i=0 ; i<21;i+=3){
+        printf("{ %d, %d, %d} ", bgr[i],bgr[i+1],bgr[i+2]);
+    }
+}
 
     int cols = m_in.cols;
     int rows = m_in.rows;
@@ -185,6 +193,16 @@ int main(int n, char* params[])
 
             cv::Mat m_out( rows, cols, type, g.data() );
             cudaMemcpy(g.data(),g_d,cols*rows,cudaMemcpyDeviceToHost);
+
+
+            auto gData = g.data();
+
+            printf("m_out data");
+            for (int i=0 ; i<21;i+=3){
+                printf("{ %d, %d, %d} ", gData[i],gData[i+1],gData[i+2]);
+            }
+
+
             if (n==3){
                 string res = "out_cu_" + convolutionList[i] + "_";
                 res.append(params[2]);
