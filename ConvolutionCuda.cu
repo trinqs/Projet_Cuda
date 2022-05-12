@@ -93,8 +93,8 @@ __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, int imgCol, int i
     // si c'est pas un bord
     if( tidy >= limCols && tidy< imgCol-limCols && tidx >= limRows && tidx < imgRow-limRows){
         for( int i=0; i<3; i++){
-            g[3*(tidx*imgCol+tidy)+i] = calculPixel(tidx,tidy,imgCol,imgRow,limCols,limRows,i,rgb,noyau);
-            //g[3*(tidx*imgCol+tidy)+i] = rgb[3*(tidx*imgCol+tidy)+i];
+            //g[3*(tidx*imgCol+tidy)+i] = calculPixel(tidx,tidy,imgCol,imgRow,limCols,limRows,i,rgb,noyau);
+            g[3*(tidx*imgCol+tidy)+i] = rgb[3*(tidx*imgCol+tidy)+i];
 
 
             /*int indice = 3*(tidx*imgCol+tidy)+i;
