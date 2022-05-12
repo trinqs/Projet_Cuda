@@ -56,7 +56,7 @@ __device__ unsigned char calculPixel(int x, int y, // le thread,
     //printf(" x :%d , y: %d \n", x, y);
     //printf(" couleur :%d  \n", couleur);
     if (x==6 && y==7){
-        printf("x:%d, y:%d, imgRows : %d, imgCols : %d, limcols:%d, limrows: %d, couleur : %d",x,y,imgRows,imgCols,limCols,limRows,couleur);
+        printf("x:%d, y:%d, imgRows : %d, imgCols : %d, limcols:%d, limrows: %d, couleur : %d\n",x,y,imgRows,imgCols,limCols,limRows,couleur);
     }
     for (int decalageCol = -limCols; decalageCol < limCols+1; decalageCol++){
         for (int decalageRow = -limRows; decalageRow < limRows+1; decalageRow++){
