@@ -142,6 +142,9 @@ int main(int n, char* params[])
 
     printf("m_in data");
     for (int i=0 ; i<300;i+=3){
+        if(i%30==0){
+            printf("\n");
+        }
         printf("{ %d, %d, %d} ", bgr[i],bgr[i+1],bgr[i+2]);
     }
     printf("\n");
@@ -199,6 +202,9 @@ int main(int n, char* params[])
 
             printf("m_out data");
             for (int pixel=0 ; pixel<300;pixel+=3){
+                if(i%30==0){
+                    printf("\n");
+                }
                 printf("{ %d, %d, %d} ", gData[pixel],gData[pixel+1],gData[pixel+2]);
             }
             printf("\n");
