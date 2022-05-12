@@ -100,13 +100,12 @@ __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, int imgCol, int i
             //if((tidx==9 && tidy==1) || (tidx==0 && tidy==2)) {
             //if(tidx==88 && tidy==89){
             //if(131<=tidx && tidx<=141 && tidy==108){
-            if(1==2){
-                printf("\ntidx : %d , tidy : %d \n"
+                /*printf("\ntidx : %d , tidy : %d \n"
                        "non bord\n"
                        "couleur : %d \n"
                        "indice : %d\n"
                        "valeur du tableau rgb : %d\n"
-                       "valeur du tableau g après : %d\n", tidx, tidy, i, indice, rgb[indice], g[indice]);
+                       "valeur du tableau g après : %d\n", tidx, tidy, i, indice, rgb[indice], g[indice]);*/
             //}
         }
     }
@@ -118,13 +117,13 @@ __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, int imgCol, int i
             //if((tidx==9 && tidy==1) || (tidx==0 && tidy==2)) {
             //if(tidx==88 && tidy==89){
             //if(131<=tidx && tidx<=141 && tidy==108){
-            if(1==2){
+            /*
                 printf("\ntidx : %d , tidy : %d \n"
                        "bord\n"
                        "couleur : %d \n"
                        "indice : %d\n"
                        "valeur du tableau rgb : %d\n"
-                       "valeur du tableau g après : %d\n", tidx, tidy, i, indice, rgb[indice], g[indice]);
+                       "valeur du tableau g après : %d\n", tidx, tidy, i, indice, rgb[indice], g[indice]);*/
             //}
         }
     }
