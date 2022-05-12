@@ -68,7 +68,6 @@ __device__ unsigned char calculPixel(int x, int y, // le thread,
                        "indice dans rgb : %d\n"
                        "indice dans le noyau : %d\n"
                        "valeur du noyau : %d\n", x, y, couleur, sum, indiceRGB, indiceNoyau, matriceNoyau[indiceNoyau] );*/
-                sum = 2;
             }
         }
     }
