@@ -196,8 +196,8 @@ int main(int n, char* params[])
             auto gData = g.data();
 
             printf("m_out data");
-            for (int i=0 ; i<21;i+=3){
-                printf("{ %d, %d, %d} ", gData[i],gData[i+1],gData[i+2]);
+            for (int pixel=0 ; pixel<21;pixel+=3){
+                printf("{ %d, %d, %d} ", gData[pixel],gData[pixel+1],gData[pixel+2]);
             }
 
 
