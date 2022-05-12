@@ -210,7 +210,7 @@ int main(int n, char* params[])
 
             int* noyau_d;
             cudaMalloc(&noyau_d, tailleNoyau*tailleNoyau);
-            cudaMemcpy(noyau_d,noyau,tailleNoyau*tailleNoyau, cudaMemcpyHostToDevice);
+            cudaMemcpy(noyau_d,matrice.data(),tailleNoyau*tailleNoyau, cudaMemcpyHostToDevice);
 
             /*for (int j=0;j <= tailleNoyau*tailleNoyau-1; j++){
                 printf("\nindice du noyau : %d, valeur du noyau : %d\n", j, noyau.getMatrice()[j]);
