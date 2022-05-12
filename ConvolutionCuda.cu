@@ -51,7 +51,8 @@ __device__ unsigned char calculPixel(int x, int y, // le thread,
                                      int imgCols, int imgRows, // taille de l'image
                                      int limCols, int limRows, // la taille du noyau
                                      int couleur, // quelle couche de pixel
-                                     unsigned char* rgb, matriceConvolution noyau){ // le tableau des pixel de l'image, la matrice de convolution
+                                     unsigned char* rgb, matriceConvolution noyau,
+                                     int * matriceNoyau){ // le tableau des pixel de l'image, la matrice de convolution
     int sum=0;
     //printf(" x :%d , y: %d \n", x, y);
     //printf(" couleur :%d  \n", couleur);
@@ -94,7 +95,7 @@ __device__ unsigned char calculPixel(int x, int y, // le thread,
     return sum;
 }
 
-__global__ void pasAlpha(unsigned char* rgb, unsigned char* g, int imgCol, int imgRow, matriceConvolution noyau){
+__global__ void pasAlpha(unsigned char* rgb, unsigned char* g, int imgCol, int imgRow, matriceConvolution noyau, int* matriceNoyau){
     //printf("Dans le kernel, on comprend R, nb ligne : %d , nb cols : %d\n",imgRow, imgCol);
     int limCols = noyau.getCols()/2;
     int limRows = noyau.getRows()/2;
@@ -107,14 +108,14 @@ __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, int imgCol, int i
 
     if(tidx==6 && tidy==7){
         for(int i=0; i<9; i++){
-            printf(" noyaux i : %d, value : %d",i,noyau.matrice[i]);
+            printf(" noyaux i : %d, value : %d",i,matriceNoyau[i]);
         }
     }
 
     // si c'est pas un bord
     if( tidy >= limCols && tidy< imgCol-limCols && tidx >= limRows && tidx < imgRow-limRows){
         for( int i=0; i<3; i++){
-            g[3*(tidx*imgCol+tidy)+i] = calculPixel(tidx,tidy,imgCol,imgRow,limCols,limRows,i,rgb,noyau);
+            g[3*(tidx*imgCol+tidy)+i] = calculPixel(tidx,tidy,imgCol,imgRow,limCols,limRows,i,rgb,noyau,matriceNoyau);
             //g[3*(tidx*imgCol+tidy)+i] = rgb[3*(tidx*imgCol+tidy)+i];
 
 
@@ -206,12 +207,18 @@ int main(int n, char* params[])
                                  1,1,1});
 
             matriceConvolution noyau = matriceConvolution(matrice.data(),tailleNoyau);
+
+            int* noyau_d;
+            cudaMalloc(&noyau_d, tailleNoyau*tailleNoyau);
+            cudaMemcpy(noyau_d,noyau,tailleNoyau*tailleNoyau, cudaMemcpyHostToDevice);
+
             /*for (int j=0;j <= tailleNoyau*tailleNoyau-1; j++){
                 printf("\nindice du noyau : %d, valeur du noyau : %d\n", j, noyau.getMatrice()[j]);
             }*/
             if(sizeBgr%3==0){
                 //printf("nb de colones : %d, nb de lignes : %d \n", cols, rows);
-                pasAlpha<<< nbBlock, nbThreadParBlock >>>( bgr_d, g_d, cols, rows, noyau);
+
+                pasAlpha<<< nbBlock, nbThreadParBlock >>>( bgr_d, g_d, cols, rows, noyau,noyau_d);
             }
             if(sizeBgr%4==0){
                 //de l'alpha
@@ -429,6 +436,7 @@ int main(int n, char* params[])
     }
     cudaFree(bgr_d);
     cudaFree(g_d);
+    cudaFree(noyau_d);
 
 
     return 0;
