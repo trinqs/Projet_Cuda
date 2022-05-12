@@ -56,18 +56,11 @@ __device__ unsigned char calculPixel(int x, int y, // le thread,
     int sum=0;
     //printf(" x :%d , y: %d \n", x, y);
     //printf(" couleur :%d  \n", couleur);
-    if (x==6 && y==7){
-        printf("x:%d, y:%d, imgRows : %d, imgCols : %d, limcols:%d, limrows: %d, couleur : %d, colsNoyau : %d, rowsNoyau : %d\n",x,y,imgRows,imgCols,limCols,limRows,couleur,noyau.getCols(),noyau.getRows());
-        for (int j=0;j <= noyau.getCols()*noyau.getRows()-1; j++){
-            printf("\nindice du noyau : %d, valeur du noyau : %d\n", j, matriceNoyau[j]);
-        }
-    }
     for (int decalageCol = -limCols; decalageCol < limCols+1; decalageCol++){
         for (int decalageRow = -limRows; decalageRow < limRows+1; decalageRow++){
 
             //coefficient de la matrice de convolution à l'indice associé, on fait la rotation en même temps par le calcul d'indice
             sum += rgb[3*(( x + decalageRow )*imgCols+( y + decalageCol ))+couleur] * matriceNoyau[ (decalageRow + limRows) * noyau.getCols() + decalageCol + limCols ];
-            //sum += rgb[1];
             if(x==6 && y==7){
                 int indiceRGB = 3*(( x + decalageRow )*imgCols+( y + decalageCol ))+couleur;
                 int indiceNoyau = (decalageRow + limRows) * noyau.getCols() + decalageCol + limCols;
@@ -80,9 +73,15 @@ __device__ unsigned char calculPixel(int x, int y, // le thread,
         }
     }
 
+    if(x==6 && y==7){
+        printf("sum avant div %d\n",sum);
+    }
     //normalisation en dehors de la boucle pour faire moins d'arrondis
     if (noyau.getSommeCoefficients()==noyau.getFacteurMax()){
         sum/= noyau.getFacteurMax();
+        if(x==6 && y==7){
+            printf("sum après div %d\n",sum);
+        }
     }
 
     // j'ai 0 si je print ici
