@@ -61,7 +61,7 @@ __device__ unsigned char calculPixel(int x, int y, // le thread,
 
             //coefficient de la matrice de convolution à l'indice associé, on fait la rotation en même temps par le calcul d'indice
             sum += rgb[3*(( x + decalageRow )*imgCols+( y + decalageCol ))+couleur] * matriceNoyau[ (decalageRow + limRows) * noyau.getCols() + decalageCol + limCols ];
-            if(x==6 && y==7 && couleur = 0){
+            if(x==6 && y==7 && couleur == 0){
                 int indiceRGB = 3*(( x + decalageRow )*imgCols+( y + decalageCol ))+couleur;
                 int indiceNoyau = (decalageRow + limRows) * noyau.getCols() + decalageCol + limCols;
                 printf(" sum %d \n",sum);
