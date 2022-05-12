@@ -107,7 +107,7 @@ __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, int imgCol, int i
 
     if(tidx==6 && tidy==7){
         for(int i=0; i<9;i++){
-            printf("indice du noyau : %d, valeur du noyau : %d\n", i, matriceNoyau[j]);
+            printf("indice du noyau : %d, valeur du noyau : %d\n", i, matriceNoyau[i]);
         }
     }
 
