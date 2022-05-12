@@ -13,13 +13,13 @@ using ui32 = unsigned int;
 
 
 struct matriceConvolution {
-    int*matrice;
+    int* matrice;
     int cols;
     int rows;
     int sommeCoefficients;
     int facteurMax;
 
-    __host__ __device__ matriceConvolution(int* _matrice,int tailleMatrice): matrice(_matrice) ,cols(tailleMatrice), rows(tailleMatrice){
+    __host__ __device__ matriceConvolution(int* _matrice,int tailleMatrice): matrice(_matrice), cols(tailleMatrice), rows(tailleMatrice){
 
         //this ->matrice = _matrice.data();
         this->sommeCoefficients = 0;
@@ -60,9 +60,16 @@ __device__ unsigned char calculPixel(int x, int y, // le thread,
         for (int decalageRow = -limRows; decalageRow < limRows+1; decalageRow++){
 
             //coefficient de la matrice de convolution à l'indice associé, on fait la rotation en même temps par le calcul d'indice
-            sum += rgb[3*(( x + decalageRow )*imgCols+( y + decalageCol ))+couleur] * noyau.getMatrice()[ (decalageRow + limRows) *noyau.getCols()+ decalageCol + limCols ];
+            sum += rgb[3*(( x + decalageRow )*imgCols+( y + decalageCol ))+couleur] * noyau.getMatrice()[ (decalageRow + limRows) * noyau.getCols() + decalageCol + limCols ];
             //sum += rgb[1];
-            printf(" x :%d, y: %d, couleur: %d, sum : %d \n", x, y,couleur,sum);
+            if(x==6 && y==7){
+                int indiceRGB = 3*(( x + decalageRow )*imgCols+( y + decalageCol ))+couleur;
+                int indiceNoyau = (decalageRow + limRows) * noyau.getCols() + decalageCol + limCols;
+                printf(" x :%d, y: %d, couleur: %d, sum : %d \n"
+                       "indice dans rgb : %d\n"
+                       "indice dans le noyau : %d", x, y, couleur, sum, indiceRGB, indiceNoyau );
+                sum = 2;
+            }
         }
     }
 
