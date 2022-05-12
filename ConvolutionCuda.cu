@@ -127,7 +127,6 @@ __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, int imgCol, int i
                        "valeur du tableau g après : %d\n", tidx, tidy, i, indice, rgb[indice], g[indice]);
             }
         }
-    }
 }
 
 int main(int n, char* params[])
