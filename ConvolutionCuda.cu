@@ -51,8 +51,7 @@ __device__ unsigned char calculPixel(int x, int y, // le thread,
                                      int imgCols, int imgRows, // taille de l'image
                                      int limCols, int limRows, // la taille du noyau
                                      int couleur, // quelle couche de pixel
-                                     unsigned char* rgb, matriceConvolution noyau,
-                                     int*){ // le tableau des pixel de l'image, la matrice de convolution
+                                     unsigned char* rgb, matriceConvolution noyau){ // le tableau des pixel de l'image, la matrice de convolution
     int sum=0;
     //printf(" x :%d , y: %d \n", x, y);
     //printf(" couleur :%d  \n", couleur);
