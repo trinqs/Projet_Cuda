@@ -186,7 +186,7 @@ int main(int n, char* params[])
 
     vector<string> convolutionList = {"blur3","blur5","blur11","gaussianBlur3", "nettete3", "detectEdges3"};
     cudaMalloc(&bgr_d, sizeBgr);
-    cudaMalloc(&g_d, 3*cols*rows);
+    cudaMalloc(&g_d, sizeBgr);
 
     cudaMemcpy(bgr_d,bgr,sizeBgr, cudaMemcpyHostToDevice);
 
@@ -211,9 +211,9 @@ int main(int n, char* params[])
             cudaMalloc(&noyau_d, tailleNoyau*tailleNoyau);
             cudaMemcpy(noyau_d,matrice.data(),tailleNoyau*tailleNoyau, cudaMemcpyHostToDevice);
 
-            /*for (int j=0;j <= tailleNoyau*tailleNoyau-1; j++){
-                printf("\nindice du noyau : %d, valeur du noyau : %d\n", j, noyau.getMatrice()[j]);
-            }*/
+            for (int j=0;j <= tailleNoyau*tailleNoyau-1; j++){
+                printf("\nindice du noyau : %d, valeur du noyau : %d\n", j, noyau_d[j]);
+            }
             if(sizeBgr%3==0){
                 //printf("nb de colones : %d, nb de lignes : %d \n", cols, rows);
 
