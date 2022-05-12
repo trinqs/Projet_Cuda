@@ -199,8 +199,8 @@ int main(int n, char* params[])
                                  1,1,1});
 
             matriceConvolution noyau = matriceConvolution(matrice.data(),tailleNoyau);
-            for (int i=0;i < tailleNoyau*tailleNoyau-1; i++){
-                printf("\nindice du noyau : %d, valeur du noyau : %d", i, matrice.data[i]);
+            for (int j=0;j < tailleNoyau*tailleNoyau-1; j++){
+                printf("\nindice du noyau : %d, valeur du noyau : %d", j, matrice.data[j]);
             }
             if(sizeBgr%3==0){
                 //printf("nb de colones : %d, nb de lignes : %d \n", cols, rows);

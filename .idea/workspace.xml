@@ -27,7 +27,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8504d56-1fbf-42ca-b64e-5432c61b4366" name="Default Changelist" comment="l'espoir contre attaque" />
+    <list default="true" id="c8504d56-1fbf-42ca-b64e-5432c61b4366" name="Default Changelist" comment="l'espoir contre attaque">
+      <change beforePath="$PROJECT_DIR$/ConvolutionCuda.cu" beforeDir="false" afterPath="$PROJECT_DIR$/ConvolutionCuda.cu" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -102,21 +104,7 @@
       <workItem from="1652093441861" duration="5119000" />
       <workItem from="1652254980120" duration="7258000" />
       <workItem from="1652267018176" duration="7512000" />
-      <workItem from="1652353888077" duration="7605000" />
-    </task>
-    <task id="LOCAL-00320" summary="on print plein de truc">
-      <created>1652272089769</created>
-      <option name="number" value="00320" />
-      <option name="presentableId" value="LOCAL-00320" />
-      <option name="project" value="LOCAL" />
-      <updated>1652272089769</updated>
-    </task>
-    <task id="LOCAL-00321" summary="on print plein de truc">
-      <created>1652272273360</created>
-      <option name="number" value="00321" />
-      <option name="presentableId" value="LOCAL-00321" />
-      <option name="project" value="LOCAL" />
-      <updated>1652272273360</updated>
+      <workItem from="1652353888077" duration="7907000" />
     </task>
     <task id="LOCAL-00322" summary="on print plein de truc">
       <created>1652272734662</created>
@@ -447,7 +435,21 @@
       <option name="project" value="LOCAL" />
       <updated>1652362930547</updated>
     </task>
-    <option name="localTasksCounter" value="369" />
+    <task id="LOCAL-00369" summary="l'espoir contre attaque">
+      <created>1652363262150</created>
+      <option name="number" value="00369" />
+      <option name="presentableId" value="LOCAL-00369" />
+      <option name="project" value="LOCAL" />
+      <updated>1652363262150</updated>
+    </task>
+    <task id="LOCAL-00370" summary="l'espoir contre attaque">
+      <created>1652363504608</created>
+      <option name="number" value="00370" />
+      <option name="presentableId" value="LOCAL-00370" />
+      <option name="project" value="LOCAL" />
+      <updated>1652363504608</updated>
+    </task>
+    <option name="localTasksCounter" value="371" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -514,10 +516,10 @@
       <screen x="0" y="25" width="1920" height="1055" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.25.1920.1055@0.25.1920.1055" timestamp="1652261182285" />
-    <state x="1058" y="265" width="806" height="530" key="Vcs.Push.Dialog.v2" timestamp="1652362931984">
+    <state x="1058" y="265" width="806" height="530" key="Vcs.Push.Dialog.v2" timestamp="1652363505571">
       <screen x="0" y="25" width="1920" height="1055" />
     </state>
-    <state x="1058" y="265" width="806" height="530" key="Vcs.Push.Dialog.v2/0.25.1920.1055@0.25.1920.1055" timestamp="1652362931984" />
+    <state x="1058" y="265" width="806" height="530" key="Vcs.Push.Dialog.v2/0.25.1920.1055@0.25.1920.1055" timestamp="1652363505571" />
     <state x="960" y="25" width="960" height="1055" key="dock-window-1" timestamp="1652363203545">
       <screen x="0" y="25" width="1920" height="1055" />
     </state>
