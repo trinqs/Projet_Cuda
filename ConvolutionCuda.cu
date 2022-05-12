@@ -155,7 +155,7 @@ int main(int n, char* params[])
 
     auto type = m_in.type();
 
-    std::vector<unsigned char > g(cols*rows);
+    std::vector<unsigned char > g(3*cols*rows);
 
 
 
