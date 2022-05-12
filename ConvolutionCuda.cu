@@ -164,7 +164,7 @@ int main(int n, char* params[])
 
     vector<string> convolutionList = {"blur3","blur5","blur11","gaussianBlur3", "nettete3", "detectEdges3"};
     cudaMalloc(&bgr_d, sizeBgr);
-    cudaMalloc(&g_d, cols*rows);
+    cudaMalloc(&g_d, 3*cols*rows);
 
     cudaMemcpy(bgr_d,bgr,sizeBgr, cudaMemcpyHostToDevice);
 
