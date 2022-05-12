@@ -193,13 +193,15 @@ int main(int n, char* params[])
     for (int i=0; i< convolutionList.size(); i++){
         if (convolutionList[i]==("blur3")){
 
-            int tailleNoyaux = 3;
+            int tailleNoyau = 3;
             vector<int> matrice({1,1,1,
                                  1,1,1,
                                  1,1,1});
 
-            matriceConvolution noyau = matriceConvolution(matrice.data(),tailleNoyaux);
-
+            matriceConvolution noyau = matriceConvolution(matrice.data(),tailleNoyau);
+            for (int i=0;i < tailleNoyau*tailleNoyau-1; i++){
+                printf("\nindice du noyau : %d, valeur du noyau : %d", i, matrice.data[i]);
+            }
             if(sizeBgr%3==0){
                 //printf("nb de colones : %d, nb de lignes : %d \n", cols, rows);
                 pasAlpha<<< nbBlock, nbThreadParBlock >>>( bgr_d, g_d, cols, rows, noyau);
