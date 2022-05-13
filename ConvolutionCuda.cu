@@ -87,7 +87,7 @@ __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, int imgCol, int i
 
     if (tidx == 900 && tidy==700){
         for (int i=0; i< noyau.getCols*noyau.getRows; i++){
-            matriceNoyau[i];
+            printf("\nindice du noyau : %d, valeur du noyau, %d\n", i, matriceNoyau[i]);
         }
     }
 
