@@ -80,11 +80,11 @@ __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, int imgCol, int i
     int limCols = noyau.getCols()/2;
     int limRows = noyau.getRows()/2;
 
-    //int tidx = blockIdx.x * blockDim.x + threadIdx.x;
-    //int tidy = blockIdx.y * blockDim.y + threadIdx.y;
+    int tidx = blockIdx.x * blockDim.x + threadIdx.x;
+    int tidy = blockIdx.y * blockDim.y + threadIdx.y;
 
-    int tidx = blockIdx.y;
-    int tidy = threadIdx.y;
+    //int tidx = blockIdx.y;
+    //int tidy = threadIdx.y;
 
     // si c'est pas un bord
     if( tidy >= limCols && tidy< imgCol-limCols && tidx >= limRows && tidx < imgRow-limRows){
