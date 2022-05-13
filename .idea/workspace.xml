@@ -110,14 +110,7 @@
       <workItem from="1652254980120" duration="7258000" />
       <workItem from="1652267018176" duration="7512000" />
       <workItem from="1652353888077" duration="12712000" />
-      <workItem from="1652430378332" duration="5270000" />
-    </task>
-    <task id="LOCAL-00360" summary="l'espoir contre attaque">
-      <created>1652360229480</created>
-      <option name="number" value="00360" />
-      <option name="presentableId" value="LOCAL-00360" />
-      <option name="project" value="LOCAL" />
-      <updated>1652360229480</updated>
+      <workItem from="1652430378332" duration="5325000" />
     </task>
     <task id="LOCAL-00361" summary="l'espoir contre attaque">
       <created>1652360485740</created>
@@ -455,7 +448,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652435712657</updated>
     </task>
-    <option name="localTasksCounter" value="409" />
+    <task id="LOCAL-00409" summary="ça fonctionne">
+      <created>1652435817049</created>
+      <option name="number" value="00409" />
+      <option name="presentableId" value="LOCAL-00409" />
+      <option name="project" value="LOCAL" />
+      <updated>1652435817049</updated>
+    </task>
+    <option name="localTasksCounter" value="410" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -522,10 +522,10 @@
       <screen x="0" y="25" width="1920" height="1055" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.25.1920.1055@0.25.1920.1055" timestamp="1652261182285" />
-    <state x="1058" y="265" width="806" height="530" key="Vcs.Push.Dialog.v2" timestamp="1652435713864">
+    <state x="1058" y="265" width="806" height="530" key="Vcs.Push.Dialog.v2" timestamp="1652435818007">
       <screen x="0" y="25" width="1920" height="1055" />
     </state>
-    <state x="1058" y="265" width="806" height="530" key="Vcs.Push.Dialog.v2/0.25.1920.1055@0.25.1920.1055" timestamp="1652435713864" />
+    <state x="1058" y="265" width="806" height="530" key="Vcs.Push.Dialog.v2/0.25.1920.1055@0.25.1920.1055" timestamp="1652435818007" />
     <state x="960" y="25" width="960" height="1055" key="dock-window-1" timestamp="1652363811766">
       <screen x="0" y="25" width="1920" height="1055" />
     </state>
