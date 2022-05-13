@@ -236,7 +236,7 @@ int main(int n, char* params[])
 
             cudaFree(noyau_d);
         }
-
+        /*
         else if (convolutionList[i]==("blur5")){
 
             int tailleNoyau = 5;
@@ -621,7 +621,7 @@ int main(int n, char* params[])
                 cv::imwrite( res, m_out );
             }
             cudaFree(noyau_d);
-        }
+        }*/
     }
 
     cudaEventDestroy(start);
