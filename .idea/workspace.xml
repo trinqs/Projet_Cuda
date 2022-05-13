@@ -113,20 +113,6 @@
       <workItem from="1652448008065" duration="3765000" />
       <workItem from="1652446929138" duration="3720000" />
     </task>
-    <task id="LOCAL-00367" summary="l'espoir contre attaque">
-      <created>1652362879789</created>
-      <option name="number" value="00367" />
-      <option name="presentableId" value="LOCAL-00367" />
-      <option name="project" value="LOCAL" />
-      <updated>1652362879789</updated>
-    </task>
-    <task id="LOCAL-00368" summary="l'espoir contre attaque">
-      <created>1652362930547</created>
-      <option name="number" value="00368" />
-      <option name="presentableId" value="LOCAL-00368" />
-      <option name="project" value="LOCAL" />
-      <updated>1652362930547</updated>
-    </task>
     <task id="LOCAL-00369" summary="l'espoir contre attaque">
       <created>1652363262150</created>
       <option name="number" value="00369" />
@@ -456,7 +442,21 @@
       <option name="project" value="LOCAL" />
       <updated>1652452972074</updated>
     </task>
-    <option name="localTasksCounter" value="416" />
+    <task id="LOCAL-00416" summary="ça fonctionne">
+      <created>1652453148978</created>
+      <option name="number" value="00416" />
+      <option name="presentableId" value="LOCAL-00416" />
+      <option name="project" value="LOCAL" />
+      <updated>1652453148978</updated>
+    </task>
+    <task id="LOCAL-00417" summary="ça fonctionne">
+      <created>1652453211251</created>
+      <option name="number" value="00417" />
+      <option name="presentableId" value="LOCAL-00417" />
+      <option name="project" value="LOCAL" />
+      <updated>1652453211251</updated>
+    </task>
+    <option name="localTasksCounter" value="418" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
