@@ -165,7 +165,7 @@ int main(int n, char* params[])
 
 
     for (int i=0; i< convolutionList.size(); i++){
-        if (convolutionList[i]==("blur3")){
+        /*if (convolutionList[i]==("blur3")){
 
             int tailleNoyau = 3;
             vector<int> matrice({1,1,1,
@@ -243,7 +243,7 @@ int main(int n, char* params[])
             cudaFree(noyau_d);
         }
 
-        else if (convolutionList[i]==("blur5")){
+        else */if (convolutionList[i]==("blur5")){
 
             int tailleNoyau = 5;
             vector<int> matrice({1,1,1,1,1,
