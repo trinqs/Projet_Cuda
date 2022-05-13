@@ -403,7 +403,7 @@ int main(int n, char* params[])
                 cv::imwrite( res, m_out );
             }
 
-            cudaFree(noyau_d)
+            cudaFree(noyau_d);
         }else if (convolutionList[i]==("detectEdges3")){
 
             int tailleNoyau = 3;
