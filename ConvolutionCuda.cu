@@ -143,7 +143,7 @@ int main(int n, char* params[])
 
     //int nbThreadMaxParBloc = 1024;
     dim3 nbThreadParBlock( 32, 4 );
-    dim3 nbBlock( (rows-1)/nbThreadParBlock.x+1,(cols-1)/nbThreadParBlock.y+1 );
+    dim3 nbBlock( ((cols-1)/nbThreadParBlock.x) +1,((rows-1)/nbThreadParBlock.y) +1 );
     //dim3 nbThreadParBlock(1,cols,1);
     //dim3 nbBlock(1,rows,1);
 
