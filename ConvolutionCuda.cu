@@ -136,11 +136,11 @@ int main(int n, char* params[])
     unsigned char * g_d;
 
     vector<string> convolutionList = {"blur3","blur5","blur11","gaussianBlur3", "nettete3", "detectEdges3"};
-    cudaStatus = cudaMalloc(&bgr_d, sizeBgr);
+    cudaStatus = cudaMalloc(&bgr_d, sizeBgr*sizeof(int) );
     if (cudaStatus != cudaSuccess) {
     	std::cout << "Error CudaMalloc bgr_d"  << std::endl;
     }
-    cudaStatus = cudaMalloc(&g_d, sizeBgr);
+    cudaStatus = cudaMalloc(&g_d, sizeBgr*sizeof(int) );
     if (cudaStatus != cudaSuccess) {
         std::cout << "Error CudaMalloc g_d"  << std::endl;
     }
@@ -224,7 +224,7 @@ int main(int n, char* params[])
             }
 
             cv::Mat m_out( rows, cols, type, g.data() );
-            cudaStatus = cudaMemcpy(g.data(),g_d,3*cols*rows,cudaMemcpyDeviceToHost);
+            cudaStatus = cudaMemcpy(g.data(), g_d, 3*cols*rows, cudaMemcpyDeviceToHost);
             if (cudaStatus  != cudaSuccess) {
                 std::cout << "Error (blur3) cudaMemcpy g_d - DeviceToHost" << std::endl;
             }
