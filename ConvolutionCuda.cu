@@ -105,9 +105,10 @@ __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, int imgCol, int i
     int tidx = blockIdx.y;
     int tidy = threadIdx.y;
 
-    if(tidx==6 && tidy==7){
+    if(
+            tidx==6 && tidy==7){
         for(int i=0; i<9;i++){
-            printf("indice du noyau : %d, valeur du noyau : %d\n", i, &matriceNoyau[i]);
+            printf("indice du noyau : %d, valeur du noyau : %d\n", i, matriceNoyau[i]);
         }
     }
 
@@ -208,12 +209,9 @@ int main(int n, char* params[])
             matriceConvolution noyau = matriceConvolution(matrice.data(),tailleNoyau);
 
             int* noyau_d;
-            cudaMalloc(&noyau_d, tailleNoyau*tailleNoyau);
-            cudaMemcpy(noyau_d,matrice.data(),tailleNoyau*tailleNoyau, cudaMemcpyHostToDevice);
+            cudaMalloc(&noyau_d, tailleNoyau*tailleNoyau*sizeof(int));
+            cudaMemcpy(noyau_d,matrice.data(),tailleNoyau*tailleNoyau*sizeof(int), cudaMemcpyHostToDevice);
 
-            for (int j=0;j <= tailleNoyau*tailleNoyau-1; j++){
-                printf("\nindice du noyau : %d, valeur du noyau : %d\n", j, &noyau_d[j]);
-            }
             if(sizeBgr%3==0){
                 //printf("nb de colones : %d, nb de lignes : %d \n", cols, rows);
 
