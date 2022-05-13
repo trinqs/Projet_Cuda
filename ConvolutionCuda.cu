@@ -85,6 +85,12 @@ __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, int imgCol, int i
     //int tidx = blockIdx.y;
     //int tidy = threadIdx.y;
 
+    if (tidx == 900 && tidy==700){
+        for (int i=0; i< noyau.getCols*noyau.getRows; i++){
+            matriceNoyau[i];
+        }
+    }
+
     // si c'est pas un bord
     if( tidy >= limCols && tidy< imgCol-limCols && tidx >= limRows && tidx < imgRow-limRows){
         for( int i=0; i<3; i++){
