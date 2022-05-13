@@ -83,7 +83,7 @@ __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, int imgCol, int i
     int tidx = blockIdx.x * blockDim.x + threadIdx.x;
     int tidy = blockIdx.y * blockDim.y + threadIdx.y;
 
-    printf("juste après les tid, tidx : %d, tidy : %d\n, blockDim.x : %d, blockDim.y : %d, blockIdx.x : %d, blockIdx.y : %d, threadIdx.x : %d, threadIdx.y : %d", tidx, tidy, blockDim.x, blockDim.y, blockIdx.x, blockIdx.y, threadIdx.x, threadIdx.y);
+    printf("\njuste après les tid, tidx : %d, tidy : %d\n, blockDim.x : %d, blockDim.y : %d, blockIdx.x : %d, blockIdx.y : %d, threadIdx.x : %d, threadIdx.y : %d", tidx, tidy, blockDim.x, blockDim.y, blockIdx.x, blockIdx.y, threadIdx.x, threadIdx.y);
 
     //int tidx = blockIdx.y;
     //int tidy = threadIdx.y;
