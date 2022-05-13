@@ -226,7 +226,7 @@ int main(int n, char* params[])
             cv::Mat m_out( rows, cols, type, g.data() );
             cudaStatus = cudaMemcpy(g.data(), g_d, 3*cols*rows, cudaMemcpyDeviceToHost);
             if (cudaStatus  != cudaSuccess) {
-                std::cout << "Error (blur3) cudaMemcpy g_d - DeviceToHost" << std::endl;
+                std::cout << "Error (blur3) cudaMemcpy g_d - DeviceToHost" << cudaStatus.toString() <<std::endl;
             }
 
 

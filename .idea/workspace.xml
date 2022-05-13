@@ -27,9 +27,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8504d56-1fbf-42ca-b64e-5432c61b4366" name="Default Changelist" comment="ça fonctionne">
-      <change beforePath="$PROJECT_DIR$/ConvolutionCuda.cu" beforeDir="false" afterPath="$PROJECT_DIR$/ConvolutionCuda.cu" afterDir="false" />
-    </list>
+    <list default="true" id="c8504d56-1fbf-42ca-b64e-5432c61b4366" name="Default Changelist" comment="ça fonctionne" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -114,27 +112,6 @@
       <workItem from="1652439625837" duration="993000" />
       <workItem from="1652448008065" duration="3765000" />
       <workItem from="1652446929138" duration="3720000" />
-    </task>
-    <task id="LOCAL-00390" summary="l'espoir contre attaque">
-      <created>1652366942659</created>
-      <option name="number" value="00390" />
-      <option name="presentableId" value="LOCAL-00390" />
-      <option name="project" value="LOCAL" />
-      <updated>1652366942659</updated>
-    </task>
-    <task id="LOCAL-00391" summary="l'espoir contre attaque">
-      <created>1652367063272</created>
-      <option name="number" value="00391" />
-      <option name="presentableId" value="LOCAL-00391" />
-      <option name="project" value="LOCAL" />
-      <updated>1652367063272</updated>
-    </task>
-    <task id="LOCAL-00392" summary="l'espoir contre attaque">
-      <created>1652367315630</created>
-      <option name="number" value="00392" />
-      <option name="presentableId" value="LOCAL-00392" />
-      <option name="project" value="LOCAL" />
-      <updated>1652367315630</updated>
     </task>
     <task id="LOCAL-00393" summary="l'espoir contre attaque">
       <created>1652367339932</created>
@@ -458,7 +435,28 @@
       <option name="project" value="LOCAL" />
       <updated>1652456086249</updated>
     </task>
-    <option name="localTasksCounter" value="439" />
+    <task id="LOCAL-00439" summary="ça fonctionne">
+      <created>1652456180622</created>
+      <option name="number" value="00439" />
+      <option name="presentableId" value="LOCAL-00439" />
+      <option name="project" value="LOCAL" />
+      <updated>1652456180622</updated>
+    </task>
+    <task id="LOCAL-00440" summary="ça fonctionne">
+      <created>1652456275822</created>
+      <option name="number" value="00440" />
+      <option name="presentableId" value="LOCAL-00440" />
+      <option name="project" value="LOCAL" />
+      <updated>1652456275822</updated>
+    </task>
+    <task id="LOCAL-00441" summary="ça fonctionne">
+      <created>1652456382481</created>
+      <option name="number" value="00441" />
+      <option name="presentableId" value="LOCAL-00441" />
+      <option name="project" value="LOCAL" />
+      <updated>1652456382481</updated>
+    </task>
+    <option name="localTasksCounter" value="442" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
