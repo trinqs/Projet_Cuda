@@ -172,7 +172,7 @@ int main(int n, char* params[])
                 float duration;
                 cudaEventElapsedTime( &duration, start, stop );
 
-                std::cout << "blur3 "+duration+" ms" <<std::endl;
+                std::cout << "blur3 "<< duration <<" ms" <<std::endl;
 
             }
             if(sizeBgr%4==0){
@@ -225,7 +225,7 @@ int main(int n, char* params[])
 
                 float duration;
                 cudaEventElapsedTime( &duration, start, stop );
-                std::cout << "blur5 "+duration+" ms" <<std::endl;
+                std::cout << "blur5 "<<duration<<" ms" <<std::endl;
 
             }
             if(sizeBgr%4==0){
@@ -283,7 +283,7 @@ int main(int n, char* params[])
 
                 float duration;
                 cudaEventElapsedTime( &duration, start, stop );
-                std::cout << "blur11"+duration+" ms" <<std::endl;
+                std::cout << "blur11"<<duration<<" ms" <<std::endl;
 
             }
             if(sizeBgr%4==0){
@@ -333,7 +333,7 @@ int main(int n, char* params[])
 
                 float duration;
                 cudaEventElapsedTime( &duration, start, stop );
-                std::cout << "gaussianBlur3 "+duration+" ms" <<std::endl;
+                std::cout << "gaussianBlur3 "<<duration<<" ms" <<std::endl;
             }
             if(sizeBgr%4==0){
                 //de l'alpha
@@ -382,7 +382,7 @@ int main(int n, char* params[])
 
                 float duration;
                 cudaEventElapsedTime( &duration, start, stop );
-                std::cout << "nettete3 "+duration+" ms" <<std::endl;
+                std::cout << "nettete3 "<<duration<<" ms" <<std::endl;
             }
             if(sizeBgr%4==0){
                 //de l'alpha
@@ -431,7 +431,7 @@ int main(int n, char* params[])
 
                 float duration;
                 cudaEventElapsedTime( &duration, start, stop );
-                std::cout << "detectEdges3 "+duration+" ms" <<std::endl;
+                std::cout << "detectEdges3 "<<duration<<" ms" <<std::endl;
             }
             if(sizeBgr%4==0){
                 //de l'alpha
