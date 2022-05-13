@@ -198,10 +198,10 @@ int main(int n, char* params[])
                     std::cout << "Error (blur3) cudaEventRecord stop" << std::endl;
                 }
 
-                /*cudaStatus = cudaEventSynchronize( stop );
+                cudaStatus = cudaEventSynchronize( stop );
                 if (cudaStatus != cudaSuccess) {
                     std::cout << "Error (blur3) cudaEventSynchronize stop" << std::endl;
-                }*/
+                }
 
                 float duration;
                 cudaStatus = cudaEventElapsedTime( &duration, start, stop );
@@ -237,7 +237,7 @@ int main(int n, char* params[])
             }
 
             cudaFree(noyau_d);
-        }/*
+        }
 
         else if (convolutionList[i]==("blur5")){
 
@@ -623,7 +623,7 @@ int main(int n, char* params[])
                 cv::imwrite( res, m_out );
             }
             cudaFree(noyau_d);
-        }*/
+        }
     }
 
     cudaEventDestroy(start);
