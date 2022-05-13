@@ -54,22 +54,11 @@ __device__ unsigned char calculPixel(int x, int y, // le thread,
                                      unsigned char* rgb, matriceConvolution noyau,
                                      int * matriceNoyau){ // le tableau des pixel de l'image, la matrice de convolution
     int sum=0;
-    //printf(" x :%d , y: %d \n", x, y);
-    //printf(" couleur :%d  \n", couleur);
+
     for (int decalageCol = -limCols; decalageCol < limCols+1; decalageCol++){
         for (int decalageRow = -limRows; decalageRow < limRows+1; decalageRow++){
-
             //coefficient de la matrice de convolution à l'indice associé, on fait la rotation en même temps par le calcul d'indice
             sum += rgb[3*(( x + decalageRow )*imgCols+( y + decalageCol ))+couleur] * matriceNoyau[ (decalageRow + limRows) * noyau.getCols() + decalageCol + limCols ];
-            if(x==6 && y==7 && couleur == 0){
-                int indiceRGB = 3*(( x + decalageRow )*imgCols+( y + decalageCol ))+couleur;
-                int indiceNoyau = (decalageRow + limRows) * noyau.getCols() + decalageCol + limCols;
-                printf(" sum %d, valeur rgb: %d, valeur noyau %d\n",sum, rgb[indiceRGB],matriceNoyau[indiceNoyau]);
-                /*printf(" x :%d, y: %d, couleur: %d, sum : %d \n"
-                       "indice dans rgb : %d\n"
-                       "indice dans le noyau : %d\n"
-                       "valeur du noyau : %d\n", x, y, couleur, sum, indiceRGB, indiceNoyau, matriceNoyau[indiceNoyau] );*/
-            }
         }
     }
 
@@ -95,7 +84,6 @@ __device__ unsigned char calculPixel(int x, int y, // le thread,
 }
 
 __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, int imgCol, int imgRow, matriceConvolution noyau, int* matriceNoyau){
-    //printf("Dans le kernel, on comprend R, nb ligne : %d , nb cols : %d\n",imgRow, imgCol);
     int limCols = noyau.getCols()/2;
     int limRows = noyau.getRows()/2;
 
@@ -105,51 +93,17 @@ __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, int imgCol, int i
     int tidx = blockIdx.y;
     int tidy = threadIdx.y;
 
-    if(
-            tidx==6 && tidy==7){
-        for(int i=0; i<9;i++){
-            printf("indice du noyau : %d, valeur du noyau : %d\n", i, matriceNoyau[i]);
-        }
-    }
-
     // si c'est pas un bord
     if( tidy >= limCols && tidy< imgCol-limCols && tidx >= limRows && tidx < imgRow-limRows){
         for( int i=0; i<3; i++){
             g[3*(tidx*imgCol+tidy)+i] = calculPixel(tidx,tidy,imgCol,imgRow,limCols,limRows,i,rgb,noyau,matriceNoyau);
-            //g[3*(tidx*imgCol+tidy)+i] = rgb[3*(tidx*imgCol+tidy)+i];
-
-
-            /*int indice = 3*(tidx*imgCol+tidy)+i;
-            //if((tidx==9 && tidy==1) || (tidx==0 && tidy==2)) {
-            //if(tidx==88 && tidy==89){
-            //if(131<=tidx && tidx<=141 && tidy==108){
-                printf("\ntidx : %d , tidy : %d \n"
-                       "non bord\n"
-                       "couleur : %d \n"
-                       "indice : %d\n"
-                       "valeur du tableau rgb : %d\n"
-                       "valeur du tableau g après : %d\n", tidx, tidy, i, indice, rgb[indice], g[indice]);
-            */
         }
-        }
+    }
     else{
         for(int i= 0; i<3;i++){
-            //g[3*((tidx)*imgCols+tidy)+i] = 255;
-            g[3*(tidx*imgCol+tidy)+i] = rgb[3*(tidx*imgCol+tidy)+i];
-            //int indice = 3*(tidx*imgCol+tidy)+i;
-            /*//if((tidx==9 && tidy==1) || (tidx==0 && tidy==2)) {
-            //if(tidx==88 && tidy==89){
-            //if(131<=tidx && tidx<=141 && tidy==108){
-
-                printf("\ntidx : %d , tidy : %d \n"
-                       "bord\n"
-                       "couleur : %d \n"
-                       "indice : %d\n"
-                       "valeur du tableau rgb : %d\n"
-                       "valeur du tableau g après : %d\n", tidx, tidy, i, indice, rgb[indice], g[indice]);
-            //}*/
+            g[3*(tidx*imgCol+tidy)+i] = 0;
         }
-        }
+    }
 }
 
 int main(int n, char* params[])
@@ -163,15 +117,6 @@ int main(int n, char* params[])
 
     auto bgr = m_in.data; // c'est pas du rgb c'est du bgr
 
-    printf("m_in data");
-    for (int i=0 ; i<300;i+=3){
-        if(i%30==0){
-            printf("\n");
-        }
-        printf("{ %d, %d, %d} ", bgr[i],bgr[i+1],bgr[i+2]);
-    }
-    printf("\n");
-
     int cols = m_in.cols;
     int rows = m_in.rows;
     auto sizeBgr = 3*(cols*rows);
@@ -179,8 +124,6 @@ int main(int n, char* params[])
     auto type = m_in.type();
 
     std::vector<unsigned char > g(3*cols*rows);
-
-
 
     unsigned char * bgr_d;
     unsigned char * g_d;
@@ -198,6 +141,11 @@ int main(int n, char* params[])
     dim3 nbThreadParBlock(1,cols,1);
     dim3 nbBlock(1,rows,1);
 
+    cudaEvent_t start, stop;
+    cudaEventCreate( &start );
+    cudaEventCreate( &stop );
+
+
     for (int i=0; i< convolutionList.size(); i++){
         if (convolutionList[i]==("blur3")){
 
@@ -214,8 +162,18 @@ int main(int n, char* params[])
 
             if(sizeBgr%3==0){
                 //printf("nb de colones : %d, nb de lignes : %d \n", cols, rows);
+                cudaEventRecord( start );
 
                 pasAlpha<<< nbBlock, nbThreadParBlock >>>( bgr_d, g_d, cols, rows, noyau,noyau_d);
+
+                cudaEventRecord( stop );
+                cudaEventSynchronize( stop );
+
+                float duration;
+                cudaEventElapsedTime( &duration, start, stop );
+
+                std::cout << "blur3 "+duration+" ms" <<std::endl;
+
             }
             if(sizeBgr%4==0){
                 //de l'alpha
@@ -239,7 +197,9 @@ int main(int n, char* params[])
             }
 
             cudaFree(noyau_d);
-        }else if (convolutionList[i]==("blur5")){
+        }
+
+        else if (convolutionList[i]==("blur5")){
 
             int tailleNoyau = 5;
             vector<int> matrice({1,1,1,1,1,
@@ -255,7 +215,17 @@ int main(int n, char* params[])
             cudaMemcpy(noyau_d,matrice.data(),tailleNoyau*tailleNoyau*sizeof(int), cudaMemcpyHostToDevice);
 
             if(sizeBgr%3==0){
+
+                cudaEventRecord( start );
+
                 pasAlpha<<<nbBlock, nbThreadParBlock>>>( bgr_d, g_d, cols,rows, noyau,noyau_d);
+
+                cudaEventRecord( stop );
+                cudaEventSynchronize( stop );
+
+                float duration;
+                cudaEventElapsedTime( &duration, start, stop );
+                std::cout << "blur5 "+duration+" ms" <<std::endl;
 
             }
             if(sizeBgr%4==0){
@@ -266,15 +236,15 @@ int main(int n, char* params[])
             cudaMemcpy(g.data(),g_d, 3*cols*rows,cudaMemcpyDeviceToHost);
 
             if (n==3){
-                string res = "out_" + convolutionList[i] + "_";
+                string res = "out_cu_" + convolutionList[i] + "_";
                 res.append(params[2]);
                 cv::imwrite( res, m_out );
             }else if(n==2){
-                string res = "out_" +  convolutionList[i] + "_";
+                string res = "out_cu_" +  convolutionList[i] + "_";
                 res.append(params[1]);
                 cv::imwrite( res, m_out );
             }else{
-                string res = "out_" + convolutionList[i];
+                string res = "out_cu_" + convolutionList[i];
                 res.append(".jpeg");
                 cv::imwrite( res, m_out );
             }
@@ -282,7 +252,9 @@ int main(int n, char* params[])
             cudaFree(noyau_d);
 
 
-        }else if (convolutionList[i]==("blur11")){
+        }
+
+        else if (convolutionList[i]==("blur11")){
 
             int tailleNoyau = 11;
             vector<int> matrice({1,1,1,1,1,1,1,1,1,1,1,
@@ -304,7 +276,15 @@ int main(int n, char* params[])
             cudaMemcpy(noyau_d,matrice.data(),tailleNoyau*tailleNoyau*sizeof(int), cudaMemcpyHostToDevice);
 
             if(sizeBgr%3==0){
+
+                cudaEventRecord( start );
+
                 pasAlpha<<<nbBlock, nbThreadParBlock>>>( bgr_d, g_d, cols,rows, noyau,noyau_d);
+
+                float duration;
+                cudaEventElapsedTime( &duration, start, stop );
+                std::cout << "blur11"+duration+" ms" <<std::endl;
+
             }
             if(sizeBgr%4==0){
                 //de l'alpha
@@ -313,21 +293,23 @@ int main(int n, char* params[])
             cv::Mat m_out( rows, cols, type, g.data() );
             cudaMemcpy(g.data(),g_d,3*cols*rows,cudaMemcpyDeviceToHost);
             if (n==3){
-                string res = "out_" + convolutionList[i] + "_";
+                string res = "out_cu_" + convolutionList[i] + "_";
                 res.append(params[2]);
                 cv::imwrite( res, m_out );
             }else if(n==2){
-                string res = "out_" +  convolutionList[i] + "_";
+                string res = "out_cu_" +  convolutionList[i] + "_";
                 res.append(params[1]);
                 cv::imwrite( res, m_out );
             }else{
-                string res = "out_" + convolutionList[i];
+                string res = "out_cu_" + convolutionList[i];
                 res.append(".jpeg");
                 cv::imwrite( res, m_out );
             }
 
             cudaFree(noyau_d);
-        }else if (convolutionList[i]==("gaussianBlur3")){
+        }
+
+        else if (convolutionList[i]==("gaussianBlur3")){
 
             int tailleNoyau = 3;
             vector<int> matrice({1,2,1,
@@ -341,8 +323,17 @@ int main(int n, char* params[])
             cudaMemcpy(noyau_d,matrice.data(),tailleNoyau*tailleNoyau*sizeof(int), cudaMemcpyHostToDevice);
 
             if(sizeBgr%3==0){
+
+                cudaEventRecord( start );
+
                 pasAlpha<<<nbBlock, nbThreadParBlock>>>( bgr_d, g_d, cols,rows, noyau,noyau_d);
 
+                cudaEventRecord( stop );
+                cudaEventSynchronize( stop );
+
+                float duration;
+                cudaEventElapsedTime( &duration, start, stop );
+                std::cout << "gaussianBlur3 "+duration+" ms" <<std::endl;
             }
             if(sizeBgr%4==0){
                 //de l'alpha
@@ -351,22 +342,24 @@ int main(int n, char* params[])
             cv::Mat m_out( rows, cols, type, g.data() );
             cudaMemcpy(g.data(),g_d,3*cols*rows,cudaMemcpyDeviceToHost);
             if (n==3){
-                string res = "out_" + convolutionList[i] + "_";
+                string res = "out_cu_" + convolutionList[i] + "_";
                 res.append(params[2]);
                 cv::imwrite( res, m_out );
             }else if(n==2){
-                string res = "out_" +  convolutionList[i] + "_";
+                string res = "out_cu_" +  convolutionList[i] + "_";
                 res.append(params[1]);
                 cv::imwrite( res, m_out );
             }else{
-                string res = "out_" + convolutionList[i];
+                string res = "out_cu_" + convolutionList[i];
                 res.append(".jpeg");
                 cv::imwrite( res, m_out );
             }
 
             cudaFree(noyau_d);
 
-        }else if (convolutionList[i]==("nettete3")){
+        }
+
+        else if (convolutionList[i]==("nettete3")){
 
             int tailleNoyau = 3;
             vector<int> matrice({0,-1,0,
@@ -380,8 +373,16 @@ int main(int n, char* params[])
             cudaMemcpy(noyau_d,matrice.data(),tailleNoyau*tailleNoyau*sizeof(int), cudaMemcpyHostToDevice);
 
             if(sizeBgr%3==0){
+                cudaEventRecord( start );
+
                 pasAlpha<<<nbBlock, nbThreadParBlock>>>( bgr_d, g_d, cols,rows, noyau,noyau_d);
 
+                cudaEventRecord( stop );
+                cudaEventSynchronize( stop );
+
+                float duration;
+                cudaEventElapsedTime( &duration, start, stop );
+                std::cout << "nettete3 "+duration+" ms" <<std::endl;
             }
             if(sizeBgr%4==0){
                 //de l'alpha
@@ -390,21 +391,23 @@ int main(int n, char* params[])
             cv::Mat m_out( rows, cols, type, g.data() );
             cudaMemcpy(g.data(),g_d,3*cols*rows,cudaMemcpyDeviceToHost);
             if (n==3){
-                string res = "out_" + convolutionList[i] + "_";
+                string res = "out_cu_" + convolutionList[i] + "_";
                 res.append(params[2]);
                 cv::imwrite( res, m_out );
             }else if(n==2){
-                string res = "out_" +  convolutionList[i] + "_";
+                string res = "out_cu_" +  convolutionList[i] + "_";
                 res.append(params[1]);
                 cv::imwrite( res, m_out );
             }else{
-                string res = "out_" + convolutionList[i];
+                string res = "out_cu_" + convolutionList[i];
                 res.append(".jpeg");
                 cv::imwrite( res, m_out );
             }
 
             cudaFree(noyau_d);
-        }else if (convolutionList[i]==("detectEdges3")){
+        }
+
+        else if (convolutionList[i]==("detectEdges3")){
 
             int tailleNoyau = 3;
             vector<int> matrice({-1,-1,-1,
@@ -418,7 +421,17 @@ int main(int n, char* params[])
             cudaMemcpy(noyau_d,matrice.data(),tailleNoyau*tailleNoyau*sizeof(int), cudaMemcpyHostToDevice);
 
             if(sizeBgr%3==0){
+
+                cudaEventRecord( start );
+
                 pasAlpha<<<nbBlock, nbThreadParBlock>>>( bgr_d, g_d, cols,rows, noyau,noyau_d);
+
+                cudaEventRecord( stop );
+                cudaEventSynchronize( stop );
+
+                float duration;
+                cudaEventElapsedTime( &duration, start, stop );
+                std::cout << "detectEdges3 "+duration+" ms" <<std::endl;
             }
             if(sizeBgr%4==0){
                 //de l'alpha
@@ -427,21 +440,25 @@ int main(int n, char* params[])
             cv::Mat m_out( rows, cols, type, g.data() );
             cudaMemcpy(g.data(),g_d,3*cols*rows,cudaMemcpyDeviceToHost);
             if (n==3){
-                string res = "out_" + convolutionList[i] + "_";
+                string res = "out_cu_" + convolutionList[i] + "_";
                 res.append(params[2]);
                 cv::imwrite( res, m_out );
             }else if(n==2){
-                string res = "out_" +  convolutionList[i] + "_";
+                string res = "out_cu_" +  convolutionList[i] + "_";
                 res.append(params[1]);
                 cv::imwrite( res, m_out );
             }else{
-                string res = "out_" + convolutionList[i];
+                string res = "out_cu_" + convolutionList[i];
                 res.append(".jpeg");
                 cv::imwrite( res, m_out );
             }
             cudaFree(noyau_d);
         }
     }
+
+    cudaEventDestroy(start);
+    cudaEventDestroy(stop);
+
     cudaFree(bgr_d);
     cudaFree(g_d);
 
