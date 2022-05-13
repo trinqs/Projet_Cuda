@@ -80,19 +80,12 @@ __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, int imgCol, int i
     int limRows = noyau.getRows()/2;
 
 
-    int tidx = blockIdx.x * blockDim.x + threadIdx.x;
-    int tidy = blockIdx.y * blockDim.y + threadIdx.y;
+    //int tidx = blockIdx.x * blockDim.x + threadIdx.x;
+    //int tidy = blockIdx.y * blockDim.y + threadIdx.y;
 
-    printf("\njuste après les tid, tidx : %d, tidy : %d\n, blockDim.x : %d, blockDim.y : %d, blockIdx.x : %d, blockIdx.y : %d, threadIdx.x : %d, threadIdx.y : %d\n", tidx, tidy, blockDim.x, blockDim.y, blockIdx.x, blockIdx.y, threadIdx.x, threadIdx.y);
+    int tidx = blockIdx.y;
+    int tidy = threadIdx.y;
 
-    //int tidx = blockIdx.y;
-    //int tidy = threadIdx.y;
-
-    if (tidx == 0 && tidy==0){
-        for (int i=0; i< noyau.getCols()*noyau.getRows(); i++){
-            printf("\nindice du noyau : %d, valeur du noyau, %d\n", i, matriceNoyau[i]);
-        }
-    }
 
     // si c'est pas un bord
     if( tidy >= limCols && tidy< imgCol-limCols && tidx >= limRows && tidx < imgRow-limRows){
@@ -151,10 +144,10 @@ int main(int n, char* params[])
     }
 
     //int nbThreadMaxParBloc = 1024;
-    dim3 nbThreadParBlock( 32, 4);
-    dim3 nbBlock( ((cols-1)/nbThreadParBlock.x) +1,((rows-1)/nbThreadParBlock.y) +1 );
-    //dim3 nbThreadParBlock(1,cols,1);
-    //dim3 nbBlock(1,rows,1);
+    //dim3 nbThreadParBlock( 32, 4);
+    //dim3 nbBlock( ((cols-1)/nbThreadParBlock.x) +1,((rows-1)/nbThreadParBlock.y) +1 );
+    dim3 nbThreadParBlock(1,cols,1);
+    dim3 nbBlock(1,rows,1);
 
     cudaEvent_t start, stop;
     cudaStatus = cudaEventCreate( &start );
