@@ -113,7 +113,7 @@ int main(int n, char* params[])
     int cols = m_in.cols;
     int rows = m_in.rows;
 
-    printf("ligne %d colonne %d",rows,cols);
+    printf("ligne %d colonne %d \n",rows,cols);
 
     auto sizeBgr = 3*(cols*rows);
 
@@ -276,6 +276,9 @@ int main(int n, char* params[])
                 cudaEventRecord( start );
 
                 pasAlpha<<<nbBlock, nbThreadParBlock>>>( bgr_d, g_d, cols,rows, noyau,noyau_d);
+
+                cudaEventRecord( stop );
+                cudaEventSynchronize( stop );
 
                 float duration;
                 cudaEventElapsedTime( &duration, start, stop );
