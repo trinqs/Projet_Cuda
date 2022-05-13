@@ -145,7 +145,7 @@ int main(int n, char* params[])
         std::cout << "Error CudaMalloc g_d"  << std::endl;
     }
 
-    cudaStatus = cudaMemcpy(bgr_d,bgr,sizeBgr, cudaMemcpyHostToDevice);
+    cudaStatus = cudaMemcpy(bgr_d,bgr,sizeBgr * sizeof(char), cudaMemcpyHostToDevice);
     if (cudaStatus  != cudaSuccess) {
         std::cout << "Error cudaMemcpy bgr_d - HostToDevice" << std::endl;
     }
@@ -224,7 +224,7 @@ int main(int n, char* params[])
             }
 
             cv::Mat m_out( rows, cols, type, g.data() );
-            cudaStatus = cudaMemcpy(g.data(), g_d, 3*cols*rows, cudaMemcpyDeviceToHost);
+            cudaStatus = cudaMemcpy(g.data(), g_d, 3*cols*rows * sizeof(char), cudaMemcpyDeviceToHost);
             if (cudaStatus  != cudaSuccess) {
                 std::cout << "Error (blur3) cudaMemcpy g_d - DeviceToHost" << std::endl;
             }
