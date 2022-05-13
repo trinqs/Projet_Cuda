@@ -76,12 +76,15 @@ __device__ unsigned char calculPixel(int x, int y, // le thread,
 }
 
 __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, int imgCol, int imgRow, matriceConvolution noyau, int* matriceNoyau){
-    printf("je viens d'entrer");
     int limCols = noyau.getCols()/2;
     int limRows = noyau.getRows()/2;
 
+    printf("\n juste après les limites, limCols : %d, limRows : %d", limCols, limRows);
+
     int tidx = blockIdx.x * blockDim.x + threadIdx.x;
     int tidy = blockIdx.y * blockDim.y + threadIdx.y;
+
+
 
     //int tidx = blockIdx.y;
     //int tidy = threadIdx.y;
