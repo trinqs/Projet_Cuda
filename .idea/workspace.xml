@@ -28,7 +28,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c8504d56-1fbf-42ca-b64e-5432c61b4366" name="Default Changelist" comment="ça fonctionne">
-      <change beforePath="$PROJECT_DIR$/ConvolutionCuda.cu" beforeDir="false" afterPath="$PROJECT_DIR$/ConvolutionCuda.cu" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,13 +76,13 @@
         <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Unnamed" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" nameIsGenerated="true">
+    <configuration default="true" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile">
       <makefile filename="$PROJECT_DIR$/Makefile" target="" workingDirectory="" arguments="">
         <envs />
       </makefile>
       <method v="2" />
     </configuration>
-    <configuration default="true" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile">
+    <configuration name="Unnamed" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" nameIsGenerated="true">
       <makefile filename="$PROJECT_DIR$/Makefile" target="" workingDirectory="" arguments="">
         <envs />
       </makefile>
@@ -111,13 +111,7 @@
       <workItem from="1652267018176" duration="7512000" />
       <workItem from="1652353888077" duration="12712000" />
       <workItem from="1652430378332" duration="5325000" />
-    </task>
-    <task id="LOCAL-00361" summary="l'espoir contre attaque">
-      <created>1652360485740</created>
-      <option name="number" value="00361" />
-      <option name="presentableId" value="LOCAL-00361" />
-      <option name="project" value="LOCAL" />
-      <updated>1652360485741</updated>
+      <workItem from="1652439625837" duration="993000" />
     </task>
     <task id="LOCAL-00362" summary="l'espoir contre attaque">
       <created>1652360668992</created>
@@ -455,7 +449,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652435817049</updated>
     </task>
-    <option name="localTasksCounter" value="410" />
+    <task id="LOCAL-00410" summary="ça fonctionne">
+      <created>1652439747111</created>
+      <option name="number" value="00410" />
+      <option name="presentableId" value="LOCAL-00410" />
+      <option name="project" value="LOCAL" />
+      <updated>1652439747111</updated>
+    </task>
+    <option name="localTasksCounter" value="411" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -500,39 +501,5 @@
     <MESSAGE value="l'espoir contre attaque" />
     <MESSAGE value="ça fonctionne" />
     <option name="LAST_COMMIT_MESSAGE" value="ça fonctionne" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state width="1874" height="279" key="GridCell.Tab.0.bottom" timestamp="1652099634325">
-      <screen x="0" y="25" width="1920" height="1055" />
-    </state>
-    <state width="1874" height="279" key="GridCell.Tab.0.bottom/0.25.1920.1055@0.25.1920.1055" timestamp="1652099634325" />
-    <state width="1874" height="279" key="GridCell.Tab.0.center" timestamp="1652099634325">
-      <screen x="0" y="25" width="1920" height="1055" />
-    </state>
-    <state width="1874" height="279" key="GridCell.Tab.0.center/0.25.1920.1055@0.25.1920.1055" timestamp="1652099634325" />
-    <state width="1874" height="279" key="GridCell.Tab.0.left" timestamp="1652099634325">
-      <screen x="0" y="25" width="1920" height="1055" />
-    </state>
-    <state width="1874" height="279" key="GridCell.Tab.0.left/0.25.1920.1055@0.25.1920.1055" timestamp="1652099634325" />
-    <state width="1874" height="279" key="GridCell.Tab.0.right" timestamp="1652099634325">
-      <screen x="0" y="25" width="1920" height="1055" />
-    </state>
-    <state width="1874" height="279" key="GridCell.Tab.0.right/0.25.1920.1055@0.25.1920.1055" timestamp="1652099634325" />
-    <state width="498" height="446" key="SwitcherDM" timestamp="1652261182285">
-      <screen x="0" y="25" width="1920" height="1055" />
-    </state>
-    <state width="498" height="446" key="SwitcherDM/0.25.1920.1055@0.25.1920.1055" timestamp="1652261182285" />
-    <state x="1058" y="265" width="806" height="530" key="Vcs.Push.Dialog.v2" timestamp="1652435818007">
-      <screen x="0" y="25" width="1920" height="1055" />
-    </state>
-    <state x="1058" y="265" width="806" height="530" key="Vcs.Push.Dialog.v2/0.25.1920.1055@0.25.1920.1055" timestamp="1652435818007" />
-    <state x="960" y="25" width="960" height="1055" key="dock-window-1" timestamp="1652363811766">
-      <screen x="0" y="25" width="1920" height="1055" />
-    </state>
-    <state x="960" y="25" width="960" height="1055" key="dock-window-1/0.25.1920.1055@0.25.1920.1055" timestamp="1652363811766" />
-    <state x="606" y="272" width="700" height="530" key="recent.locations.popup" timestamp="1652367100918">
-      <screen x="0" y="25" width="1920" height="1055" />
-    </state>
-    <state x="606" y="272" width="700" height="530" key="recent.locations.popup/0.25.1920.1055@0.25.1920.1055" timestamp="1652367100918" />
   </component>
 </project>
