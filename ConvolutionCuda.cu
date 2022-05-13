@@ -255,7 +255,7 @@ int main(int n, char* params[])
             cudaMemcpy(noyau_d,matrice.data(),tailleNoyau*tailleNoyau*sizeof(int), cudaMemcpyHostToDevice);
 
             if(sizeBgr%3==0){
-                pasAlpha<<<block,grid>>>( bgr_d, g_d, cols,rows, noyau,noyau_d);
+                pasAlpha<<<nbBlock, nbThreadParBlock>>>( bgr_d, g_d, cols,rows, noyau,noyau_d);
 
             }
             if(sizeBgr%4==0){
@@ -304,7 +304,7 @@ int main(int n, char* params[])
             cudaMemcpy(noyau_d,matrice.data(),tailleNoyau*tailleNoyau*sizeof(int), cudaMemcpyHostToDevice);
 
             if(sizeBgr%3==0){
-                pasAlpha<<<block,grid>>>( bgr_d, g_d, cols,rows, noyau,noyau_d);
+                pasAlpha<<<nbBlock, nbThreadParBlock>>>( bgr_d, g_d, cols,rows, noyau,noyau_d);
             }
             if(sizeBgr%4==0){
                 //de l'alpha
@@ -341,7 +341,7 @@ int main(int n, char* params[])
             cudaMemcpy(noyau_d,matrice.data(),tailleNoyau*tailleNoyau*sizeof(int), cudaMemcpyHostToDevice);
 
             if(sizeBgr%3==0){
-                pasAlpha<<<block,grid>>>( bgr_d, g_d, cols,rows, noyau,noyau_d);
+                pasAlpha<<<nbBlock, nbThreadParBlock>>>( bgr_d, g_d, cols,rows, noyau,noyau_d);
 
             }
             if(sizeBgr%4==0){
@@ -380,7 +380,7 @@ int main(int n, char* params[])
             cudaMemcpy(noyau_d,matrice.data(),tailleNoyau*tailleNoyau*sizeof(int), cudaMemcpyHostToDevice);
 
             if(sizeBgr%3==0){
-                pasAlpha<<<block,grid>>>( bgr_d, g_d, cols,rows, noyau,noyau_d);
+                pasAlpha<<<nbBlock, nbThreadParBlock>>>( bgr_d, g_d, cols,rows, noyau,noyau_d);
 
             }
             if(sizeBgr%4==0){
@@ -418,7 +418,7 @@ int main(int n, char* params[])
             cudaMemcpy(noyau_d,matrice.data(),tailleNoyau*tailleNoyau*sizeof(int), cudaMemcpyHostToDevice);
 
             if(sizeBgr%3==0){
-                pasAlpha<<<block,grid>>>( bgr_d, g_d, cols,rows, noyau,noyau_d);
+                pasAlpha<<<nbBlock, nbThreadParBlock>>>( bgr_d, g_d, cols,rows, noyau,noyau_d);
             }
             if(sizeBgr%4==0){
                 //de l'alpha
