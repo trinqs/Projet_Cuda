@@ -190,8 +190,9 @@ int main(int n, char* params[])
                 if (cudaStatus != cudaSuccess) {
                     std::cout << "Error (blur3) cudaEventRecord start" << std::endl;
                 }
-                printf("juste avant le kernel");
+                printf("\njuste avant le kernel\n");
                 pasAlpha<<< nbBlock, nbThreadParBlock >>>( bgr_d, g_d, cols, rows, noyau,noyau_d);
+                printf("\njuste avant le kernel\n");
                 kernelStatus = cudaGetLastError();
                 if ( kernelStatus != cudaSuccess ) {
                     std::cout << "CUDA Error (blur3) "<< cudaGetErrorString(kernelStatus) << std::endl;
