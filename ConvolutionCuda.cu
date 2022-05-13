@@ -136,16 +136,16 @@ int main(int n, char* params[])
     unsigned char * g_d;
 
     vector<string> convolutionList = {"blur3","blur5","blur11","gaussianBlur3", "nettete3", "detectEdges3"};
-    cudaStatus = cudaMalloc(&bgr_d, sizeBgr*sizeof(char) );
+    cudaStatus = cudaMalloc(&bgr_d, sizeBgr);
     if (cudaStatus != cudaSuccess) {
     	std::cout << "Error CudaMalloc bgr_d"  << std::endl;
     }
-    cudaStatus = cudaMalloc(&g_d, sizeBgr*sizeof(char) );
+    cudaStatus = cudaMalloc(&g_d, sizeBgr);
     if (cudaStatus != cudaSuccess) {
         std::cout << "Error CudaMalloc g_d"  << std::endl;
     }
 
-    cudaStatus = cudaMemcpy(bgr_d,bgr,sizeBgr * sizeof(char), cudaMemcpyHostToDevice);
+    cudaStatus = cudaMemcpy(bgr_d,bgr,sizeBgr, cudaMemcpyHostToDevice);
     if (cudaStatus  != cudaSuccess) {
         std::cout << "Error cudaMemcpy bgr_d - HostToDevice" << std::endl;
     }
@@ -178,11 +178,11 @@ int main(int n, char* params[])
             matriceConvolution noyau = matriceConvolution(matrice.data(),tailleNoyau);
 
             int* noyau_d;
-            cudaStatus = cudaMalloc(&noyau_d, tailleNoyau*tailleNoyau*sizeof(int));
+            cudaStatus = cudaMalloc(&noyau_d, tailleNoyau*tailleNoyau);
             if (cudaStatus != cudaSuccess) {
                 std::cout << "Error (blur3) CudaMalloc noyau_d"  << std::endl;
             }
-            cudaStatus = cudaMemcpy(noyau_d,matrice.data(),tailleNoyau*tailleNoyau*sizeof(int), cudaMemcpyHostToDevice);
+            cudaStatus = cudaMemcpy(noyau_d,matrice.data(),tailleNoyau*tailleNoyau, cudaMemcpyHostToDevice);
             if (cudaStatus  != cudaSuccess) {
                 std::cout << "Error (blur3) cudaMemcpy noyau_d - HostToDevice" << std::endl;
             }
@@ -224,7 +224,7 @@ int main(int n, char* params[])
             }
 
             cv::Mat m_out( rows, cols, type, g.data() );
-            cudaStatus = cudaMemcpy(g.data(), g_d, 3*cols*rows * sizeof(char), cudaMemcpyDeviceToHost);
+            cudaStatus = cudaMemcpy(g.data(), g_d, 3*cols*rows, cudaMemcpyDeviceToHost);
             if (cudaStatus  != cudaSuccess) {
                 std::cout << "Error (blur3) cudaMemcpy g_d - DeviceToHost" << std::endl;
             }
