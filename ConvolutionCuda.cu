@@ -112,6 +112,9 @@ int main(int n, char* params[])
     int cols = m_in.cols;
     int rows = m_in.rows;
 
+    cudaError_t cudaStatus;
+    cudaError_t kernelStatus;
+
     printf("ligne %d colonne %d \n",rows,cols);
 
     auto sizeBgr = 3*(cols*rows);
@@ -124,11 +127,19 @@ int main(int n, char* params[])
     unsigned char * g_d;
 
     vector<string> convolutionList = {"blur3","blur5","blur11","gaussianBlur3", "nettete3", "detectEdges3"};
-    cudaMalloc(&bgr_d, sizeBgr);
-    cudaMalloc(&g_d, sizeBgr);
+    cudaStatus = cudaMalloc(&bgr_d, sizeBgr);
+    if (cudaStatus != cudaSuccess) {
+    	std::cout << "Error CudaMalloc bgr_d"  << std::endl;
+    }
+    cudaStatus = cudaMalloc(&g_d, sizeBgr);
+    if (cudaStatus != cudaSuccess) {
+        std::cout << "Error CudaMalloc g_d"  << std::endl;
+    }
 
-    cudaMemcpy(bgr_d,bgr,sizeBgr, cudaMemcpyHostToDevice);
-
+    cudaStatus = cudaMemcpy(bgr_d,bgr,sizeBgr, cudaMemcpyHostToDevice);
+    if (cudaStatus  != cudaSuccess) {
+        std::cout << "Error cudaMemcpy bgr_d - HostToDevice" << std::endl;
+    }
 
     //int nbThreadMaxParBloc = 1024;
     dim3 nbThreadParBlock( 128, 4 );
@@ -137,8 +148,14 @@ int main(int n, char* params[])
     //dim3 nbBlock(1,rows,1);
 
     cudaEvent_t start, stop;
-    cudaEventCreate( &start );
-    cudaEventCreate( &stop );
+    cudaStatus = cudaEventCreate( &start );
+    if (cudaStatus != cudaSuccess) {
+        std::cout << "Error cudaEventCreate start" << std::endl;
+    }
+    cudaStatus = cudaEventCreate( &stop );
+    if (cudaStatus != cudaSuccess) {
+        std::cout << "Error cudaEventCreate stop" << std::endl;
+    }
 
 
     for (int i=0; i< convolutionList.size(); i++){
@@ -152,20 +169,42 @@ int main(int n, char* params[])
             matriceConvolution noyau = matriceConvolution(matrice.data(),tailleNoyau);
 
             int* noyau_d;
-            cudaMalloc(&noyau_d, tailleNoyau*tailleNoyau*sizeof(int));
-            cudaMemcpy(noyau_d,matrice.data(),tailleNoyau*tailleNoyau*sizeof(int), cudaMemcpyHostToDevice);
+            cudaStatus = cudaMalloc(&noyau_d, tailleNoyau*tailleNoyau*sizeof(int));
+            if (cudaStatus != cudaSuccess) {
+                std::cout << "Error (blur3) CudaMalloc noyau_d"  << std::endl;
+            }
+            cudaStatus = cudaMemcpy(noyau_d,matrice.data(),tailleNoyau*tailleNoyau*sizeof(int), cudaMemcpyHostToDevice);
+            if (cudaStatus  != cudaSuccess) {
+                std::cout << "Error (blur3) cudaMemcpy noyau_d - HostToDevice" << std::endl;
+            }
 
             if(sizeBgr%3==0){
                 //printf("nb de colones : %d, nb de lignes : %d \n", cols, rows);
-                cudaEventRecord( start );
+                cudaStatus = cudaEventRecord( start );
+                if (cudaStatus != cudaSuccess) {
+                    std::cout << "Error (blur3) cudaEventRecord start" << std::endl;
+                }
 
                 pasAlpha<<< nbBlock, nbThreadParBlock >>>( bgr_d, g_d, cols, rows, noyau,noyau_d);
+                kernelStatus = cudaGetLastError();
+                if ( kernelStatus != cudaSuccess ) {
+                    std::cout << "CUDA Error (blur3) "<< cudaGetErrorString(kernelStatus) << std::endl;
+                }
 
-                cudaEventRecord( stop );
-                cudaEventSynchronize( stop );
+                cudaStatus = cudaEventRecord( stop );
+                if (cudaStatus != cudaSuccess) {
+                    std::cout << "Error (blur3) cudaEventRecord stop" << std::endl;
+                }
+                cudaStatus = cudaEventSynchronize( stop );
+                if (cudaStatus != cudaSuccess) {
+                    std::cout << "Error (blur3) cudaEventSynchronize stop" << std::endl;
+                }
 
                 float duration;
-                cudaEventElapsedTime( &duration, start, stop );
+                cudaStatus = cudaEventElapsedTime( &duration, start, stop );
+                if (cudaStatus != cudaSuccess) {
+                    std::cout << "Error (blur3) cudaEventElapsedTime duration" << std::endl;
+                }
 
                 std::cout << "blur3 "<< duration <<" ms" <<std::endl;
 
@@ -175,7 +214,11 @@ int main(int n, char* params[])
             }
 
             cv::Mat m_out( rows, cols, type, g.data() );
-            cudaMemcpy(g.data(),g_d,3*cols*rows,cudaMemcpyDeviceToHost);
+            cudaStatus = cudaMemcpy(g.data(),g_d,3*cols*rows,cudaMemcpyDeviceToHost);
+            if (cudaStatus  != cudaSuccess) {
+                std::cout << "Error (blur3) cudaMemcpy g_d - DeviceToHost" << std::endl;
+            }
+
 
             if (n==3){
                 string res = "out_cu_" + convolutionList[i] + "_";
@@ -206,20 +249,44 @@ int main(int n, char* params[])
             matriceConvolution noyau = matriceConvolution(matrice.data(),tailleNoyau);
 
             int* noyau_d;
-            cudaMalloc(&noyau_d, tailleNoyau*tailleNoyau*sizeof(int));
-            cudaMemcpy(noyau_d,matrice.data(),tailleNoyau*tailleNoyau*sizeof(int), cudaMemcpyHostToDevice);
+            cudaStatus = cudaMalloc(&noyau_d, tailleNoyau*tailleNoyau*sizeof(int));
+            if (cudaStatus != cudaSuccess) {
+                std::cout << "Error (blur5) CudaMalloc noyau_d"  << std::endl;
+            }
+            cudaStatus = cudaMemcpy(noyau_d,matrice.data(),tailleNoyau*tailleNoyau*sizeof(int), cudaMemcpyHostToDevice);
+            if (cudaStatus  != cudaSuccess) {
+                std::cout << "Error (blur5) cudaMemcpy noyau_d - HostToDevice" << std::endl;
+            }
+
+
 
             if(sizeBgr%3==0){
 
-                cudaEventRecord( start );
+                cudaStatus = cudaEventRecord( start );
+                if (cudaStatus  != cudaSuccess) {
+                    std::cout << "Error (blur5) cudaEventRecord start " << std::endl;
+                }
 
                 pasAlpha<<<nbBlock, nbThreadParBlock>>>( bgr_d, g_d, cols,rows, noyau,noyau_d);
+                kernelStatus = cudaGetLastError();
+                if ( kernelStatus != cudaSuccess ){
+                   std::cout << "CUDA Error (blur5) "<< cudaGetErrorString(kernelStatus) << std::endl;
+                }
 
-                cudaEventRecord( stop );
-                cudaEventSynchronize( stop );
+                cudaStatus = cudaEventRecord( stop );
+                if (cudaStatus  != cudaSuccess) {
+                    std::cout << "Error (blur5) cudaEventRecord stop " << std::endl;
+                }
+                cudaStatus = cudaEventSynchronize( stop );
+                if (cudaStatus  != cudaSuccess) {
+                    std::cout << "Error (blur5) cudaEventSynchronize stop " << std::endl;
+                }
 
                 float duration;
-                cudaEventElapsedTime( &duration, start, stop );
+                cudaStatus = cudaEventElapsedTime( &duration, start, stop );
+                if (cudaStatus  != cudaSuccess) {
+                    std::cout << "Error (blur5) cudaEventElapsedTime duration " << std::endl;
+                }
                 std::cout << "blur5 "<<duration<<" ms" <<std::endl;
 
             }
@@ -228,7 +295,10 @@ int main(int n, char* params[])
             }
             cv::Mat m_out( rows, cols, type, g.data() );
 
-            cudaMemcpy(g.data(),g_d, 3*cols*rows,cudaMemcpyDeviceToHost);
+            cudaStatus = cudaMemcpy(g.data(),g_d, 3*cols*rows,cudaMemcpyDeviceToHost);
+            if (cudaStatus  != cudaSuccess) {
+                std::cout << "Error (blur5) cudaMemcpy g_d - DeviceToHost" << std::endl;
+            }
 
             if (n==3){
                 string res = "out_cu_" + convolutionList[i] + "_";
@@ -267,20 +337,42 @@ int main(int n, char* params[])
             matriceConvolution noyau = matriceConvolution(matrice.data(),tailleNoyau);
 
             int* noyau_d;
-            cudaMalloc(&noyau_d, tailleNoyau*tailleNoyau*sizeof(int));
-            cudaMemcpy(noyau_d,matrice.data(),tailleNoyau*tailleNoyau*sizeof(int), cudaMemcpyHostToDevice);
+            cudaStatus = cudaMalloc(&noyau_d, tailleNoyau*tailleNoyau*sizeof(int));
+            if (cudaStatus != cudaSuccess) {
+                std::cout << "Error (blur11) CudaMalloc noyau_d"  << std::endl;
+            }
+            cudaStatus = cudaMemcpy(noyau_d,matrice.data(),tailleNoyau*tailleNoyau*sizeof(int), cudaMemcpyHostToDevice);
+            if (cudaStatus  != cudaSuccess) {
+                std::cout << "Error (blur11) cudaMemcpy noyau_d - HostToDevice" << std::endl;
+            }
 
             if(sizeBgr%3==0){
 
-                cudaEventRecord( start );
+                cudaStatus = cudaEventRecord( start );
+                if (cudaStatus != cudaSuccess) {
+                    std::cout << "Error (blur11) cudaEventRecord start"  << std::endl;
+                }
 
                 pasAlpha<<<nbBlock, nbThreadParBlock>>>( bgr_d, g_d, cols,rows, noyau,noyau_d);
+                kernelStatus = cudaGetLastError();
+                if ( kernelStatus != cudaSuccess ) {
+                    std::cout << "CUDA Error (blur11) "<< cudaGetErrorString(kernelStatus) << std::endl;
+                }
 
-                cudaEventRecord( stop );
-                cudaEventSynchronize( stop );
+                cudaStatus = cudaEventRecord( stop );
+                if (cudaStatus != cudaSuccess) {
+                    std::cout << "Error (blur11) cudaEventRecord stop"  << std::endl;
+                }
+                cudaStatus = cudaEventSynchronize( stop );
+                if (cudaStatus != cudaSuccess) {
+                    std::cout << "Error (blur11) cudaEventSynchronize stop"  << std::endl;
+                }
 
                 float duration;
-                cudaEventElapsedTime( &duration, start, stop );
+                cudaStatus = cudaEventElapsedTime( &duration, start, stop );
+                if (cudaStatus != cudaSuccess) {
+                    std::cout << "Error (blur11) cudaEventElapsedTime duration"  << std::endl;
+                }
                 std::cout << "blur11 "<<duration<<" ms" <<std::endl;
 
             }
@@ -289,7 +381,10 @@ int main(int n, char* params[])
             }
 
             cv::Mat m_out( rows, cols, type, g.data() );
-            cudaMemcpy(g.data(),g_d,3*cols*rows,cudaMemcpyDeviceToHost);
+            cudaStatus = cudaMemcpy(g.data(),g_d,3*cols*rows,cudaMemcpyDeviceToHost);
+            if (cudaStatus  != cudaSuccess) {
+                std::cout << "Error (blur11) cudaMemcpy g_d - DeviceToHost" << std::endl;
+            }
             if (n==3){
                 string res = "out_cu_" + convolutionList[i] + "_";
                 res.append(params[2]);
@@ -317,20 +412,42 @@ int main(int n, char* params[])
             matriceConvolution noyau = matriceConvolution(matrice.data(),tailleNoyau);
 
             int* noyau_d;
-            cudaMalloc(&noyau_d, tailleNoyau*tailleNoyau*sizeof(int));
-            cudaMemcpy(noyau_d,matrice.data(),tailleNoyau*tailleNoyau*sizeof(int), cudaMemcpyHostToDevice);
+            cudaStatus = cudaMalloc(&noyau_d, tailleNoyau*tailleNoyau*sizeof(int));
+            if (cudaStatus != cudaSuccess) {
+                std::cout << "Error (gaussianBlur3) CudaMalloc noyau_d"  << std::endl;
+            }
+            cudaStatus = cudaMemcpy(noyau_d,matrice.data(),tailleNoyau*tailleNoyau*sizeof(int), cudaMemcpyHostToDevice);
+            if (cudaStatus  != cudaSuccess) {
+                std::cout << "Error (gaussianBlur3) cudaMemcpy noyau_d - HostToDevice" << std::endl;
+            }
 
             if(sizeBgr%3==0){
 
-                cudaEventRecord( start );
+                cudaStatus = cudaEventRecord( start );
+                if (cudaStatus  != cudaSuccess) {
+                    std::cout << "Error (gaussianBlur3) cudaEventRecord start" << std::endl;
+                }
 
                 pasAlpha<<<nbBlock, nbThreadParBlock>>>( bgr_d, g_d, cols,rows, noyau,noyau_d);
+                kernelStatus = cudaGetLastError();
+                if ( kernelStatus != cudaSuccess ) {
+                   std::cout << "CUDA Error (gaussianBlur3) "<< cudaGetErrorString(kernelStatus) << std::endl;
+                }
 
-                cudaEventRecord( stop );
-                cudaEventSynchronize( stop );
+                cudaStatus = cudaEventRecord( stop );
+                if (cudaStatus  != cudaSuccess) {
+                    std::cout << "Error (gaussianBlur3) cudaEventRecord stop" << std::endl;
+                }
+                cudaStatus = cudaEventSynchronize( stop );
+                if (cudaStatus  != cudaSuccess) {
+                    std::cout << "Error (gaussianBlur3) cudaEventSynchronize stop" << std::endl;
+                }
 
                 float duration;
-                cudaEventElapsedTime( &duration, start, stop );
+                cudaStatus = cudaEventElapsedTime( &duration, start, stop );
+                if (cudaStatus  != cudaSuccess) {
+                    std::cout << "Error (gaussianBlur3) cudaEventElapsedTime duration" << std::endl;
+                }
                 std::cout << "gaussianBlur3 "<<duration<<" ms" <<std::endl;
             }
             if(sizeBgr%4==0){
@@ -338,7 +455,10 @@ int main(int n, char* params[])
             }
 
             cv::Mat m_out( rows, cols, type, g.data() );
-            cudaMemcpy(g.data(),g_d,3*cols*rows,cudaMemcpyDeviceToHost);
+            cudaStatus = cudaMemcpy(g.data(),g_d,3*cols*rows,cudaMemcpyDeviceToHost);
+            if (cudaStatus  != cudaSuccess) {
+                std::cout << "Error (gaussianBlur3) cudaMemcpy g_d - DeviceToHost" << std::endl;
+            }
             if (n==3){
                 string res = "out_cu_" + convolutionList[i] + "_";
                 res.append(params[2]);
@@ -367,19 +487,41 @@ int main(int n, char* params[])
             matriceConvolution noyau = matriceConvolution(matrice.data(),tailleNoyau);
 
             int* noyau_d;
-            cudaMalloc(&noyau_d, tailleNoyau*tailleNoyau*sizeof(int));
-            cudaMemcpy(noyau_d,matrice.data(),tailleNoyau*tailleNoyau*sizeof(int), cudaMemcpyHostToDevice);
+            cudaStatus = cudaMalloc(&noyau_d, tailleNoyau*tailleNoyau*sizeof(int));
+            if (cudaStatus != cudaSuccess) {
+                std::cout << "Error (nettete3) CudaMalloc noyau_d"  << std::endl;
+            }
+            cudaStatus = cudaMemcpy(noyau_d,matrice.data(),tailleNoyau*tailleNoyau*sizeof(int), cudaMemcpyHostToDevice);
+            if (cudaStatus  != cudaSuccess) {
+                std::cout << "Error (nettete3) cudaMemcpy noyau_d - HostToDevice" << std::endl;
+            }
 
             if(sizeBgr%3==0){
-                cudaEventRecord( start );
+                cudaStatus = cudaEventRecord( start );
+                if (cudaStatus  != cudaSuccess) {
+                    std::cout << "Error (nettete3) cudaEventRecord start" << std::endl;
+                }
 
                 pasAlpha<<<nbBlock, nbThreadParBlock>>>( bgr_d, g_d, cols,rows, noyau,noyau_d);
+                kernelStatus = cudaGetLastError();
+                if ( kernelStatus != cudaSuccess ) {
+                   std::cout << "CUDA Error (nettete3) "<< cudaGetErrorString(kernelStatus) << std::endl;
+                }
 
-                cudaEventRecord( stop );
-                cudaEventSynchronize( stop );
+                cudaStatus = cudaEventRecord( stop );
+                if (cudaStatus  != cudaSuccess) {
+                    std::cout << "Error (nettete3) cudaEventRecord stop" << std::endl;
+                }
+                cudaStatus = cudaEventSynchronize( stop );
+                if (cudaStatus  != cudaSuccess) {
+                    std::cout << "Error (nettete3) cudaEventSynchronize stop" << std::endl;
+                }
 
                 float duration;
-                cudaEventElapsedTime( &duration, start, stop );
+                cudaStatus = cudaEventElapsedTime( &duration, start, stop );
+                if (cudaStatus  != cudaSuccess) {
+                    std::cout << "Error (nettete3) cudaEventElapsedTime duration" << std::endl;
+                }
                 std::cout << "nettete3 "<<duration<<" ms" <<std::endl;
             }
             if(sizeBgr%4==0){
@@ -387,7 +529,10 @@ int main(int n, char* params[])
             }
 
             cv::Mat m_out( rows, cols, type, g.data() );
-            cudaMemcpy(g.data(),g_d,3*cols*rows,cudaMemcpyDeviceToHost);
+            cudaStatus = cudaMemcpy(g.data(),g_d,3*cols*rows,cudaMemcpyDeviceToHost);
+            if (cudaStatus  != cudaSuccess) {
+                std::cout << "Error (nettete3) cudaMemcpy g_d - DeviceToHost" << std::endl;
+            }
             if (n==3){
                 string res = "out_cu_" + convolutionList[i] + "_";
                 res.append(params[2]);
@@ -415,20 +560,42 @@ int main(int n, char* params[])
             matriceConvolution noyau = matriceConvolution(matrice.data(),tailleNoyau);
 
             int* noyau_d;
-            cudaMalloc(&noyau_d, tailleNoyau*tailleNoyau*sizeof(int));
-            cudaMemcpy(noyau_d,matrice.data(),tailleNoyau*tailleNoyau*sizeof(int), cudaMemcpyHostToDevice);
+            cudaStatus = cudaMalloc(&noyau_d, tailleNoyau*tailleNoyau*sizeof(int));
+            if (cudaStatus != cudaSuccess) {
+                std::cout << "Error (detectEdges3) CudaMalloc noyau_d"  << std::endl;
+            }
+            cudaStatus = cudaMemcpy(noyau_d,matrice.data(),tailleNoyau*tailleNoyau*sizeof(int), cudaMemcpyHostToDevice);
+            if (cudaStatus  != cudaSuccess) {
+                std::cout << "Error (detectEdges3) cudaMemcpy noyau_d - HostToDevice" << std::endl;
+            }
 
             if(sizeBgr%3==0){
 
-                cudaEventRecord( start );
+                cudaStatus = cudaEventRecord( start );
+                if (cudaStatus  != cudaSuccess) {
+                    std::cout << "Error (detectEdges3) cudaEventRecord start" << std::endl;
+                }
 
                 pasAlpha<<<nbBlock, nbThreadParBlock>>>( bgr_d, g_d, cols,rows, noyau,noyau_d);
+                kernelStatus = cudaGetLastError();
+                if ( kernelStatus != cudaSuccess ) {
+                    std::cout << "CUDA Error (detectEdges3) "<< cudaGetErrorString(kernelStatus) << std::endl;
+                }
 
-                cudaEventRecord( stop );
-                cudaEventSynchronize( stop );
+                cudaStatus = cudaEventRecord( stop );
+                if (cudaStatus  != cudaSuccess) {
+                    std::cout << "Error (detectEdges3) cudaEventRecord stop" << std::endl;
+                }
+                cudaStatus = cudaEventSynchronize( stop );
+                if (cudaStatus  != cudaSuccess) {
+                    std::cout << "Error (detectEdges3) cudaEventSynchronize stop" << std::endl;
+                }
 
                 float duration;
-                cudaEventElapsedTime( &duration, start, stop );
+                cudaStatus = cudaEventElapsedTime( &duration, start, stop );
+                if (cudaStatus  != cudaSuccess) {
+                    std::cout << "Error (detectEdges3) cudaEventElapsedTime duration" << std::endl;
+                }
                 std::cout << "detectEdges3 "<<duration<<" ms" <<std::endl;
             }
             if(sizeBgr%4==0){
@@ -436,7 +603,10 @@ int main(int n, char* params[])
             }
 
             cv::Mat m_out( rows, cols, type, g.data() );
-            cudaMemcpy(g.data(),g_d,3*cols*rows,cudaMemcpyDeviceToHost);
+            cudaStatus = cudaMemcpy(g.data(),g_d,3*cols*rows,cudaMemcpyDeviceToHost);
+            if (cudaStatus  != cudaSuccess) {
+                std::cout << "Error (detectEdges3) cudaMemcpy g_d - DeviceToHost" << std::endl;
+            }
             if (n==3){
                 string res = "out_cu_" + convolutionList[i] + "_";
                 res.append(params[2]);

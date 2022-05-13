@@ -29,6 +29,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c8504d56-1fbf-42ca-b64e-5432c61b4366" name="Default Changelist" comment="ça fonctionne">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConvolutionCuda.cu" beforeDir="false" afterPath="$PROJECT_DIR$/ConvolutionCuda.cu" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,6 +113,7 @@
       <workItem from="1652353888077" duration="12712000" />
       <workItem from="1652430378332" duration="5325000" />
       <workItem from="1652439625837" duration="993000" />
+      <workItem from="1652448008065" duration="3765000" />
     </task>
     <task id="LOCAL-00362" summary="l'espoir contre attaque">
       <created>1652360668992</created>
