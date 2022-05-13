@@ -222,21 +222,7 @@ int main(int n, char* params[])
             }
 
             cv::Mat m_out( rows, cols, type, g.data() );
-
             cudaMemcpy(g.data(),g_d,3*cols*rows,cudaMemcpyDeviceToHost);
-
-
-            auto gData = g.data();
-
-            printf("m_out data");
-            for (int pixel=0 ; pixel<300;pixel+=3){
-                if(pixel%30==0){
-                    printf("\n");
-                }
-                printf("{ %d, %d, %d}", gData[pixel],gData[pixel+1],gData[pixel+2]);
-            }
-            printf("\n");
-
 
             if (n==3){
                 string res = "out_cu_" + convolutionList[i] + "_";
@@ -253,28 +239,32 @@ int main(int n, char* params[])
             }
 
             cudaFree(noyau_d);
-        /*}else if (convolutionList[i]==("blur5")){
+        }else if (convolutionList[i]==("blur5")){
 
-            int tailleNoyaux = 5;
+            int tailleNoyau = 5;
             vector<int> matrice({1,1,1,1,1,
                                  1,1,1,1,1,
                                  1,1,1,1,1,
                                  1,1,1,1,1,
                                  1,1,1,1,1});
 
-            matriceConvolution noyau = matriceConvolution(matrice.data(),tailleNoyaux);
+            matriceConvolution noyau = matriceConvolution(matrice.data(),tailleNoyau);
 
+            int* noyau_d;
+            cudaMalloc(&noyau_d, tailleNoyau*tailleNoyau*sizeof(int));
+            cudaMemcpy(noyau_d,matrice.data(),tailleNoyau*tailleNoyau*sizeof(int), cudaMemcpyHostToDevice);
 
             if(sizeBgr%3==0){
-                pasAlpha<<<block,grid>>>( bgr_d, g_d, cols,rows, noyau);
+                pasAlpha<<<block,grid>>>( bgr_d, g_d, cols,rows, noyau,noyau_d);
 
             }
             if(sizeBgr%4==0){
                 //de l'alpha
             }
-
             cv::Mat m_out( rows, cols, type, g.data() );
-            cudaMemcpy(g.data(),g_d,cols*rows,cudaMemcpyDeviceToHost);
+
+            cudaMemcpy(g.data(),g_d, 3*cols*rows,cudaMemcpyDeviceToHost);
+
             if (n==3){
                 string res = "out_" + convolutionList[i] + "_";
                 res.append(params[2]);
@@ -289,10 +279,12 @@ int main(int n, char* params[])
                 cv::imwrite( res, m_out );
             }
 
+            cudaFree(noyau_d);
+
 
         }else if (convolutionList[i]==("blur11")){
 
-            int tailleNoyaux = 11;
+            int tailleNoyau = 11;
             vector<int> matrice({1,1,1,1,1,1,1,1,1,1,1,
                                  1,1,1,1,1,1,1,1,1,1,1,
                                  1,1,1,1,1,1,1,1,1,1,1,
@@ -305,18 +297,21 @@ int main(int n, char* params[])
                                  1,1,1,1,1,1,1,1,1,1,1,
                                  1,1,1,1,1,1,1,1,1,1,1});
 
-            matriceConvolution noyau = matriceConvolution(matrice.data(),tailleNoyaux);
+            matriceConvolution noyau = matriceConvolution(matrice.data(),tailleNoyau);
+
+            int* noyau_d;
+            cudaMalloc(&noyau_d, tailleNoyau*tailleNoyau*sizeof(int));
+            cudaMemcpy(noyau_d,matrice.data(),tailleNoyau*tailleNoyau*sizeof(int), cudaMemcpyHostToDevice);
 
             if(sizeBgr%3==0){
-                pasAlpha<<<block,grid>>>( bgr_d, g_d, cols,rows, noyau);
-
+                pasAlpha<<<block,grid>>>( bgr_d, g_d, cols,rows, noyau,noyau_d);
             }
             if(sizeBgr%4==0){
                 //de l'alpha
             }
 
             cv::Mat m_out( rows, cols, type, g.data() );
-            cudaMemcpy(g.data(),g_d,cols*rows,cudaMemcpyDeviceToHost);
+            cudaMemcpy(g.data(),g_d,3*cols*rows,cudaMemcpyDeviceToHost);
             if (n==3){
                 string res = "out_" + convolutionList[i] + "_";
                 res.append(params[2]);
@@ -331,18 +326,22 @@ int main(int n, char* params[])
                 cv::imwrite( res, m_out );
             }
 
-
+            cudaFree(noyau_d);
         }else if (convolutionList[i]==("gaussianBlur3")){
 
-            int tailleNoyaux = 3;
+            int tailleNoyau = 3;
             vector<int> matrice({1,2,1,
                                  2,4,2,
                                  1,2,1});
 
-            matriceConvolution noyau = matriceConvolution(matrice.data(),tailleNoyaux);
+            matriceConvolution noyau = matriceConvolution(matrice.data(),tailleNoyau);
+
+            int* noyau_d;
+            cudaMalloc(&noyau_d, tailleNoyau*tailleNoyau*sizeof(int));
+            cudaMemcpy(noyau_d,matrice.data(),tailleNoyau*tailleNoyau*sizeof(int), cudaMemcpyHostToDevice);
 
             if(sizeBgr%3==0){
-                pasAlpha<<<block,grid>>>( bgr_d, g_d, cols,rows, noyau);
+                pasAlpha<<<block,grid>>>( bgr_d, g_d, cols,rows, noyau,noyau_d);
 
             }
             if(sizeBgr%4==0){
@@ -350,7 +349,7 @@ int main(int n, char* params[])
             }
 
             cv::Mat m_out( rows, cols, type, g.data() );
-            cudaMemcpy(g.data(),g_d,cols*rows,cudaMemcpyDeviceToHost);
+            cudaMemcpy(g.data(),g_d,3*cols*rows,cudaMemcpyDeviceToHost);
             if (n==3){
                 string res = "out_" + convolutionList[i] + "_";
                 res.append(params[2]);
@@ -365,18 +364,23 @@ int main(int n, char* params[])
                 cv::imwrite( res, m_out );
             }
 
+            cudaFree(noyau_d);
+
         }else if (convolutionList[i]==("nettete3")){
 
-            int tailleNoyaux = 3;
+            int tailleNoyau = 3;
             vector<int> matrice({0,-1,0,
                                  -1,5,-1,
                                  0,-1,0});
 
-            matriceConvolution noyau = matriceConvolution(matrice.data(),tailleNoyaux);
+            matriceConvolution noyau = matriceConvolution(matrice.data(),tailleNoyau);
 
+            int* noyau_d;
+            cudaMalloc(&noyau_d, tailleNoyau*tailleNoyau*sizeof(int));
+            cudaMemcpy(noyau_d,matrice.data(),tailleNoyau*tailleNoyau*sizeof(int), cudaMemcpyHostToDevice);
 
             if(sizeBgr%3==0){
-                pasAlpha<<<block,grid>>>( bgr_d, g_d, cols,rows, noyau);
+                pasAlpha<<<block,grid>>>( bgr_d, g_d, cols,rows, noyau,noyau_d);
 
             }
             if(sizeBgr%4==0){
@@ -384,7 +388,7 @@ int main(int n, char* params[])
             }
 
             cv::Mat m_out( rows, cols, type, g.data() );
-            cudaMemcpy(g.data(),g_d,cols*rows,cudaMemcpyDeviceToHost);
+            cudaMemcpy(g.data(),g_d,3*cols*rows,cudaMemcpyDeviceToHost);
             if (n==3){
                 string res = "out_" + convolutionList[i] + "_";
                 res.append(params[2]);
@@ -398,25 +402,30 @@ int main(int n, char* params[])
                 res.append(".jpeg");
                 cv::imwrite( res, m_out );
             }
+
+            cudaFree(noyau_d)
         }else if (convolutionList[i]==("detectEdges3")){
 
-            int tailleNoyaux = 3;
+            int tailleNoyau = 3;
             vector<int> matrice({-1,-1,-1,
                                  -1,8,-1,
                                  -1,-1,-1});
 
-            matriceConvolution noyau = matriceConvolution(matrice.data(),tailleNoyaux);
+            matriceConvolution noyau = matriceConvolution(matrice.data(),tailleNoyau);
+
+            int* noyau_d;
+            cudaMalloc(&noyau_d, tailleNoyau*tailleNoyau*sizeof(int));
+            cudaMemcpy(noyau_d,matrice.data(),tailleNoyau*tailleNoyau*sizeof(int), cudaMemcpyHostToDevice);
 
             if(sizeBgr%3==0){
-                pasAlpha<<<block,grid>>>( bgr_d, g_d, cols,rows, noyau);
-
+                pasAlpha<<<block,grid>>>( bgr_d, g_d, cols,rows, noyau,noyau_d);
             }
             if(sizeBgr%4==0){
                 //de l'alpha
             }
 
             cv::Mat m_out( rows, cols, type, g.data() );
-            cudaMemcpy(g.data(),g_d,cols*rows,cudaMemcpyDeviceToHost);
+            cudaMemcpy(g.data(),g_d,3*cols*rows,cudaMemcpyDeviceToHost);
             if (n==3){
                 string res = "out_" + convolutionList[i] + "_";
                 res.append(params[2]);
@@ -429,7 +438,8 @@ int main(int n, char* params[])
                 string res = "out_" + convolutionList[i];
                 res.append(".jpeg");
                 cv::imwrite( res, m_out );
-            }*/
+            }
+            cudaFree(noyau_d);
         }
     }
     cudaFree(bgr_d);
