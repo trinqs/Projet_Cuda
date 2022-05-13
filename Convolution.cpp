@@ -351,34 +351,34 @@ int main(int n, char* params[])
     auto stop = std::chrono::system_clock::now();
     std::cout << "Temps blur3 : "<< std::chrono::duration_cast<std::chrono::milliseconds>(stop -start).count() << "ms\n";
 
-    auto start = std::chrono::system_clock::now();
+    start = std::chrono::system_clock::now();
     blur5Convolution(n,params,bgr,cols,rows, sizebgr, type);
-    auto stop = std::chrono::system_clock::now();
+    stop = std::chrono::system_clock::now();
     std::cout << "Temps blur5 : "<< std::chrono::duration_cast<std::chrono::milliseconds>(stop -start).count() << "ms\n";
 
-    auto start = std::chrono::system_clock::now();
+    start = std::chrono::system_clock::now();
     blur11Convolution(n,params,bgr,cols,rows, sizebgr, type);
-    auto stop = std::chrono::system_clock::now();
+    stop = std::chrono::system_clock::now();
     std::cout << "Temps blur11 : "<< std::chrono::duration_cast<std::chrono::milliseconds>(stop -start).count() << "ms\n";
 
-    auto start = std::chrono::system_clock::now();
+    start = std::chrono::system_clock::now();
     gaussianBlur3Convolution(n,params,bgr,cols,rows, sizebgr, type);
-    auto stop = std::chrono::system_clock::now();
+    stop = std::chrono::system_clock::now();
     std::cout << "Temps gaussianblur3 : "<< std::chrono::duration_cast<std::chrono::milliseconds>(stop -start).count() << "ms\n";
 
-    auto start = std::chrono::system_clock::now();
+    start = std::chrono::system_clock::now();
     gaussianBlur5Convolution(n,params,bgr,cols,rows, sizebgr, type);
-    auto stop = std::chrono::system_clock::now();
+    stop = std::chrono::system_clock::now();
     std::cout << "Temps gaussianblur5 : "<< std::chrono::duration_cast<std::chrono::milliseconds>(stop -start).count() << "ms\n";
 
-    auto start = std::chrono::system_clock::now();
+    start = std::chrono::system_clock::now();
     detectEdges3Convolution(n,params,bgr,cols,rows, sizebgr, type);
-    auto stop = std::chrono::system_clock::now();
+    stop = std::chrono::system_clock::now();
     std::cout << "Temps detectEdges3 : "<< std::chrono::duration_cast<std::chrono::milliseconds>(stop -start).count() << "ms\n";
 
-    auto start = std::chrono::system_clock::now();
+    start = std::chrono::system_clock::now();
     sharpness3Convolution(n,params,bgr,cols,rows, sizebgr, type);
-    auto stop = std::chrono::system_clock::now();
+    stop = std::chrono::system_clock::now();
     std::cout << "Temps sharpness3 : "<< std::chrono::duration_cast<std::chrono::milliseconds>(stop -start).count() << "ms\n";
 
     return 0;
