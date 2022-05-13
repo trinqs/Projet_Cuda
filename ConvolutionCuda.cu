@@ -61,16 +61,9 @@ __device__ unsigned char calculPixel(int x, int y, // le thread,
             sum += rgb[3*(( x + decalageRow )*imgCols+( y + decalageCol ))+couleur] * matriceNoyau[ (decalageRow + limRows) * noyau.getCols() + decalageCol + limCols ];
         }
     }
-
-    if(x==6 && y==7){
-        printf("sum avant div %d\n",sum);
-    }
     //normalisation en dehors de la boucle pour faire moins d'arrondis
     if (noyau.getSommeCoefficients()==noyau.getFacteurMax()){
         sum/= noyau.getFacteurMax();
-        if(x==6 && y==7){
-            printf("facteur max = %d sum après div %d\n",noyau.getFacteurMax(),sum);
-        }
     }
 
     // j'ai 0 si je print ici
@@ -283,7 +276,7 @@ int main(int n, char* params[])
 
                 float duration;
                 cudaEventElapsedTime( &duration, start, stop );
-                std::cout << "blur11"<<duration<<" ms" <<std::endl;
+                std::cout << "blur11 "<<duration<<" ms" <<std::endl;
 
             }
             if(sizeBgr%4==0){
