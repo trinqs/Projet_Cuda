@@ -83,7 +83,7 @@ __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, int imgCol, int i
     int tidx = blockIdx.x * blockDim.x + threadIdx.x;
     int tidy = blockIdx.y * blockDim.y + threadIdx.y;
 
-    printf("juste après les tid, tidx : %d, tidy : %d\n", tidx, tidy);
+    printf("juste après les tid, tidx : %d, tidy : %d\n, blockDim.x : %d, blockDim.y : %d, blockIdx.x : %d, blockIdx.y : %d, threadIdx.x : %d, threadIdx.y : %d", tidx, tidy, blockDim.x, blockDim.y, blockIdx.x, blockIdx.y, threadIdx.x, threadIdx.y);
 
     //int tidx = blockIdx.y;
     //int tidy = threadIdx.y;
@@ -193,9 +193,8 @@ int main(int n, char* params[])
                 if (cudaStatus != cudaSuccess) {
                     std::cout << "Error (blur3) cudaEventRecord start" << std::endl;
                 }
-                printf("\njuste avant le kernel\n");
+
                 pasAlpha<<< nbBlock, nbThreadParBlock >>>( bgr_d, g_d, cols, rows, noyau,noyau_d);
-                printf("\njuste après le kernel\n");
                 kernelStatus = cudaGetLastError();
                 if ( kernelStatus != cudaSuccess ) {
                     std::cout << "CUDA Error (blur3) "<< cudaGetErrorString(kernelStatus) << std::endl;
