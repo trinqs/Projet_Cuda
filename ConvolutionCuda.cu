@@ -112,6 +112,9 @@ int main(int n, char* params[])
 
     int cols = m_in.cols;
     int rows = m_in.rows;
+
+    printf("ligne %d colonne %d",rows,cols);
+
     auto sizeBgr = 3*(cols*rows);
 
     auto type = m_in.type();
