@@ -79,12 +79,11 @@ __global__ void pasAlpha(unsigned char* rgb, unsigned char* g, int imgCol, int i
     int limCols = noyau.getCols()/2;
     int limRows = noyau.getRows()/2;
 
-    printf("\n juste après les limites, limCols : %d, limRows : %d", limCols, limRows);
 
     int tidx = blockIdx.x * blockDim.x + threadIdx.x;
     int tidy = blockIdx.y * blockDim.y + threadIdx.y;
 
-
+    printf("juste après les tid, tidx : %d, tidy : %d\n", tidx, tidy);
 
     //int tidx = blockIdx.y;
     //int tidy = threadIdx.y;
