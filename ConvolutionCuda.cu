@@ -222,7 +222,6 @@ int main(int n, char* params[])
                 std::cout << "Error (blur3) cudaMemcpy g_d - DeviceToHost" << cudaStatus <<std::endl;
             }
 
-
             if (n==3){
                 string res = "out_cu_" + convolutionList[i] + "_";
                 res.append(params[2]);
