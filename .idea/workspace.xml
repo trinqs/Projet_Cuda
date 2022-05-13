@@ -28,7 +28,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c8504d56-1fbf-42ca-b64e-5432c61b4366" name="Default Changelist" comment="ça fonctionne">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ConvolutionCuda.cu" beforeDir="false" afterPath="$PROJECT_DIR$/ConvolutionCuda.cu" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -115,34 +114,6 @@
       <workItem from="1652439625837" duration="993000" />
       <workItem from="1652448008065" duration="3765000" />
       <workItem from="1652446929138" duration="3720000" />
-    </task>
-    <task id="LOCAL-00373" summary="l'espoir contre attaque">
-      <created>1652363653917</created>
-      <option name="number" value="00373" />
-      <option name="presentableId" value="LOCAL-00373" />
-      <option name="project" value="LOCAL" />
-      <updated>1652363653917</updated>
-    </task>
-    <task id="LOCAL-00374" summary="l'espoir contre attaque">
-      <created>1652363699321</created>
-      <option name="number" value="00374" />
-      <option name="presentableId" value="LOCAL-00374" />
-      <option name="project" value="LOCAL" />
-      <updated>1652363699321</updated>
-    </task>
-    <task id="LOCAL-00375" summary="l'espoir contre attaque">
-      <created>1652363809856</created>
-      <option name="number" value="00375" />
-      <option name="presentableId" value="LOCAL-00375" />
-      <option name="project" value="LOCAL" />
-      <updated>1652363809856</updated>
-    </task>
-    <task id="LOCAL-00376" summary="l'espoir contre attaque">
-      <created>1652363900011</created>
-      <option name="number" value="00376" />
-      <option name="presentableId" value="LOCAL-00376" />
-      <option name="project" value="LOCAL" />
-      <updated>1652363900011</updated>
     </task>
     <task id="LOCAL-00377" summary="l'espoir contre attaque">
       <created>1652364456901</created>
@@ -459,7 +430,35 @@
       <option name="project" value="LOCAL" />
       <updated>1652454308375</updated>
     </task>
-    <option name="localTasksCounter" value="422" />
+    <task id="LOCAL-00422" summary="ça fonctionne">
+      <created>1652454366132</created>
+      <option name="number" value="00422" />
+      <option name="presentableId" value="LOCAL-00422" />
+      <option name="project" value="LOCAL" />
+      <updated>1652454366132</updated>
+    </task>
+    <task id="LOCAL-00423" summary="ça fonctionne">
+      <created>1652454402260</created>
+      <option name="number" value="00423" />
+      <option name="presentableId" value="LOCAL-00423" />
+      <option name="project" value="LOCAL" />
+      <updated>1652454402261</updated>
+    </task>
+    <task id="LOCAL-00424" summary="ça fonctionne">
+      <created>1652454484408</created>
+      <option name="number" value="00424" />
+      <option name="presentableId" value="LOCAL-00424" />
+      <option name="project" value="LOCAL" />
+      <updated>1652454484408</updated>
+    </task>
+    <task id="LOCAL-00425" summary="ça fonctionne">
+      <created>1652454702162</created>
+      <option name="number" value="00425" />
+      <option name="presentableId" value="LOCAL-00425" />
+      <option name="project" value="LOCAL" />
+      <updated>1652454702162</updated>
+    </task>
+    <option name="localTasksCounter" value="426" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

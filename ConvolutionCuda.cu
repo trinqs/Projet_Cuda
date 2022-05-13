@@ -323,7 +323,7 @@ int main(int n, char* params[])
             cudaFree(noyau_d);
 
 
-        }
+        }/*
 
         else if (convolutionList[i]==("blur11")){
 
@@ -627,7 +627,7 @@ int main(int n, char* params[])
                 cv::imwrite( res, m_out );
             }
             cudaFree(noyau_d);
-        }
+        }*/
     }
 
     cudaEventDestroy(start);
