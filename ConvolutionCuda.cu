@@ -204,10 +204,11 @@ int main(int n, char* params[])
                 if (cudaStatus != cudaSuccess) {
                     std::cout << "Error (blur3) cudaEventRecord stop" << std::endl;
                 }
-                cudaStatus = cudaEventSynchronize( stop );
+
+                /*cudaStatus = cudaEventSynchronize( stop );
                 if (cudaStatus != cudaSuccess) {
                     std::cout << "Error (blur3) cudaEventSynchronize stop" << std::endl;
-                }
+                }*/
 
                 float duration;
                 cudaStatus = cudaEventElapsedTime( &duration, start, stop );
