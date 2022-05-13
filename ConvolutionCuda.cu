@@ -192,7 +192,7 @@ int main(int n, char* params[])
                 }
                 printf("\njuste avant le kernel\n");
                 pasAlpha<<< nbBlock, nbThreadParBlock >>>( bgr_d, g_d, cols, rows, noyau,noyau_d);
-                printf("\njuste avant le kernel\n");
+                printf("\njuste après le kernel\n");
                 kernelStatus = cudaGetLastError();
                 if ( kernelStatus != cudaSuccess ) {
                     std::cout << "CUDA Error (blur3) "<< cudaGetErrorString(kernelStatus) << std::endl;
